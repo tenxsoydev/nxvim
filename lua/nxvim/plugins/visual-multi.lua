@@ -1,0 +1,18 @@
+-- https://github.com/mg979/vim-visual-multi
+
+vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/visual-multi")
+
+-- { == Keymaps ==> ===========================================================
+
+vim.g.VM_mouse_mappings = 1
+vim.g.VM_maps = {
+	["Find Under"] = "<A-n>",
+	["Find Subword Under"] = "<A-n>",
+	-- Remap to use Shift Left / Right for horizontal scrolling
+	["Select l"] = "<A-C-Right>",
+	["Select h"] = "<A-C-Left>",
+	["Add Cursor Up"] = "<A-C-k>",
+	["Add Cursor Down"] = "<A-C-j>",
+}
+
+-- <== }

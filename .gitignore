@@ -1,0 +1,10 @@
+.bookmarks*
+**/.stash
+plugin/packer_compiled.lua
+spell
+settings.json
+lazy-lock.json
+debug*
+preview
+obsidian.lua
+telekasten.lua
