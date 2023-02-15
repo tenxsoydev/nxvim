@@ -22,7 +22,7 @@ local modules = {
 	{ dir = "nxvim/autocmds", priority = 80, config = "autocmds", eager = true },
 	{ dir = "nxvim/options", priority = 80, config = "options", eager = true },
 	{ dir = "nxvim/lsp", priority = 80, config = "lsp" },
-	{ "tenxsoydev/nx.nvim", dev = true, priority = 100, config = function() _G.nx = require("nx") end, eager = true },
+	{ "tenxsoydev/nx.nvim", priority = 100, config = function() _G.nx = require("nx") end, eager = true },
 	{ "folke/lazy.nvim", tag = "v9.7.0" }, -- unfortunately, above breaks wilder atm
 
 	-- Miscellaneous -------------------------------------------------------------
