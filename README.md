@@ -23,7 +23,8 @@ Just like most other neovim configurations, this one includes a collection of pl
     <a target="_blank" href="https://user-images.githubusercontent.com/34311583/218542267-17aec35d-1469-4576-8f75-bec75c976ba9.png">
       <img alt="Preview" src="https://user-images.githubusercontent.com/34311583/218542267-17aec35d-1469-4576-8f75-bec75c976ba9.png">
     </a>
-    <sup>Preview</sup>
+    <sup>Preview</sup><br>
+    <sup><sup>&nbsp;</sup></sup>
     </td>
     <td width="400">
     <a target="_blank" href="https://user-images.githubusercontent.com/34311583/218549911-5b302057-1020-426e-87cb-ebb567f18f5c.png">
