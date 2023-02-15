@@ -13,35 +13,32 @@ Those who are seeking tools that can turn Neovim into a full-fledged IDE, which 
 
 Just like most other neovim configurations, this one includes a collection of plugins. It wouldn't be imaginable without the contributions of so many developers in the open source space. Kudos to every author who contributed to the modules used in this configuration.
 
-- modules = { [nxvim/lua/nxvim/init.lua](https://github.com/tenxsoydev/nxvim/blob/main/lua/nxvim/init.lua#L13) }
+- modules = { [nxvim/lua/nxvim/init.lua](https://github.com/tenxsoydev/nxvim/blob/main/lua/nxvim/init.lua#L17) }
 
 ## Preview
 
 <table>
   <tr align="center">
-    <td>
+    <td width="400">
     <a target="_blank" href="https://user-images.githubusercontent.com/34311583/218542267-17aec35d-1469-4576-8f75-bec75c976ba9.png">
-      <img src="https://user-images.githubusercontent.com/34311583/218542267-17aec35d-1469-4576-8f75-bec75c976ba9.png">
+      <img alt="Preview" src="https://user-images.githubusercontent.com/34311583/218542267-17aec35d-1469-4576-8f75-bec75c976ba9.png">
     </a>
     <sup>Preview</sup>
     </td>
-  </tr>
-  <tr />
-  <tr align="center">
-    <td>
-    <a target="_blank" href="https://user-images.githubusercontent.com/34311583/218537322-e340b834-eb62-44f4-b991-4cabffd71010.png">
-      <img src="https://user-images.githubusercontent.com/34311583/218537322-e340b834-eb62-44f4-b991-4cabffd71010.png">
+    <td width="400">
+    <a target="_blank" href="https://user-images.githubusercontent.com/34311583/218549911-5b302057-1020-426e-87cb-ebb567f18f5c.png">
+      <img alt="Preview Structure & Self Documentating" src="https://user-images.githubusercontent.com/34311583/218549911-5b302057-1020-426e-87cb-ebb567f18f5c.png">
     </a>
-    <sup>Preview Primary Screen</sup>
+    <sup>Mostly Self Documenting</sup><br>
+    <sup><sup>It certainly has its dirty corners, but all in all it's fairly structured</sup></sup>
     </td>
   </tr>
   <tr />
   <tr align="center">
-    <td>
-    <a target="_blank" href="https://user-images.githubusercontent.com/34311583/218549911-5b302057-1020-426e-87cb-ebb567f18f5c.png">
-      <img src="https://user-images.githubusercontent.com/34311583/218549911-5b302057-1020-426e-87cb-ebb567f18f5c.png">
+    <td colspan="2">
+    <a target="_blank" href="https://user-images.githubusercontent.com/34311583/218537322-e340b834-eb62-44f4-b991-4cabffd71010.png">
+      <img alt="Preview Primary Screen" src="https://user-images.githubusercontent.com/34311583/218537322-e340b834-eb62-44f4-b991-4cabffd71010.png">
     </a>
-    <sup>Mostly Self Documenting<br>It certainly has its dirty corners, but all in all it's fairly structured</sup>
     </td>
   </tr>
 </table>
@@ -118,4 +115,4 @@ During this initial run, you may encounter some warnings regarding missing depen
 
 ## License
 
-The config as a whole is licensed under GPLv3. Please refer to the LICENSE.md file for detailed information.
+The config as a whole is licensed under GPLv3. Please refer to the LICENSE files for detailed information.
