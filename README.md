@@ -112,7 +112,7 @@ During this initial run, you may encounter some warnings regarding missing depen
   - It's optimized for use with the official dracula colorscheme in a "pseudo-transparent" style.
   - For the best experience match it with the colorscheme of your terminal
     - in case you are interested in the one used on the screenshots: <a target="_blank" href="https://github.com/tobealive/dots/tree/tooltime/.config/kitty">tobealive/dots/tooltime/.config/kitty</a>
-- Alternatively, a graphically enriched - but be functionally slightly compromised - experience using [neovide](https://github.com/neovide/neovide/) with multigrid enabled might be worth the trade-off for you.
+- Alternatively, a graphically enriched - but functionally slightly compromised - experience using [neovide](https://github.com/neovide/neovide/) with multigrid enabled might be worth the trade-off for you.
 
 ## License
 
