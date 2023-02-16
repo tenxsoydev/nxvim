@@ -122,8 +122,8 @@ local modules = {
 	-- "tamago324/nlsp-settings.nvim",
 	-- Language Specific
 	{ "simrat39/rust-tools.nvim", config = "lsp.plugins.rust-tools" },
-	"alaviss/nim.nvim",
-	"teal-language/vim-teal",
+	-- "alaviss/nim.nvim",
+	-- "ron-rs/ron.vim",
 
 	-- Debug ---------------------------------------------------------------------
 	-- TODO: Push DAP config
