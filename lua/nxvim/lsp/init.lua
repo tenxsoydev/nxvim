@@ -67,6 +67,7 @@ nx.cmd({
 
 --- { == Keymaps ==> ===========================================================
 
+---@param bufnr number
 function M.on_attach(_, bufnr)
 	nx.map({
 		{ "<leader>db", function() vim.diagnostic.setloclist() end, desc = "Buffer Diagnostics" },

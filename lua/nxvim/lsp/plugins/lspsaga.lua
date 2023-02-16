@@ -32,6 +32,7 @@ require("lspsaga").setup({
 
 -- { == Keymaps ==> ===========================================================
 
+---@param bufnr number
 function M.on_attach(_, bufnr)
 	nx.map({
 		-- { "K", "<Cmd>Lspsaga hover_doc<CR>", desc = "LSP Hover" },
