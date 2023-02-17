@@ -23,18 +23,21 @@ Just like most other neovim configurations, this one includes a collection of pl
     <a target="_blank" href="https://user-images.githubusercontent.com/34311583/218542267-17aec35d-1469-4576-8f75-bec75c976ba9.png">
       <img alt="Preview" src="https://user-images.githubusercontent.com/34311583/218542267-17aec35d-1469-4576-8f75-bec75c976ba9.png">
     </a>
-    <sup>Preview</sup><br>
-    <sup><sup>&nbsp;</sup></sup>
     </td>
     <td width="400">
     <a target="_blank" href="https://user-images.githubusercontent.com/34311583/218549911-5b302057-1020-426e-87cb-ebb567f18f5c.png">
       <img alt="Preview Structure & Self Documentating" src="https://user-images.githubusercontent.com/34311583/218549911-5b302057-1020-426e-87cb-ebb567f18f5c.png">
     </a>
-    <sup>Mostly Self Documenting</sup><br>
-    <sup><sup>It certainly has its dirty corners, but all in all it's fairly structured</sup></sup>
     </td>
   </tr>
-  <tr />
+    <tr align="center">
+    <td width="400">
+    <sup><sub>Preview</sub></sup>
+    </td>
+    <td width="400">
+    <sup><sub>It aims to be structured and self-documenting.</sub></sup>
+    </td>
+  </tr>
   <tr align="center">
     <td colspan="2">
     <a target="_blank" href="https://user-images.githubusercontent.com/34311583/218537322-e340b834-eb62-44f4-b991-4cabffd71010.png">
