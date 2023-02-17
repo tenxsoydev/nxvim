@@ -6,7 +6,7 @@ local config = {
 	-- parser_install_dir = "/home/turiiya/.local/share/nvim/lazy/nvim-treesitter/",
 	ensure_installed = "lua", -- A list of parser names, or "all"
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-	-- Heavy performance impairments with block comments
+	-- "comment" results in major performance issues when using block comments
 	ignore_install = { "comment" }, -- List of parsers to ignore installing
 	highlight = {
 		-- use_languagetree = true,
