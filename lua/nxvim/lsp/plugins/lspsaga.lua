@@ -21,6 +21,11 @@ require("lspsaga").setup({
 		-- after all we'll use default lsp_rename with dressing
 		in_select = false,
 	},
+	finder = {
+		keys = {
+			quit = {},
+		},
+	},
 	symbol_in_winbar = {
 		enable = true,
 		separator = " › ",
@@ -49,24 +54,17 @@ function M.on_attach(_, bufnr)
 		{ "<leader>dj", "<Cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Next Diagnostic" },
 		{ "<leader>dk", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Previous Diagnostic" },
 	}, { buffer = bufnr })
+
+	nx.map({
+		{ "q", "<Cmd>close<CR>", "" },
+		{ "<C-c>", "<Cmd>close<CR>", "" },
+		{ "<C-h>", "<Cmd>close<CR>", "" },
+		{ "<C-j>", "<Cmd>close<CR>", "" },
+		{ "<C-k>", "<Cmd>close<CR>", "" },
+		{ "<C-l>", "<Cmd>close<CR>", "" },
+	}, { ft = "lspsagafinder" })
 end
 
-nx.au({
-	{
-		"Filetype",
-		pattern = "lspsagafinder",
-		callback = function()
-			nx.map({
-				{ "q", "<Cmd>close<CR>", "" },
-				{ "<C-c>", "<Cmd>close<CR>", "" },
-				{ "<C-h>", "<Cmd>close<CR>", "" },
-				{ "<C-j>", "<Cmd>close<CR>", "" },
-				{ "<C-k>", "<Cmd>close<CR>", "" },
-				{ "<C-l>", "<Cmd>close<CR>", "" },
-			}, { buffer = 0 })
-		end,
-	},
-})
 -- <== }
 
 -- { == Highlights ==> ========================================================
