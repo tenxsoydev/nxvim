@@ -32,6 +32,9 @@ require("toggleterm").setup({
 		winblend = vim.o.winblend,
 	},
 	highlights = {
+		Normal = {
+			link = "Normal",
+		},
 		FloatBorder = {
 			link = "FloatBorder",
 		},
