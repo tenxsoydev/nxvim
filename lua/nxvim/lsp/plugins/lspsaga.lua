@@ -7,7 +7,7 @@ require("lspsaga").setup({
 		border = "rounded",
 		code_action = "",
 		kind = {
-			Folder = " ",
+			Folder = "",
 		},
 	},
 	lightbulb = {
@@ -72,7 +72,7 @@ end
 function M.set_hl()
 	nx.hl({
 		{ "SagaBorder", link = "FloatBorder" },
-		{ { "LspSagaWinbarSep", "LspSagaWinbarFolder", "LspSagaWinbarFolderName" }, link = "Winbar" },
+		{ { "SagaWinbarSep", "SagaWinbarFolder", "SagaWinbarFolderName" }, link = "Winbar" },
 	})
 
 	if vim.g.colors_name == "dracula" then
