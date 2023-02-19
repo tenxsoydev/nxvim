@@ -72,7 +72,7 @@ rm -r ~/.config/nvim ~/.local/share/nvim
 
 Probably most stuff is already installed.
 
-1. neovim v0.8+
+1. neovim nightly - _statuscol support_
    - <a target="_blank" href="https://github.com/MordechaiHadad/bob">bob</a> is a good way to keep your latest and/or nightly version up to date
 2. Packages
    - TL;DR: for a deb. based system: `sudo apt install git curl unzip xsel ripgrep fd-find sqlite3 libsqlite3-dev`
@@ -111,11 +111,15 @@ During this initial run, you may encounter some warnings regarding missing depen
 
 #### Personal Usage Recommendations
 
-- The best experience I'm having is using it with [kitty](https://github.com/kovidgoyal/kitty) as a terminal.
-  - It's optimized for use with the official dracula colorscheme in a "pseudo-transparent" style.
-  - For the best experience match it with the colorscheme of your terminal
-    - in case you are interested in the one used on the screenshots: <a target="_blank" href="https://github.com/tobealive/dots/tree/tooltime/.config/kitty">tobealive/dots/tooltime/.config/kitty</a>
+- It's optimized for use with the official dracula colorscheme in a "pseudo-transparent" style.
+- For the best experience match it with the colorscheme of your terminal
+- My best experience has been with [kitty](https://github.com/kovidgoyal/kitty) a feature-rich, GPU accelerated terminal with its core written in `C`.
+  - in case you are interested in the one used on the screenshots: <a target="_blank" href="https://github.com/tobealive/dots/tree/tooltime/.config/kitty">tobealive/dots/tooltime/.config/kitty</a>
 - Alternatively, a graphically enriched - but functionally slightly compromised - experience using [neovide](https://github.com/neovide/neovide/) with multigrid enabled might be worth the trade-off for you.
+
+**Note on Performance**
+
+- On low spec systems, performance can be improved by changing `animation.fps = 30 -- instead of 60` in `plugins/windows.lua` and - in case of using kitty - adding `disable_ligatures always` to your `kitty.conf`.
 
 ## License
 
