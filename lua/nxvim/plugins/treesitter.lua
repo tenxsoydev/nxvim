@@ -3,10 +3,11 @@ local ts_configs = require("nvim-treesitter.configs")
 -- { == Configuration ==> =====================================================
 
 local config = {
-	-- parser_install_dir = "/home/turiiya/.local/share/nvim/lazy/nvim-treesitter/",
+	-- parser_install_dir = "~/.local/share/nvim/lazy/nvim-treesitter/",
 	ensure_installed = "lua", -- A list of parser names, or "all"
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 	-- "comment" results in major performance issues when using block comments
+	-- in case TSUninstall is not working: "rm ~/.local/share/nvim/lazy/nvim-treesitter/parser/comment.so",
 	ignore_install = { "comment" }, -- List of parsers to ignore installing
 	highlight = {
 		-- use_languagetree = true,
