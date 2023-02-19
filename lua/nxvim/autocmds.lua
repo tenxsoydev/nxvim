@@ -11,6 +11,17 @@ nx.au({
 		pattern = { "qf", "help", "man", "startuptime", "vim" },
 		callback = function() nx.map({ { "q", "<Cmd>close<CR>", buffer = 0 } }) end,
 	},
+	-- Delay syntax highlighting for larger files, as it can have a significant impact on performance.
+	{
+		"BufEnter",
+		callback = function()
+			if vim.fn.line("$") > 3000 or vim.fn.getfsize(vim.fn.expand("%:p")) > 75000 then
+				local ft = vim.bo.ft
+				vim.cmd("setlocal ft=")
+				vim.schedule(function() vim.cmd("setlocal ft=" .. ft) end)
+			end
+		end,
+	},
 	-- Highlight on yank
 	{ "TextYankPost", callback = function() vim.highlight.on_yank({ higroup = "IncSearch", timeout = 150 }) end },
 	-- QFList - adapt window height to list item count(nxvim.utils function)
