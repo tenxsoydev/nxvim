@@ -255,35 +255,6 @@ nx.map({
 }, { desc = "Fix: Scrolling with Acceleration" })
 -- <== }
 
--- { == Wintype Keymaps ==> ===================================================
-
-nx.au({
-	{
-		"BufWinEnter",
-		callback = function()
-			local ignored_filetypes = { "DiffviewFiles" }
-			for _, key in ipairs(ignored_filetypes) do
-				ignored_filetypes[key] = true
-			end
-
-			if pcall(require, "diffview") and require("diffview.lib").get_current_view() then return end
-
-			if vim.fn.win_gettype(0) == "popup" and not ignored_filetypes[vim.bo.filetype] then
-				-- Close floating windows on quick window switch
-				-- Regular vim shortcuts e.g. <C-w>l will keep them open
-				nx.map({
-					{ "<C-c>", "<Cmd>close<CR>", "" },
-					{ "<C-h>", "<Cmd>close<CR>", "" },
-					{ "<C-j>", "<Cmd>close<CR>", "" },
-					{ "<C-k>", "<Cmd>close<CR>", "" },
-					{ "<C-l>", "<Cmd>close<CR>", "" },
-				}, { buffer = 0 })
-			end
-		end,
-	},
-})
--- <== }
-
 -- { == Plugin Keymaps ==> ====================================================
 
 -- Plugin related keymaps are located inside the corresponding plugins config directory

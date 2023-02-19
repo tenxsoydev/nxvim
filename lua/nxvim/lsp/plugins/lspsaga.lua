@@ -17,6 +17,10 @@ require("lspsaga").setup({
 		sign_priority = 40,
 		virtual_text = false,
 	},
+	rename = {
+		-- after all we'll use default lsp_rename with dressing
+		in_select = false,
+	},
 	symbol_in_winbar = {
 		enable = true,
 		separator = " › ",
@@ -24,9 +28,6 @@ require("lspsaga").setup({
 		show_file = true,
 		folder_level = 3,
 		respect_root = false,
-	},
-	rename = {
-		in_select = false,
 	},
 })
 
@@ -49,6 +50,23 @@ function M.on_attach(_, bufnr)
 		{ "<leader>dk", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Previous Diagnostic" },
 	}, { buffer = bufnr })
 end
+
+nx.au({
+	{
+		"Filetype",
+		pattern = "lspsagafinder",
+		callback = function()
+			nx.map({
+				{ "q", "<Cmd>close<CR>", "" },
+				{ "<C-c>", "<Cmd>close<CR>", "" },
+				{ "<C-h>", "<Cmd>close<CR>", "" },
+				{ "<C-j>", "<Cmd>close<CR>", "" },
+				{ "<C-k>", "<Cmd>close<CR>", "" },
+				{ "<C-l>", "<Cmd>close<CR>", "" },
+			}, { buffer = 0 })
+		end,
+	},
+})
 -- <== }
 
 -- { == Highlights ==> ========================================================
