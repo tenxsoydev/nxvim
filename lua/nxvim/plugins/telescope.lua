@@ -40,7 +40,7 @@ local config = {
 
 -- NOTE: Telescope transparency works unexpected at times as it differs from regular winblend on startup
 -- but at times changes? We also might need a condition for multigrid
-if vim.g.nx_loaded_gui then config.defaults.winblend = vim.o.winblend * 3 end
+if vim.g.nx_loaded_gui then config.defaults.winblend = 30 end
 -- <== }
 
 -- { == Keymaps ==> ===========================================================
