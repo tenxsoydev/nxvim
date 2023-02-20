@@ -105,7 +105,7 @@ M.highlights.modified_selected.fg = { attribute = "fg", highlight = "Normal" }
 
 -- { == Shadow ==> ============================================================
 
-local function set_shadow() nx.hl({ { "BufferlineSeparatorSelected", fg = "TabLine:bg:#b-10", bg = "Normal:bg" } }) end
+local function set_shadow() nx.hl({ "BufferlineSeparatorSelected", fg = "TabLine:bg:#b-10", bg = "Normal:bg" }) end
 
 set_shadow()
 

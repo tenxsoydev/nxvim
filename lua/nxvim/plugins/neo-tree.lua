@@ -331,12 +331,12 @@ local function set_hls()
 		})
 	end
 
-	if vim.g.colors_name:match("tokyonight") then
+	if vim.g.colors_name == "tokyonight" then
 		nx.hl({
 			{ "NeoTreeTabActive", link = "NeoTreeNormal" },
 			{ "NeoTreeTabInactive", fg = "NeoTreeDimText:fg", bg = "TabLine:bg" },
 			{ "NeoTreeTabSeparatorInactive", fg = "TabLine:bg", bg = "TabLine:bg" },
-			{ "NeoTreeTabSeparatorActive", fg = "BufferLineSeparator:fg", bg = "Normal:bg" },
+			-- { "NeoTreeTabSeparatorActive", fg = "BufferlineSeparatorSelected:fg", bg = "Normal:bg" },
 		})
 	end
 end

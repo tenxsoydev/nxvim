@@ -2,6 +2,9 @@ local default_colorscheme = "dracula"
 -- changing a colorscheme during a session can partially break highlights
 -- to have an unimaired experience, define a theme of preference as default and restart vim
 
+-- make sure to load colorscheme setup befor applying the scolorscheme
+pcall(require("nxvim.colorschemes." .. default_colorscheme))
+
 -- Apply default colorscheme
 vim.cmd("colorscheme " .. default_colorscheme)
 
@@ -20,7 +23,7 @@ local function set_hl()
 
 	if vim.g.colors_name == "dracula" then
 		require("nxvim.colorschemes.dracula").set_hl()
-	elseif vim.g.colors_name:match("tokyonight") then
+	elseif vim.g.colors_name == "tokyonight" then
 		require("nxvim.colorschemes.tokyonight").set_hl()
 	end
 

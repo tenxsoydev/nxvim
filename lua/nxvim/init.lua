@@ -17,7 +17,7 @@ require("nxvim.plugins.visual-multi") -- `VM_maps` config won't work otherwise a
 local modules = {
 	-- Core ----------------------------------------------------------------------
 	{ dir = "nxvim/colorschemes", priority = 90, config = "colorschemes", eager = true },
-	{ dir = "nxvim/client", priority = 85, config = "client", eager = true },
+	{ dir = "nxvim/client", priority = 95, config = "client", eager = true },
 	{ dir = "nxvim/keymaps", priority = 80, config = "keymaps", eager = true },
 	{ dir = "nxvim/autocmds", priority = 80, config = "autocmds", eager = true },
 	{ dir = "nxvim/options", priority = 80, config = "options", eager = true },

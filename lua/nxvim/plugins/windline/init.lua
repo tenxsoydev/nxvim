@@ -29,9 +29,7 @@ config.colors_name = function(colors)
 		statusline_path = require("nxvim.colorschemes.dracula").palette.light_grey - 197122 * 10
 	end
 
-	if vim.g.colors_name:match("tokyonight") then
-		filename_fg = require("windline.themes").get_hl_color("StatusLine")
-	end
+	if vim.g.colors_name == "tokyonight" then filename_fg = require("windline.themes").get_hl_color("StatusLine") end
 
 	--- add new colors
 	-- colors.FilenameFg = colors.white_light

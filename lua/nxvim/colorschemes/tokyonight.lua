@@ -36,7 +36,7 @@ function M.set_hl()
 	else
 		nx.hl({
 			{ "TabLine", link = "DiffChange" },
-			{ "BufferLineOffset", { link = "TabLine" } },
+			{ "BufferLineOffset", link = "TabLine" },
 		})
 	end
 end
