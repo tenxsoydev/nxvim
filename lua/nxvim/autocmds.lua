@@ -36,8 +36,20 @@ nx.au({
 
 -- Remember folds
 nx.au({
-	{ "BufWinLeave", pattern = "*.*", command = "mkview" },
-	{ "BufWinEnter", pattern = "*.*", command = "silent! loadview" },
+	{
+		"BufWinLeave",
+		pattern = "*.*",
+		callback = function()
+			if not vim.bo.filetype:match("saga") then vim.cmd("mkview") end
+		end,
+	},
+	{
+		"BufWinEnter",
+		pattern = "*.*",
+		callback = function()
+			if not vim.bo.filetype:match("saga") then vim.cmd("silent! loadview") end
+		end,
+	},
 }, { create_group = "RememberFolds" })
 
 -- Sync marks accross sessions
