@@ -7,7 +7,7 @@ require("lspsaga").setup({
 		border = "rounded",
 		code_action = "",
 		kind = {
-			Folder = "",
+			Folder = { "", "" },
 		},
 	},
 	lightbulb = {
