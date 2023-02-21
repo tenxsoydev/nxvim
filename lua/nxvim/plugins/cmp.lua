@@ -80,9 +80,9 @@ local function init()
 		["<C-Space>"] = cmp.mapping.complete(),
 
 		-- Confrim completion
-		["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = false }),
 		["<C-l>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
-		["<Tab>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
+		["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = false }),
+		["<Tab>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = false }),
 
 		-- If you want to use tab to cycle through completion suggestions
 		--[[ ["<Tab>"] = cmp.mapping(function(fallback)
