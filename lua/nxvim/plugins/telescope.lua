@@ -259,6 +259,6 @@ end
 load_extensions({ "bookmarks" })
 
 -- Lazy load majority of extensions
-vim.schedule(function() load_extensions({ "bookmarks", "frecency", "fzy_native", "media_files", "projects" }) end)
+vim.schedule(function() load_extensions({ "frecency", "fzy_native", "media_files", "projects" }) end)
 nx.au({ "TermEnter", once = true, callback = function() telescope.load_extension("termfinder") end })
 -- <== }
