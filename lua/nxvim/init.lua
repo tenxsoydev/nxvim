@@ -99,7 +99,6 @@ local modules = {
 	{ "nvim-telescope/telescope.nvim", config = "plugins.telescope" },
 	{ "nvim-telescope/telescope-fzy-native.nvim", dependencies = "romgrk/fzy-lua-native", lazy = true },
 	{ "nvim-telescope/telescope-media-files.nvim", lazy = true },
-	{ "nvim-telescope/telescope-ui-select.nvim", lazy = true },
 	{ "tknightz/telescope-termfinder.nvim", lazy = true },
 	{ "nvim-telescope/telescope-live-grep-args.nvim", lazy = true },
 	{ "nvim-telescope/telescope-frecency.nvim", dependencies = "kkharji/sqlite.lua", lazy = true },

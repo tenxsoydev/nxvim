@@ -34,7 +34,6 @@ local config = {
 			filetypes = { "png", "webp", "jpg", "jpeg" },
 			find_cmd = "fd",
 		},
-		["ui-select"] = { require("telescope.themes").get_dropdown({ previewer = false }) },
 	},
 }
 
@@ -257,7 +256,7 @@ local function load_extensions(extensions)
 	end
 end
 
-load_extensions({ "ui-select", "bookmarks" })
+load_extensions({ "bookmarks" })
 
 -- Lazy load majority of extensions
 vim.schedule(function() load_extensions({ "bookmarks", "frecency", "fzy_native", "media_files", "projects" }) end)

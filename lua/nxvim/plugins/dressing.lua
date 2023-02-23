@@ -6,6 +6,11 @@ require("dressing").setup({
 			winblend = vim.o.winblend,
 		},
 	},
+	select = {
+		telescope = require("telescope.themes").get_dropdown({
+			previewer = false,
+		}),
+	},
 })
 
 -- { == Highlights ==> ========================================================
