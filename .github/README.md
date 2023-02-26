@@ -1,52 +1,60 @@
-# 🇳 🇽 🇻 🇮 🇲
-
-Personal development environment. A beast that leverages 100+ extensions in a structured config for maximum efficiency.
-
-## Preview
-
-<table>
-  <tr/>
-  <tr align="center">
-    <td width="506">
-    <a target="_blank" href="https://user-images.githubusercontent.com/34311583/220882028-ad84a360-a998-494b-8bf0-1eb22015706a.png">
-      <img alt="Preview" src="https://user-images.githubusercontent.com/34311583/220882028-ad84a360-a998-494b-8bf0-1eb22015706a.png">
+<br>
+<div align="center">
+  <p>🇳 🇽 🇻 🇮 🇲</p>
+  <p><em>PDE that leverages 100+ extensions in a fast and structured configuration.</em></p>
+  <div>
+    <a href="https://github.com/tenxsoydev/nxvim#getting-started">
+      <img alt="Getting Started" src="https://img.shields.io/badge/%20Getting%20Started-%20.svg?&style=for-the-badge&logo=ApacheRocketMQ&color=7A88CF&logoColor=C0CAF5&labelColor=414868" />
     </a>
-    </td>
-    <td width="506">
-    <a target="_blank" href="https://user-images.githubusercontent.com/34311583/220882090-f1a62f49-25f7-440d-a361-dc26b39f2c37.png">
-      <img alt="Preview Structure & Self Documentating" src="https://user-images.githubusercontent.com/34311583/220882090-f1a62f49-25f7-440d-a361-dc26b39f2c37.png">
+    <!-- <a href="https://github.com/tenxsoydev/nxvim/blob/main/LICENSE-GPL"> -->
+    <!--   <img src="https://img.shields.io/github/license/tenxsoydev/nxvim?style=for-the-badge&amp&logo=GNU&label=License&color=FFB86C&labelColor=343746" alt="License"> -->
+    <!-- </a> -->
+    <a href="https://github.com/tenxsoydev/nxvim/pulse">
+      <img alt="Last Commit" src="https://img.shields.io/github/last-commit/tenxsoydev/nxvim?style=for-the-badge&logo=github&color=6183bb&logoColor=c0caf5&labelColor=414868" />
     </a>
-    </td>
-  </tr>
-    <tr align="center">
-    <td width="506">
-    <sup><sub>Preview</sub></sup>
-    </td>
-    <td width="506">
-    <sup><sub>Aims to be structured and self-documenting</sub></sup>
-    </td>
-  </tr>
-  <!-- <tr align="center">
-    <td colspan="2">
-    <a target="_blank" href="https://user-images.githubusercontent.com/34311583/218537322-e340b834-eb62-44f4-b991-4cabffd71010.png">
-      <img alt="Preview Primary Screen" src="https://user-images.githubusercontent.com/34311583/218537322-e340b834-eb62-44f4-b991-4cabffd71010.png">
+    <a href="https://github.com/neovim/neovim">
+      <img alt="Neovim Nightly" src="https://img.shields.io/badge/Neovim-nightly-%20.svg?style=for-the-badge&color=BB9AF7&logo=Neovim&logoColor=C0CAF5&labelColor=414868" />
     </a>
-    </td>
-  </tr> -->
-</table>
-
-### Some previews in moving pictures
-
-Candies that make a GUI-like TUI are animated auto window widths; dimming of unfocused windows and smooth scrolling.
-
-https://user-images.githubusercontent.com/34311583/218597414-10b06f59-7cc9-4c95-9de7-2734859484a1.mov
+  </div>
+</div>
 
 <br>
-All regular suspects like coding completions and writing aids. Including several helpers like a command-palette with error tolerant as-you-type-completion for commands, settings & variables. 
+
+#
+
 <br>
+<a target="_blank" href="https://user-images.githubusercontent.com/34311583/221439347-38e51a50-1d04-490a-a6e2-19582453630a.png">
+  <img alt="Preview Structure & Self Documentating" src="https://user-images.githubusercontent.com/34311583/221439347-38e51a50-1d04-490a-a6e2-19582453630a.png" />
+</a>
+<div align="center"><sup>1.1.: Preview</sup></div>
+<br>
+<a target="_blank" href="https://user-images.githubusercontent.com/34311583/221439282-ac9e327e-e109-4559-a951-46b4c8d8f1c0.png">
+  <img alt="Preview" src="https://user-images.githubusercontent.com/34311583/221439282-ac9e327e-e109-4559-a951-46b4c8d8f1c0.png" />
+</a>
+<div align="center"><sup>1.2.: Fairly structured and self-documenting</sup></div>
 <br>
 
-https://user-images.githubusercontent.com/34311583/218597463-c00e55e2-b29e-4c9c-8ef5-1764983e2a0b.mov
+### Quick and dirty demos
+
+- Candies that make a GUI-like TUI are animated auto window widths; dimming of unfocused windows and smooth scrolling.
+
+  https://user-images.githubusercontent.com/34311583/218597414-10b06f59-7cc9-4c95-9de7-2734859484a1.mov
+
+<!-- <br> -->
+<!-- <div align="center"><sup>1.3.: Candies that make a GUI-like TUI are animated auto window widths; dimming of unfocused windows and smooth scrolling.</sup></div> -->
+<!-- <br> -->
+<!-- <br> -->
+
+<br>
+
+- Among all regular suspects like coding completions and writing aids it includes several helpers like a command-palette with error tolerant as-you-type-completion for commands, settings & variables.
+
+  https://user-images.githubusercontent.com/34311583/218597463-c00e55e2-b29e-4c9c-8ef5-1764983e2a0b.mov
+
+<!-- <br> -->
+<!-- <div align="center"><sup>1.4.: All regular suspects like coding completions and writing aids. Including several helpers like a command-palette with error tolerant as-you-type-completion for commands, settings & variables. </sup></div> -->
+
+<br>
 
 ## Getting Started
 
@@ -59,7 +67,8 @@ mv ~/.config/nvim ~/.config/nvim.bak && mv ~/.local/share/nvim ~/.local/share/nv
 rm -r ~/.config/nvim ~/.local/share/nvim
 ```
 
-### Dependencies
+<details>
+<summary><h3>Dependencies <sub><sup>Click to expand...</sup></sub></h3></summary>
 
 Probably most stuff is already installed.
 
@@ -84,12 +93,16 @@ Probably most stuff is already installed.
    - <a target="_blank" href="https://github.com/googlefonts/noto-emoji">unicode font</a> (If none is installed by default, noto font packages are usually also available via your distros package manager)
    - `fc-cache -fv` helps to update font info cache files when new fonts have been added manually
 
-### Frist run
+</details>
 
-Once all dependencies have been installed, launch `nvim` and let <a target="_blank" href="https://github.com/folke/lazy.nvim">lazy</a> do its magic automatically loading all of the modules utilized in this config.
-During this initial run, you may encounter some warnings regarding missing dependencies. Just hit return on them for now. Once all tasks have been completed, restart nvim <kbd>ZQ</kbd> `nvim`.
+<details>
+<summary><h3>Post installation <sub><sup>Click to expand...</sup></sub></h3></summary>
 
-### Post installation
+#### Frist run
+
+Launch `nvim` and let <a target="_blank" href="https://github.com/folke/lazy.nvim">lazy</a> do its magic, automatically loading all the modules utilized in this config. You may encounter some warnings regarding missing dependencies. Just hit return on them for now. Once all tasks have been completed, restart nvim <kbd>ZQ</kbd> `nvim`.
+
+#### Last steps
 
 - Run `:UpdateRemotePlugins` mainly to make sure command line fuzzy search works correctly, as it utilizes some python
 - Programming language support
@@ -103,6 +116,9 @@ During this initial run, you may encounter some warnings regarding missing depen
 **Note on Performance**
 
 - On low-spec systems, performance can be improved by changing `animation.fps = 30 -- instead of 60` in `plugins/windows.lua` and - in case of using terminals with font ligature rendering support - disabling them (e.g. with kitty: by adding `disable_ligatures always` to your `kitty.conf`)
+</details>
+
+<br>
 
 ## Personal Usage Recommendations
 
@@ -112,17 +128,27 @@ During this initial run, you may encounter some warnings regarding missing depen
   - in case you are interested in the one used on the screenshots: <a target="_blank" href="https://github.com/tobealive/dots/tree/tooltime/.config/kitty">tobealive/dots/tooltime/.config/kitty</a>
 - Alternatively, a graphically enriched - but functionally slightly compromised - experience using [neovide](https://github.com/neovide/neovide/) with multigrid enabled might be worth the trade-off for you.
 
+<br>
+
 ## Acknowledgements
 
 Just like most other neovim configurations, this one includes a collection of plugins. It wouldn't be imaginable without the contributions of so many developers in the open source space. Kudos to every author who contributed to the modules used in this configuration.
 
 - modules = { [nxvim/lua/nxvim/init.lua](https://github.com/tenxsoydev/nxvim/blob/main/lua/nxvim/init.lua#L17) }
 
+<br>
+
 ## Disclaimer
 
 > Currently, this is rather my personal daily driver then a general-use product. Making it public was driven by colleagues and friends who were interested in getting a share of this config and then liked using it. Getting surprisingly positive feedback even from my grumpiest colleague, led me to believe that this configuration might well have utility for others. However, **it may never reach the level and support of a general-use project** and it's propagation will be limited to giving attributions in credits.
 
-Those who are seeking tools that can turn Neovim into a full-fledged IDE, which are developed by brilliant programmers, have great support and a thriving community should consider the following repositories:
+<br>
+
+Of course, you are free to use and modify it. Share a ★ if you don't consider it robbery and feel free to reach out if you experience any issues.
+
+<br>
+
+Those who are seeking tools that can turn Neovim into a full-fledged IDE, have great support and a thriving community should consider the following repositories:
 
 - [lazy.nvim](https://github.com/folke/lazy.nvim)
 - [nvim-ide](https://github.com/ldelossa/nvim-ide)
