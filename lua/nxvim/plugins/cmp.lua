@@ -82,7 +82,13 @@ local function init()
 		-- Confrim completion
 		["<C-l>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
 		["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = false }),
-		["<Tab>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = false }),
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() and vim.g.codeium_enabled == 0 then
+				cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
 
 		-- If you want to use tab to cycle through completion suggestions
 		--[[ ["<Tab>"] = cmp.mapping(function(fallback)
