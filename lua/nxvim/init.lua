@@ -3,17 +3,15 @@ local lazy = require("nxvim.plugins.lazy")
 -- { == Modules ==> ===========================================================
 
 ---@class NxModule : LazyPluginSpec
----
----add `string` as possible config type.
----tip: use `gf` over a `config` string to go to a config file|directory
 ---@diagnostic disable-next-line: duplicate-doc-field
----@field config? fun()|boolean|string
+---@field config? fun()|boolean|string @add `string` as possible config type.
 ---@field eager? boolean
 
 -- Problem childs that need to be loaded outside of `lazy.setup`
 require("nxvim.plugins.visual-multi") -- `VM_maps` config won't work otherwise afaik
 
 ---@type string[]|NxModule[]
+-- tip: use `gf` over a `config` string to go to a config file|directory
 local modules = {
 	-- Core ----------------------------------------------------------------------
 	{ dir = "nxvim/colorschemes", priority = 90, config = "colorschemes", eager = true },
@@ -232,22 +230,18 @@ local modules = {
 -- { == Transform to LazySpec Table ==> =======================================
 
 ---Config load helper
--- NOTE:
--- with packer.nvim this was my to lazy load most of the config. Now, it was kept for lazy.nvim
--- as it still results in a significant improvement in startuptime. It might be worth testing to
--- add `event = "VeryLazy"` by default and exclude it if a plugin should be loaded eagerly
----@param plugin string
+---@param plugin_config string
 ---@param eager? "eager"
-local function get(plugin, eager)
-	if (plugin:match("plugins") or plugin:match("colorschemes")) and not plugin:match("nxvim") then
-		plugin = "nxvim." .. plugin
+local function get(plugin_config, eager)
+	if (plugin_config:match("plugins") or plugin_config:match("colorschemes")) and not plugin_config:match("nxvim") then
+		plugin_config = "nxvim." .. plugin_config
 	end
 
-	if eager == "eager" then return function() require(plugin) end end
+	if eager == "eager" then return function() require(plugin_config) end end
 
 	return function()
 		-- scheduled loading the majority of config files - results in 30-35% faster startup
-		vim.schedule(function() require(plugin) end)
+		vim.schedule(function() require(plugin_config) end)
 	end
 end
 
@@ -260,7 +254,6 @@ for i, module in ipairs(modules) do
 			module.config = "nxvim." .. module.config
 		end
 		if module.eager then
-			-- we check for a string type above so the diagnostics that module.config could be a function is wrong
 			---@diagnostic disable-next-line: param-type-mismatch
 			module.config = get(module.config, "eager")
 		else
@@ -279,7 +272,10 @@ end
 
 -- { == Load Setup ==> ========================================================
 
-lazy.setup(modules, { ui = { border = "rounded" }, dev = { path = "~/Dev/VIM/plugins/" } })
+lazy.setup(modules, {
+	ui = { border = "rounded" },
+	dev = { path = "~/Dev/VIM/plugins/" },
+})
 --- <== }
 
 -- { == Events ==> ============================================================
