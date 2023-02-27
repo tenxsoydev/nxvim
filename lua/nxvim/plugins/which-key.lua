@@ -94,7 +94,6 @@ wk.register({
 	h = { name = "History" },
 	l = { name = "LSP" },
 	m = { name = "Bookmarks" },
-	r = { name = "Replace" },
 	R = { name = "SnipRun" },
 	s = { name = "Sessions" },
 	t = { name = "Toggle", d = { name = "Diagnostics" } },
@@ -118,10 +117,11 @@ wk.register({
 wk.register({
 	["<C-/>"] = "which_key_ignore",
 	["<C-_>"] = "which_key_ignore",
+	["`"] = "which_key_ignore",
 	j = "which_key_ignore",
 	k = "which_key_ignore",
-	g = "which_key_ignore",
-	r = { name = "Replace" },
+	g = { name = "Git" },
+	R = { name = "SnipRun" },
 }, { prefix = "<leader>", mode = "v" })
 
 wk.register({
