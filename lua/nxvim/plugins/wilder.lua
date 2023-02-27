@@ -57,17 +57,17 @@ local hls = {
 }
 
 -- Improved "Classical" (Bottom) Command Menu
---[[ local popupmenu_renderer_bottom = wilder.popupmenu_renderer(wilder.popupmenu_border_theme {
+--[[ local popupmenu_renderer_bottom = wilder.popupmenu_renderer(wilder.popupmenu_border_theme({
 	pumblend = 20,
 	border = "rounded",
 	empty_message = wilder.popupmenu_empty_message_with_spinner(),
 	left = {
 		" ",
 		wilder.popupmenu_devicons(),
-		wilder.popupmenu_buffer_flags {
+		wilder.popupmenu_buffer_flags({
 			flags = " a + ",
 			icons = { ["+"] = "", a = "", h = "" },
-		},
+		}),
 	},
 	right = {
 		" ",
@@ -75,16 +75,16 @@ local hls = {
 	},
 	highlighter = hls.highlighter,
 	highlights = hls.highlights,
-}) ]]
+})) ]]
 
 -- Command Pallet (Experimental)
 local popupmenu_renderer = wilder.popupmenu_renderer(wilder.popupmenu_palette_theme({
 	border = "rounded",
 	min_height = 0,
-	max_height = 17,
+	max_height = 16,
 	max_width = 80,
-	prompt_position = "top", -- 'top' or 'bottom' to set the location of the prompt
 	reverse = 0, -- set to 1 to reverse the order of the list, use in combination with 'prompt_position'
+	prompt_position = "top", -- 'top' or 'bottom' to set the location of the prompt
 	left = { " ", wilder.popupmenu_devicons() },
 	right = {
 		" ",
@@ -110,12 +110,17 @@ local wildmenu_renderer = wilder.wildmenu_renderer({
 ---@param state "on"|"off"
 local function set_renderer(state)
 	if state == "off" then
-		wilder.set_option("renderer", wilder.renderer_mux({}))
 		vim.o.wildmenu = true
+		wilder.set_option("renderer", wilder.renderer_mux({}))
+		nx.map({
+			{ "<C-j>", "<Tab>", "c" },
+			{ "<C-k>", "<C-p>", "c" },
+		})
 		return
 	end
+	-- Not needed, since we use wilders internal menu. It also seems to interfere with some wilder configurations
+	vim.o.wildmenu = false
 	wilder.set_option(
-
 		"renderer",
 		wilder.renderer_mux({
 			[":"] = popupmenu_renderer,
@@ -123,18 +128,20 @@ local function set_renderer(state)
 			substitute = wildmenu_renderer,
 		})
 	)
-	-- Not needed, as we use wilders internal menu. It also seems to interfere with some wilder configurations
-	vim.o.wildmenu = false
+	nx.map({
+		{ "<C-j>", "<Cmd>call wilder#next()<CR>", "c" },
+		{ "<C-k>", "<Cmd>call wilder#previous()<CR>", "c" },
+	})
 end
 set_renderer("on")
 
 -- Fix triggering search / command palette in floating window when using wilder in conjunction with noice
 wilder.set_option("pre_hook", function()
-	if vim.fn.win_gettype(0) == "popup" then set_renderer("off") end
+	if vim.fn.win_gettype(0) == "popup" and not vim.g.zen_mode then set_renderer("off") end
 end)
 
 wilder.set_option("post_hook", function()
-	if vim.fn.win_gettype(0) == "popup" then set_renderer("on") end
+	if vim.fn.win_gettype(0) == "popup" and not vim.g.zen_mode then set_renderer("on") end
 end)
 -- <== }
 

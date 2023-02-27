@@ -4,13 +4,13 @@ local zen_mode = require("zen-mode")
 
 zen_mode.setup({
 	window = {
-		backdrop = 0.96, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
+		-- backdrop = 0.96, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
 		-- height and width can be:
 		-- * an absolute number of cells when > 1
 		-- * a percentage of the width / height of the editor when <= 1
 		-- * a function that returns the width or the height
 		width = 126, -- width of the Zen window
-		height = 1, -- height of the Zen window
+		height = function() return vim.fn.winheight(0) + 1 end, -- height of the Zen window
 		-- by default, no options are changed for the Zen window
 		-- uncomment any of the options below, or add other vim.wo options you want to apply
 	},
@@ -24,19 +24,20 @@ zen_mode.setup({
 		},
 	},
 	on_open = function()
+		vim.g.zen_mode = true
+		vim.o.laststatus = 3
 		-- vim.diagnostic.disable()
-		vim.o.cmdheight = 1
-		if not vim.g.neovide then return end
+		--[[ if not vim.g.neovide then return end
 		vim.g.neovide_floating_blur = 1
-		vim.g.neovide_floating_opacity = 0.98
+		vim.g.neovide_floating_opacity = 0.98 ]]
 	end,
 	on_close = function()
+		vim.g.zen_mode = nil
+		vim.o.laststatus = 2
 		-- vim.diagnostic.enable()
-		-- vim.o.laststatus = 2
-		vim.o.cmdheight = 0
-		if not vim.g.neovide then return end
+		--[[ if not vim.g.neovide then return end
 		vim.g.neovide_floating_opacity = 0.8
-		vim.g.neovide_floating_blur = 0.9
+		vim.g.neovide_floating_blur = 0.9 ]]
 	end,
 })
 -- <== }
