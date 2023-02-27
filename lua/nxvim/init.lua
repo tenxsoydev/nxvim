@@ -59,7 +59,7 @@ local modules = {
 		event = "VeryLazy",
 		config = "plugins.windows",
 	},
-	-- { "folke/zen-mode.nvim", config = "plugins.zen-mode" },
+	{ "folke/zen-mode.nvim", config = "plugins.zen-mode" },
 
 	-- Git -----------------------------------------------------------------------
 	{ "sindrets/diffview.nvim", event = "VeryLazy", config = "plugins.diffview" },
