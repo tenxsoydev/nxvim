@@ -25,6 +25,7 @@ zen_mode.setup({
 	},
 	on_open = function()
 		vim.g.zen_mode = true
+		vim.o.laststatus = 3
 		-- vim.diagnostic.disable()
 		--[[ if not vim.g.neovide then return end
 		vim.g.neovide_floating_blur = 1
@@ -32,6 +33,7 @@ zen_mode.setup({
 	end,
 	on_close = function()
 		vim.g.zen_mode = nil
+		vim.o.laststatus = 2
 		-- vim.diagnostic.enable()
 		--[[ if not vim.g.neovide then return end
 		vim.g.neovide_floating_opacity = 0.8
