@@ -107,33 +107,36 @@ local wildmenu_renderer = wilder.wildmenu_renderer({
 	highlights = hls.highlights,
 })
 
+wilder.set_option(
+	"renderer",
+	wilder.renderer_mux({
+		[":"] = popupmenu_renderer,
+		["/"] = wildmenu_renderer,
+		substitute = wildmenu_renderer,
+	})
+)
+
 ---@param state "on"|"off"
 local function set_renderer(state)
 	if state == "off" then
+		vim.fn["wilder#main#stop"]()
 		vim.o.wildmenu = true
-		wilder.set_option("renderer", wilder.renderer_mux({}))
 		nx.map({
 			{ "<C-j>", "<Tab>", "c" },
 			{ "<C-k>", "<C-p>", "c" },
 		})
 		return
 	end
-	-- Not needed, since we use wilders internal menu. It also seems to interfere with some wilder configurations
-	vim.o.wildmenu = false
-	wilder.set_option(
-		"renderer",
-		wilder.renderer_mux({
-			[":"] = popupmenu_renderer,
-			["/"] = wildmenu_renderer,
-			substitute = wildmenu_renderer,
+	vim.defer_fn(function()
+		vim.fn["wilder#main#start"]()
+		-- Not needed, since we use wilders internal menu. It also seems to interfere with some wilder configurations
+		vim.o.wildmenu = false
+		nx.map({
+			{ "<C-j>", function() vim.fn["wilder#next"]() end, "c", remap = true },
+			{ "<C-k>", function() vim.fn["wilder#previous"]() end, "c", remap = true },
 		})
-	)
-	nx.map({
-		{ "<C-j>", "<Cmd>call wilder#next()<CR>", "c" },
-		{ "<C-k>", "<Cmd>call wilder#previous()<CR>", "c" },
-	})
+	end, 100)
 end
-set_renderer("on")
 
 -- Fix triggering search / command palette in floating window when using wilder in conjunction with noice
 wilder.set_option("pre_hook", function()
@@ -157,4 +160,4 @@ wilder.setup({
 -- <== }
 
 -- Kickstart to have command palette when entering cmd line for the first time after client load
-vim.call("wilder#main#start")
+vim.fn["wilder#main#start"]()
