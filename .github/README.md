@@ -33,9 +33,9 @@
 
 <br />
 <a target="_blank"
-   href="https://user-images.githubusercontent.com/34311583/222371708-2c38f7c8-a07b-46db-96dd-309ad3573744.png">
+   href="https://user-images.githubusercontent.com/34311583/222568600-f9a0bfb5-6023-4d26-a59b-9db5866334a4.png">
    <img alt="Preview"
-      src="https://user-images.githubusercontent.com/34311583/222371708-2c38f7c8-a07b-46db-96dd-309ad3573744.png" />
+      src="https://user-images.githubusercontent.com/34311583/222568600-f9a0bfb5-6023-4d26-a59b-9db5866334a4.png" />
 </a>
 <div align="center"><sup>1.1. Preview Screen 1</sup></div>
 <br />
