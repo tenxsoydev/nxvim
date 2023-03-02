@@ -12,9 +12,9 @@ if cmp_ok then
 	capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 end
 
-local function on_attach()
-	require("nxvim.lsp").on_attach()
-	require("nxvim.lsp.plugins.lspsaga").on_attach()
+local function on_attach(client, bufnr)
+	require("nxvim.lsp").on_attach(client, bufnr)
+	require("nxvim.lsp.plugins.lspsaga").on_attach(client, bufnr)
 end
 
 mason_lspconfig.setup_handlers({
