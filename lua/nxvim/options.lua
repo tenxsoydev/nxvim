@@ -18,7 +18,7 @@ nx.set({
 	shortmess__append = "c", -- don't give completion-menu messages
 	-- Characters
 	fillchars__append = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:›,vert:▏]],
-	listchars__append = [[space:⋅, trail:⋅, eol:↴]],
+	listchars__append = [[space:⋅, tab: ░, trail:⋅, eol:↴]],
 	-- Gutter
 	number = true, -- show line numbers
 	numberwidth = 3, -- number column width - default "4"
