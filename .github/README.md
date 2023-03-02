@@ -1,58 +1,77 @@
-<br>
+<br />
 <div align="center">
-  <p>🇳 🇽 🇻 🇮 🇲</p>
-  <p><em>PDE that leverages 100+ extensions in a fast and structured configuration.</em></p>
-  <div>
-    <a href="https://github.com/tenxsoydev/nxvim#getting-started">
-      <img alt="Getting Started" src="https://img.shields.io/badge/%20Getting%20Started-%20.svg?&style=for-the-badge&logo=ApacheRocketMQ&color=7A88CF&logoColor=C0CAF5&labelColor=414868" />
-    </a>
-    <!-- <a href="https://github.com/tenxsoydev/nxvim/blob/main/LICENSE-GPL"> -->
-    <!--   <img src="https://img.shields.io/github/license/tenxsoydev/nxvim?style=for-the-badge&amp&logo=GNU&label=License&color=FFB86C&labelColor=343746" alt="License"> -->
-    <!-- </a> -->
-    <a href="https://github.com/tenxsoydev/nxvim/pulse">
-      <img alt="Last Commit" src="https://img.shields.io/github/last-commit/tenxsoydev/nxvim?style=for-the-badge&logo=github&color=6183bb&logoColor=c0caf5&labelColor=414868" />
-    </a>
-    <a href="https://github.com/neovim/neovim">
-      <img alt="Neovim Nightly" src="https://img.shields.io/badge/Neovim-nightly-%20.svg?style=for-the-badge&color=BB9AF7&logo=Neovim&logoColor=C0CAF5&labelColor=414868" />
-    </a>
-  </div>
+	<p>🇳 🇽 🇻 🇮 🇲</p>
+	<p><em>PDE that leverages 100+ extensions in a fast and structured configuration.</em></p>
+	<div>
+		<a href="https://github.com/tenxsoydev/nxvim#getting-started">
+			<img
+				alt="Getting Started"
+				src="https://img.shields.io/badge/%20Getting%20Started-%20.svg?&style=for-the-badge&logo=ApacheRocketMQ&color=7A88CF&logoColor=C0CAF5&labelColor=414868"
+			/>
+		</a>
+		<!-- <a href="https://github.com/tenxsoydev/nxvim/blob/main/LICENSE-GPL"> -->
+		<!--   <img src="https://img.shields.io/github/license/tenxsoydev/nxvim?style=for-the-badge&amp&logo=GNU&label=License&color=FFB86C&labelColor=343746" alt="License"> -->
+		<!-- </a> -->
+		<a href="https://github.com/tenxsoydev/nxvim/pulse">
+			<img
+				alt="Last Commit"
+				src="https://img.shields.io/github/last-commit/tenxsoydev/nxvim?style=for-the-badge&logo=github&color=6183bb&logoColor=c0caf5&labelColor=414868"
+			/>
+		</a>
+		<a href="https://github.com/neovim/neovim">
+			<img
+				alt="Neovim Nightly"
+				src="https://img.shields.io/badge/Neovim-nightly-%20.svg?style=for-the-badge&color=BB9AF7&logo=Neovim&logoColor=C0CAF5&labelColor=414868"
+			/>
+		</a>
+	</div>
 </div>
 
 <br>
 
 #
 
-<br>
-<a target="_blank" href="https://user-images.githubusercontent.com/34311583/221439347-38e51a50-1d04-490a-a6e2-19582453630a.png">
-  <img alt="Preview Structure & Self Documentating" src="https://user-images.githubusercontent.com/34311583/221439347-38e51a50-1d04-490a-a6e2-19582453630a.png" />
+<br />
+<a target="_blank"
+   href="https://user-images.githubusercontent.com/34311583/222371708-2c38f7c8-a07b-46db-96dd-309ad3573744.png">
+   <img alt="Preview"
+      src="https://user-images.githubusercontent.com/34311583/222371708-2c38f7c8-a07b-46db-96dd-309ad3573744.png" />
 </a>
-<div align="center"><sup>1.1.: Preview</sup></div>
-<br>
-<a target="_blank" href="https://user-images.githubusercontent.com/34311583/221439282-ac9e327e-e109-4559-a951-46b4c8d8f1c0.png">
-  <img alt="Preview" src="https://user-images.githubusercontent.com/34311583/221439282-ac9e327e-e109-4559-a951-46b4c8d8f1c0.png" />
+<div align="center"><sup>1.1. Preview Screen 1</sup></div>
+<br />
+<!-- <a target="_blank"
+   href="https://user-images.githubusercontent.com/34311583/222373345-7dc9da32-b602-475f-b744-040fc164f82f.png">
+   <img alt="Preview"
+      src="https://user-images.githubusercontent.com/34311583/222373345-7dc9da32-b602-475f-b744-040fc164f82f.png" />
 </a>
-<div align="center"><sup>1.2.: Fairly structured and self-documenting</sup></div>
-<br>
+<div align="center"><sup>1.2.: Config</sup></div>
+<br /> -->
+<a target="_blank"
+   href="https://user-images.githubusercontent.com/34311583/221439347-38e51a50-1d04-490a-a6e2-19582453630a.png">
+   <img alt="Preview Zoomed"
+      src="https://user-images.githubusercontent.com/34311583/221439347-38e51a50-1d04-490a-a6e2-19582453630a.png" />
+</a>
+<div align="center"><sup>1.2. Preview Options</sup></div>
+<br />
+<a target="_blank"
+   href="https://user-images.githubusercontent.com/34311583/221439282-ac9e327e-e109-4559-a951-46b4c8d8f1c0.png">
+   <img alt="Preview Structure & Self Documentating"
+      src="https://user-images.githubusercontent.com/34311583/221439282-ac9e327e-e109-4559-a951-46b4c8d8f1c0.png" />
+</a>
+<div align="center"><sup>1.3. A WIP, but fairly structured and self-documenting</sup></div>
+<br />
 
 ### Quick and dirty demos
 
-- Candies that make a GUI-like TUI are animated auto window widths; dimming of unfocused windows and smooth scrolling.
+- Candies that make a GUI-like TUI are animated auto window widths, dimming of unfocused windows and smooth scrolling.
 
   https://user-images.githubusercontent.com/34311583/218597414-10b06f59-7cc9-4c95-9de7-2734859484a1.mov
-
-<!-- <br> -->
-<!-- <div align="center"><sup>1.3.: Candies that make a GUI-like TUI are animated auto window widths; dimming of unfocused windows and smooth scrolling.</sup></div> -->
-<!-- <br> -->
-<!-- <br> -->
 
 <br>
 
 - Among all regular suspects like coding completions and writing aids it includes several helpers like a command-palette with error tolerant as-you-type-completion for commands, settings & variables.
 
   https://user-images.githubusercontent.com/34311583/218597463-c00e55e2-b29e-4c9c-8ef5-1764983e2a0b.mov
-
-<!-- <br> -->
-<!-- <div align="center"><sup>1.4.: All regular suspects like coding completions and writing aids. Including several helpers like a command-palette with error tolerant as-you-type-completion for commands, settings & variables. </sup></div> -->
 
 <br>
 
