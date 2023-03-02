@@ -2,9 +2,7 @@
 
 -- { == Configuration ==> =====================================================
 
-require("smart-splits").setup({
-	tmux_integration = false,
-})
+require("smart-splits").setup({})
 -- <== }
 
 -- { == Keymaps ==> ===========================================================
