@@ -73,7 +73,7 @@ function _G.btop_toggle() btop:toggle() end
 
 nx.map({
 	-- Ctrl-Escape won't work in some TUIs, works in kitty and GUIs
-	{ "<C-Esc>", "<Cmd>ToggleTerm<CR>", desc = "Toggle Terminal" },
+	{ "<C-Esc>", "<Cmd>ToggleTerm<CR>", { "t", "n" }, desc = "Toggle Terminal" },
 	{ "<leader>``", "<Cmd>ToggleTerm<CR>", desc = "Toggle Terminal" },
 	{ "<leader>t`", "<Cmd>ToggleTerm<CR>", desc = "Toggle Terminal", wk_label = "Terminal" },
 	{ "<leader>`h", "<Cmd>ToggleTerm size=10 direction=horizontal<CR>", desc = "Horizontal" },
