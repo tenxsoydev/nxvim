@@ -108,18 +108,10 @@ local wildmenu_renderer = wilder.wildmenu_renderer({
 	highlights = hls.highlights,
 })
 
-wilder.set_option(
-	"renderer",
-	wilder.renderer_mux({
-		[":"] = popupmenu_renderer,
-		["/"] = wildmenu_renderer,
-		substitute = wildmenu_renderer,
-	})
-)
-
 ---@param state "on"|"off"
 local function set_renderer(state)
 	if state == "off" then
+		wilder.set_option("renderer", wilder.renderer_mux({}))
 		vim.fn["wilder#main#stop"]()
 		vim.o.wildmenu = true
 		nx.map({
@@ -129,6 +121,14 @@ local function set_renderer(state)
 		return
 	end
 	vim.defer_fn(function()
+		wilder.set_option(
+			"renderer",
+			wilder.renderer_mux({
+				[":"] = popupmenu_renderer,
+				["/"] = wildmenu_renderer,
+				substitute = wildmenu_renderer,
+			})
+		)
 		vim.fn["wilder#main#start"]()
 		-- Not needed, since we use wilders internal menu. It also seems to interfere with some wilder configurations
 		vim.o.wildmenu = false
@@ -138,6 +138,7 @@ local function set_renderer(state)
 		})
 	end, 100)
 end
+set_renderer("on")
 
 -- Fix triggering search / command palette in floating window when using wilder in conjunction with noice
 wilder.set_option("pre_hook", function()
@@ -159,6 +160,3 @@ wilder.setup({
 	reject_key = "<C-h>",
 })
 -- <== }
-
--- Kickstart to have command palette when entering cmd line for the first time after client load
-vim.fn["wilder#main#start"]()
