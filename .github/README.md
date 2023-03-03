@@ -146,6 +146,7 @@ Launch `nvim` and let <a target="_blank" href="https://github.com/folke/lazy.nvi
 - For the best experience match it with the colorscheme of your terminal
   - in case you are interested in the one used on the screenshots: <a target="_blank" href="https://github.com/tobealive/dots/tree/tooltime/.config/kitty">tobealive/dots/tooltime/.config/kitty</a>
 - Alternatively, a graphically enriched - but functionally slightly compromised - experience using [neovide](https://github.com/neovide/neovide/) with multigrid enabled might be worth the trade-off for you.
+- A simple hack for ergonomics in a keyboard-driven development is remapping Escape. This is possible even without a programmable keyboard, since the keyboard settings in any distribution usually support simple modifications. So one could make Caps lock behave as an additional Esc and Shift+Caps as regular Caps.
 
 <br>
 
