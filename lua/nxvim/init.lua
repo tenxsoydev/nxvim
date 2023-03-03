@@ -32,19 +32,19 @@ local modules = {
 	-- Commandline
 	{ "gelguy/wilder.nvim", dependencies = "romgrk/fzy-lua-native", event = "CmdlineEnter", config = "plugins.wilder" },
 	{ "folke/noice.nvim", config = "plugins.noice" },
-	{ "lukas-reineke/indent-blankline.nvim", config = "plugins.indentline" },
+	{ "lukas-reineke/indent-blankline.nvim", event = "VeryLazy", config = "plugins.indentline" },
 	-- File Tree
 	{ "nvim-neo-tree/neo-tree.nvim", dependencies = "MunifTanjim/nui.nvim", config = "plugins.neo-tree" },
 	-- Terminal
-	{ "akinsho/toggleterm.nvim", config = "plugins.toggleterm" },
+	{ "akinsho/toggleterm.nvim", event = "VeryLazy", config = "plugins.toggleterm" },
 	-- Notifications
 	-- { "rcarriga/nvim-notify", config = "plugins.notify" },
 	-- Comments
-	{ "numToStr/Comment.nvim", config = "plugins.comment" },
-	{ "folke/todo-comments.nvim", config = "plugins.todo-comments" },
+	{ "numToStr/Comment.nvim", event = "VeryLazy", config = "plugins.comment" },
+	{ "folke/todo-comments.nvim", event = "VeryLazy", config = "plugins.todo-comments" },
 	-- Yank & Register Handling
-	{ "tversteeg/registers.nvim", config = "plugins.registers" },
-	{ "tenxsoydev/karen-yank.nvim", config = true },
+	{ "tversteeg/registers.nvim", event = "VeryLazy", config = "plugins.registers" },
+	{ "tenxsoydev/karen-yank.nvim", event = "VeryLazy", config = true, branch = "remove-cut-esc" },
 
 	-- Buffer- & Window Management -----------------------------------------------
 	{ "akinsho/bufferline.nvim", config = "plugins.bufferline" },
@@ -58,7 +58,8 @@ local modules = {
 		event = "VeryLazy",
 		config = "plugins.windows",
 	},
-	{ "folke/zen-mode.nvim", config = "plugins.zen-mode" },
+	{ "christoomey/vim-tmux-navigator", event = "VeryLazy", config = function() vim.keymap.del("", "<C-Bslash>") end },
+	{ "folke/zen-mode.nvim", event = "VeryLazy", config = "plugins.zen-mode" },
 
 	-- Git -----------------------------------------------------------------------
 	{ "sindrets/diffview.nvim", event = "VeryLazy", config = "plugins.diffview" },
@@ -129,8 +130,8 @@ local modules = {
 	-- "theHamsta/nvim-dap-virtual-text",
 	-- "rcarriga/nvim-dap-ui",
 	-- "Pocco81/DAPInstall.nvim",
-	{ "kevinhwang91/nvim-bqf", config = "plugins.bqf" },
-	{ "tobealive/trouble.nvim", branch = "fix-loclist-as-qfwindow", config = "plugins.trouble" }, -- TODO: use upstream
+	{ "kevinhwang91/nvim-bqf", event = "VeryLazy", config = "plugins.bqf" },
+	{ "tobealive/trouble.nvim", event = "VeryLazy", branch = "fix-loclist-as-qfwindow", config = "plugins.trouble" }, -- TODO: use upstream
 
 	-- Code Completion -----------------------------------------------------------
 	{ "hrsh7th/nvim-cmp", config = "plugins.cmp" },
@@ -152,7 +153,7 @@ local modules = {
 
 	-- Marks & Session -----------------------------------------------------------
 	{ "tomasky/bookmarks.nvim", config = "plugins.bookmarks", eager = true },
-	{ "ThePrimeagen/harpoon", config = "plugins.harpoon" },
+	{ "ThePrimeagen/harpoon", event = "VeryLazy", config = "plugins.harpoon" },
 	{ "ahmedkhalf/project.nvim", config = "plugins.project" },
 	{ "chentoast/marks.nvim", event = "VeryLazy", config = "plugins.marks" },
 	{ "Shatur/neovim-session-manager", config = "plugins.session-manager", eager = true },
@@ -202,10 +203,10 @@ local modules = {
 	{ "NvChad/nvim-colorizer.lua", event = "VeryLazy", config = "plugins.colorizer" },
 	{ "windwp/nvim-spectre", event = "VeryLazy", config = "plugins.spectre" },
 	"nvim-tree/nvim-web-devicons",
-	{ "tobealive/nvim-window-picker", branch = "nvim-set-hl", config = "plugins.window-picker" }, -- temp fork of window-picker
+	{ "tobealive/nvim-window-picker", event = "VeryLazy", branch = "nvim-set-hl", config = "plugins.window-picker" }, -- temp fork of window-picker
 	-- { "s1n7ax/nvim-window-picker", config = "plugins.window-picker" }, -- temp fork of window-picker
 	"nvim-lua/plenary.nvim",
-	{ "anuvyklack/pretty-fold.nvim", config = "plugins.pretty-fold" },
+	{ "anuvyklack/pretty-fold.nvim", event = "VeryLazy", config = "plugins.pretty-fold" },
 	{ "tenxsoydev/size-matters.nvim", lazy = true },
 	{ "michaelb/sniprun", event = "VeryLazy", build = "bash ./install.sh", config = "plugins.sniprun" },
 	{ "levouh/tint.nvim", event = "VeryLazy", config = "plugins.tint" },
