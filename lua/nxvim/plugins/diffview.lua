@@ -26,6 +26,12 @@ local config = {
 			folder_statuses = "only_folded", -- One of 'never', 'only_folded' or 'always'.
 		},
 	},
+	view = {
+		merge_tool = {
+			-- Config for conflicted files in diff views during a merge or rebase.
+			layout = "diff3_mixed",
+		},
+	},
 	file_history_panel = {
 		win_config = {
 			position = "bottom",
