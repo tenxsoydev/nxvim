@@ -181,23 +181,9 @@ nx.map({
 	},
 
 	-- F-KEYS
-	-- for now some things that help with debugging
-	{
-		"<F5>",
-		function()
-			vim.o.spell = not vim.o.spell
-			if vim.o.spell then
-				vim.notify("Spell On")
-			else
-				vim.notify("Spell Off")
-			end
-		end,
-		desc = "Toggle Spellcheck",
-		wk_label = "Spellcheck",
-	},
-	-- Equivalents in kitty to e.g., `<S-F2>` is `<F-14>`
-	{ { "<S-F2>", "<F14" }, "<Cmd>set tabstop=2 tabstop?<CR>", desc = "Set Tabstop 2" },
-	{ { "<S-F3>", "<F15>" }, "<Cmd>set tabstop=3 tabstop?<CR>", desc = "Set Tabstop 3" },
+	-- Equivalents in kitty to e.g., `<S-F3>` is `<F13>`
+	{ { "<S-F3>", "<F15>" }, "<Cmd>set ts-=1 sw=0 ts?<CR>", desc = "Decrease Indentation Width" },
+	{ { "<S-F4>", "<F16>" }, "<Cmd>set ts+=1 sw=0 ts?<CR>", desc = "Increase Indentation Width" },
 	{
 		"<F6>",
 		function() vim.notify("Filetype: " .. vim.bo.filetype) end,
