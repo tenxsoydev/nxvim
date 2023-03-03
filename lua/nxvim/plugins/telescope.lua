@@ -39,12 +39,13 @@ local config = {
 
 -- NOTE: Telescope transparency works unexpected at times as it differs from regular winblend on startup
 -- but at times changes? We also might need a condition for multigrid
-if vim.g.nx_loaded_gui then config.defaults.winblend = 30 end
+if vim.g.neovide then config.defaults.winblend = 30 end
 -- <== }
 
 -- { == Keymaps ==> ===========================================================
 
 local actions = require("telescope.actions")
+local builtin = require("telescope.builtin")
 
 config.defaults.mappings = {
 	i = {
@@ -125,7 +126,7 @@ config.extensions.live_grep_args.mappings = {
 ---@param search_dirs table?
 ---@param search_file string?
 local function find_config(prompt_title, search_dirs, search_file)
-	require("telescope.builtin.").find_files({
+	builtin.find_files({
 		cwd = vim.fn.stdpath("config") .. "/lua/nxvim",
 		search_dirs = search_dirs,
 		search_file = search_file,
@@ -137,16 +138,12 @@ nx.map({
 	-- Quick Pickers
 	{
 		"<C-p>",
-		function()
-			require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({ previewer = false }))
-		end,
+		function() builtin.find_files(require("telescope.themes").get_dropdown({ previewer = false })) end,
 		desc = "Go to File",
 	},
 	{
 		"<A-p>",
-		function()
-			require("telescope.builtin").buffers(require("telescope.themes").get_dropdown({ previewer = false }))
-		end,
+		function() builtin.buffers(require("telescope.themes").get_dropdown({ previewer = false })) end,
 		desc = "Go to Open Buffer",
 	},
 	-- Registers
@@ -158,8 +155,8 @@ nx.map({
 	]]
 	-- Files
 	{ "<leader>f/", "<Cmd>Telescope find_files<CR>", desc = "Search Files" },
-	{ "<leader>fr", "<Cmd>Telescope oldfiles<CR>", desc = "Recent Files" },
-	{ "<leader>fR", "<Cmd>Telescope frecency<CR>", desc = "Recent Files" },
+	{ "<leader>fr", telescope.extensions.recent_files.pick, desc = "Recent Files" },
+	{ "<leader>fR", "<Cmd>Telescope frecency<CR>", desc = "Frequent Files" },
 	-- Git
 	{ "<leader>gb", "<Cmd>Telescope git_branches<CR>", desc = "Branches" },
 	{ "<leader>gc", "<Cmd>Telescope git_commits<CR>", desc = "Commits" },
@@ -208,7 +205,7 @@ nx.map({
 	{ "<leader>/i", "<Cmd>Telescope media_files<CR>", desc = "Search Media" },
 	{ "<leader>/k", "<Cmd>Telescope keymaps<CR>", desc = "Search Keymaps" },
 	{ "<leader>/M", "<Cmd>Telescope man_pages<CR>", desc = "Search Man Pages" },
-	{ "<leader>/r", "<Cmd>Telescope oldfiles<CR>", desc = "Search Recent Files" },
+	{ "<leader>/r", telescope.extensions.recent_files.pick, desc = "Search Recent Files" },
 }, { wk_label = { sub_desc = "Search" } })
 -- Extensions
 nx.map({
@@ -259,6 +256,6 @@ end
 load_extensions({ "bookmarks" })
 
 -- Lazy load majority of extensions
-vim.schedule(function() load_extensions({ "frecency", "fzy_native", "media_files", "projects" }) end)
+vim.schedule(function() load_extensions({ "recent_files", "frecency", "fzy_native", "media_files", "projects" }) end)
 nx.au({ "TermEnter", once = true, callback = function() telescope.load_extension("termfinder") end })
 -- <== }

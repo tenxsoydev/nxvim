@@ -97,11 +97,12 @@ local modules = {
 
 	-- Telescope -----------------------------------------------------------------
 	{ "nvim-telescope/telescope.nvim", config = "plugins.telescope" },
-	{ "nvim-telescope/telescope-fzy-native.nvim", dependencies = "romgrk/fzy-lua-native", lazy = true },
-	{ "nvim-telescope/telescope-media-files.nvim", lazy = true },
-	{ "tknightz/telescope-termfinder.nvim", lazy = true },
-	{ "nvim-telescope/telescope-live-grep-args.nvim", lazy = true },
 	{ "nvim-telescope/telescope-frecency.nvim", dependencies = "kkharji/sqlite.lua", lazy = true },
+	{ "nvim-telescope/telescope-fzy-native.nvim", dependencies = "romgrk/fzy-lua-native", lazy = true },
+	{ "nvim-telescope/telescope-live-grep-args.nvim", lazy = true },
+	{ "nvim-telescope/telescope-media-files.nvim", lazy = true },
+	{ "smartpde/telescope-recent-files" },
+	{ "tknightz/telescope-termfinder.nvim", lazy = true },
 
 	-- LSP / Formatters ----------------------------------------------------------
 	{ "folke/neodev.nvim", config = true },
