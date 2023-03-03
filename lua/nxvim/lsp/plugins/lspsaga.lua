@@ -50,7 +50,8 @@ function M.on_attach(_, bufnr)
 		{ "<leader>dj", "<Cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Next Diagnostic" },
 		{ "<leader>dk", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Previous Diagnostic" },
 		{ "<leader>la", "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" },
-		{ "<C-.>", "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" },
+		{ "<C-.>", "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" }, -- works in kitty and GUIs
+		-- { "<leader>.", "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" },
 		{ "<F12>", "<Cmd>Lspsaga lsp_finder<CR>", desc = "Show References" },
 		-- Use default lsprename with dressing for now
 		-- { "<F2>", "<Cmd>Lspsaga rename<CR>", { "i", "n" }, desc = "Rename" },

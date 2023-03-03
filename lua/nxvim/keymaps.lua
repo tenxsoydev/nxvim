@@ -181,7 +181,7 @@ nx.map({
 	},
 
 	-- F-KEYS
-	-- Equivalents in kitty to e.g., `<S-F3>` is `<F13>`
+	-- Equivalents in kitty to e.g., `<S-F3>` is `<F15>`
 	{ { "<S-F3>", "<F15>" }, "<Cmd>set ts-=1 sw=0 ts?<CR>", desc = "Decrease Indentation Width" },
 	{ { "<S-F4>", "<F16>" }, "<Cmd>set ts+=1 sw=0 ts?<CR>", desc = "Increase Indentation Width" },
 	{
