@@ -63,7 +63,6 @@ local modules = {
 
 	-- Git -----------------------------------------------------------------------
 	{ "sindrets/diffview.nvim", event = "VeryLazy", config = "plugins.diffview" },
-	{ "akinsho/git-conflict.nvim", event = "VeryLazy", config = "plugins.git-conflict" },
 	{ "ruifm/gitlinker.nvim", event = "VeryLazy", config = true },
 	{ "lewis6991/gitsigns.nvim", event = "VeryLazy", config = "plugins.gitsigns" },
 	{ "tobealive/neogit", branch = "fix-noice-commit-confirm-message", event = "VeryLazy", config = "plugins.neogit" },
