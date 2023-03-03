@@ -62,7 +62,7 @@ nx.map({
 	{ "<leader>rb", function() spectre.open_file_search() end, desc = "In Active Buffer" },
 	{ "<leader>rr", spectre.open, desc = "In Workspace" },
 	{ "<leader>rw", function() spectre.open_visual({ select_word = true }) end, desc = "Word Under Cursor" },
-	{ "<leader>r", "<Esc><Cmd>lua require('spectre').open_visual()<CR>", { "v", "x" }, desc = "Replace" },
+	{ "<leader>r", "<Esc><Cmd>lua require('spectre').open_visual()<CR>", "v", desc = "Replace" },
 })
 
 require("spectre").setup(config)

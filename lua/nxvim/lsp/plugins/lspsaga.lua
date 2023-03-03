@@ -44,15 +44,16 @@ function M.on_attach(_, bufnr)
 		-- { "K", "<Cmd>Lspsaga hover_doc<CR>", desc = "LSP Hover" },
 		{ "gp", "<Cmd>Lspsaga peek_definition<CR>", desc = "Peek Definition" },
 		{ "gr", "<Cmd>Lspsaga lsp_finder<CR>", desc = "Show References" },
-		{ "<F12>", "<Cmd>Lspsaga lsp_finder<CR>", desc = "Show References" },
-		{ "<C-.>", "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" },
-		{ "<C-.>", "<Cmd>Lspsaga range_code_action<CR>", { "v", "x" }, desc = "Code Action" },
-		-- { "<F2>", "<Cmd>Lspsaga rename<CR>", { "i", "n" }, desc = "Rename" },
 		{ "<leader>ld", "<Cmd>Lspsaga peek_definition<CR>", desc = "Peek definition" },
 		{ "<leader>lo", "<Cmd>Lspsaga outline<CR>", desc = "Toggle Symbols Outline" },
 		{ "<leader>to", "<Cmd>Lspsaga outline<CR>", desc = "Toggle Symbols Outline", wk_label = "Outline Symbols" },
 		{ "<leader>dj", "<Cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Next Diagnostic" },
 		{ "<leader>dk", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Previous Diagnostic" },
+		{ "<leader>la", "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" },
+		{ "<C-.>", "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" },
+		{ "<F12>", "<Cmd>Lspsaga lsp_finder<CR>", desc = "Show References" },
+		-- Use default lsprename with dressing for now
+		-- { "<F2>", "<Cmd>Lspsaga rename<CR>", { "i", "n" }, desc = "Rename" },
 	}, { buffer = bufnr })
 
 	nx.map({

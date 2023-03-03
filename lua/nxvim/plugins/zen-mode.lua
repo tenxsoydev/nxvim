@@ -47,7 +47,7 @@ zen_mode.setup({
 -- Keymaps ====================================================================
 
 nx.map({
-	{ "<leader>z", "<Cmd>ZenMode<CR>", desc = "Zen mode toggle" },
-	{ "<C-z>", "<Cmd>ZenMode<CR>", desc = "Zen mode toggle" },
+	{ "<leader>z", "<Cmd>ZenMode<CR>", desc = "Toggle Zen Mode", wk_label = "Zen Mode" },
+	{ "<C-z>", "<Cmd>ZenMode<CR>", desc = "Toggle Zen Mode" },
 })
 -- <== }

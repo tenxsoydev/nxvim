@@ -67,31 +67,35 @@ nx.cmd({
 
 --- { == Keymaps ==> ===========================================================
 
+nx.map({
+	{ "<leader>q", vim.diagnostic.setloclist, desc = "Buffer Diagnostics", wk_label = "Quickfix" },
+	{ "<leader>db", vim.diagnostic.setloclist, desc = "Buffer Diagnostics" },
+	{ "gl", function() vim.diagnostic.open_float({ border = border }) end, desc = "Show Diagnostics" },
+	{
+		"gL",
+		function() vim.diagnostic.open_float({ scope = "cursor", border = border }) end,
+		desc = "Show Diagnostics",
+	},
+	-- Keymaps for user commands
+	{ "<leader>dtt", "<Cmd>ToggleBufferDiagnostics<CR>", desc = "Toggle Buffer Diagnostics" },
+	{ "<leader>tdt", "<Cmd>ToggleBufferDiagnostics<CR>", desc = "Toggle ", wk_label = "Buffer Diagnostics" },
+	{ "<leader>dj", vim.diagnostic.goto_next, desc = "Next diagnostic" },
+	{ "<leader>dk", vim.diagnostic.goto_prev, desc = "Previous diagnostic" },
+})
 ---@param bufnr number
 function M.on_attach(_, bufnr)
 	nx.map({
-		{ "<leader>db", function() vim.diagnostic.setloclist() end, desc = "Buffer Diagnostics" },
-		{ "<leader>q", function() vim.diagnostic.setloclist() end, desc = "Buffer Diagnostics", wk_label = "Quickfix" },
-		{ "K", function() vim.lsp.buf.hover() end, desc = "LSP Hover" },
-		{ "gd", function() vim.lsp.buf.definition() end, desc = "Go to Definition" },
-		{ "gl", function() vim.diagnostic.open_float({ border = border }) end, desc = "Show Diagnostics" },
-		{
-			"gL",
-			function() vim.diagnostic.open_float({ scope = "cursor", border = border }) end,
-			desc = "Show Diagnostics",
-		},
-		-- { "gh", function() vim.lsp.buf.signature_help() end, desc = "Signatrue Help" },
-		-- {"<C-.>", function() vim.lsp.buf.code_action() end,  desc = "Code action" },
-		-- {"gD", function() vim.lsp.buf.declaration() end,  desc = "Goto declaration" },
-		{ "<leader>lr", function() vim.lsp.buf.references() end, desc = "List References" },
-		-- { "<F11>", "<Cmd>lua vim.lsp.buf.references()<CR>", desc = "List References" },
-		-- { "<F12>", "<Cmd>lua vim.lsp.buf.definition()<CR>", desc = "Go to Definition" },
-
-		-- {"<leader>dj", function() vim.diagnostic.goto_next({ buffer = 0 }) end,  desc = "Next diagnostic" },
-		-- {"<leader>dk", function() vim.diagnostic.goto_prev({ buffer = 0 }) end,  desc = "Previous diagnostic" },
-		-- {"<leader>lr", "<Cmd>lua vim.lsp.buf.references()<CR>",  desc = "References" },
-		-- {"<leader>ld", "<Cmd>lua vim.lsp.buf.definition()<CR>",  desc = "Definitions" },
-		-- {"<leader>li", "<Cmd>lua vim.lsp.buf.implementation()<CR>",  desc = "Goto implementation" },
+		{ "K", vim.lsp.buf.hover, desc = "LSP Hover" },
+		{ "gh", vim.lsp.buf.signature_help, desc = "Signatrue Help" },
+		-- Use mostly saga
+		-- { "gd", vim.lsp.buf.definition, desc = "Go to Definition" },
+		-- { "<C-.>", vim.lsp.buf.code_action, desc = "Code action" },
+		-- { "gD", vim.lsp.buf.declaration, desc = "Goto declaration" },
+		-- { "<leader>lr", vim.lsp.buf.references, desc = "List References" },
+		-- { "<F11>", vim.lsp.buf.references, desc = "List References" },
+		-- { "<F12>", vim.lsp.buf.definition, desc = "Go to Definition" },
+		-- { "<leader>ld", vim.lsp.buf.definition, desc = "Definitions" },
+		-- { "<leader>li", vim.lsp.buf.implementation, desc = "Goto implementation" },
 		{
 			"<F2>",
 			function()
@@ -100,6 +104,7 @@ function M.on_attach(_, bufnr)
 					pattern = "DressingInput",
 					once = true,
 					callback = function()
+						-- Start rename input dialog with selected content
 						vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>^vE", true, false, true), "n", false)
 					end,
 				})
@@ -116,13 +121,6 @@ function M.on_attach(_, bufnr)
 		-- Keymaps for user commands
 		{ "<leader>fF", "<Cmd>LspFormat<CR>", desc = "Format Buffer" },
 		{ "<leader>tF", "<Cmd>LspToggleAutoFormat<CR>", desc = "Toggle Format on Save", wk_label = "Format on Save" },
-		{ "<leader>dtt", "<Cmd>ToggleBufferDiagnostics<CR>", desc = "Toggle Buffer Diagnostics" },
-		{
-			"<leader>tdt",
-			"<Cmd>ToggleBufferDiagnostics<CR>",
-			desc = "Toggle Buffer Diagnostics",
-			wk_label = { sub_desc = "Toggle" },
-		},
 	}, { buffer = bufnr })
 end
 -- <== }
