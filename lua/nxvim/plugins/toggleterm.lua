@@ -40,13 +40,6 @@ require("toggleterm").setup({
 		},
 	},
 })
---[[ if vim.g.nx_loaded_gui then
-		if vim.g.neovide then
-			vim.wo.winblend = 10
-		else
-			vim.wo.winblend = 10
-		end
-	end ]]
 -- <== }
 
 -- { == Custom Terminals ==> ==================================================

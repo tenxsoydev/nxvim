@@ -49,7 +49,7 @@ wk.setup({
 		position = "bottom", -- bottom, top
 		margin = { 0, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
 		padding = { 1, 0, 0, 0 }, -- extra window padding [top, right, bottom, left]
-		winblend = 0,
+		winblend = vim.wo.winblend,
 	},
 	layout = {
 		height = { min = 5, max = 25 }, -- min and max height of the columns

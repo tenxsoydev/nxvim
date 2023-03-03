@@ -80,6 +80,7 @@ local hls = {
 -- Command Pallet (Experimental)
 local popupmenu_renderer = wilder.popupmenu_renderer(wilder.popupmenu_palette_theme({
 	border = "rounded",
+	pumblend = vim.o.pumblend,
 	min_height = 0,
 	max_height = 16,
 	max_width = 80,
