@@ -46,6 +46,7 @@ nx.set({
 	whichwrap__append = "<,>,[,],h,l", -- move to previous / next line when reaching first / last character of line
 	-- Folds
 	foldcolumn = "1",
+	foldmethod = "expr",
 	foldexpr = "nvim_treesitter#foldexpr()",
 	-- Indentation
 	expandtab = false, -- do not convert tabs to spaces
