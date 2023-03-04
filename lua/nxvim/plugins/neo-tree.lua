@@ -296,24 +296,15 @@ config.git_status.window.mappings = {
 
 nx.map({
 	{ "<leader>ff", "<Cmd>NeoTreeFloatToggle<CR>", desc = "File Browser" },
-	{
-		"<leader>,/",
-		"<Cmd>Neotree float toggle dir=" .. vim.fn.stdpath("config") .. "<CR>",
-		desc = "Config Files Tree",
-	},
+	-- stylua: ignore
+	{ "<leader>,/", "<Cmd>Neotree float toggle dir=" .. vim.fn.stdpath("config") .. "<CR>", desc = "Config Files Tree" },
 	{ "<leader>fe", "<Cmd>Neotree<CR>", desc = "Focus File Explorer" },
-	-- `NeoTreeShow` will toggle and use the position configured as default.
-	-- `Neotree show toggle` on the other hand will use the last window position, including floating windows
-	-- it would be neccecary to add the default position e.g. `Neotree right show toggle`
 	{ "<leader>te", "<Cmd>NeoTreeShow<CR>", desc = "Toggle File Explorer", wk_label = "File Tree" },
 	-- Addition shortcuts to view preset directories
-	{
-		"<leader>,\\",
-		"<Cmd>Neotree float dir=" .. vim.fn.stdpath("data") .. "<CR>",
-		desc = "Browse Data Dir",
-		wk_label = "ignore",
-	},
 	{ "<leader>f~", "<Cmd>Neotree float dir=$HOME<CR>", desc = "Browse Home Dir" },
+	-- stylua: ignore
+	{ "<leader>,\\", "<Cmd>Neotree float dir=" .. vim.fn.stdpath("data") .. "<CR>", desc = "Browse Data Dir", wk_label = "ignore" },
+	{ "<leader>,.", "<Cmd>Neotree float dir=$HOME/.config<CR>", desc = "Browse Dotfiles", wk_label = "ignore" },
 })
 
 nx.au({
