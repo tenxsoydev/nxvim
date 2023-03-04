@@ -45,6 +45,8 @@ nx.set({
 	linebreak = true, -- do not wrap lines in the middle of words
 	whichwrap__append = "<,>,[,],h,l", -- move to previous / next line when reaching first / last character of line
 	-- Folds
+	foldlevel = 99,
+	foldlevelstart = 99,
 	foldcolumn = "1",
 	foldmethod = "expr",
 	foldexpr = "nvim_treesitter#foldexpr()",
