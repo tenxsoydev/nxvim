@@ -91,8 +91,8 @@ rm -r ~/.config/nvim ~/.local/share/nvim
 
 Probably most stuff is already installed.
 
-1. neovim nightly - _statuscol support_
-   - <a target="_blank" href="https://github.com/MordechaiHadad/bob">bob</a> is a good way to keep your latest and/or nightly version up to date
+1. neovim nightly (statuscol support)
+   - <a target="_blank" href="https://github.com/MordechaiHadad/bob">bob</a> is a good way to keep the latest and/or nightly version up to date.
 2. Packages
    - TL;DR: for a deb. based system: `sudo apt install git curl unzip xsel ripgrep fd-find sqlite3 libsqlite3-dev`
    - TL;DR: for an arch based system: `sudo pacman -S git curl unzip xsel ripgrep fd sqlite`
@@ -137,16 +137,16 @@ Launch `nvim` and let <a target="_blank" href="https://github.com/folke/lazy.nvi
 - On low-spec systems, performance can be improved by changing `animation.fps = 30 -- instead of 60` in `plugins/windows.lua` and - in case of using terminals with font ligature rendering support - disabling them (e.g. with kitty: by adding `disable_ligatures always` to your `kitty.conf`)
 </details>
 
-<br>
-
-## Personal Usage Recommendations
+<details>
+<summary><h3>Usage Recommendations (optional) <sub><sup>Click to expand...</sup></sub></h3></summary>
 
 - My best experience has been with [kitty](https://github.com/kovidgoyal/kitty). A feature-rich, GPU accelerated terminal with its core written in `C`.
 - It's optimized for use with the official dracula colorscheme in a "pseudo-transparent" style.
-- For the best experience match it with the colorscheme of your terminal
-  - in case you are interested in the one used on the screenshots: <a target="_blank" href="https://github.com/tobealive/dots/tree/tooltime/.config/kitty">tobealive/dots/tooltime/.config/kitty</a>
+- For usage inside a terminal any used colorscheme should be matched with the colorscheme of the terminal.
+  - In case you are interested in the one used on the screenshots: <a target="_blank" href="https://github.com/tobealive/dots/tree/tooltime/.config/kitty">tobealive/dots/tooltime/.config/kitty</a>
 - Alternatively, a graphically enriched - but functionally slightly compromised - experience using [neovide](https://github.com/neovide/neovide/) with multigrid enabled might be worth the trade-off for you.
-- A simple hack for ergonomics in a keyboard-driven development is remapping Escape. This is possible even without a programmable keyboard, since the keyboard settings in any distribution usually support simple modifications. So one could make Caps lock behave as an additional Esc and Shift+Caps as regular Caps.
+- A simple hack for ergonomics in a keyboard-driven development is remapping Escape. One doesn't need a programmable keyboard to do this, since the keyboard settings in any desktop environment support simple modifications. So one could make Caps lock behave as an additional Esc and Shift+Caps as regular Caps.
+</details>
 
 <br>
 
