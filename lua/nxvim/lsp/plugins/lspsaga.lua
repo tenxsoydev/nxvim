@@ -43,6 +43,7 @@ function M.on_attach(_, bufnr)
 	nx.map({
 		-- { "K", "<Cmd>Lspsaga hover_doc<CR>", desc = "LSP Hover" },
 		{ "gp", "<Cmd>Lspsaga peek_definition<CR>", desc = "Peek Definition" },
+		{ "gd", "<cmd>Lspsaga goto_definition<CR>" },
 		{ "gr", "<Cmd>Lspsaga lsp_finder<CR>", desc = "Show References" },
 		{ "<leader>ld", "<Cmd>Lspsaga peek_definition<CR>", desc = "Peek definition" },
 		{ "<leader>lo", "<Cmd>Lspsaga outline<CR>", desc = "Toggle Symbols Outline" },
