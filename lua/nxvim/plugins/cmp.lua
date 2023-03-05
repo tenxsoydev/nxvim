@@ -1,97 +1,98 @@
 -- https://github.com/hrsh7th/nvim-cmp
 
-local function init()
-	local cmp = require("cmp")
-	require("luasnip.loaders.from_vscode").lazy_load()
+local cmp = require("cmp")
+require("luasnip.loaders.from_vscode").lazy_load()
 
-	-- { == Configuration ==> ====================================================
+-- { == Configuration ==> ====================================================
 
-	local icons = require("nxvim.icons").nerd_solid
+local icons = require("nxvim.icons").nerd_solid
 
-	local config = {
-		snippet = {
-			expand = function(args) require("luasnip").lsp_expand(args.body) end,
+local config = {
+	snippet = {
+		expand = function(args) require("luasnip").lsp_expand(args.body) end,
+	},
+	sources = {
+		{ name = "nvim_lsp" },
+		{ name = "nvim_lua" },
+		{ name = "luasnip" },
+		{ name = "buffer" },
+		{ name = "cmp_tabnine" },
+		-- { name = "copilot" },
+		{ name = "path" },
+		{ name = "emoji" },
+	},
+	confirm_opts = {
+		behavior = cmp.ConfirmBehavior.Replace,
+		select = false,
+	},
+	formatting = {
+		fields = { "kind", "abbr", "menu" },
+		format = function(entry, vim_item)
+			-- icons only
+			vim_item.kind = string.format("%s", icons[vim_item.kind])
+			-- icons + names (if this is prefered it might be more attractive to change the `fields`)
+			-- vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
+
+			if entry.source.name == "cmp_tabnine" then vim_item.kind = "ﯟ" end
+			if entry.source.name == "copilot" then vim_item.kind = "" end
+
+			return vim_item
+		end,
+	},
+	window = {
+		completion = {
+			border = "rounded",
+			scrollbar = "║",
+			winhighlight = "Normal:Normal", -- transparent bg
 		},
-		sources = {
-			{ name = "nvim_lsp" },
-			{ name = "nvim_lua" },
-			{ name = "luasnip" },
-			{ name = "buffer" },
-			{ name = "cmp_tabnine" },
-			-- { name = "copilot" },
-			{ name = "path" },
-			{ name = "emoji" },
+		documentation = {
+			border = "rounded",
+			scrollbar = "║",
+			winhighlight = "Normal:Normal",
 		},
-		confirm_opts = {
-			behavior = cmp.ConfirmBehavior.Replace,
-			select = false,
-		},
-		formatting = {
-			fields = { "kind", "abbr", "menu" },
-			format = function(entry, vim_item)
-				-- icons only
-				vim_item.kind = string.format("%s", icons[vim_item.kind])
-				-- icons + names (if this is prefered it might be more attractive to change the `fields`)
-				-- vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
+	},
+	experimental = {
+		ghost_text = true,
+		-- native_menu = false,
+	},
+	mapping = {},
+}
+-- <== }
 
-				if entry.source.name == "cmp_tabnine" then vim_item.kind = "ﯟ" end
-				if entry.source.name == "copilot" then vim_item.kind = "" end
+-- { == Keymaps ==> ==========================================================
 
-				return vim_item
-			end,
-		},
-		window = {
-			completion = {
-				border = "rounded",
-				scrollbar = "║",
-				winhighlight = "Normal:Normal", -- transparent bg
-			},
-			documentation = {
-				border = "rounded",
-				scrollbar = "║",
-				winhighlight = "Normal:Normal",
-			},
-		},
-		experimental = {
-			ghost_text = true,
-			-- native_menu = false,
-		},
-		mapping = {},
-	}
-	-- <== }
+config.mapping = {
+	-- Navigation completion suggestion
+	-- ["<C-n>"] = cmp.mapping.select_next_item(), -- use for snippet navigation
+	-- ["<C-p>"] = cmp.mapping.select_prev_item(), -- use for snippet navigation
+	["<C-j>"] = cmp.mapping.select_next_item(),
+	["<C-k>"] = cmp.mapping.select_prev_item(),
+	["<Down>"] = cmp.mapping.select_next_item(),
+	["<Up>"] = cmp.mapping.select_prev_item(),
 
-	-- { == Keymaps ==> ==========================================================
+	-- Misc
+	["<C-d>"] = cmp.mapping.scroll_docs(-4),
+	["<C-f>"] = cmp.mapping.scroll_docs(4),
+	["<C-e>"] = cmp.mapping.close(),
 
-	config.mapping = {
-		-- Navigation completion suggestion
-		-- ["<C-n>"] = cmp.mapping.select_next_item(), -- use for snippet navigation
-		-- ["<C-p>"] = cmp.mapping.select_prev_item(), -- use for snippet navigation
-		["<C-j>"] = cmp.mapping.select_next_item(),
-		["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<Down>"] = cmp.mapping.select_next_item(),
-		["<Up>"] = cmp.mapping.select_prev_item(),
+	-- Invoke completion manually
+	["<C-Space>"] = cmp.mapping.complete(),
 
-		-- Misc
-		["<C-d>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<C-e>"] = cmp.mapping.close(),
+	-- Confrim completion
+	["<C-l>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
+	["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = false }),
+	-- ["<Tab>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
+	-- Use tab for codeium and it should fall back to cmp when it's inactive
+	["<Tab>"] = cmp.mapping(function(fallback)
+		if cmp.visible() and vim.g.codeium_enabled == 0 then
+			cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
+		else
+			fallback()
+		end
+	end, { "i", "s" }),
 
-		-- Invoke completion manually
-		["<C-Space>"] = cmp.mapping.complete(),
-
-		-- Confrim completion
-		["<C-l>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
-		["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = false }),
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() and vim.g.codeium_enabled == 0 then
-				cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
-
-		-- If you want to use tab to cycle through completion suggestions
-		--[[ ["<Tab>"] = cmp.mapping(function(fallback)
+	-- Use tab to cycles through completion suggestions
+	--[[ ["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
 			elseif require("luasnip").expand_or_jumpable() then
@@ -115,13 +116,7 @@ local function init()
 			"i",
 			"s",
 		}), ]]
-	}
-	-- <== }
-
-	cmp.setup(config)
-end
-
--- { == Events ==> ============================================================
-
-nx.au({ "InsertEnter", once = true, callback = init })
+}
 -- <== }
+
+cmp.setup(config)

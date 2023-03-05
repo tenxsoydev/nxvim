@@ -5,7 +5,13 @@
 nx.au({ "FileType", pattern = "TelescopePrompt", callback = function() vim.cmd("Codeium DisableBuffer") end })
 -- <== }
 
---- { == Keymaps ==> ===========================================================
+--- { == Highlights ==> =======================================================
 
 nx.hl({ "CodeiumSuggestion", link = "SpecialComment" })
+--- <== }
+
+--- { == Keymaps ==> ===========================================================
+
+-- Map <Tab> manually as loading codeium "VeryLazy" won't map it automatically
+nx.map({ "<Tab>", function() return vim.fn["codeium#Accept"]() end, "i", expr = true })
 --- <== }

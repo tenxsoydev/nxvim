@@ -108,10 +108,10 @@ local modules = {
 	{ "folke/neodev.nvim", config = true },
 	{ "neovim/nvim-lspconfig", config = "lsp.plugins.lspconfig" },
 	{ "jose-elias-alvarez/null-ls.nvim", config = "lsp.plugins.null-ls" }, -- inject external formatters and linters
-	{ "glepnir/lspsaga.nvim", config = "lsp.plugins.lspsaga" },
-	{ "j-hui/fidget.nvim", config = "lsp.plugins.fidget" },
-	{ "ray-x/lsp_signature.nvim", config = "lsp.plugins.lsp-signature" },
-	{ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim", config = "lsp.plugins.lsp-toggle" },
+	{ "glepnir/lspsaga.nvim", event = "VeryLazy", config = "lsp.plugins.lspsaga" },
+	{ "j-hui/fidget.nvim", event = "VeryLazy", config = "lsp.plugins.fidget" },
+	{ "ray-x/lsp_signature.nvim", event = "VeryLazy", config = "lsp.plugins.lsp-signature" },
+	{ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim", event = "VeryLazy", config = "lsp.plugins.lsp-toggle" },
 	"b0o/SchemaStore.nvim",
 	"RRethy/vim-illuminate",
 	-- Mason
@@ -135,7 +135,7 @@ local modules = {
 	{ "tobealive/trouble.nvim", event = "VeryLazy", branch = "fix-loclist-as-qfwindow", config = "plugins.trouble" }, -- TODO: use upstream
 
 	-- Code Completion -----------------------------------------------------------
-	{ "hrsh7th/nvim-cmp", config = "plugins.cmp" },
+	{ "hrsh7th/nvim-cmp", event = "InsertEnter", config = "plugins.cmp" },
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-path",
 	"hrsh7th/cmp-cmdline",
@@ -143,14 +143,14 @@ local modules = {
 	"hrsh7th/cmp-emoji",
 	"hrsh7th/cmp-nvim-lua",
 	{ "tzachar/cmp-tabnine", build = "./install.sh", config = "plugins.tabnine" },
-	{ "Exafunction/codeium.vim", config = "plugins.codeium" },
+	{ "Exafunction/codeium.vim", event = "InsertEnter", config = "plugins.codeium" },
 	-- { "zbirenbaum/copilot.lua", config = "plugins.copilot" },
 	-- { "zbirenbaum/copilot-cmp", dependencies = "zbirenbaum/copilot.lua", config = true },
 	-- { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
 	-- Snippets
 	{ "L3MON4D3/LuaSnip", event = "VeryLazy", config = "plugins.luasnip" }, --snippet engine
-	"rafamadriz/friendly-snippets",
 	"saadparwaiz1/cmp_luasnip",
+	"rafamadriz/friendly-snippets",
 
 	-- Marks & Session -----------------------------------------------------------
 	{ "tomasky/bookmarks.nvim", config = "plugins.bookmarks", eager = true },
@@ -191,15 +191,15 @@ local modules = {
 	-- { "epwalsh/obsidian.nvim", config = "plugins.obsidian" },
 
 	-- Utility -------------------------------------------------------------------
-	{ "max397574/better-escape.nvim", config = "plugins.better-escape" }, -- remove delay from escape keys while typing in insert mode
-	{ "nat-418/boole.nvim", config = "plugins.boole" }, -- extend increment / decrement to cycle through related word
+	{ "max397574/better-escape.nvim", event = "InsertEnter", config = "plugins.better-escape" }, -- remove delay from escape keys while typing in insert mode
+	{ "nat-418/boole.nvim", event = "VeryLazy", config = "plugins.boole" }, -- extend increment / decrement to cycle through related words
 	{ "stevearc/dressing.nvim", event = "VeryLazy", config = "plugins.dressing" },
-	{ "NMAC427/guess-indent.nvim", config = "guess-indent" },
+	{ "NMAC427/guess-indent.nvim", event = "VeryLazy", config = "guess-indent" },
 	{ "phaazon/hop.nvim", event = "VeryLazy", config = "plugins.hop" },
 	{ "kevinhwang91/nvim-hlslens", event = "VeryLazy", config = "plugins.hlslens" },
 	{ "edluffy/hologram.nvim", event = "VeryLazy" },
 	{ "echasnovski/mini.nvim", config = "plugins.mini" },
-	{ "nacro90/numb.nvim", config = true },
+	{ "nacro90/numb.nvim", event = "VeryLazy", config = true },
 	{ "windwp/nvim-autopairs", event = "VeryLazy", config = "plugins.autopairs" },
 	{ "NvChad/nvim-colorizer.lua", event = "VeryLazy", config = "plugins.colorizer" },
 	{ "windwp/nvim-spectre", event = "VeryLazy", config = "plugins.spectre" },
