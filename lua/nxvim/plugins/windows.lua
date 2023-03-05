@@ -180,6 +180,15 @@ nx.map({
 	{ "<A-CR>", "<Cmd>WindowsToggleAutoMaximize<CR>", desc = "Toggle Window Maximization" },
 	{ "<A-kEnter>", "<Cmd>WindowsToggleAutoMaximize<CR>", desc = "Toggle Window Maximization" },
 	{ "<C-w>a", "<Cmd>WindowsToggleAutowidth<CR>", desc = "Toggle Window Auto Width" },
+	{
+		"<C-w>=",
+		function()
+			M.auto_width = false
+			M.auto_maximize = false
+			vim.cmd("WindowsDisableAutowidth")
+			vim.cmd("WindowsEqualize")
+		end,
+	},
 })
 -- <== }
 
