@@ -33,32 +33,13 @@
 
 <br />
 <a target="_blank"
-   href="https://user-images.githubusercontent.com/34311583/222568600-f9a0bfb5-6023-4d26-a59b-9db5866334a4.png">
-   <img alt="Preview"
-      src="https://user-images.githubusercontent.com/34311583/222568600-f9a0bfb5-6023-4d26-a59b-9db5866334a4.png" />
-</a>
-<div align="center"><sup>1.1. Preview Screen 1</sup></div>
-<br />
-<!-- <a target="_blank"
-   href="https://user-images.githubusercontent.com/34311583/222373345-7dc9da32-b602-475f-b744-040fc164f82f.png">
-   <img alt="Preview"
-      src="https://user-images.githubusercontent.com/34311583/222373345-7dc9da32-b602-475f-b744-040fc164f82f.png" />
-</a>
-<div align="center"><sup>1.2.: Config</sup></div>
-<br /> -->
-<a target="_blank"
-   href="https://user-images.githubusercontent.com/34311583/221439347-38e51a50-1d04-490a-a6e2-19582453630a.png">
-   <img alt="Preview Zoomed"
-      src="https://user-images.githubusercontent.com/34311583/221439347-38e51a50-1d04-490a-a6e2-19582453630a.png" />
-</a>
-<div align="center"><sup>1.2. Preview Options</sup></div>
-<br />
-<a target="_blank"
    href="https://user-images.githubusercontent.com/34311583/221439282-ac9e327e-e109-4559-a951-46b4c8d8f1c0.png">
-   <img alt="Preview Structure & Self Documentating"
+<img alt="Preview Structure & Self Documentating"
       src="https://user-images.githubusercontent.com/34311583/221439282-ac9e327e-e109-4559-a951-46b4c8d8f1c0.png" />
 </a>
-<div align="center"><sup>1.3. A WIP, but fairly structured and self-documenting</sup></div>
+
+<div align="center"><sup>Objective: A modern and structured config for an optimal modal text and code editing experience in any language.</sup></div>
+<br />
 <br />
 
 ### Quick and dirty demos
@@ -160,7 +141,7 @@ Just like most other neovim configurations, this one includes a collection of pl
 
 ## Disclaimer
 
-> Currently, this is rather my personal daily driver then a general-use product. Making it public was driven by colleagues and friends who were interested in getting a share of this config and then liked using it. Getting surprisingly positive feedback even from my grumpiest colleague, led me to believe that this configuration might well have utility for others. However, **it may never reach the level and support of a general-use project** and it's propagation will be limited to giving attributions in credits.
+> Currently, this is rather my personal daily driver then a general-use product. Making it public was driven by colleagues and friends who were interested in getting a share of this config and then liked using it. Getting surprisingly positive feedback even from my grumpiest colleague, led me to believe that this configuration might well have utility for others. However, **it may never reach the level and support of a general-use project**.
 
 <br>
 
