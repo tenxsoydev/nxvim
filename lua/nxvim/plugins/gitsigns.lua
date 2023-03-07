@@ -13,6 +13,9 @@ local config = {
 		changedelete = { text = "~" },
 		untracked = { text = "┆" },
 	},
+	preview_config = {
+		border = "rounded",
+	},
 }
 -- <== }
 
