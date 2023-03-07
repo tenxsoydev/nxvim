@@ -38,7 +38,7 @@
       src="https://user-images.githubusercontent.com/34311583/221439282-ac9e327e-e109-4559-a951-46b4c8d8f1c0.png" />
 </a>
 
-<div align="center"><sup>Objective: A modern and structured config for an optimal modal text and code editing experience in any language.</sup></div>
+<div align="center"><sub>Objective: A modern and structured config for an optimal modal text and code editing experience.</sub></div>
 <br />
 <br />
 
