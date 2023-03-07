@@ -84,7 +84,7 @@ config.mapping = {
 	-- ["<Tab>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
 	-- Use tab for codeium and it should fall back to cmp when it's inactive
 	["<Tab>"] = cmp.mapping(function(fallback)
-		if cmp.visible() and vim.g.codeium_enabled == 0 then
+		if cmp.visible() and vim.g.codeium_enabled ~= 1 then
 			cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
 		else
 			fallback()
