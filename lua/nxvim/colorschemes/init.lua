@@ -34,7 +34,7 @@ local function set_hl()
 		kitty_colors("dracula")
 		require("nxvim.colorschemes.dracula").set_hl()
 	elseif vim.g.colors_name == "tokyonight" then
-		kitty_colors("tokyo-night-storm")
+		kitty_colors("tokyonight_strom")
 		require("nxvim.colorschemes.tokyonight").set_hl()
 	end
 
