@@ -65,6 +65,9 @@
 
 ## Getting Started
 
+At present, first-hand instructions are only provided for Linux. However, the configuration runs on all platforms.
+Since there is not much wizardry involved and many of the steps are universal, following along on other platforms should be fairly straightforward.
+
 To prevent interferences with current Neovim files...
 
 ```sh
@@ -74,10 +77,16 @@ mv ~/.config/nvim ~/.config/nvim.bak && mv ~/.local/share/nvim ~/.local/share/nv
 rm -r ~/.config/nvim ~/.local/share/nvim
 ```
 
+Clone the repository into neovims `stdpath("config")`
+
+```sh
+git clone https://github.com/tenxsoydev/nxvim.git ~/.config/nvim
+```
+
 <details>
 <summary><h3>Dependencies <sub><sup>Click to expand...</sup></sub></h3></summary>
 
-The config runs on every platform. However, first-hand instructions can only be provided for Linux. Probably, most of the necessary components are already installed.
+Probably, most of the necessary components are already installed.
 
 1. neovim nightly (statuscol support)
    - <a target="_blank" href="https://github.com/MordechaiHadad/bob">bob</a> is a good way to keep the latest and/or nightly version up to date.
