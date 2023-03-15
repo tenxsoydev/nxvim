@@ -31,7 +31,6 @@ mason_lspconfig.setup_handlers({
 		-- Or add settings inline
 		-- use prettierd as formatter
 		if server == "jsonls" or "tsserver" then opts.init_options = { provideFormatter = false } end
-		if server == "nimlsp" then vim.g.nim_nep1 = 0 end
 		if server == "rust_analyzer" then goto continue end
 
 		lspconfig[server].setup(opts)
