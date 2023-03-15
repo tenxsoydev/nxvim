@@ -27,6 +27,7 @@ require("toggleterm").setup({
 	close_on_exit = false,
 	shell = vim.o.shell,
 	auto_scroll = false,
+	autochdir = true,
 	float_opts = {
 		border = "curved",
 		winblend = vim.o.winblend,
