@@ -37,6 +37,7 @@ local modules = {
 	{ "nvim-neo-tree/neo-tree.nvim", dependencies = "MunifTanjim/nui.nvim", config = "plugins.neo-tree" },
 	-- Terminal
 	{ "akinsho/toggleterm.nvim", event = "VeryLazy", config = "plugins.toggleterm" },
+	{ "willothy/flatten.nvim", priority = 100, config = "plugins.flatten" },
 	-- Notifications
 	-- { "rcarriga/nvim-notify", config = "plugins.notify" },
 	-- Comments
