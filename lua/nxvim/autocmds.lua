@@ -32,6 +32,16 @@ nx.au({
 	-- { "FileType", pattern = "markdown", callback = function() vim.wo.foldlevel = 99 end },
 	{ "FileType", pattern = "teal", once = true, command = "LspToggleAutoFormat silent" },
 	{ "FileType", pattern = "python", command = "setlocal noexpandtab ts=3 sw=3" },
+	{ { "BufNewFile", "BufRead" }, pattern = "*.v", command = "set filetype=v" },
+	{
+		"BufEnter",
+		callback = function()
+			vim.defer_fn(function()
+				if vim.g.diffview_open then return end
+				vim.o.foldmethod = "expr"
+			end, 100)
+		end,
+	},
 })
 
 -- Remember folds

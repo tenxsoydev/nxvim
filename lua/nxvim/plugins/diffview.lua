@@ -2,8 +2,6 @@ local diffview = require("diffview")
 
 -- { == Configuration ==> =====================================================
 
-local diffview_open = false
-
 local config = {
 	diff_binaries = false, -- Show diffs for binaries
 	enhanced_diff_hl = false, -- See ':h diffview-config-enhanced_diff_hl'
@@ -45,8 +43,8 @@ local config = {
 		DiffviewFileHistory = {},
 	},
 	hooks = {
-		view_opened = function() diffview_open = true end,
-		view_closed = function() diffview_open = false end,
+		view_opened = function() vim.g.diffview_open = true end,
+		view_closed = function() vim.g.diffview_open = false end,
 	},
 	key_bindings = {}, -- See Keymap section below
 }
@@ -93,7 +91,7 @@ end
 nx.cmd({
 	"DiffviewToggle",
 	function(e)
-		if diffview_open then
+		if vim.g.diffview_open then
 			vim.cmd("DiffviewClose")
 		else
 			vim.cmd("DiffviewOpen " .. e.args)
