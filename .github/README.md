@@ -49,7 +49,8 @@
 <br />
 <br />
 
-### Quick and dirty demos
+<details>
+<summary><h3>Quick and dirty demos <sub><sup>Click to expand...</sup></sub></h3></summary>
 
 - Candies that make a GUI-like TUI are animated auto window widths, dimming of unfocused windows and smooth scrolling.
 
@@ -62,6 +63,7 @@
   https://user-images.githubusercontent.com/34311583/218597463-c00e55e2-b29e-4c9c-8ef5-1764983e2a0b.mov
 
 <br>
+</details>
 
 ## Getting Started
 
