@@ -211,7 +211,7 @@ local modules = {
 	{ "tenxsoydev/size-matters.nvim", lazy = true },
 	{ "michaelb/sniprun", event = "VeryLazy", build = "bash ./install.sh", config = "plugins.sniprun" },
 	{ "levouh/tint.nvim", event = "VeryLazy", config = "plugins.tint" },
-	{ "luukvbaal/statuscol.nvim", config = "plugins.statuscol", commit = "c7df5578f84514b3837aeb6b0e2ee7dc95d70f89" },
+	{ "luukvbaal/statuscol.nvim", config = "plugins.statuscol" },
 	-- { "luukvbaal/statuscol.nvim", config = "plugins.statuscol" },
 	{ "andymass/vim-matchup", event = "VeryLazy", config = "plugins.matchup" }, -- highlight matching patterns and extend `%` navigation
 	{ "tpope/vim-repeat", event = "VeryLazy" },
