@@ -36,6 +36,9 @@ nx.au({
 	{ "FileType", pattern = "teal", once = true, command = "LspToggleAutoFormat silent" },
 	{ "FileType", pattern = "python", command = "setlocal noexpandtab ts=3 sw=3" },
 	{ { "BufNewFile", "BufRead" }, pattern = "*.v", command = "set filetype=v" },
+	-- The foldmethod set on bufenter seems to differ with the nvim version used.
+	-- Some plugins may change the foldmethod set as vim.o.foldmethod as well.
+	-- With this au we make sure the desired foldmethod for this config is set.
 	{
 		"BufEnter",
 		callback = function()
