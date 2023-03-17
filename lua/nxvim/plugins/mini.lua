@@ -31,6 +31,13 @@ local config = {
 		enable = false,
 	},
 }
+
+-- Occasionally mini.animate leaves a residue of virtualedit = "all". This ensures that it's removed.
+local config_ve = vim.o.virtualedit
+nx.au({
+	"BufEnter",
+	callback = function() vim.wo.virtualedit = config_ve end,
+})
 -- <== }
 
 if vim.g.nx_loaded_gui then config.cursor.enable = false end
