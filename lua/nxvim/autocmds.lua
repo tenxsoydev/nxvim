@@ -17,8 +17,11 @@ nx.au({
 		callback = function()
 			if vim.fn.line("$") > 3000 or vim.fn.getfsize(vim.fn.expand("%:p")) > 75000 then
 				local ft = vim.bo.ft
+				local buf_nr = vim.fn.bufnr()
 				vim.cmd("setlocal ft=")
-				vim.schedule(function() vim.cmd("setlocal ft=" .. ft) end)
+				vim.schedule(function()
+					if buf_nr == vim.fn.bufnr() then vim.cmd("setlocal ft=" .. ft) end
+				end)
 			end
 		end,
 	},
@@ -37,8 +40,7 @@ nx.au({
 		"BufEnter",
 		callback = function()
 			vim.defer_fn(function()
-				if vim.g.diffview_open then return end
-				vim.o.foldmethod = "expr"
+				if not vim.g.diffview_open then vim.o.foldmethod = "expr" end
 			end, 100)
 		end,
 	},
