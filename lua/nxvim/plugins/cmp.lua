@@ -28,14 +28,10 @@ local config = {
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
 		format = function(entry, item)
-			-- icons + names (if this is prefered it might be more attractive to change the `fields`)
-			-- item.kind = string.format("%s %s", icons[item.kind], item.kind)
-
-			-- icons only
+			item.menu = item.kind
 			item.kind = string.format("%s", icons[item.kind])
 			if entry.source.name == "cmp_tabnine" then item.kind = "󰛡" end
 			if entry.source.name == "copilot" then item.kind = "" end
-
 			return item
 		end,
 	},
