@@ -1,12 +1,12 @@
 The nxvim configuration as a whole is licensed under the GPLv3.
 (see LICENSE-GPL file)
 
-The custom parts written for this config are contributed under the terms
-of the Apache 2.0 license.
+In order to extend it's permissions, custom parts written for this 
+config are contributed under the terms of the Apache 2.0 license.
 
-This goes along with the license for modules of this config used in 
-combination being Apache 2.0 if all modules with licenses are removed 
-that result in the GPLv3 license becoming the common denominator.
+This goes along with the license of the combined modules becoming
+Apache 2.0 when all modules with licenses that make the GPLv3 the
+common denominator, are removed.
 
 ====
                                  Apache License
