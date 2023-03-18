@@ -27,16 +27,16 @@ local config = {
 	},
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
-		format = function(entry, vim_item)
-			-- icons only
-			vim_item.kind = string.format("%s", icons[vim_item.kind])
+		format = function(entry, item)
 			-- icons + names (if this is prefered it might be more attractive to change the `fields`)
-			-- vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
+			-- item.kind = string.format("%s %s", icons[item.kind], item.kind)
 
-			if entry.source.name == "cmp_tabnine" then vim_item.kind = "ﯟ" end
-			if entry.source.name == "copilot" then vim_item.kind = "" end
+			-- icons only
+			item.kind = string.format("%s", icons[item.kind])
+			if entry.source.name == "cmp_tabnine" then item.kind = "󰛡" end
+			if entry.source.name == "copilot" then item.kind = "" end
 
-			return vim_item
+			return item
 		end,
 	},
 	window = {
