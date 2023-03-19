@@ -171,8 +171,6 @@ local config = {
 					require("neo-tree.sources.manager").refresh(state.name)
 				end)
 			end,
-			-- move_cursor_up = function(state) require("neo-tree.ui.renderer").focus_node(state, nil, true, 1, 3) end,
-			-- move_cursor_down = function(state) require("neo-tree.ui.renderer").focus_node(state, nil, true, -1, 3) end,
 		},
 	},
 	buffers = {
@@ -273,15 +271,14 @@ config.filesystem.window.mappings = {
 	["<C-i>"] = "fuzzy_finder",
 	["<C-/>"] = "fuzzy_finder",
 	["D"] = "fuzzy_finder_directory",
+	["#"] = "fuzzy_sorter",
 	["f"] = "filter_on_submit",
 	["<C-f>"] = "filter_on_submit",
 	["<c-x>"] = "clear_filter",
 	["[g"] = "prev_git_modified",
 	["]g"] = "next_git_modified",
 	["o"] = "system_open",
-	-- ["<C-j>"] = "move_cursor_up",
-	-- ["<C-k>"] = "move_cursor_up",
-	["/"] = "none",
+	["/"] = "none", -- use neovim default search
 }
 
 config.git_status.window.mappings = {
@@ -311,15 +308,27 @@ nx.au({
 	"FileType",
 	pattern = "neo-tree-popup",
 	callback = function()
-		vim.schedule(
-			function()
-				nx.map({
-					{ "<Esc>", "<Esc>", "i" },
-					{ "q", "<Cmd>q!<CR>" },
-					{ "<C-c>", "<Cmd>q!<CR>" },
-				}, { buffer = 0 })
-			end
-		)
+		vim.schedule(function()
+			nx.map({
+				{ "q", "<Cmd>q!<CR>" },
+				{ "<C-c>", "<Cmd>q!<CR>" },
+				{ "<Esc>", "<Esc>", "i" },
+				{
+					"<C-j>",
+					function()
+						vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, false, true), "i", false)
+					end,
+					"i",
+				},
+				{
+					"<C-k>",
+					function()
+						vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-p>", true, false, true), "i", false)
+					end,
+					"i",
+				},
+			}, { buffer = 0 })
+		end)
 	end,
 })
 -- <== }
