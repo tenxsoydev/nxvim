@@ -32,6 +32,9 @@ local config = {
 	},
 }
 
+if vim.g.nx_loaded_gui then config.cursor.enable = false end
+animate.setup(config)
+
 -- Occasionally mini.animate leaves a residue of virtualedit = "all". This ensures that it's removed.
 local config_ve = vim.o.virtualedit
 nx.au({
@@ -40,9 +43,6 @@ nx.au({
 })
 -- <== }
 
-if vim.g.nx_loaded_gui then config.cursor.enable = false end
-
-animate.setup(config)
 
 -- { == Bufremove ==> =========================================================
 
@@ -70,4 +70,6 @@ require("mini.move").setup({
 -- { == Trailspace ==> ========================================================
 
 require("mini.trailspace").setup()
+
+nx.hl({"MiniTrailspace", link = "DiagnosticUnderlineHint"})
 -- <== }
