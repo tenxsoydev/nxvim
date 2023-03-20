@@ -194,7 +194,7 @@ local modules = {
 	{ "max397574/better-escape.nvim", event = "InsertEnter", config = "plugins.better-escape" }, -- remove delay from escape keys while typing in insert mode
 	{ "nat-418/boole.nvim", event = "VeryLazy", config = "plugins.boole" }, -- extend increment / decrement to cycle through related words
 	{ "stevearc/dressing.nvim", event = "VeryLazy", config = "plugins.dressing" },
-	{ "NMAC427/guess-indent.nvim", event = "VeryLazy", config = "guess-indent" },
+	{ "NMAC427/guess-indent.nvim", event = "VeryLazy", config = true },
 	{ "phaazon/hop.nvim", event = "VeryLazy", config = "plugins.hop" },
 	{ "kevinhwang91/nvim-hlslens", event = "VeryLazy", config = "plugins.hlslens" },
 	{ "edluffy/hologram.nvim", event = "VeryLazy" },
