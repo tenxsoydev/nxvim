@@ -67,6 +67,7 @@ function M.set_hl()
 		{ "DraculaLightGrey", fg = M.palette.light_grey },
 		-- fix bluish dirs + don't use bold
 		{ { "Directory", "MarkSignHl" }, link = "DraculaPurple" },
+		{ "mkdListItemCheckbox", link = "Todo" },
 
 		-- Borders
 		{ "FloatBorder", link = "SignColumn" },
