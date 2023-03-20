@@ -212,7 +212,7 @@ local modules = {
 	{ "michaelb/sniprun", event = "VeryLazy", build = "bash ./install.sh", config = "plugins.sniprun" },
 	{ "levouh/tint.nvim", event = "VeryLazy", config = "plugins.tint" },
 	{ "luukvbaal/statuscol.nvim", config = "plugins.statuscol" },
-	-- { "luukvbaal/statuscol.nvim", config = "plugins.statuscol" },
+	{ "tenxsoydev/tabs-vs-spaces.nvim", config = true },
 	{ "andymass/vim-matchup", event = "VeryLazy", config = "plugins.matchup" }, -- highlight matching patterns and extend `%` navigation
 	{ "tpope/vim-repeat", event = "VeryLazy" },
 	{ "tpope/vim-surround", event = "VeryLazy" },
