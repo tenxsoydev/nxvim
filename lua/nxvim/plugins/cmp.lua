@@ -32,7 +32,7 @@ local config = {
 			item.menu = item.kind
 
 			local icon = icons[item.kind]
-			if entry.source.name == "cmp_tabnine" then icon = "󰛡" end
+			if entry.source.name == "cmp_tabnine" then icon = "⌬" end
 			if entry.source.name == "copilot" then icon = "" end
 			item.kind = icon
 
