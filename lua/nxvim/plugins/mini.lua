@@ -43,7 +43,6 @@ nx.au({
 })
 -- <== }
 
-
 -- { == Bufremove ==> =========================================================
 
 require("mini.bufremove").setup()
@@ -71,5 +70,5 @@ require("mini.move").setup({
 
 require("mini.trailspace").setup()
 
-nx.hl({"MiniTrailspace", link = "DiagnosticUnderlineHint"})
+nx.hl({ "MiniTrailspace", link = "DiagnosticUnderlineHint" })
 -- <== }
