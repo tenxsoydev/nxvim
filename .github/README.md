@@ -37,7 +37,7 @@
 
 <br>
 
-- Coding completions, writing aids, a command-palette with error tolerant typehead for commands, settings & variables.
+- Coding completions; writing aids; a command-palette with error tolerant typehead completion for commands settings and variables.
 
   https://user-images.githubusercontent.com/34311583/218597463-c00e55e2-b29e-4c9c-8ef5-1764983e2a0b.mov
 
