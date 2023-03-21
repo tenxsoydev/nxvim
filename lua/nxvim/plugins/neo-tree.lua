@@ -207,6 +207,7 @@ config.window.mappings = {
 	["a"] = "add",
 	["A"] = "add_directory",
 	["d"] = "delete",
+	["<Del>"] = "delete",
 	["r"] = "rename",
 	["<F2>"] = "rename",
 	["y"] = "copy_to_clipboard",
