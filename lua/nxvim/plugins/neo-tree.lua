@@ -7,21 +7,14 @@ vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 -- { == Configuration ==> =====================================================
 
 local config = {
-	close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
+	close_if_last_window = false,
 	popup_border_style = "rounded",
 	enable_git_status = true,
 	enable_diagnostics = true,
-	sort_case_insensitive = false, -- used when sorting files and directories in the tree
-	sort_function = nil, -- use a custom function for sorting files and directories in the tree
-	-- sort_function = function (a,b)
-	--       if a.type == b.type then
-	--           return a.path > b.path
-	--       else
-	--           return a.type > b.type
-	--       end
-	--   end , -- this sorts files and directories descendantly
-	hide_root_node = true, -- Hide the root node.
-	retain_hidden_root_indent = false, -- IF the root node is hidden, keep the indentation anyhow.
+	sort_case_insensitive = false,
+	sort_function = nil,
+	hide_root_node = true,
+	retain_hidden_root_indent = false,
 	source_selector = {
 		winbar = true,
 		statusline = false,
@@ -71,19 +64,10 @@ local config = {
 		},
 		git_status = {
 			symbols = {
-				-- Change type
 				added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
 				modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
-				-- deleted   = "✖", -- this can only be used in the git_status source
-				-- renamed   = "", -- this can only be used in the git_status source
-				-- Status type
-				-- untracked = "",
-				-- ignored   = "",
-				-- unstaged  = "",
-				-- staged    = "",
-				-- conflict  = "",
-				deleted = "", -- this can only be used in the git_status source
-				renamed = "", -- this can only be used in the git_status source
+				deleted = "",
+				renamed = "",
 				untracked = "",
 				ignored = "",
 				unstaged = "祿",
@@ -99,7 +83,7 @@ local config = {
 			noremap = true,
 			nowait = true,
 		},
-		mappings = {},
+		mappings = {}, -- See keymaps section below
 	},
 	nesting_rules = {},
 	filesystem = {
@@ -118,25 +102,16 @@ local config = {
 				--"thumbs.db"
 			},
 		},
-		follow_current_file = true, -- This will find and focus the file in the active buffer every
-		-- time the current file is changed while the tree is open.
-		group_empty_dirs = false, -- when true, empty folders will be grouped together
-		hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
-		-- in whatever position is specified in window.position
-		-- "open_current",  -- netrw disabled, opening a directory opens within the
-		-- window like netrw would, regardless of window.position
-		-- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
-		use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
-		-- instead of relying on nvim autocmd events.
-		window = {
-			mappings = {},
-		},
+		follow_current_file = true,
+		group_empty_dirs = false,
+		hijack_netrw_behavior = "open_default",
+		use_libuv_file_watcher = false,
 		commands = {
 			system_open = function(state)
 				local node = state.tree:get_node()
 				vim.cmd("silent execute '!xdg-open " .. node.path .. "'")
 			end,
-			-- Override delete to use trash instead of rm
+			-- Overwrite default `delete` commands to use trash instead of rm
 			delete = function(state)
 				local inputs = require("neo-tree.ui.inputs")
 				local path = state.tree:get_node().path
@@ -148,10 +123,8 @@ local config = {
 					require("neo-tree.sources.manager").refresh(state.name)
 				end)
 			end,
-			-- over write default 'delete_visual' command to 'trash' x n.
 			delete_visual = function(state, selected_nodes)
 				local inputs = require("neo-tree.ui.inputs")
-
 				-- get table items count
 				function GetTableLen(tbl)
 					local len = 0
@@ -160,7 +133,6 @@ local config = {
 					end
 					return len
 				end
-
 				local count = GetTableLen(selected_nodes)
 				local msg = "Are you sure you want to trash " .. count .. " files ?"
 				inputs.confirm(msg, function(confirmed)
@@ -172,22 +144,19 @@ local config = {
 				end)
 			end,
 		},
+		window = {
+			mappings = {}, -- See keymaps section below
+		},
 	},
 	buffers = {
-		follow_current_file = true, -- This will find and focus the file in the active buffer every
-		-- time the current file is changed while the tree is open.
+		follow_current_file = true,
 		group_empty_dirs = true, -- when true, empty folders will be grouped together
 		show_unloaded = true,
-	},
-	-- This will use your global notify config by default
-	notifications = {
-		render = nil, -- "default" | "minimal"
-		timeout = nil, -- time in ms
 	},
 	git_status = {
 		window = {
 			position = "float",
-			mappings = {},
+			mappings = {}, -- See keymaps section below
 		},
 	},
 	event_handlers = {},
@@ -227,8 +196,6 @@ config.window.mappings = {
 	["l"] = "open",
 	["s"] = "open_split",
 	["v"] = "open_vsplit",
-	-- ["S"] = "split_with_window_picker",
-	-- ["s"] = "vsplit_with_window_picker",
 	["t"] = "open_tabnew",
 	["w"] = "open_with_window_picker",
 	["C"] = "close_node",
@@ -236,28 +203,17 @@ config.window.mappings = {
 	["z"] = "close_all_nodes",
 	["Z"] = "expand_all_nodes",
 	["gp"] = "focus_preview",
-	["a"] = {
-		"add",
-		-- some commands may take optional config options, see `:h neo-tree-mappings` for details
-		config = {
-			show_path = "none", -- "none", "relative", "absolute"
-		},
-	},
-	["A"] = "add_directory", -- also accepts the optional config.show_path option like "add".
+	-- some commands like `add`, `copy`, `move` etc. can take config options, see `:h neo-tree-mappings` for details
+	["a"] = "add",
+	["A"] = "add_directory",
 	["d"] = "delete",
 	["r"] = "rename",
 	["<F2>"] = "rename",
 	["y"] = "copy_to_clipboard",
 	["x"] = "cut_to_clipboard",
 	["p"] = "paste_from_clipboard",
-	["c"] = "copy", -- takes text input for destination, also accepts the optional config.show_path option like "add":
-	-- ["c"] = {
-	--  "copy",
-	--  config = {
-	--    show_path = "none" -- "none", "relative", "absolute"
-	--  }
-	--}
-	["m"] = "move", -- takes text input for destination, also accepts the optional config.show_path option like "add".
+	["c"] = "copy",
+	["m"] = "move",
 	["q"] = "close_window",
 	["R"] = "refresh",
 	["?"] = "show_help",
@@ -313,20 +269,10 @@ nx.au({
 				{ "q", "<Cmd>q!<CR>" },
 				{ "<C-c>", "<Cmd>q!<CR>" },
 				{ "<Esc>", "<Esc>", "i" },
-				{
-					"<C-j>",
-					function()
-						vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, false, true), "i", false)
-					end,
-					"i",
-				},
-				{
-					"<C-k>",
-					function()
-						vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-p>", true, false, true), "i", false)
-					end,
-					"i",
-				},
+				-- stylua: ignore
+				{ "<C-j>", function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, false, true), "i", false) end, "i" },
+				-- stylua: ignore
+				{ "<C-k>", function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-p>", true, false, true), "i", false) end, "i" },
 			}, { buffer = 0 })
 		end)
 	end,
@@ -359,7 +305,6 @@ local function set_hls()
 			{ "NeoTreeTabActive", link = "NeoTreeNormal" },
 			{ "NeoTreeTabInactive", fg = "NeoTreeDimText:fg", bg = "TabLine:bg" },
 			{ "NeoTreeTabSeparatorInactive", fg = "TabLine:bg", bg = "TabLine:bg" },
-			-- { "NeoTreeTabSeparatorActive", fg = "BufferlineSeparatorSelected:fg", bg = "Normal:bg" },
 		})
 	end
 end
