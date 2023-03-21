@@ -5,6 +5,10 @@ mason_lspconfig.setup()
 
 local lspconfig = require("lspconfig")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.foldingRange = {
+	dynamicRegistration = false,
+	lineFoldingOnly = true,
+}
 
 local cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if cmp_ok then

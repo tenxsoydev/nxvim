@@ -36,46 +36,19 @@ nx.au({
 	{ "FileType", pattern = "teal", once = true, command = "LspToggleAutoFormat silent" },
 	{ "FileType", pattern = "python", command = "setlocal noexpandtab ts=3 sw=3" },
 	{ { "BufNewFile", "BufRead" }, pattern = "*.v", command = "set filetype=v" },
-	-- The foldmethod set on bufenter seems to differ with the nvim version used.
-	-- Some plugins may change the foldmethod set as vim.o.foldmethod as well.
-	-- With this au we make sure the desired foldmethod for this config is set.
-	{
-		"BufEnter",
-		callback = function()
-			vim.defer_fn(function()
-				if not vim.g.diffview_open then vim.o.foldmethod = "expr" end
-			end, 100)
-		end,
-	},
 })
 
 -- Remember folds
 nx.au({
-	{
-		"BufWinLeave",
-		pattern = "*.*",
-		callback = function()
-			if not vim.bo.filetype:match("saga") then vim.cmd("mkview") end
-		end,
-	},
-	{
-		"BufWinEnter",
-		pattern = "*.*",
-		callback = function()
-			if not vim.bo.filetype:match("saga") then vim.cmd("silent! loadview") end
-		end,
-	},
+	{ "BufWinLeave", pattern = "*.*", callback = function() vim.cmd("mkview") end },
+	{ "BufWinEnter", pattern = "*.*", callback = function() vim.cmd("silent! loadview") end },
 }, { create_group = "RememberFolds" })
 
 -- Sync marks accross sessions
 nx.au({
 	{ "FocusLost", command = "wshada!" },
-	{
-		{ "FocusGained", "UIEnter" },
-		callback = function()
-			vim.schedule(function() vim.cmd("rshada") end)
-		end,
-	},
+	-- stylua: ignore
+	{ { "FocusGained", "UIEnter" }, callback = function() vim.schedule(function() vim.cmd("rshada") end) end },
 }, { create_group = "SyncMarks" })
 -- <== }
 

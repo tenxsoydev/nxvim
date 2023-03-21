@@ -203,15 +203,15 @@ local modules = {
 	{ "windwp/nvim-autopairs", event = "VeryLazy", config = "plugins.autopairs" },
 	{ "NvChad/nvim-colorizer.lua", event = "VeryLazy", config = "plugins.colorizer" },
 	{ "windwp/nvim-spectre", event = "VeryLazy", config = "plugins.spectre" },
+	{ "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async", config = "plugins.ufo" },
 	"nvim-tree/nvim-web-devicons",
 	{ "tobealive/nvim-window-picker", event = "VeryLazy", branch = "nvim-set-hl", config = "plugins.window-picker" }, -- temp fork of window-picker
 	-- { "s1n7ax/nvim-window-picker", config = "plugins.window-picker" }, -- temp fork of window-picker
 	"nvim-lua/plenary.nvim",
-	{ "anuvyklack/pretty-fold.nvim", event = "VeryLazy", config = "plugins.pretty-fold" },
 	{ "tenxsoydev/size-matters.nvim", lazy = true },
 	{ "michaelb/sniprun", event = "VeryLazy", build = "bash ./install.sh", config = "plugins.sniprun" },
-	{ "levouh/tint.nvim", event = "VeryLazy", config = "plugins.tint" },
 	{ "luukvbaal/statuscol.nvim", config = "plugins.statuscol" },
+	{ "levouh/tint.nvim", event = "VeryLazy", config = "plugins.tint" },
 	{ "tenxsoydev/tabs-vs-spaces.nvim", config = true },
 	{ "andymass/vim-matchup", event = "VeryLazy", config = "plugins.matchup" }, -- highlight matching patterns and extend `%` navigation
 	{ "tpope/vim-repeat", event = "VeryLazy" },

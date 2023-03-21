@@ -48,8 +48,6 @@ nx.set({
 	foldlevel = 99,
 	foldlevelstart = 99,
 	foldcolumn = "1",
-	foldmethod = "expr",
-	foldexpr = "nvim_treesitter#foldexpr()",
 	-- Indentation
 	expandtab = false, -- do not convert tabs to spaces
 	smartindent = true, -- smart auto indenting when starting a new line
@@ -73,5 +71,3 @@ require("nxvim.client").load_opts()
 -- laststatus = 3, -- global statusline
 -- with a global statusline some fillchars might be off when using thinner vertical this tries to give a decent result
 -- fillchars__append = [[eob: ,vert:▏,vertright:▏,vertleft:▏,horiz:┈]],
--- foldlevel = 99,
--- foldlevelstart = 99,
