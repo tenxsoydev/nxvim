@@ -24,17 +24,22 @@ mason_lspconfig.setup_handlers({
 			on_attach = on_attach,
 		}
 
+		-- Handled by rust-tools
+		if server == "rust_analyzer" then goto continue end
+
 		-- Insert server settings from settings file if present
 		local server_settings_ok, server_settings = pcall(require, "nxvim.lsp.settings." .. server)
 		if server_settings_ok then opts = vim.tbl_deep_extend("keep", server_settings, opts) end
 
 		-- Or add settings inline
+		--
+		-- The provideFormatter setting below triggers for gopls when it shouldn't, therefore we continue from here.
+		if server == "gopls" then goto setup end
 		-- use prettierd as formatter
 		if server == "jsonls" or "tsserver" then opts.init_options = { provideFormatter = false } end
-		if server == "rust_analyzer" then goto continue end
 
+		::setup::
 		lspconfig[server].setup(opts)
-
 		::continue::
 	end,
 })
