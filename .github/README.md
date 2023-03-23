@@ -117,7 +117,10 @@ Launch `nvim` and let lazy do it's magic, loading all modules used in this confi
 
 **Note on Performance**
 
-- On low-spec systems, performance can be improved by changing `animation.fps = 30 -- instead of 60` in `plugins/windows.lua` and - in case of using terminals with font ligature rendering support - disabling them (e.g. with kitty: by adding `disable_ligatures always` to your `kitty.conf`)
+- On low-spec systems, performance can be improved
+  - Disable font ligature rendering (e.g. with kitty: add `disable_ligatures always` to `kitty.conf`)
+  - Change `animation.fps = 30 -- instead of 60` in `plugins/windows.lua`.
+
 </details>
 
 <br>
