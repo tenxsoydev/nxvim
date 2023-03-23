@@ -165,22 +165,40 @@ local config = {
 
 -- { == Events ==> ============================================================
 
+local neo_tree_win = {
+	id = -1,
+	width = -1,
+}
+
 config.event_handlers = {
 	{
 		event = "neo_tree_window_after_open",
-		handler = function(arg)
-			if require("nxvim.plugins.windows").auto_maximize and vim.fn.win_gettype(arg.winid) ~= "popup" then
-				vim.api.nvim_win_set_width(arg.winid, config.window.width)
+		handler = function(args) -- `h: neo-tree-window-event-args`
+			if require("nxvim.plugins.windows").auto_maximize and vim.fn.win_gettype(args.winid) ~= "popup" then
+				vim.api.nvim_win_set_width(args.winid, config.window.width)
 			end
+			neo_tree_win.id = args.winid
+			neo_tree_win.width = vim.api.nvim_win_get_width(args.winid)
 		end,
 	},
 	{
 		event = "neo_tree_window_after_close",
 		handler = function()
 			if require("nxvim.plugins.windows").auto_maximize then vim.cmd("WindowsMaximize") end
+			neo_tree_win.id = -1
 		end,
 	},
 }
+
+-- Preserve size of neo-tree when using bufresize.nvim
+nx.au({
+	"VimResized",
+	callback = function()
+		if vim.api.nvim_win_is_valid(neo_tree_win.id) then
+			vim.schedule(function() vim.api.nvim_win_set_width(neo_tree_win.id, neo_tree_win.width) end)
+		end
+	end,
+})
 -- <== }
 
 -- { == Keymaps ==> ===========================================================
