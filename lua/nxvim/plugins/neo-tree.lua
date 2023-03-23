@@ -190,14 +190,23 @@ config.event_handlers = {
 	},
 }
 
--- Preserve size of neo-tree when using bufresize.nvim
 nx.au({
-	"VimResized",
-	callback = function()
-		if vim.api.nvim_win_is_valid(neo_tree_win.id) then
-			vim.schedule(function() vim.api.nvim_win_set_width(neo_tree_win.id, neo_tree_win.width) end)
-		end
-	end,
+	{ -- Preserve size of neo-tree when using bufresize.nvim
+		"VimResized",
+		callback = function()
+			if vim.api.nvim_win_is_valid(neo_tree_win.id) then
+				vim.schedule(function() vim.api.nvim_win_set_width(neo_tree_win.id, neo_tree_win.width) end)
+			end
+		end,
+	},
+	{
+		"WinResized",
+		callback = function()
+			if vim.api.nvim_win_is_valid(neo_tree_win.id) then
+				neo_tree_win.width = vim.api.nvim_win_get_width(neo_tree_win.id)
+			end
+		end,
+	},
 })
 -- <== }
 
