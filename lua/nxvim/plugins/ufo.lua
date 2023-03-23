@@ -6,7 +6,7 @@ local ufo = require("ufo")
 
 local ft = {
 	vim = "indent",
-	python = "indent",
+	python = { "indent" },
 }
 
 local ignored_filetypes = { "markdown", "git", "NeogitStatus" }
@@ -58,3 +58,5 @@ nx.au({
 	end,
 })
 -- <== }
+
+nx.hl({ "Folded", bg = "DraculaBgLight:bg" })
