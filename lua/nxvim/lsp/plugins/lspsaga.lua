@@ -87,45 +87,6 @@ function M.set_hl()
 	elseif vim.g.colors_name == "tokyonight" then
 		nx.hl({ "LspSagaWinbarFile", link = "NeoTreeGitRenamed" })
 	end
-
-	--[[ local symbols = {
-		"File",
-		"Module",
-		"Namespace",
-		"Package",
-		"Class",
-		"Method",
-		"Property",
-		"Field",
-		"Constructor",
-		"Enum",
-		"Interface",
-		"Function",
-		"Variable",
-		"Constant",
-		"String",
-		"Number",
-		"Boolean",
-		"Array",
-		"Object",
-		"Key",
-		"Null",
-		"EnumMember",
-		"Struct",
-		"Event",
-		"Operator",
-		"TypeParameter",
-		"TypeAlias",
-		"Parameter",
-		"StaticMethod",
-		"Macro",
-	}
-
-	hl(0, "LspSagaWinbarObject", { link = "Comment" })
-	for _, symbol in pairs(symbols) do
-		local prefix = "LspSagaWinbar"
-		hl(0, prefix .. symbol, { link = "LspSagaWinbarFile" })
-	end ]]
 end
 -- <== }
 
