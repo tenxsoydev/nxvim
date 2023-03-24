@@ -45,17 +45,20 @@ function M.on_attach(_, bufnr)
 		{ "gp", "<Cmd>Lspsaga peek_definition<CR>", desc = "Peek Definition" },
 		{ "gd", "<cmd>Lspsaga goto_definition<CR>" },
 		{ "gr", "<Cmd>Lspsaga lsp_finder<CR>", desc = "Show References" },
+		-- { "<leader>gl", "<cmd>Lspsaga show_line_diagnostics<CR>" },
+		-- { "<leader>gL", "<cmd>Lspsaga show_cursor_diagnostics<CR>" },
+		-- Use default vim.lsp.buf.rename() with dressing for now
+		-- { "<F2>", "<Cmd>Lspsaga rename<CR>", { "i", "n" }, desc = "Rename" },
+		{ "<F12>", "<Cmd>Lspsaga lsp_finder<CR>", desc = "Show References" },
+		{ "<leader>lr", "<Cmd>Lspsaga lsp_finder<CR>", desc = "Show References" },
 		{ "<leader>ld", "<Cmd>Lspsaga peek_definition<CR>", desc = "Peek definition" },
 		{ "<leader>lo", "<Cmd>Lspsaga outline<CR>", desc = "Toggle Symbols Outline" },
 		{ "<leader>to", "<Cmd>Lspsaga outline<CR>", desc = "Toggle Symbols Outline", wk_label = "Outline Symbols" },
 		{ "<leader>dj", "<Cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Next Diagnostic" },
 		{ "<leader>dk", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Previous Diagnostic" },
 		{ "<leader>la", "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" },
-		{ "<C-.>", "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" }, -- works in kitty and GUIs
-		-- { "<leader>.", "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" },
-		{ "<F12>", "<Cmd>Lspsaga lsp_finder<CR>", desc = "Show References" },
-		-- Use default lsprename with dressing for now
-		-- { "<F2>", "<Cmd>Lspsaga rename<CR>", { "i", "n" }, desc = "Rename" },
+		{ "<leader>.", "<Cmd>Lspsaga code_action<CR>", desc = "Code Action", wk_label = "ignore" },
+		-- { "<C-.>", "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" }, -- works in kitty and GUIs
 	}, { buffer = bufnr })
 
 	nx.map({

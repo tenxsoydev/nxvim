@@ -88,8 +88,8 @@ function M.on_attach(_, bufnr)
 		{ "K", vim.lsp.buf.hover, desc = "LSP Hover" },
 		{ "gh", vim.lsp.buf.signature_help, desc = "Signatrue Help" },
 		-- Use mostly saga
-		-- { "gd", vim.lsp.buf.definition, desc = "Go to Definition" },
 		-- { "<C-.>", vim.lsp.buf.code_action, desc = "Code action" },
+		-- { "gd", vim.lsp.buf.definition, desc = "Go to Definition" },
 		-- { "gD", vim.lsp.buf.declaration, desc = "Goto declaration" },
 		-- { "<leader>lr", vim.lsp.buf.references, desc = "List References" },
 		-- { "<F11>", vim.lsp.buf.references, desc = "List References" },
@@ -119,8 +119,9 @@ function M.on_attach(_, bufnr)
 		{ "<leader>lS", "<Cmd>Telescope lsp_dynamic_workspace_symbols<CR>", desc = "Workspace Symbols" },
 
 		-- Keymaps for user commands
-		{ "<leader>fF", "<Cmd>LspFormat<CR>", desc = "Format Buffer" },
-		{ "<leader>tF", "<Cmd>LspToggleAutoFormat<CR>", desc = "Toggle Format on Save", wk_label = "Format on Save" },
+		{ { "<leader>ff", "<leader>lf" }, "<Cmd>LspFormat<CR>", desc = "Format Buffer" },
+		-- stylua: ignore
+		{ { "<leader>tF", "<leader>lF" }, "<Cmd>LspToggleAutoFormat<CR>", desc = "Toggle Format on Save", wk_label = "Format on Save" },
 	}, { buffer = bufnr })
 end
 -- <== }

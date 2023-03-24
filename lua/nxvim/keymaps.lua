@@ -186,8 +186,8 @@ nx.map({
 	{ { "<S-F4>", "<F16>" }, "<Cmd>set ts+=1 sw=0 ts?<CR>", desc = "Increase Indentation Width" },
 	{
 		"<F6>",
-		function() vim.notify("Filetype: " .. vim.bo.filetype) end,
-		desc = "Print Filetype",
+		function() vim.notify(string.format("Filetype: %s, Buftype: %s", vim.bo.filetype, vim.bo.buftype)) end,
+		desc = "Print File- and Buffertype",
 	},
 	{
 		{ "<C-F5>", "<F29>" },
