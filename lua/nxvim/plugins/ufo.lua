@@ -6,6 +6,7 @@ local ufo = require("ufo")
 
 local ft = {
 	vim = "indent",
+	v = "indent",
 	python = { "indent" },
 }
 
