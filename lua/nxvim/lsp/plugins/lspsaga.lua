@@ -57,8 +57,7 @@ function M.on_attach(_, bufnr)
 		{ "<leader>dj", "<Cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Next Diagnostic" },
 		{ "<leader>dk", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Previous Diagnostic" },
 		{ "<leader>la", "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" },
-		{ "<leader>.", "<Cmd>Lspsaga code_action<CR>", desc = "Code Action", wk_label = "ignore" },
-		-- { "<C-.>", "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" }, -- works in kitty and GUIs
+		{ { "<C-.>", "<A-.>" }, "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" }, -- <C-.> works in kitty and GUIs
 	}, { buffer = bufnr })
 
 	nx.map({
