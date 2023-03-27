@@ -6,6 +6,18 @@ local fmt = null_ls.builtins.formatting
 -- local ca = null_ls.builtins.code_actions
 -- local cmp = null_ls.builtins.completion.spell,
 
+
+null_ls.register({
+	name = "vfmt",
+	method = null_ls.methods.FORMATTING,
+	filetypes = { "v", "vlang" },
+	generator = null_ls.formatter({
+		command = "v",
+		args = { "fmt", "-w", "$FILENAME" },
+		to_temp_file = true,
+	}),
+})
+
 -- { == Configuration ==> =====================================================
 
 null_ls.setup({

@@ -41,7 +41,10 @@ mason_lspconfig.setup_handlers({
 		if server == "gopls" then goto setup end
 		-- use prettierd as formatter
 		if server == "jsonls" or "tsserver" then opts.init_options = { provideFormatter = false } end
-		if server == "vls" then capabilities.textDocument.foldingRange = nil end
+		if server == "vls" then
+			opts.init_options = { provideFormatter = false }
+			capabilities.textDocument.foldingRange = nil
+		end
 
 		::setup::
 		lspconfig[server].setup(opts)
