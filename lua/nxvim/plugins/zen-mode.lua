@@ -16,6 +16,12 @@ zen_mode.setup({
 		vim.g.zen_mode = true
 		vim.o.laststatus = 3
 		vim.wo.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:›,vert:▏]]
+		nx.map({
+			{ "<C-h>", "<C-h>" },
+			{ "<C-j>", "<C-j>" },
+			{ "<C-k>", "<C-k>" },
+			{ "<C-l>", "<C-l>" },
+		})
 		--[[ if not vim.g.neovide then return end
 		vim.g.neovide_floating_blur = 1
 		vim.g.neovide_floating_opacity = 0.98 ]]
@@ -23,6 +29,7 @@ zen_mode.setup({
 	on_close = function()
 		vim.g.zen_mode = nil
 		vim.o.laststatus = 2
+		require("nxvim.plugins.smart-splits").set_maps()
 		--[[ if not vim.g.neovide then return end
 		vim.g.neovide_floating_opacity = 0.8
 		vim.g.neovide_floating_blur = 0.9 ]]
@@ -35,9 +42,5 @@ zen_mode.setup({
 nx.map({
 	{ "<leader>z", "<Cmd>ZenMode<CR>", desc = "Toggle Zen Mode", wk_label = "Zen Mode" },
 	{ "<C-z>", "<Cmd>ZenMode<CR>", desc = "Toggle Zen Mode" },
-	{ "<C-h>", "<C-h>" },
-	{ "<C-j>", "<C-j>" },
-	{ "<C-k>", "<C-k>" },
-	{ "<C-l>", "<C-l>" },
 })
 -- <== }
