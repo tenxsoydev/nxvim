@@ -6,7 +6,6 @@ local fmt = null_ls.builtins.formatting
 -- local ca = null_ls.builtins.code_actions
 -- local cmp = null_ls.builtins.completion.spell,
 
-
 null_ls.register({
 	name = "vfmt",
 	method = null_ls.methods.FORMATTING,
