@@ -10,7 +10,7 @@ zen_mode.setup({
 			string.match(vim.o.signcolumn, "%d+")
 		), ]]
 		width = 126,
-		height = function() return vim.fn.winheight(0) + 3 end, -- height of the Zen window
+		height = function() return vim.fn.winheight(0) + (vim.fn.has("nvim-0.9.0") == 1 and 3 or 1) end,
 	},
 	on_open = function()
 		vim.g.zen_mode = true
