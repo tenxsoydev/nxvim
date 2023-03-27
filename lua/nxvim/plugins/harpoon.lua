@@ -12,7 +12,8 @@ nx.map({
 	{ "mh2", function() harpoon_ui.nav_file(2) end, desc = "Go to Harpoon #2" },
 	{ "mh3", function() harpoon_ui.nav_file(3) end, desc = "Go to Harpoon #3" },
 	{ "mh4", function() harpoon_ui.nav_file(4) end, desc = "Go to Harpoon #4" },
-	{ "mha", function() require("harpoon.mark").add_file() end, desc = "Harpoon Current File" },
+	-- stylua: ignore
+	{ "mha", function() require("harpoon.mark").add_file() end, desc = "Harpoon Current File", wk_label =  "Add Current File" },
 }, { wk_label = { sub_desc = "Harpoon[s]?" } })
 
 nx.map({
