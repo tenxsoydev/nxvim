@@ -190,24 +190,24 @@ config.event_handlers = {
 	},
 }
 
-nx.au({
-	{ -- Preserve size of neo-tree when using bufresize.nvim
-		"VimResized",
-		callback = function()
-			if vim.api.nvim_win_is_valid(neo_tree_win.id) then
-				vim.schedule(function() vim.api.nvim_win_set_width(neo_tree_win.id, neo_tree_win.width) end)
-			end
-		end,
-	},
-	{
+nx.au({ -- Preserve size of neo-tree when using bufresize.nvim
+	"VimResized",
+	callback = function()
+		if vim.api.nvim_win_is_valid(neo_tree_win.id) then
+			vim.schedule(function() vim.api.nvim_win_set_width(neo_tree_win.id, neo_tree_win.width) end)
+		end
+	end,
+})
+if vim.fn.has("nvim-0.9.0") == 1 then
+	nx.au({
 		"WinResized",
 		callback = function()
 			if vim.api.nvim_win_is_valid(neo_tree_win.id) then
 				neo_tree_win.width = vim.api.nvim_win_get_width(neo_tree_win.id)
 			end
 		end,
-	},
-})
+	})
+end
 -- <== }
 
 -- { == Keymaps ==> ===========================================================
