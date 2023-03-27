@@ -205,8 +205,7 @@ local modules = {
 	{ "windwp/nvim-spectre", event = "VeryLazy", config = "plugins.spectre" },
 	{ "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async", config = "plugins.ufo" },
 	"nvim-tree/nvim-web-devicons",
-	{ "tobealive/nvim-window-picker", event = "VeryLazy", branch = "nvim-set-hl", config = "plugins.window-picker" }, -- temp fork of window-picker
-	-- { "s1n7ax/nvim-window-picker", config = "plugins.window-picker" }, -- temp fork of window-picker
+	{ "s1n7ax/nvim-window-picker", config = "plugins.window-picker" },
 	"nvim-lua/plenary.nvim",
 	{ "tenxsoydev/size-matters.nvim", lazy = true },
 	{ "michaelb/sniprun", event = "VeryLazy", build = "bash ./install.sh", config = "plugins.sniprun" },
