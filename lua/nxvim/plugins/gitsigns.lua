@@ -57,7 +57,8 @@ config.on_attach = function(bufnr)
 		{ "<leader>gD", function() gs.diffthis("~") end, desc = "Toggle Deleted Lines" },
 		-- { "<leader>gd", gs.diffthis },
 		-- { "<leader>tD", gs.toggle_deleted },
-		{ "<leader>tb", gs.toggle_current_line_blame, desc = "Toggle Blame", wk_label = "Blame" }, --wk_label not working as it is a buffer local mapping
+		{ "<leader>tb", gs.toggle_current_line_blame, desc = "Blame", wk_label = "Blame" }, --wk_label not working as it is a buffer local mapping
+		{ "<leader>tS", "<Cmd>Gitsigns toggle_signs<CR>", desc = "GitSings" },
 		-- Text object
 		{ "ih", ":<C-U>Gitsigns select_hunk<CR>", { "o", "x" }, desc = "Select Hunk" },
 	}, { buffer = bufnr })

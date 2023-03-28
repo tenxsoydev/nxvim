@@ -66,12 +66,9 @@ config.incremental_selection.keymaps = {
 nx.map({
 	{ "<leader>Th", "<Cmd>TSHighlightCapturesUnderCursor<CR>", desc = "Highlight" },
 	{ "<leader>Tp", "<Cmd>TSPlaygroundToggle<CR>", desc = "Playground" },
-	{
-		"<F7>",
-		"<Cmd>TSHighlightCapturesUnderCursor<CR>",
-		desc = "Show TS Highlight Information for Element Under Cursor",
-	},
-	{ "<F8>", "<Cmd>TSPlaygroundToggle<CR>", desc = "Toggle Treesitter Playground" },
+	-- stylua: ignore
+	{ "<F8>", "<Cmd>TSHighlightCapturesUnderCursor<CR>", desc = "Show TS Highlight Information for Element Under Cursor" },
+	{ { "<S-F8>", "<F20>" }, "<Cmd>TSPlaygroundToggle<CR>", desc = "Toggle Treesitter Playground" },
 })
 -- <== }
 

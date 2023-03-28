@@ -51,3 +51,11 @@ mason_lspconfig.setup_handlers({
 		::continue::
 	end,
 })
+
+--- { == Keymaps ==> ===========================================================
+
+nx.map({
+	{ "<leader>l+", ":LspStart ", desc = "Select Language Server to Start", wk_label = "Start LSP" },
+	{ "<leader>l-", ":LspStop ", desc = "Select Language Server to Stop", wk_label = "Stop LSP" },
+})
+-- <==}

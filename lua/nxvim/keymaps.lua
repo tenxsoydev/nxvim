@@ -182,12 +182,24 @@ nx.map({
 
 	-- F-KEYS
 	-- Equivalents in kitty to e.g., `<S-F3>` is `<F15>`
-	{ { "<S-F3>", "<F15>" }, "<Cmd>set ts-=1 sw=0 ts?<CR>", desc = "Decrease Indentation Width" },
-	{ { "<S-F4>", "<F16>" }, "<Cmd>set ts+=1 sw=0 ts?<CR>", desc = "Increase Indentation Width" },
+	{ "<S-Home>", "<Cmd>set ts-=1 sw=0 ts?<CR>", desc = "Decrease Indentation Width" },
+	{ "<S-End>", "<Cmd>set ts+=1 sw=0 ts?<CR>", desc = "Increase Indentation Width" },
 	{
 		"<F6>",
 		function() vim.notify(string.format("Filetype: %s, Buftype: %s", vim.bo.filetype, vim.bo.buftype)) end,
 		desc = "Print File- and Buffertype",
+	},
+	{
+		"<F7>",
+		function()
+			vim.api.nvim_feedkeys("vgv", "v", false)
+			vim.schedule(function()
+				local cols = vim.fn.virtcol("'>") - vim.fn.virtcol("'<") + 1
+				vim.notify(string.format("Selected: %s", cols))
+			end)
+		end,
+		"v",
+		desc = "Print Selected Cols",
 	},
 	{
 		{ "<C-F5>", "<F29>" },
