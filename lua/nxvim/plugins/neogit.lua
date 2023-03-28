@@ -88,7 +88,10 @@ config.mappings = {
 }
 
 nx.map({ "<leader>gn", "<Cmd>Neogit<CR>", desc = "Neogit" })
-nx.au({ "Filetype", pattern = "NeogitPushPopup", command = "nnoremap <buffer> F <nop>" })
+nx.au({
+	{ "Filetype", pattern = "NeogitPushPopup", command = "nnoremap <buffer> F <nop>" },
+	{ "Filetype", pattern = "NeogitCommitMessage", command = "setlocal et ts=2 sw=2" },
+})
 -- <== }
 
 -- { == Highlights ==> =======================================================
