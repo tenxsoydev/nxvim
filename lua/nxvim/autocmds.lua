@@ -46,7 +46,7 @@ nx.au({
 
 -- Sync marks accross sessions
 nx.au({
-	{ "FocusLost", command = "wshada!" },
+	{ "FocusLost", command = "wshada" },
 	-- stylua: ignore
 	{ { "FocusGained", "UIEnter" }, callback = function() vim.schedule(function() vim.cmd("rshada") end) end },
 }, { create_group = "SyncMarks" })
