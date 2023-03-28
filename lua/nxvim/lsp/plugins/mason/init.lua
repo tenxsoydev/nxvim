@@ -1,6 +1,9 @@
 -- https://github.com/williamboman/mason.nvim
 
+-- { == Configuration ==> =====================================================
+
 require("mason").setup({ ui = { border = "rounded" } })
+-- <== }
 
 -- { == Keymaps ==> ===========================================================
 

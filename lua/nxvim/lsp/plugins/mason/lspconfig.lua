@@ -1,9 +1,12 @@
 -- https://github.com/williamboman/mason-lspconfig.nvim
 
 local mason_lspconfig = require("mason-lspconfig")
+local lspconfig = require("lspconfig")
+
+-- { == Configuration ==> =====================================================
+
 mason_lspconfig.setup()
 
-local lspconfig = require("lspconfig")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.foldingRange = {
 	dynamicRegistration = false,
@@ -28,18 +31,19 @@ mason_lspconfig.setup_handlers({
 			on_attach = on_attach,
 		}
 
-		-- Handled by rust-tools
+		-- Handled by rust-tools.
 		if server == "rust_analyzer" then goto continue end
 
-		-- Insert server settings from settings file if present
+		-- Insert server settings from settings file if present.
+		-- The name of the settings file must match the name of the language server.
 		local server_settings_ok, server_settings = pcall(require, "nxvim.lsp.settings." .. server)
 		if server_settings_ok then opts = vim.tbl_deep_extend("keep", server_settings, opts) end
 
-		-- Or add settings inline
+		-- Or add settings inline.
 		--
 		-- The json|ts provideFormatter setting below triggers for gopls when it shouldn't, therefore we continue from here.
 		if server == "gopls" then goto setup end
-		-- use prettierd as formatter
+		-- Use prettierd as formatter.
 		if server == "jsonls" or "tsserver" then opts.init_options = { provideFormatter = false } end
 		if server == "vls" then
 			opts.init_options = { provideFormatter = false }
@@ -51,6 +55,7 @@ mason_lspconfig.setup_handlers({
 		::continue::
 	end,
 })
+-- <== }
 
 --- { == Keymaps ==> ===========================================================
 
