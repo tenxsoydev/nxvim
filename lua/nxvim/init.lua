@@ -48,7 +48,7 @@ local modules = {
 	{ "tenxsoydev/karen-yank.nvim", event = "VeryLazy", config = true, branch = "remove-cut-esc" },
 
 	-- Buffer- & Window Management -----------------------------------------------
-	{ "akinsho/bufferline.nvim", config = "plugins.bufferline" },
+	{ "akinsho/bufferline.nvim", config = "plugins.bufferline", tag = "v3.5.0" },
 	{ "kwkarlwang/bufresize.nvim", event = "VeryLazy", config = true }, -- handle split window sizes on client resize
 	{ "gorbit99/codewindow.nvim", event = "VeryLazy", config = "plugins.codewindow" },
 	{ "petertriho/nvim-scrollbar", event = "VeryLazy", config = "plugins.nvim-scrollbar" },
