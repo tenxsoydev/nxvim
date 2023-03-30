@@ -37,9 +37,6 @@ local config = {
 	},
 }
 
--- NOTE: Telescope transparency works unexpected at times as it differs from regular winblend on startup
--- but at times changes? We also might need a condition for multigrid
-if vim.g.neovide then config.defaults.winblend = 30 end
 -- <== }
 
 -- { == Keymaps ==> ===========================================================
@@ -235,8 +232,14 @@ nx.map({
 
 nx.hl({
 	{ "TelescopeBorder", link = "LspFloatWinBorder" },
-	{ "TelescopeNormal", link = "Normal" },
 })
+if vim.api.nvim_list_uis()[1].ext_multigrid then
+	nx.hl({
+		{ "TelescopeResultsNormal", bg = "Normal:bg", blend = 100 },
+		{ "TelescopeSelection", bg = "Visual:bg", blend = 0 },
+	})
+	if vim.g.neovide then config.defaults.winblend = 30 end
+end
 -- <== }
 
 -- { == Load Setup ==> =======================================================-
