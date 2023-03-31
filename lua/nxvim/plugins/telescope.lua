@@ -234,11 +234,14 @@ nx.hl({
 	{ "TelescopeBorder", link = "LspFloatWinBorder" },
 })
 if vim.api.nvim_list_uis()[1].ext_multigrid then
-	nx.hl({
+	--[[ nx.hl({
 		{ "TelescopeResultsNormal", bg = "Normal:bg", blend = 100 },
 		{ "TelescopeSelection", bg = "Visual:bg", blend = 0 },
-	})
-	if vim.g.neovide then config.defaults.winblend = 30 end
+		-- NOTE: With this solution bg highlights in telescope are only the current
+		-- visible on hover. It would require to re-set `blend` for every hl color.
+		{ { "TodoBgFIX", "TodoBgNOTE", "TodoBgTODO" }, blend = 0 },
+	}) ]]
+	if vim.g.neovide then config.defaults.winblend = 40 end
 end
 -- <== }
 
