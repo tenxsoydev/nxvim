@@ -123,7 +123,7 @@ nx.hl({
 
 	{ "BufferTabpages", link = "LineNr" },
 	{ "BufferTabpageFill", fg = "TabLine:bg:#b-10", bg = "TabLine:bg" }, -- Used for "last-sign"
-	{ "BufferOffset", fg = "#9dacb9", bg = "Tabline:bg" },
+	{ "BufferOffset", fg = "Directory:fg", bg = "Tabline:bg" },
 })
 -- <== }
 
