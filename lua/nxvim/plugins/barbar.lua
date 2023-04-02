@@ -97,7 +97,7 @@ for i = 0, 9 do
 		desc = "Go to Last Buffer"
 	end
 
-	local rhs = ":BufferGoto " .. bufnr
+	local rhs = ":BufferGoto " .. bufnr .. "<CR>"
 	table.insert(maps, { lhs, rhs, desc = desc, wk_label = "ignore" })
 end
 
