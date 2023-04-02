@@ -38,31 +38,10 @@ require("bufferline").setup({
 
 nx.au({
 	"FileType",
-	callback = function(ev)
-		local bufwinid
-		local set_offset = require("barbar.api").set_offset
-		-- TODO: WinScrolled for below 0.9 also for other aus that have winres
-		local au = vim.api.nvim_create_autocmd("WinResized", {
-			callback = function()
-				bufwinid = bufwinid or vim.fn.bufwinid(ev.buf)
-				-- set_offset(vim.api.nvim_win_get_width(bufwinid), " 󰙅 Neo-tree")
-				set_offset(
-					vim.api.nvim_win_get_width(bufwinid),
-					"󰙅 " .. require("nxvim.utils").truc_path(vim.fn.getcwd())
-				)
-			end,
-		})
-		nx.au({
-			"BufWipeout",
-			once = true,
-			buffer = ev.buf,
-			callback = function()
-				vim.api.nvim_del_autocmd(au)
-				set_offset(0)
-			end,
-		})
+	pattern = "NeogitStatus",
+	callback = function()
+		vim.schedule(function() require("barbar.api").set_offset(0) end)
 	end,
-	pattern = "neo-tree",
 })
 -- <== }
 
