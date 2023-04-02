@@ -227,15 +227,7 @@ M.explorer = {
 	filetypes = { "fern", "NvimTree", "lir", "filetree", "neo-tree" },
 	active = {
 		{ "▊", { "black_light", "black" } },
-		{
-			function()
-				local offset = require("bufferline.offset").get()
-				local truncate_name = require("bufferline.utils").truncate_name
-				return "  "
-					.. truncate_name(require("nxvim.utils").truc_path(vim.fn.getcwd()), offset.total_size - 5)
-			end,
-			{ "blue", "black" },
-		},
+		{ " 󰙅 Neo-tree", { "blue", "black" } },
 		{ b_components.divider },
 	},
 	always_active = true,
