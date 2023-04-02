@@ -75,7 +75,7 @@ nx.au({
 	pattern = "AlphaReady",
 	callback = function()
 		require("nxvim.plugins.telescope")
-		vim.cmd("setlocal showtabline=0 | au BufWinLeave <buffer> set showtabline=2")
+		vim.schedule(function() vim.cmd("setlocal showtabline=0 | au BufWinLeave <buffer> set showtabline=2") end)
 	end,
 })
 -- <== }
