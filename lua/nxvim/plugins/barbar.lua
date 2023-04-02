@@ -14,7 +14,7 @@ require("bufferline").setup({
 		-- buffer_number = "superscript",
 		button = "×",
 		filetype = { enabled = true },
-		separator = { left = "▏", right = " " },
+		separator = { left = "▏", right = "" },
 		modified = { button = "" },
 		pinned = { button = "" },
 		inactive = {
