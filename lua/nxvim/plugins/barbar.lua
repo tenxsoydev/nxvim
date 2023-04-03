@@ -113,7 +113,7 @@ nx.hl({
 	{ "BufferCurrentWARN", fg = "DiagnosticSignWarn:fg" },
 	{ "BufferCurrentHINT", fg = "DiagnosticSignHint:fg" },
 	{ "BufferCurrentINFO", fg = "DiagnosticSignInfo:fg" },
-}, { bg = "TabLine:bg" })
+}, { bg = "none" })
 nx.hl({
 	{ "BufferAlternateERROR" },
 	{ "BufferAlternateWARN" },
