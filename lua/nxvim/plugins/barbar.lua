@@ -22,6 +22,12 @@ require("bufferline").setup({
 			separator = { left = "▏" },
 			button = "×",
 		},
+		diagnostics = {
+			[vim.diagnostic.severity.ERROR] = { enabled = true, icon = "" },
+			[vim.diagnostic.severity.WARN] = { enabled = true, icon = "" },
+			[vim.diagnostic.severity.HINT] = { enabled = true, icon = "" },
+			[vim.diagnostic.severity.INFO] = { enabled = false, icon = "" },
+		},
 	},
 	insert_at_end = false,
 	insert_at_start = false,
@@ -103,6 +109,12 @@ nx.hl({
 	{ "BufferTabpages", link = "LineNr" },
 	{ "BufferTabpageFill", fg = "TabLine:bg:#b-10", bg = "TabLine:bg" }, -- Used for "last-sign"
 	{ "BufferOffset", fg = "Directory:fg", bg = "Tabline:bg" },
+
+	-- Diagnostics
+	{ "BufferCurrentWARN", fg = "DiagnosticSignWarn:fg", bg = "BufferCurrent:bg" },
+	{ "BufferAlternateWARN", fg = "DiagnosticSignWarn:fg", bg = "BufferAlternate:bg" },
+	{ "BufferVisibleWARN", fg = "DiagnosticSignWarn:fg", bg = "BufferVisible:bg" },
+	{ "BufferInactiveWARN", fg = "DiagnosticSignWarn:fg", bg = "BufferInactive:bg" },
 })
 -- <== }
 
