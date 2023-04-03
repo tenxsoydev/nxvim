@@ -25,7 +25,7 @@ require("bufferline").setup({
 		diagnostics = {
 			[vim.diagnostic.severity.ERROR] = { enabled = true, icon = "" },
 			[vim.diagnostic.severity.WARN] = { enabled = true, icon = "" },
-			[vim.diagnostic.severity.HINT] = { enabled = true, icon = "" },
+			[vim.diagnostic.severity.HINT] = { enabled = false, icon = "" },
 			[vim.diagnostic.severity.INFO] = { enabled = false, icon = "" },
 		},
 	},
