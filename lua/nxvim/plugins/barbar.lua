@@ -94,48 +94,48 @@ nx.map(maps)
 nx.hl({
 	{ "BufferCurrentMod", link = "BufferCurrent" },
 
+	-- TODO: Dyanmic theme colors instead of hex
 	{ "BufferAlternate", fg = "#9dacb9", italic = true },
-	-- TODO: Dyanmic theme color
+
 	{ "BufferVisible", fg = "#9dacb9", bg = "none" },
 	{ "BufferVisibleSign", fg = "TabLine:bg:#b-10", bg = "BufferVisible:bg" },
-	{ "BufferVisibleIndex", link = "BufferVisible" },
-	{ "BufferVisibleMod", link = "BufferVisible" },
 
 	{ "BufferInactive", fg = "Comment:fg", bg = "TabLine:bg" },
 	{ "BufferInactiveSign", fg = "TabLine:bg:#b-10", bg = "TabLine:bg" },
-	{ "BufferInactiveIndex", link = "BufferInactive" },
-	{ "BufferInactiveMod", link = "BufferInactive" },
 
 	{ "BufferTabpages", link = "LineNr" },
 	{ "BufferTabpageFill", fg = "TabLine:bg:#b-10", bg = "TabLine:bg" }, -- Used for "last-sign"
 	{ "BufferOffset", fg = "Directory:fg", bg = "Tabline:bg" },
 })
 
--- Diagnostics
 nx.hl({
-	{ "BufferCurrentERROR", bg = "BufferCurrent:bg" },
-	{ "BufferAlternateERROR", bg = "BufferAlternate:bg" },
-	{ "BufferVisibleERROR", bg = "BufferVisible:bg" },
-	{ "BufferInactiveERROR", bg = "BufferInactive:bg" },
-}, { fg = "DiagnosticSignError:fg" })
+	{ "BufferCurrentERROR", fg = "DiagnosticSignError:fg" },
+	{ "BufferCurrentWARN", fg = "DiagnosticSignWarn:fg" },
+	{ "BufferCurrentHINT", fg = "DiagnosticSignHint:fg" },
+	{ "BufferCurrentINFO", fg = "DiagnosticSignInfo:fg" },
+}, { bg = "TabLine:bg" })
 nx.hl({
-	{ "BufferCurrentWARN", bg = "BufferCurrent:bg" },
-	{ "BufferAlternateWARN", bg = "BufferAlternate:bg" },
-	{ "BufferVisibleWARN", bg = "BufferVisible:bg" },
-	{ "BufferInactiveWARN", bg = "BufferInactive:bg" },
-}, { fg = "DiagnosticSignWarn:fg" })
+	{ "BufferAlternateERROR" },
+	{ "BufferAlternateWARN" },
+	{ "BufferAlternateHINT" },
+	{ "BufferAlternateINFO" },
+}, { link = "BufferAlternate" })
 nx.hl({
-	{ "BufferCurrentINFO", bg = "BufferCurrent:bg" },
-	{ "BufferAlternateINFO", bg = "BufferAlternate:bg" },
-	{ "BufferVisibleINFO", bg = "BufferVisible:bg" },
-	{ "BufferInactiveINFO", bg = "BufferInactive:bg" },
-}, { fg = "DiagnosticSignInfo:fg" })
+	{ "BufferVisibleIndex" },
+	{ "BufferVisibleMod" },
+	{ "BufferVisibleERROR" },
+	{ "BufferVisibleWARN" },
+	{ "BufferVisibleHINT" },
+	{ "BufferVisibleINFO" },
+}, { link = "BufferVisible" })
 nx.hl({
-	{ "BufferCurrentHINT", bg = "BufferCurrent:bg" },
-	{ "BufferAlternateHINT", bg = "BufferAlternate:bg" },
-	{ "BufferVisibleHINT", bg = "BufferVisible:bg" },
-	{ "BufferInactiveHINT", bg = "BufferInactive:bg" },
-}, { fg = "DiagnosticSignHint:fg" })
+	{ "BufferInactiveIndex" },
+	{ "BufferInactiveMod" },
+	{ "BufferInactiveERROR" },
+	{ "BufferInactiveWARN" },
+	{ "BufferInactiveHINT" },
+	{ "BufferInactiveINFO" },
+}, { link = "BufferInactive" })
 -- <== }
 
 -- Hide tabline when barbar is loaded after opening a neovim client on a dashboard
