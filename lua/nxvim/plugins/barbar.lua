@@ -2,7 +2,7 @@
 
 -- { == Configuration ==> =====================================================
 
-require("bufferline").setup({
+require("barbar").setup({
 	animation = true,
 	auto_hide = false,
 	tabpages = true,
@@ -86,13 +86,17 @@ for i = 0, 9 do
 	table.insert(maps, { lhs, rhs, desc = desc, wk_label = "ignore" })
 end
 
-nx.map(maps)
+nx.map(maps, { silent = true })
 -- <== }
 
 --- { == Highlights ==> =======================================================
 
 nx.hl({
 	{ "BufferCurrentMod", link = "BufferCurrent" },
+	{ "BufferCurrentERROR", fg = "DiagnosticSignError:fg" },
+	{ "BufferCurrentWARN", fg = "DiagnosticSignWarn:fg" },
+	{ "BufferCurrentHINT", fg = "DiagnosticSignHint:fg" },
+	{ "BufferCurrentINFO", fg = "DiagnosticSignInfo:fg" },
 
 	-- TODO: Dyanmic theme colors instead of hex
 	{ "BufferAlternate", fg = "#9dacb9", italic = true },
@@ -108,12 +112,6 @@ nx.hl({
 	{ "BufferOffset", fg = "Directory:fg", bg = "Tabline:bg" },
 })
 
-nx.hl({
-	{ "BufferCurrentERROR", fg = "DiagnosticSignError:fg" },
-	{ "BufferCurrentWARN", fg = "DiagnosticSignWarn:fg" },
-	{ "BufferCurrentHINT", fg = "DiagnosticSignHint:fg" },
-	{ "BufferCurrentINFO", fg = "DiagnosticSignInfo:fg" },
-}, { bg = "none" })
 nx.hl({
 	{ "BufferAlternateERROR" },
 	{ "BufferAlternateWARN" },
