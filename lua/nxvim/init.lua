@@ -48,11 +48,12 @@ local modules = {
 	{ "tenxsoydev/karen-yank.nvim", event = "VeryLazy", config = true, branch = "remove-cut-esc" },
 
 	-- Buffer- & Window Management -----------------------------------------------
-	-- { "akinsho/bufferline.nvim", config = "plugins.bufferline", tag = "v3.5.0" },
-	{ "tobealive/barbar.nvim", config = "plugins.barbar", branch = "temp" },
+	-- { "romgrk/barbar.nvim", config = "plugins.barbar" },
+	{ "tobealive/barbar.nvim", dev = true, config = "plugins.barbar", branch = "temp" },
 	{ "kwkarlwang/bufresize.nvim", event = "VeryLazy", config = true }, -- handle split window sizes on client resize
 	{ "gorbit99/codewindow.nvim", event = "VeryLazy", config = "plugins.codewindow" },
 	{ "petertriho/nvim-scrollbar", event = "VeryLazy", config = "plugins.nvim-scrollbar" },
+	{ "s1n7ax/nvim-window-picker", event = "VeryLazy", config = "plugins.window-picker" },
 	{ "mrjones2014/smart-splits.nvim", event = "VeryLazy", config = "plugins.smart-splits" },
 	{
 		"anuvyklack/windows.nvim",
@@ -206,8 +207,7 @@ local modules = {
 	{ "NvChad/nvim-colorizer.lua", event = "VeryLazy", config = "plugins.colorizer" },
 	{ "windwp/nvim-spectre", event = "VeryLazy", config = "plugins.spectre" },
 	{ "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async", config = "plugins.ufo" },
-	"nvim-tree/nvim-web-devicons",
-	{ "s1n7ax/nvim-window-picker", config = "plugins.window-picker" },
+	{ "nvim-tree/nvim-web-devicons", config = "plugins.devicons", eager = true },
 	"nvim-lua/plenary.nvim",
 	{ "tenxsoydev/size-matters.nvim", lazy = true },
 	{ "michaelb/sniprun", event = "VeryLazy", build = "bash ./install.sh", config = "plugins.sniprun" },
