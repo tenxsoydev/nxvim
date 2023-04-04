@@ -182,22 +182,38 @@ config.event_handlers = {
 		end,
 	},
 	{
+		event = "neo_tree_window_before_close",
+		handler = function() require("barbar.api").set_offset(0) end,
+	},
+	{
 		event = "neo_tree_window_after_close",
 		handler = function()
 			if require("nxvim.plugins.windows").auto_maximize then vim.cmd("WindowsMaximize") end
 			neo_tree_win.id = -1
-			vim.schedule(function() require("barbar.api").set_offset(0) end)
 		end,
 	},
 }
 
-nx.au({ -- Preserve size of neo-tree when using bufresize.nvim
-	"VimResized",
-	callback = function()
-		if vim.api.nvim_win_is_valid(neo_tree_win.id) then
-			vim.schedule(function() vim.api.nvim_win_set_width(neo_tree_win.id, neo_tree_win.width) end)
-		end
-	end,
+nx.au({
+	{ -- Preserve size of neo-tree when using bufresize.nvim
+		"VimResized",
+		callback = function()
+			if vim.api.nvim_win_is_valid(neo_tree_win.id) then
+				vim.schedule(function() vim.api.nvim_win_set_width(neo_tree_win.id, neo_tree_win.width) end)
+			end
+		end,
+	},
+	{
+		"DirChanged",
+		callback = function()
+			if vim.api.nvim_win_is_valid(neo_tree_win.id) then
+				require("barbar.api").set_offset(
+					vim.api.nvim_win_get_width(neo_tree_win.id),
+					"󰙅 " .. require("nxvim.utils").truc_path(vim.fn.getcwd())
+				)
+			end
+		end,
+	},
 })
 if vim.fn.has("nvim-0.9.0") == 1 then
 	nx.au({
