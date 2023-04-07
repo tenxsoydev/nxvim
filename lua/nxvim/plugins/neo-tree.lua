@@ -214,9 +214,7 @@ nx.au({
 			end
 		end,
 	},
-})
-if vim.fn.has("nvim-0.9.0") == 1 then
-	nx.au({
+	{
 		"WinResized",
 		callback = function()
 			if vim.api.nvim_win_is_valid(neo_tree_win.id) then
@@ -227,8 +225,8 @@ if vim.fn.has("nvim-0.9.0") == 1 then
 				)
 			end
 		end,
-	})
-end
+	},
+})
 -- <== }
 
 -- { == Keymaps ==> ===========================================================

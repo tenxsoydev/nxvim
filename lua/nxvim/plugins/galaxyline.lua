@@ -495,13 +495,11 @@ nx.au({
 		timer:stop()
 		timer:start(350, 0, vim.schedule_wrap(pseudo_toggle_tint))
 	end,
-})
-if vim.fn.has("nvim-0.9.0") == 1 then
-	nx.au({
+	{
 		"WinResized",
 		callback = function()
 			if vim.fn.win_gettype(0) ~= "popup" then gl.load_galaxyline() end
 		end,
-	})
-end
+	},
+})
 -- <== }
