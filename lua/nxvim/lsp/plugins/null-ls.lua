@@ -7,6 +7,17 @@ local fmt = null_ls.builtins.formatting
 -- local cmp = null_ls.builtins.completion.spell,
 
 null_ls.register({
+	name = "nimpretty_t",
+	method = null_ls.methods.FORMATTING,
+	filetypes = { "nim" },
+	generator = null_ls.formatter({
+		command = "nimpretty_t",
+		args = { "$FILENAME", "--maxLineLen=100" },
+		to_temp_file = true,
+	}),
+})
+
+null_ls.register({
 	name = "vfmt",
 	method = null_ls.methods.FORMATTING,
 	filetypes = { "v", "vlang" },
@@ -30,7 +41,6 @@ null_ls.setup({
 		fmt.rustfmt,
 		fmt.stylua,
 		fmt.yapf,
-		fmt.nimpretty,
 	},
 })
 -- <== }
