@@ -30,7 +30,7 @@ if vim.g.colors_name == "tokyonight" then
 			{ "LineNr", fg = "LineNr:fg:#b+10" },
 			{ "Winbar", { link = "LineNr" } },
 		})
-		config.tint = -22
+		config.tint = -20
 	else
 		config.tint = 25
 	end
