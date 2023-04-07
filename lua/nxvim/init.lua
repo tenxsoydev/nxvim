@@ -117,7 +117,7 @@ local modules = {
 	{ "ray-x/lsp_signature.nvim", event = "VeryLazy", config = "lsp.plugins.lsp-signature" },
 	{ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim", event = "VeryLazy", config = "lsp.plugins.lsp-toggle" },
 	"b0o/SchemaStore.nvim",
-	"RRethy/vim-illuminate",
+	{ "RRethy/vim-illuminate", dependencies = "nvim-treesitter/nvim-treesitter" },
 	-- Mason
 	{ "williamboman/mason.nvim", config = "lsp.plugins.mason" },
 	{ "williamboman/mason-lspconfig.nvim", config = "lsp.plugins.mason.lspconfig" },
