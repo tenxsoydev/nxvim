@@ -49,7 +49,7 @@ local modules = {
 
 	-- Buffer- & Window Management -----------------------------------------------
 	-- { "akinsho/bufferline.nvim", config = "plugins.bufferline", tag = "v3.5.0" },
-	{ "romgrk/barbar.nvim", config = "plugins.barbar" },
+	{ "romgrk/barbar.nvim", event = "VeryLazy", config = "plugins.barbar" },
 	{ "kwkarlwang/bufresize.nvim", event = "VeryLazy", config = true }, -- handle split window sizes on client resize
 	{ "gorbit99/codewindow.nvim", event = "VeryLazy", config = "plugins.codewindow" },
 	{ "s1n7ax/nvim-window-picker", event = "VeryLazy", config = "plugins.window-picker" },
