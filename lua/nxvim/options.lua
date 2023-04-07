@@ -57,17 +57,3 @@ nx.set({
 
 -- Load client-specific opts after global opts
 require("nxvim.client").load_opts()
-
--- Stash
--- winblend = 8,
--- pumblend = 8,
--- completeopt = { "menuone", "noselect", "menu" }, -- mostly for cmp
--- mousemoveevent = true,
--- softtabstop = 3,
--- updatetime = 500,
--- winfixwidth = true, -- preserve window width when windows are opened or closed
--- winfixheight = true, -- preserve window height when windows are opened or closed
--- writebackup = false, -- write backup prior to overwriting a filed changed in another instance
--- laststatus = 3, -- global statusline
--- with a global statusline some fillchars might be off when using thinner vertical this tries to give a decent result
--- fillchars__append = [[eob: ,vert:▏,vertright:▏,vertleft:▏,horiz:┈]],
