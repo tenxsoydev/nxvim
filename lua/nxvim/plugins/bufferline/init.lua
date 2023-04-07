@@ -11,8 +11,8 @@ bufferline.setup({
 		-- offsets = { { filetype = "NvimTree", text = " Explorer", text_align = "left", highlight = "Directory", padding = 1 } }, >
 		offsets = {
 			{
-				-- text = function() return "פּ " .. require("nxvim.utils").truc_path(vim.fn.getcwd()) end,
-				text = "פּ Neo-tree",
+				-- text = "󰙅 Neo-tree",
+				text = function() return "󰙅 " .. require("nxvim.utils").truc_path(vim.fn.getcwd()) end,
 				filetype = "neo-tree",
 				highlight = "BufferlineOffset",
 				text_align = "left",

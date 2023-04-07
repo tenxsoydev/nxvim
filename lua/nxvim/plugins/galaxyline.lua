@@ -443,13 +443,7 @@ gl.section.short_line_left = {
 		ShortLineLeftBufferType = {
 			provider = function()
 				-- local file_name = vim.fn.expand("%:t")
-				if vim.bo.filetype == "neo-tree" then
-					local offset = require("bufferline.offset").get()
-					local truncate_name = require("bufferline.utils").truncate_name
-					return "  "
-						.. truncate_name(require("nxvim.utils").truc_path(vim.fn.getcwd()), offset.total_size - 11)
-						.. " "
-				end
+				if vim.bo.filetype == "neo-tree" then return " 󰙅 Neo-tree " end
 				local mapped_name = BufferTypeMap[vim.bo.filetype]
 				if mapped_name then return " " .. mapped_name .. " " end
 			end,
