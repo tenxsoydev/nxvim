@@ -170,6 +170,8 @@ local neo_tree_win = {
 	width = -1,
 }
 
+local barbar_ok, barbar_api = pcall(require, "barbar.api")
+
 config.event_handlers = {
 	{
 		event = "neo_tree_window_after_open",
@@ -183,7 +185,9 @@ config.event_handlers = {
 	},
 	{
 		event = "neo_tree_window_before_close",
-		handler = function() require("barbar.api").set_offset(0) end,
+		handler = function()
+			if barbar_ok then barbar_api.set_offset(0) end
+		end,
 	},
 	{
 		event = "neo_tree_window_after_close",
@@ -207,7 +211,8 @@ nx.au({
 		"DirChanged",
 		callback = function()
 			if vim.api.nvim_win_is_valid(neo_tree_win.id) then
-				require("barbar.api").set_offset(
+				if not barbar_ok then return end
+				barbar_api.set_offset(
 					vim.api.nvim_win_get_width(neo_tree_win.id),
 					"󰙅 " .. require("nxvim.utils").truc_path(vim.fn.getcwd())
 				)
@@ -219,7 +224,8 @@ nx.au({
 		callback = function()
 			if vim.api.nvim_win_is_valid(neo_tree_win.id) then
 				neo_tree_win.width = vim.api.nvim_win_get_width(neo_tree_win.id)
-				require("barbar.api").set_offset(
+				if not barbar_ok then return end
+				barbar_api.set_offset(
 					vim.api.nvim_win_get_width(neo_tree_win.id),
 					"󰙅 " .. require("nxvim.utils").truc_path(vim.fn.getcwd())
 				)
