@@ -68,7 +68,7 @@ for _, key in ipairs(bg_solid) do
 
 	if string.match(key, "diagnostic") then
 		font.italic = true
-		-- if vim.env.TERM == "xterm-kitty" then font.bold = true end
+		if nx.opts.second_font then font.bold = true end
 	end
 
 	M.highlights[key] = { bg = { attribute = "bg", highlight = "TabLine" }, bold = font.bold, italic = font.italic }
@@ -78,7 +78,7 @@ for _, key in ipairs(bg_transparent) do
 	local font = { italic = true, bold = false }
 
 	if string.match(key, "tab") then font.italic = false end
-	-- if vim.env.TERM == "xterm-kitty" and string.match(key, "diagnostic") then font.bold = true end
+	if nx.opts.second_font and string.match(key, "diagnostic") then font.bold = true end
 
 	M.highlights[key] = { bg = { attribute = "bg", highlight = "Normal" }, bold = font.bold, italic = font.italic }
 end

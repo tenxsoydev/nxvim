@@ -3,7 +3,7 @@
 -- { == Configuration ==> =====================================================
 
 require("satellite").setup({
-	current_only = true,
+	current_only = false,
 	winblend = 0,
 	zindex = 40,
 	excluded_filetypes = {},
@@ -26,7 +26,7 @@ require("satellite").setup({
 			},
 		},
 		marks = {
-			-- TODO: color
+			-- TODO: contrib hl groups?
 			enable = true,
 			show_builtins = false, -- shows the builtin marks like [ ] < >
 		},

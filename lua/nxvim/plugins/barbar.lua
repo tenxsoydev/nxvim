@@ -92,7 +92,11 @@ nx.map(maps, { silent = true })
 --- { == Highlights ==> =======================================================
 
 nx.hl({
+	{ "BufferCurrent", fg = "BufferCurrent:fg" },
 	{ "BufferCurrentMod", link = "BufferCurrent" },
+	{ "BufferCurrentIndex", fg = "BufferCurrentIndex:fg" },
+	{ "BufferCurrentNumber", fg = "BufferCurrentNumber:fg" },
+	{ "BufferCurrentSign", fg = "BufferCurrentSign:fg" },
 	{ "BufferCurrentERROR", fg = "DiagnosticSignError:fg" },
 	{ "BufferCurrentWARN", fg = "DiagnosticSignWarn:fg" },
 	{ "BufferCurrentHINT", fg = "DiagnosticSignHint:fg" },

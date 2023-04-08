@@ -2,7 +2,7 @@ local default_colorscheme = "dracula"
 -- changing a colorscheme during a session can partially break highlights
 -- to have an unimaired experience, define a theme of preference as default and restart vim
 
--- make sure to load colorscheme setup befor applying the scolorscheme
+-- make sure to load colorscheme setup before applying the colorscheme
 pcall(require("nxvim.colorschemes." .. default_colorscheme))
 
 -- Apply default colorscheme
@@ -10,6 +10,7 @@ vim.cmd("colorscheme " .. default_colorscheme)
 
 -- { == Highlights ==> ========================================================
 
+---Set kitty colorscheme based on neovim colorscheme.
 ---@param colors string @kitty colorscheme file
 local function kitty_colors(colors)
 	if not vim.fn.executable("kitty") then return end
@@ -22,11 +23,7 @@ end
 -- Cutomization - after applying colorscheme
 local function set_hl()
 	nx.hl({
-		-- Terminals like kitty or alacritty allow to specify different font families for font styles and variants.
-		-- bold-italic is not used very often, so e.g. we set `Comment` hls to bold-italic and use FantasqueSans for them,
-		-- while JetBrainsMono is used for the rest. Search for `"xterm-kitty"` to find more customizations
-		-- { "Comment", fg = "Comment:fg", italic = true, bold = vim.env.TERM == "xterm-kitty" },
-
+		{ "Comment", fg = "Comment:fg", italic = true, bold = nx.opts.second_font },
 		{ { "Winbar", "FoldColumn" }, link = "LineNr" },
 	})
 

@@ -53,7 +53,7 @@ local modules = {
 	{ "kwkarlwang/bufresize.nvim", event = "VeryLazy", config = true }, -- handle split window sizes on client resize
 	{ "gorbit99/codewindow.nvim", event = "VeryLazy", config = "plugins.codewindow" },
 	{ "s1n7ax/nvim-window-picker", event = "VeryLazy", config = "plugins.window-picker" },
-	{ "lewis6991/satellite.nvim", event = "VeryLazy", config = "plugins.satalite" },
+	{ "lewis6991/satellite.nvim", event = "VeryLazy", config = "plugins.satellite" },
 	{ "mrjones2014/smart-splits.nvim", event = "VeryLazy", config = "plugins.smart-splits" },
 	{
 		"anuvyklack/windows.nvim",
@@ -163,8 +163,8 @@ local modules = {
 	{ "Shatur/neovim-session-manager", config = "plugins.session-manager", eager = true },
 
 	-- Colorschemes --------------------------------------------------------------
-	{ "dracula/vim", priority = 90, config = "colorschemes.dracula" },
-	{ "folke/tokyonight.nvim", priority = 90, config = "colorschemes.tokyonight" },
+	"dracula/vim",
+	"folke/tokyonight.nvim",
 	-- "NLKNguyen/papercolor-theme",
 	-- "navarasu/onedark.nvim",
 	-- additional colorschemes
@@ -207,7 +207,7 @@ local modules = {
 	{ "NvChad/nvim-colorizer.lua", event = "VeryLazy", config = "plugins.colorizer" },
 	{ "windwp/nvim-spectre", event = "VeryLazy", config = "plugins.spectre" },
 	{ "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async", config = "plugins.ufo" },
-	{ "nvim-tree/nvim-web-devicons", config = "plugins.devicons", eager = true },
+	{ "nvim-tree/nvim-web-devicons", config = "plugins.devicons" },
 	"nvim-lua/plenary.nvim",
 	{ "tenxsoydev/size-matters.nvim", lazy = true },
 	{ "michaelb/sniprun", event = "VeryLazy", build = "bash ./install.sh", config = "plugins.sniprun" },

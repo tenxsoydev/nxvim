@@ -1,21 +1,15 @@
 -- https://github.com/folke/tokyonight.nvim
 
-local tokyonight = require("tokyonight")
-
 -- { == Configuration ==> =====================================================
 
-local config = {
+require("tokyonight").setup({
 	-- style = "day", -- "storm"|"moon"|"night"|"day"
-	transparent = false,
+	transparent = nx.opts.transparency and not vim.g.loaded_gui or false,
 	styles = {
 		sidebars = "transparent", -- NOTE: "dark" unfortunately does not work with tint atm
 		floats = "transparent",
 	},
-}
-
-if vim.g.nx_loaded_gui then config.transparent = false end
-
-tokyonight.setup(config)
+})
 -- <== }
 
 -- Highlights =================================================================
@@ -25,7 +19,8 @@ local M = {}
 function M.set_hl()
 	-- remove additional dark border around float borders (e.g. wilder command palette)
 	nx.hl({
-		{ "FloatBorder", fg = "FloatBorder:fg", bg = "none" },
+		{ "FloatBorder", fg = "FloatBorder:fg" },
+		{ "CursorLine", bg = "CursorLine:bg:#b+15" },
 		{ { "FloatShadow", "FloatShadowThrough" }, link = "Float" },
 	})
 

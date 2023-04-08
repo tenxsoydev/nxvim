@@ -7,7 +7,7 @@ nx.au({ "FileType", pattern = "TelescopePrompt", callback = function() vim.cmd("
 
 --- { == Highlights ==> =======================================================
 
-nx.hl({ "CodeiumSuggestion", link = "SpecialComment" })
+nx.hl({ "CodeiumSuggestion", fg = "SpecialComment:fg", bold = nx.opts.second_font, italic = true })
 --- <== }
 
 --- { == Keymaps ==> ===========================================================
@@ -17,5 +17,5 @@ nx.map({ "<Tab>", function() return vim.fn["codeium#Accept"]() end, "i", expr = 
 --- <== }
 
 -- Explicitly call `Codeium Enable` to trigger assigning a value to `vim.g.codeium_enable`.
--- This is because Codeium does not currently set this global variable when it first activates.
+-- Atm, Codeium does not set this on automatic first load.
 vim.cmd("Codeium Enable")

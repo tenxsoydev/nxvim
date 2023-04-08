@@ -346,11 +346,17 @@ local function set_hls()
 		nx.hl({
 			{ "NeoTreeRootName", fg = "DraculaPurple:fg", italic = true },
 			{ "NeoTreeFileName", fg = colors.tree_file_name },
-			{ "NeoTreeGitConflict", fg = "NeoTreeGitConflict:fg", italic = true },
 			{ "NeoTreeTabActive", fg = colors.tree_file_name },
 			{ "NeoTreeTabInactive", fg = "NeoTreeDimText:fg", bg = "DraculaBgDark:bg" },
 			{ "NeoTreeTabSeparatorInactive", bg = "DraculaBgDark:bg", fg = "DraculaBgDarker:bg" },
 		})
+
+		if vim.env.TERM_PROGRAM == "WezTerm" then
+			nx.hl({ -- remove italics due to oversized icons in wezterm
+				{ "NeoTreeGitConflict", fg = "NeoTreeGitConflict:fg" },
+				{ "NeoTreeGitUntracked", fg = "NeoTreeGitUntracked:fg" },
+			})
+		end
 	end
 
 	if vim.g.colors_name == "tokyonight" then

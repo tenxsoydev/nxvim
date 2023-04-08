@@ -27,7 +27,7 @@ local config = {
 	},
 }
 
-if vim.g.nx_loaded_gui then
+if vim.g.loaded_gui then
 	-- lower fps seems a lot smoother in e.g., neovide without multigrid
 	config.animation.fps = 30
 	-- use neovides builtin animations when multigrid is enabled

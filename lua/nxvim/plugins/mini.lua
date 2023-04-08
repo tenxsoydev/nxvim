@@ -32,7 +32,7 @@ local config = {
 	},
 }
 
-if vim.g.nx_loaded_gui then config.cursor.enable = false end
+if vim.g.loaded_gui then config.cursor.enable = false end
 animate.setup(config)
 
 -- Occasionally mini.animate leaves a residue of virtualedit = "all". This ensures that it's removed.

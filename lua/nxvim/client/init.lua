@@ -7,8 +7,20 @@ if vim.fn.has("nvim-0.9.0") ~= 1 then
 	)
 end
 
+---@class NxOpts
+---@field transparency boolean
+-- A lot of terminal configs allow to specify different font families for font weights and styles.
+-- Since bold-italic is not used very often, we can utilize it to display a second font.
+-- We can use JetBrains as the default, and e.g. set Comments to bold-italic to use Fantasque for them.
+---@field second_font boolean
+nx.opts = {
+	-- float_win_border = "rounded",
+	transparency = true,
+	second_font = false,
+}
+
 for _, client in ipairs({ "gnvim", "goneovim", "neovide", "nvui", "fvim_loaded" }) do
-	if vim.g[client] then vim.g.nx_loaded_gui = client end
+	if vim.g[client] then vim.g.loaded_gui = client end
 end
 
 local function init_gui()
@@ -21,6 +33,7 @@ local function init_gui()
 		winblend = 10,
 		pumblend = 10,
 	}
+	nx.opts.second_font = false
 
 	-- GUI Plugins
 	require("nxvim.plugins.size-matters")
@@ -29,10 +42,11 @@ local function init_gui()
 end
 
 function M.load_opts()
-	if not vim.g.nx_loaded_gui then return end
+	if not vim.g.loaded_gui then return end
 
 	local gui_opts = init_gui()
-	local client_opts = require("nxvim.client." .. vim.g.nx_loaded_gui)
+	local client_opts = require("nxvim.client." .. vim.g.loaded_gui)
+
 	vim.schedule(function() nx.set(vim.tbl_deep_extend("keep", client_opts, gui_opts), vim.opt) end)
 end
 

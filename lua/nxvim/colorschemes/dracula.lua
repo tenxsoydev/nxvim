@@ -6,11 +6,9 @@ nx.set({
 	dracula_italic = 1,
 	dracula_bold = 1,
 	dracula_full_special_attrs_support = 1,
-	dracula_colorterm = 0,
+	-- Don't use TUI transparency(causing black background) in GUIs
+	dracula_colorterm = nx.opts.transparency and not vim.g.loaded_gui and 0 or 1,
 })
-
--- Remove TUI transparency(causing black background) in GUIs
-if vim.g.nx_loaded_gui then vim.g.dracula_colorterm = 1 end
 -- <== }
 
 -- { == Highlights ==> ========================================================
@@ -37,6 +35,7 @@ M.palette = {
 	red = "#FF5555",
 	yellow = "#F1FA8C",
 	-- Custom colors
+	-- TODO:
 	-- light_grey = "#9dacb9",
 	light_grey = 10333369,
 	tree_file_name = "#b8c5d1",
@@ -47,27 +46,19 @@ M.palette = {
 -- To make the theme super snazzy we do some improvements to the highlights below.
 function M.set_hl()
 	-- Client related highlights
-	if vim.g.nx_loaded_gui then
+	if vim.g.loaded_gui then
 		nx.hl({
-			{ { "TelescopeNormal", "NormalFloat" }, blend = 100 },
 			{ "DraculaWinSeparator", fg = M.palette.bgdark },
 		})
 	else
 		nx.hl({ "DraculaWinSeparator", fg = M.palette.bgdarker })
 	end
 
-	-- additional setting of transparent background colors
-	if vim.g.dracula_colorterm == 0 then
-		nx.hl({ { "TelescopeNormal", "NormalFloat" }, link = "Normal" })
-		-- apparently necessary for transparency to work in alacritty
-		if vim.env.TERM == "alacritty" then nx.hl({ "Normal", bg = "none" }) end
-	end
-
 	nx.hl({
+		{ "NormalFloat", link = "Normal" },
 		{ "DraculaLightGrey", fg = M.palette.light_grey },
 		-- fix bluish dirs + don't use bold
 		{ { "Directory", "MarkSignHl" }, link = "DraculaPurple" },
-		{ "mkdListItemCheckbox", link = "Todo" },
 
 		-- Borders
 		{ "FloatBorder", link = "SignColumn" },

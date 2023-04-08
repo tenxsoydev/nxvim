@@ -18,7 +18,7 @@ local config = {
 	},
 }
 
-if vim.g.nx_loaded_gui then config.window.blend = 100 end
+if vim.g.loaded_gui then config.window.blend = 100 end
 
 fidget.setup(config)
 -- <== }

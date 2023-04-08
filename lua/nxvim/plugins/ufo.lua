@@ -60,4 +60,4 @@ nx.au({
 })
 -- <== }
 
-nx.hl({ "Folded", bg = "DraculaBgLight:bg" })
+if vim.g.colors_name == "dracula" then nx.hl({ "Folded", bg = "DraculaBgLight:bg" }) end
