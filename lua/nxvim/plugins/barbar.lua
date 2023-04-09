@@ -65,6 +65,7 @@ local maps = {
 	{ "<leader>bl", ":BufferCloseBuffersRight<CR>", desc = "Close All to the Right" },
 	{ "<leader>bh", ":BufferCloseBuffersLeft<CR>", desc = "Close All to the Left" },
 	{ "<leader>bp", ":BufferPick<CR>", desc = "Pick Buffer to Focus" },
+	{ "<leader>bP", ":BufferPickDelete<CR>", desc = "Pick Buffer to Focus" },
 	{ "<leader>bD", ":BufferOrderByDirectory<CR>", desc = "Sort by Directory" },
 	{ "<leader>bL", ":BufferOrderByLanguage<CR>", desc = "Sort by Language" },
 	-- { "<leader>bW", ":BufferOrderByWindowNumber<CR>", desc = "Sort by Window Number" },
