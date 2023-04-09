@@ -44,7 +44,12 @@ local modules = {
 	{ "numToStr/Comment.nvim", event = "VeryLazy", config = "plugins.comment" },
 	{ "folke/todo-comments.nvim", event = "VeryLazy", config = "plugins.todo-comments" },
 	-- Yank & Register Handling
-	{ "tversteeg/registers.nvim", event = "VeryLazy", config = "plugins.registers" },
+	{
+		"tversteeg/registers.nvim",
+		event = "VeryLazy",
+		config = "plugins.registers",
+		commit = "0a461e635403065b3f9a525bd77eff30759cfba0",
+	},
 	{ "tenxsoydev/karen-yank.nvim", event = "VeryLazy", config = true, branch = "remove-cut-esc" },
 
 	-- Buffer- & Window Management -----------------------------------------------
