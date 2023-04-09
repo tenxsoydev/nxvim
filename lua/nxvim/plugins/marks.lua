@@ -10,7 +10,7 @@ local config = {
 	-- whether movements cycle back to the beginning/end of buffer. default true
 	cyclic = true,
 	-- whether the shada file is updated after modifying uppercase marks. default false
-	force_write_shada = false,
+	force_write_shada = true,
 	-- how often (in ms) to redraw signs/recompute mark positions.
 	-- higher values will have better performance but may cause visual lag,
 	-- while lower values may cause performance penalties. default 150.
