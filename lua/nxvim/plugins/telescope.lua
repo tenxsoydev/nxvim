@@ -229,13 +229,13 @@ nx.map({
 	-- Bookmarks
 	{
 		"<leader>/m",
-		"<Cmd>Telescope bookmarks list prompt_title=Bookmarks<CR>",
+		"<Cmd>Telescope bookmarks prompt_title=Bookmarks<CR>",
 		desc = "Search Bookmarks",
 		wk_label = "Bookmarks",
 	},
 	{
 		"<leader>m/",
-		"<Cmd>Telescope bookmarks list prompt_title=Bookmarks<CR>",
+		"<Cmd>Telescope bookmarks prompt_title=Bookmarks<CR>",
 		desc = "Search Bookmarks",
 		wk_label = "Search",
 	},
@@ -281,9 +281,9 @@ local function load_extensions(extensions)
 	end
 end
 
-load_extensions({ "bookmarks" })
-
 -- Lazy load majority of extensions
-vim.schedule(function() load_extensions({ "recent_files", "frecency", "fzy_native", "media_files", "projects" }) end)
+vim.schedule(
+	function() load_extensions({ "bookmarks", "recent_files", "frecency", "fzy_native", "media_files", "projects" }) end
+)
 nx.au({ "TermEnter", once = true, callback = function() telescope.load_extension("termfinder") end })
 -- <== }
