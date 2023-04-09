@@ -2,7 +2,7 @@ local M = {}
 
 -- { == Configuration ==> =====================================================
 
-local border = "rounded"
+local border = nx.opts.float_win_border
 local icons = require("nxvim.icons").nerd_solid
 local signs = {
 	{ name = "DiagnosticSignError", text = icons.CircleStop },

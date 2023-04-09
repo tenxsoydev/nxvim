@@ -26,7 +26,7 @@ local config = {
 	},
 	presets = {
 		bottom_search = true,
-		lsp_doc_border = true,
+		lsp_doc_border = nx.opts.float_win_border ~= "none" and true or false,
 	},
 	views = {
 		mini = {

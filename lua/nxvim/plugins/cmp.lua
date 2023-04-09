@@ -41,12 +41,12 @@ local config = {
 	},
 	window = {
 		completion = {
-			border = "rounded",
+			border = nx.opts.float_win_border,
 			scrollbar = "║",
 			winhighlight = "Normal:Normal", -- transparent bg
 		},
 		documentation = {
-			border = "rounded",
+			border = nx.opts.float_win_border,
 			scrollbar = "║",
 			winhighlight = "Normal:Normal",
 		},

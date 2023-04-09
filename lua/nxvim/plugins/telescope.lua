@@ -5,9 +5,16 @@ local lga_actions = require("telescope-live-grep-args.actions")
 
 -- { == Configuration ==> =====================================================
 
+local border = nx.opts.float_win_border ~= "none" and true or false
+local borderchars = nx.opts.float_win_border == "single" and { "─", "│", "─", "│", "┌", "┐", "┘", "└" }
+	or nx.opts.float_win_border == "double" and { "═", "║", "═", "║", "╔", "╗", "╝", "╚" }
+	or nil
+
 local config = {
 	defaults = {
 		selection_caret = " ",
+		border = true,
+		borderchars = borderchars,
 		path_display = { "truncate" },
 		layout_config = {
 			horizontal = { preview_width = 0.58 },
@@ -29,6 +36,7 @@ local config = {
 			auto_quoting = true,
 			mappings = {},
 			theme = "ivy",
+			border = border,
 		},
 		media_files = {
 			filetypes = { "png", "webp", "jpg", "jpeg" },
@@ -135,12 +143,24 @@ nx.map({
 	-- Quick Pickers
 	{
 		"<C-p>",
-		function() builtin.find_files(require("telescope.themes").get_dropdown({ previewer = false })) end,
+		function()
+			builtin.find_files(require("telescope.themes").get_dropdown({
+				previewer = false,
+				border = border,
+				borderchars = borderchars,
+			}))
+		end,
 		desc = "Go to File",
 	},
 	{
 		"<A-p>",
-		function() builtin.buffers(require("telescope.themes").get_dropdown({ previewer = false })) end,
+		function()
+			builtin.buffers(require("telescope.themes").get_dropdown({
+				previewer = false,
+				border = border,
+				borderchars = borderchars,
+			}))
+		end,
 		desc = "Go to Open Buffer",
 	},
 	-- Registers

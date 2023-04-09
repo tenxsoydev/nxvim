@@ -26,7 +26,7 @@ notify.setup({
 				height = state.message.height,
 				col = vim.opt.columns:get(),
 				row = next_row,
-				border = "rounded",
+				border = nx.opts.float_win_border,
 				style = "minimal",
 				opacity = 0,
 			}

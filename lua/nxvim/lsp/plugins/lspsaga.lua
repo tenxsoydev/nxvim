@@ -4,7 +4,7 @@ local M = {}
 
 require("lspsaga").setup({
 	ui = {
-		border = "rounded",
+		border = nx.opts.float_win_border,
 		code_action = "",
 		kind = {
 			Folder = { "", "" },

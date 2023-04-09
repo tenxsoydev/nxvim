@@ -8,7 +8,7 @@ vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
 local config = {
 	close_if_last_window = false,
-	popup_border_style = "rounded",
+	popup_border_style = nx.opts.float_win_border,
 	enable_git_status = true,
 	enable_diagnostics = true,
 	sort_case_insensitive = false,

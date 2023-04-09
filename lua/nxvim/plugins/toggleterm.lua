@@ -29,7 +29,7 @@ require("toggleterm").setup({
 	auto_scroll = false,
 	autochdir = true,
 	float_opts = {
-		border = "curved",
+		border = nx.opts.float_win_border,
 		winblend = vim.o.winblend,
 	},
 	highlights = {

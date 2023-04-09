@@ -8,13 +8,14 @@ if vim.fn.has("nvim-0.9.0") ~= 1 then
 end
 
 ---@class NxOpts
+---@field float_win_border "single"|"rounded"|"double"|"none" @border style for float windows and cmp popups
 ---@field transparency boolean
 -- A lot of terminal configs allow to specify different font families for font weights and styles.
 -- Since bold-italic is not used very often, we can utilize it to display a second font.
 -- We can use JetBrains as the default, and e.g. set Comments to bold-italic to use Fantasque for them.
 ---@field second_font boolean
 nx.opts = {
-	-- float_win_border = "rounded",
+	float_win_border = "rounded",
 	transparency = true,
 	second_font = false,
 }

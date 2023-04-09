@@ -2,7 +2,7 @@
 
 -- { == Configuration ==> =====================================================
 
-require("mason").setup({ ui = { border = "rounded" } })
+require("mason").setup({ ui = { border = nx.opts.float_win_border } })
 -- <== }
 
 -- { == Keymaps ==> ===========================================================

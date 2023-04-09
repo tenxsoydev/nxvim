@@ -2,7 +2,7 @@
 
 -- { == Configuration ==> =====================================================
 
-require("lspconfig.ui.windows").default_options.border = "rounded"
+require("lspconfig.ui.windows").default_options.border = nx.opts.float_win_border
 
 nx.map({
 	{ "<leader>lI", "<Cmd>LspInfo<CR>", desc = "Info" },
