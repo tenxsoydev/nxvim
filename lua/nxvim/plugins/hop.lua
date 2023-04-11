@@ -24,10 +24,10 @@ nx.cmd({
 
 nx.map({
 	-- use commands instead of mapping functions directly as it is compatible with dot repeat
-	{ "s", "<Cmd>HopChar2MW<CR>" },
-	{ "S", "<Cmd>HopChar1MW<CR>" },
-	{ "<leader>s", "<Cmd>HopChar2MW<CR>", "", wk_label = "ignore" },
-	{ "<leader>S", "<Cmd>HopChar1MW<CR>", "", wk_label = "ignore" },
+	{ "s", "<Cmd>HopChar2<CR>" },
+	{ "S", "<Cmd>HopChar1<CR>" },
+	{ "<leader>s", "<Cmd>HopChar2<CR>", "", wk_label = "ignore" },
+	{ "<leader>S", "<Cmd>HopChar1<CR>", "", wk_label = "ignore" },
 	{ "<leader>j", "<Cmd>HopLineStartAC<cr>", "", wk_label = "ignore" },
 	{ "<leader>k", "<Cmd>HopLineStartBC<cr>", "", wk_label = "ignore" },
 	{ "f", "<Cmd>HopChar1CurrentLineAC<CR>", "" },
