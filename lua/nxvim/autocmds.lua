@@ -14,6 +14,10 @@ nx.au({
 	-- Delay syntax highlighting for larger files, as it can have a significant impact on performance.
 	{
 		"BufEnter",
+		command = "setlocal formatoptions-=cro",
+	},
+	{
+		"BufEnter",
 		callback = function()
 			if vim.fn.line("$") > 3000 or vim.fn.getfsize(vim.fn.expand("%:p")) > 75000 then
 				local ft = vim.bo.ft
