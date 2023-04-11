@@ -5,18 +5,16 @@ nx.au({
 	{ "BufWritePre", command = "call mkdir(expand('<afile>:p:h'), 'p')" },
 	-- Reload(execute) on save
 	{ "BufWritePost", pattern = "options.lua", command = "source <afile>" },
-	-- Filetypes to quick close with `q`
-	{
+	{ -- Filetypes to quick close with `q`
 		{ "Filetype", "CmdwinEnter" },
 		pattern = { "qf", "help", "man", "startuptime", "vim" },
 		callback = function() nx.map({ { "q", "<Cmd>close<CR>", buffer = 0 } }) end,
 	},
-	-- Delay syntax highlighting for larger files, as it can have a significant impact on performance.
-	{
+	{ -- Disable auto commenting
 		"BufEnter",
 		command = "setlocal formatoptions-=cro",
 	},
-	{
+	{ -- Delay syntax highlighting for larger files, as it can have a significant impact on performance.
 		"BufEnter",
 		callback = function()
 			if vim.fn.line("$") > 3000 or vim.fn.getfsize(vim.fn.expand("%:p")) > 75000 then
@@ -42,14 +40,12 @@ nx.au({
 	{ { "BufNewFile", "BufRead" }, pattern = "*.v", command = "set filetype=v ts=4" },
 })
 
--- Remember folds
-nx.au({
+nx.au({ -- Remember folds
 	{ "BufWinLeave", pattern = "*.*", callback = function() vim.cmd("mkview") end },
 	{ "BufWinEnter", pattern = "*.*", callback = function() vim.cmd("silent! loadview") end },
 }, { create_group = "RememberFolds" })
 
--- Sync marks accross sessions
-nx.au({
+nx.au({ -- Sync marks accross sessions
 	{ "FocusLost", command = "wshada" },
 	-- stylua: ignore
 	{ { "FocusGained", "UIEnter" }, callback = function() vim.schedule(function() vim.cmd("rshada") end) end },
