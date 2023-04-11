@@ -13,7 +13,7 @@ local borderchars = nx.opts.float_win_border == "single" and { "─", "│", "�
 local config = {
 	defaults = {
 		selection_caret = " ",
-		border = true,
+		border = border,
 		borderchars = borderchars,
 		path_display = { "truncate" },
 		layout_config = {
