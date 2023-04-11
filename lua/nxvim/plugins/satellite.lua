@@ -3,7 +3,7 @@
 -- { == Configuration ==> =====================================================
 
 require("satellite").setup({
-	current_only = false,
+	current_only = true,
 	winblend = 0,
 	zindex = 40,
 	excluded_filetypes = {},
