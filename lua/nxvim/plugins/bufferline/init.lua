@@ -23,7 +23,7 @@ bufferline.setup({
 			style = "icon",
 		},
 		numbers = function(opts) return string.format("%s", opts.raise(opts.ordinal)) end,
-		buffer_close_icon = "", -- "窱",
+		buffer_close_icon = "", -- "×",
 		modified_icon = "", -- "●",
 		close_icon = "",
 		close_command = function(bufnr) MiniBufremove.delete(bufnr, true) end,
@@ -38,7 +38,7 @@ bufferline.setup({
 		diagnostics_indicator = function(count, level, diagnostics_dict, context)
 			local s = ""
 			for e, n in pairs(diagnostics_dict) do
-				local sym = e == "error" and " " or (e == "warning" and " " or "")
+				local sym = e == "error" and "" or (e == "warning" and "" or "")
 				s = s .. n .. sym
 			end
 			return s
