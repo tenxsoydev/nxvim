@@ -272,6 +272,19 @@ end
 telescope.setup(config)
 -- <== }
 
+-- { == Events ==> ============================================================
+
+nx.au({
+	"WinLeave",
+	callback = function()
+		-- don't preserve insert mode mode from prompt
+		if vim.bo.ft == "TelescopePrompt" and vim.fn.mode() == "i" then
+			vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "i", false)
+		end
+	end,
+})
+-- <== }
+
 -- { == Extensions ==> ========================================================
 
 ---@param extensions string[]
