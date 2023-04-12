@@ -23,7 +23,7 @@ bufferline.setup({
 			style = "icon",
 		},
 		numbers = function(opts) return string.format("%s", opts.raise(opts.ordinal)) end,
-		buffer_close_icon = "", -- "×",
+		buffer_close_icon = "×", -- "",
 		modified_icon = "", -- "●",
 		close_icon = "",
 		close_command = function(bufnr) MiniBufremove.delete(bufnr, true) end,

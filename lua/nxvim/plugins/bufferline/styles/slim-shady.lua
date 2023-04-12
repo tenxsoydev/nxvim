@@ -77,7 +77,7 @@ end
 for _, key in ipairs(bg_transparent) do
 	local font = { italic = true, bold = false }
 
-	if string.match(key, "tab") then font.italic = false end
+	if string.match(key, "tab") or string.match(key, "close_button") then font.italic = false end
 	if nx.opts.second_font and string.match(key, "diagnostic") then font.bold = true end
 
 	M.highlights[key] = { bg = { attribute = "bg", highlight = "Normal" }, bold = font.bold, italic = font.italic }
