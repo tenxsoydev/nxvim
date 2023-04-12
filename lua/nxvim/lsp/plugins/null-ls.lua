@@ -34,9 +34,8 @@ null_ls.setup({
 	debug = false,
 	sources = {
 		fmt.prettierd.with({
-			-- filetypes = { "css", "scss", "vue", "json", "markdown", "typescript", "yaml" },
-			filetypes = { "vue", "json", "markdown", "typescript", "yaml" },
-			extra_args = { "--use-tabs", "--printWidth: 120", "--semi: true" },
+			filetypes = { "markdown", "json", "jsonc", "typescript", "vue", "yaml" },
+			extra_args = { "--use-tabs", "--printWidth: 120", "--semi", "--single-quote" },
 		}),
 		fmt.rustfmt,
 		fmt.stylua,
