@@ -24,7 +24,7 @@ vim.g.mapleader = " "
 nx.map({
 	-- QUICK COMMANDS
 	-- `;` for `f` etc. would still trigger after `timeoutlen`. However, we use `hop.nvim` anyway
-	{ ";w", "<Cmd>w<CR>" },
+	{ ";w", "<Cmd>w<CR>", desc = "Write Buffer" },
 	{ ";c", function() MiniBufremove.delete(0, false) end, "", desc = "Close Buffer" },
 	{ ";C", "<Cmd>tabclose<CR>", "", desc = "Close Tab" },
 	{ ";q", "<Cmd>confirm quit<CR>", desc = "Close Window" },
