@@ -54,22 +54,22 @@ nx.au({
 -- { == Keymaps ==> ===========================================================
 
 local maps = {
-	{ "<S-l>", ":BufferNext<CR>", desc = "Go to Next Buffer" },
-	{ "<S-h>", ":BufferPrevious<CR>", desc = "Go to Previous Buffer" },
-	{ "<A-l>", " :BufferMoveNext<CR>", desc = "Move Buffer Right" },
-	{ "<A-h>", ":BufferMovePrevious<CR>", desc = "Move Buffer Left" },
-	{ "<A-p>", ":BufferPin<CR>" },
-	{ "<A-c>", ":BufferClose<CR>" },
-	{ "<leader>bc", ":BufferClose!<CR>", desc = "Close! Buffer" },
-	{ "<leader>bC", ":BufferCloseAllButCurrent<CR>", desc = "Close All Others" },
-	{ "<leader>bl", ":BufferCloseBuffersRight<CR>", desc = "Close All to the Right" },
-	{ "<leader>bh", ":BufferCloseBuffersLeft<CR>", desc = "Close All to the Left" },
-	{ "<leader>bp", ":BufferPick<CR>", desc = "Pick Buffer to Focus" },
-	{ "<leader>bP", ":BufferPickDelete<CR>", desc = "Pick Buffer to Focus" },
-	{ "<leader>bD", ":BufferOrderByDirectory<CR>", desc = "Sort by Directory" },
-	{ "<leader>bL", ":BufferOrderByLanguage<CR>", desc = "Sort by Language" },
-	-- { "<leader>bW", ":BufferOrderByWindowNumber<CR>", desc = "Sort by Window Number" },
-	-- { "<leader>bN", ":BufferOrderByBufferNumber<CR>", desc = "Sort by Buffer Number" },},
+	{ "<S-l>", "<Cmd>BufferNext<CR>", desc = "Go to Next Buffer" },
+	{ "<S-h>", "<Cmd>BufferPrevious<CR>", desc = "Go to Previous Buffer" },
+	{ "<A-l>", "<Cmd>BufferMoveNext<CR>", desc = "Move Buffer Right" },
+	{ "<A-h>", "<Cmd>BufferMovePrevious<CR>", desc = "Move Buffer Left" },
+	{ "<A-p>", "<Cmd>BufferPin<CR>" },
+	{ "<A-c>", "<Cmd>BufferClose<CR>" },
+	{ "<leader>bc", "<Cmd>BufferClose!<CR>", desc = "Close! Buffer" },
+	{ "<leader>bC", "<Cmd>BufferCloseAllButCurrent<CR>", desc = "Close All Others" },
+	{ "<leader>bl", "<Cmd>BufferCloseBuffersRight<CR>", desc = "Close All to the Right" },
+	{ "<leader>bh", "<Cmd>BufferCloseBuffersLeft<CR>", desc = "Close All to the Left" },
+	{ "<leader>bp", "<Cmd>BufferPick<CR>", desc = "Pick Buffer to Focus" },
+	{ "<leader>bP", "<Cmd>BufferPickDelete<CR>", desc = "Pick Buffer to Focus" },
+	{ "<leader>bD", "<Cmd>BufferOrderByDirectory<CR>", desc = "Sort by Directory" },
+	{ "<leader>bL", "<Cmd>BufferOrderByLanguage<CR>", desc = "Sort by Language" },
+	-- { "<leader>bW", "<Cmd>BufferOrderByWindowNumber<CR>", desc = "Sort by Window Number" },
+	-- { "<leader>bN", "<Cmd>BufferOrderByBufferNumber<CR>", desc = "Sort by Buffer Number" },},
 }
 
 for i = 0, 9 do
