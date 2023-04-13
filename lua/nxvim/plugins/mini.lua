@@ -14,7 +14,7 @@ local config = {
 	},
 	-- Vertical scroll
 	scroll = {
-		enable = true,
+		enable = false,
 		timing = animate.gen_timing.linear({ duration = 150, unit = "total" }),
 		subscroll = animate.gen_subscroll.equal({ max_output_steps = 60 }),
 	},

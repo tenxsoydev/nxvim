@@ -207,6 +207,7 @@ local modules = {
 	{ "kevinhwang91/nvim-hlslens", event = "VeryLazy", config = "plugins.hlslens" },
 	{ "edluffy/hologram.nvim", event = "VeryLazy" },
 	{ "echasnovski/mini.nvim", config = "plugins.mini" },
+	{ "karb94/neoscroll.nvim", config = "plugins.neoscroll" },
 	{ "nacro90/numb.nvim", event = "VeryLazy", config = true },
 	{ "windwp/nvim-autopairs", event = "VeryLazy", config = "plugins.autopairs" },
 	{ "NvChad/nvim-colorizer.lua", event = "VeryLazy", config = "plugins.colorizer" },
