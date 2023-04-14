@@ -245,6 +245,9 @@ nx.map({
 	-- Toggleterm
 	{ "<leader>`/", "<Cmd>Telescope termfinder<CR>", desc = "Search Terminals", wk_label = "Search" },
 	{ "<leader>/`", "<Cmd>Telescope termfinder<CR>", desc = "Search Terminals", wk_label = "Terminals" },
+	-- Sessions
+	{ "<leader>/s", "<Cmd>Telescope persisted<CR>", desc = "Search Sessions", wk_label = "Sessions" },
+	{ "<leader>s/", "<Cmd>Telescope persisted<CR>", desc = "Search Session", wk_label = "Search" },
 })
 -- <== }
 
@@ -296,7 +299,17 @@ end
 
 -- Lazy load majority of extensions
 vim.schedule(
-	function() load_extensions({ "bookmarks", "recent_files", "frecency", "fzy_native", "media_files", "projects" }) end
+	function()
+		load_extensions({
+			"bookmarks",
+			"recent_files",
+			"frecency",
+			"persisted",
+			"fzy_native",
+			"media_files",
+			"projects",
+		})
+	end
 )
 nx.au({ "TermEnter", once = true, callback = function() telescope.load_extension("termfinder") end })
 -- <== }

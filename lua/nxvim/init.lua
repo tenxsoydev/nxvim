@@ -163,9 +163,9 @@ local modules = {
 	-- Marks & Session -----------------------------------------------------------
 	{ "tenxsoydev/bookmarks.nvim", config = "plugins.bookmarks" },
 	{ "ThePrimeagen/harpoon", event = "VeryLazy", config = "plugins.harpoon" },
+	{ "olimorris/persisted.nvim", config = "plugins.persisted" },
 	{ "ahmedkhalf/project.nvim", config = "plugins.project" },
 	{ "chentoast/marks.nvim", event = "VeryLazy", config = "plugins.marks" },
-	{ "Shatur/neovim-session-manager", config = "plugins.session-manager", eager = true },
 
 	-- Colorschemes --------------------------------------------------------------
 	"dracula/vim",
