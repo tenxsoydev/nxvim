@@ -42,6 +42,9 @@ local config = {
 			filetypes = { "png", "webp", "jpg", "jpeg" },
 			find_cmd = "fd",
 		},
+		persisted = {
+			layout_config = { width = 80, height = 16 },
+		},
 	},
 }
 
