@@ -12,19 +12,29 @@ local borderchars = nx.opts.float_win_border == "single" and { "─", "│", "�
 
 local config = {
 	defaults = {
-		selection_caret = " ",
 		border = border,
 		borderchars = borderchars,
-		path_display = { "truncate" },
+		prompt_prefix = " ",
+		selection_caret = "  ",
+		color_devicons = true,
+		path_display = { "smart" },
+		dynamic_preview_title = true,
+		sorting_strategy = "ascending",
+		layout_strategy = "horizontal",
 		layout_config = {
-			horizontal = { preview_width = 0.58 },
-		},
-		mappings = {},
-		preview = {
-			treesitter = {
-				enable = true,
+			horizontal = {
+				preview_width = 0.58,
+				prompt_position = "top",
+				anchor = "N",
+			},
+			center = {
+				anchor = "N",
+			},
+			vertical = {
+				prompt_position = "top",
 			},
 		},
+		mappings = {}, -- See keymaps section below
 		winblend = vim.o.winblend,
 	},
 	extensions = {

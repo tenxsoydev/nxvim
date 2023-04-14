@@ -86,6 +86,7 @@ local popupmenu_renderer = wilder.popupmenu_renderer(wilder.popupmenu_palette_th
 	max_width = 80,
 	reverse = 0, -- set to 1 to reverse the order of the list, use in combination with 'prompt_position'
 	prompt_position = "top", -- 'top' or 'bottom' to set the location of the prompt
+	margin = 2,
 	left = { " ", wilder.popupmenu_devicons() },
 	right = {
 		" ",
