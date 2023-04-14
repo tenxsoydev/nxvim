@@ -26,8 +26,8 @@ require("satellite").setup({
 			},
 		},
 		marks = {
-			-- TODO: contrib hl groups?
-			enable = true,
+			-- TODO: contrib: hl groups, do not create wk_labels.
+			enable = false,
 			show_builtins = false, -- shows the builtin marks like [ ] < >
 		},
 	},
