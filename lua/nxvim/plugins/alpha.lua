@@ -29,7 +29,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("n", icons.FileBlank .. sep .. " New File", "<Cmd>ene <BAR> startinsert<CR>"),
 	dashboard.button("r", icons.History .. sep .. " Recent Files", "<Cmd>Telescope oldfiles<CR>"),
 	dashboard.button("p", icons.Folders .. sep .. " Projects", "<Cmd>Telescope projects<CR>"),
-	dashboard.button("s", icons.Interface .. sep .. " Sessions", "<Cmd>SessionManager load_session<cr>"),
+	dashboard.button("s", icons.Interface .. sep .. " Sessions", "<Cmd>Telescope persisted<cr>"),
 	dashboard.button("o", icons.Gear .. sep .. " Options", "<Cmd>e ~/.config/nvim/lua/nxvim/options.lua<CR>"),
 	dashboard.button("q", icons.CircleStop .. sep .. " Quit", "<Cmd>qa<CR>"),
 	-- dashboard.button("b", icons.Book .. sep .. " Bookmarks", ":Telescope bookmarks list prompt_title=Bookmarks<CR>"),
