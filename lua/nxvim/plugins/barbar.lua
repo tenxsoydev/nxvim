@@ -16,7 +16,7 @@ require("barbar").setup({
 		filetype = { enabled = true },
 		separator = { left = "▏", right = "" },
 		modified = { button = "" },
-		pinned = { button = "" },
+		pinned = { button = "", filename = true },
 		inactive = {
 			-- separator = { left = "" },
 			separator = { left = "▏" },
