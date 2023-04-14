@@ -7,6 +7,7 @@ nx.set({
 	timeoutlen = 350, -- time to wait for a mapped sequence to complete
 	title = true, -- show filename and path in application window title
 	titlelen = 25, -- percentage of columns to use before shortening the title
+	sessionoptions__append = "globals",
 	-- Auxiliary files
 	undofile = true, -- enable persistent undo
 	backup = false, -- create a backup file
