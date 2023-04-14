@@ -25,10 +25,10 @@ local config = {
 			horizontal = {
 				preview_width = 0.58,
 				prompt_position = "top",
-				anchor = "N",
+				-- anchor = "N",
 			},
 			center = {
-				anchor = "N",
+				-- anchor = "N",
 			},
 			vertical = {
 				prompt_position = "top",
