@@ -229,13 +229,13 @@ nx.map({
 	-- Bookmarks
 	{
 		"<leader>/m",
-		"<Cmd>Telescope bookmarks prompt_title=Bookmarks<CR>",
+		"<Cmd>Telescope bookmarks list prompt_title=Bookmarks<CR>",
 		desc = "Search Bookmarks",
 		wk_label = "Bookmarks",
 	},
 	{
 		"<leader>m/",
-		"<Cmd>Telescope bookmarks prompt_title=Bookmarks<CR>",
+		"<Cmd>Telescope bookmarks list prompt_title=Bookmarks<CR>",
 		desc = "Search Bookmarks",
 		wk_label = "Search",
 	},
