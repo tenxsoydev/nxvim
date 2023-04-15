@@ -8,6 +8,7 @@ nx.set({
 	title = true, -- show filename and path in application window title
 	titlelen = 25, -- percentage of columns to use before shortening the title
 	sessionoptions__append = "globals",
+	laststatus = 3, -- global statusline
 	-- Auxiliary files
 	undofile = true, -- enable persistent undo
 	backup = false, -- create a backup file
@@ -18,7 +19,7 @@ nx.set({
 	pumheight = 14, -- completion popup menu height
 	shortmess__append = "c", -- don't give completion-menu messages
 	-- Characters
-	fillchars__append = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:›,vert:▏]],
+	fillchars__append = [[eob: ,vert:▏,vertright:▏,vertleft:▏,horiz:┈, fold: ,foldopen:,foldsep: ,foldclose:›]],
 	listchars__append = [[space:⋅, tab: ░, trail:⋅, eol:↴]],
 	-- Gutter
 	number = true, -- show line numbers

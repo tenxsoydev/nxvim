@@ -4,6 +4,7 @@ local style_nxvim = require("nxvim.plugins.windline.styles.nxvim")
 -- { == Configuration ==> =====================================================
 
 local config = {
+	global_skip_filetypes = { "fern", "NvimTree", "lir", "filetree", "neo-tree" },
 	statuslines = {
 		style_nxvim.default,
 		style_nxvim.quickfix,
