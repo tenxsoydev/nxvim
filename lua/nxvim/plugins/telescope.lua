@@ -19,20 +19,20 @@ local config = {
 		color_devicons = true,
 		path_display = { "smart" },
 		dynamic_preview_title = true,
-		sorting_strategy = "ascending",
+		sorting_strategy = "descending",
 		layout_strategy = "horizontal",
 		layout_config = {
 			horizontal = {
 				preview_width = 0.58,
-				prompt_position = "top",
+				-- prompt_position = "top",
 				-- anchor = "N",
 			},
-			center = {
-				-- anchor = "N",
+			--[[ center = {
+				anchor = "N",
 			},
 			vertical = {
 				prompt_position = "top",
-			},
+			}, ]]
 		},
 		mappings = {}, -- See keymaps section below
 		winblend = vim.o.winblend,
@@ -53,7 +53,21 @@ local config = {
 			find_cmd = "fd",
 		},
 		persisted = {
-			layout_config = { width = 80, height = 16 },
+			sorting_strategy = "ascending",
+			layout_strategy = "center",
+			layout_config = {
+				width = 80,
+				height = 15,
+				prompt_position = "top",
+			},
+			border = true,
+			results_title = false,
+			-- TODO: border chars from nx.opts.float_win_border opts
+			borderchars = {
+				prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
+				results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
+				preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+			},
 		},
 	},
 }
