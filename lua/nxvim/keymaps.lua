@@ -216,6 +216,7 @@ nx.map({
 
 	-- UTILITY
 	{ "<kEnter>", "<CR>", { "", "!" }, desc = "Enter" },
+	{ "<leader>`R", "<Cmd>ResetTerminal<CR>", desc = "Reset Terminal" },
 	{ "<C-c>", "<Esc>", desc = "Escape", "" },
 	{ "gV", "`[v`]", desc = "Select Last Pasted Text" },
 	-- 's/S' are Utilized for Plugins Like Surround / Hop
