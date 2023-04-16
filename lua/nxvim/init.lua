@@ -161,7 +161,7 @@ local modules = {
 	"rafamadriz/friendly-snippets",
 
 	-- Marks & Session -----------------------------------------------------------
-	{ "tenxsoydev/bookmarks.nvim", config = "plugins.bookmarks" },
+	{ "tomasky/bookmarks.nvim", config = "plugins.bookmarks" },
 	{ "ThePrimeagen/harpoon", event = "VeryLazy", config = "plugins.harpoon" },
 	{ "olimorris/persisted.nvim", config = "plugins.persisted" },
 	{ "ahmedkhalf/project.nvim", config = "plugins.project" },
