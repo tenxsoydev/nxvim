@@ -18,12 +18,12 @@ local config = {
 	source_selector = {
 		winbar = true,
 		statusline = false,
-		tab_labels = {
+		--[[ sources = {
 			filesystem = "  Files",
 			buffers = " Buffers",
 			git_status = " Git ",
 			diagnostics = "裂Diagnostics ",
-		},
+		}, ]]
 		content_layout = "center",
 	},
 	default_component_configs = {
