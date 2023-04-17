@@ -2,7 +2,7 @@
 
 local M = {}
 
-require("lspsaga").setup({
+local config = {
 	ui = {
 		border = nx.opts.float_win_border,
 		code_action = "",
@@ -22,9 +22,13 @@ require("lspsaga").setup({
 		in_select = false,
 	},
 	finder = {
-		keys = {
-			quit = {},
-		},
+		keys = {}, -- See keymaps section below
+	},
+	outline = {
+		keys = {},
+	},
+	callhierarchy = {
+		keys = {},
 	},
 	symbol_in_winbar = {
 		enable = true,
@@ -34,9 +38,20 @@ require("lspsaga").setup({
 		folder_level = 3,
 		respect_root = false,
 	},
-})
+}
 
 -- { == Keymaps ==> ===========================================================
+
+config.finder.keys = {
+	expand_or_jump = "<CR>",
+	quit = { "q", "<C-c>", "<C-h>", "<C-j>", "<C-k>", "<C-l>" },
+}
+config.outline.keys = {
+	expand_or_jump = "<CR>",
+}
+config.callhierarchy.keys = {
+	jump = "<CR>",
+}
 
 ---@param bufnr number
 function M.on_attach(_, bufnr)
@@ -59,17 +74,13 @@ function M.on_attach(_, bufnr)
 		{ "<leader>la", "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" },
 		{ { "<C-.>", "<A-.>" }, "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" }, -- <C-.> works in kitty and GUIs
 	}, { buffer = bufnr })
-
-	nx.map({
-		{ "q", "<Cmd>close<CR>", "" },
-		{ "<C-c>", "<Cmd>close<CR>", "" },
-		{ "<C-h>", "<Cmd>close<CR>", "" },
-		{ "<C-j>", "<Cmd>close<CR>", "" },
-		{ "<C-k>", "<Cmd>close<CR>", "" },
-		{ "<C-l>", "<Cmd>close<CR>", "" },
-	}, { ft = "lspsagafinder" })
 end
 
+-- <== }
+
+-- { == Load Setup ==> ========================================================
+
+require("lspsaga").setup(config)
 -- <== }
 
 -- { == Highlights ==> ========================================================
