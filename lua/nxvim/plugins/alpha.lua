@@ -36,32 +36,32 @@ dashboard.section.buttons.val = {
 	-- dashboard.button("g", icons.List .. sep .. " Grep Files", ":Telescope live_grep <CR>"),
 }
 
-local function footer()
-	local quotes = {
-		"The version of you that ends his day in gratitude: What what he do in your situation?",
-		"Pray not for a lighter burden, but for stronger shoulders.",
-		"Breathe brother.",
-	}
-	math.randomseed(os.time())
-	return "\n \n \n" .. quotes[math.random(#quotes)]
-end
+---@param kind "custom"|"fortune"
+local function footer(kind)
+	if kind == "custom" then
+		local quotes = {
+			"The version of you that ends his day in gratitude: What what he do in your situation?",
+			"Pray not for a lighter burden, but for stronger shoulders.",
+			"Breathe brother.",
+		}
+		math.randomseed(os.time())
+		dashboard.section.footer.val = "\n \n \n" .. quotes[math.random(#quotes)]
+		return
+	end
 
---[[ --NOTE: if you want to use fortune instead of a custom quote table (requires fortune to be installed on your system)
--- defer load to not sacrifice startup time when a fortune is fetched.
-vim.schedule(function()
-	local function fortune()
-		local handle = io.popen "fortune"
+	-- Use fortune instead of a custom quote table (requires fortune to be installed on your system).
+	vim.schedule(function() -- defer load to not sacrifice startup time when a fortune is fetched.
+		local handle = io.popen("fortune")
 		-- local handle = io.popen "fortune -a | cowsay -f bud-frogs | lolcat "
 		if handle == nil then return end
-		local cookie = handle:read "*a"
+		local cookie = handle:read("*a")
 		handle:close()
-		return "\n \n \n" .. cookie
-	end
-	dashboard.section.footer.val = fortune()
-end) ]]
+		dashboard.section.footer.val = "\n \n \n" .. cookie
+		vim.api.nvim_feedkeys("k", "n", true)
+	end)
+end
+footer("custom")
 
--- if using fortune comment out the following line loading the footer
-dashboard.section.footer.val = footer()
 dashboard.section.footer.opts.hl = "Normal"
 dashboard.section.header.opts.hl = "Include"
 dashboard.section.buttons.opts.hl = "Keyword"
