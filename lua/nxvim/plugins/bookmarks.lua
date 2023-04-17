@@ -1,10 +1,11 @@
 -- https://github.com/tomasky/bookmarks.nvim
 
 local bm = require("bookmarks")
+local actions = require("bookmarks.actions")
 
 -- { == Configuration ==> =====================================================
 
-bm.setup({
+local config = {
 	save_file = vim.fn.stdpath("config") .. "/.bookmarks",
 	keywords = {
 		["@t"] = " ", -- mark annotation startswith @t ,signs this icon as `Todo`
@@ -16,17 +17,45 @@ bm.setup({
 		add = { hl = "BufferAlternate", text = "", numhl = "BookMarksAddNr", linehl = "BookMarksAddLn" },
 		ann = { hl = "BookMarksAnn", text = "", numhl = "BookMarksAnnNr", linehl = "BookMarksAnnLn" },
 	},
-})
+}
 -- <== }
 
 -- { == Keymaps ==> ===========================================================
 
-nx.map({
-	{ "<leader>mm", bm.bookmark_toggle, desc = "Bookmark toggle" },
-	{ "<leader>ma", bm.bookmark_ann, desc = "Annotate" },
-	{ "<leader>mq", bm.bookmark_list, desc = "Quickfix list" },
-	{ "<leader>mj", bm.bookmark_next, desc = "Next" },
-	{ "<leader>mk", bm.bookmark_prev, desc = "Prev" },
-	{ "<leader>mc", bm.bookmark_clean, desc = "Clean Buffer" },
-})
+local function map_keys()
+	nx.map({
+		{
+			"<leader>mm",
+			function()
+				bm.bookmark_toggle()
+				actions.saveBookmarks()
+			end,
+			desc = "Bookmark toggle",
+			wk_label = "Toggle",
+		},
+		{
+			"<leader>ma",
+			function()
+				bm.bookmark_ann()
+				actions.saveBookmarks()
+			end,
+			desc = "Annotate",
+		},
+		{ "<leader>mq", bm.bookmark_list, desc = "Open Bookmarks in Quickfix List", wk_label = "Quickfix List" },
+		{ "<leader>mj", bm.bookmark_next, desc = "Next" },
+		{ "<leader>mk", bm.bookmark_prev, desc = "Prev" },
+		{ "<leader>mc", bm.bookmark_clean, desc = "Clean Buffer" },
+	})
+end
+
 -- <== }
+
+-- { == Events ==> ============================================================
+
+config.on_attach = function(bufnr)
+	map_keys()
+	nx.au({ "FocusGained", callback = actions.loadBookmarks })
+end
+-- <== }
+
+bm.setup(config)
