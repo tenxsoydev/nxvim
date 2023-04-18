@@ -20,6 +20,17 @@ local config = {
 }
 -- <== }
 
+-- { == Commands ==============================================================
+
+nx.cmd({
+	"BookmarksTelescope",
+	function()
+		actions.loadBookmarks()
+		vim.defer_fn(function() require("telescope").extensions.bookmarks.list({ prompt_title = "Bookmarks" }) end, 50)
+	end,
+})
+-- <== }
+
 -- { == Keymaps ==> ===========================================================
 
 local function map_keys()
@@ -45,20 +56,11 @@ local function map_keys()
 		{ "<leader>mj", bm.bookmark_next, desc = "Next" },
 		{ "<leader>mk", bm.bookmark_prev, desc = "Prev" },
 		{ "<leader>mc", bm.bookmark_clean, desc = "Clean Buffer" },
+		{ "<leader>/m", "<Cmd>BookmarksTelescope<CR>", desc = "Search Bookmarks", wk_label = "Bookmarks" },
+		{ "<leader>m/", "<Cmd>BookmarksTelescope<CR>", desc = "Search Bookmarks", wk_label = "Search" },
 	})
 end
 
--- <== }
-
--- { == Commands ==============================================================
-
-nx.cmd({
-	"BookmarksTelescope",
-	function()
-		actions.loadBookmarks()
-		vim.defer_fn(function() require("telescope").extensions.bookmarks.list({ prompt_title = "Bookmarks" }) end, 50)
-	end,
-})
 -- <== }
 
 -- { == Events ==> ============================================================

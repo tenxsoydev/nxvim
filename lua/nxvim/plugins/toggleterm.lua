@@ -91,6 +91,9 @@ nx.map({
 	{ "<leader>gt", "<Cmd>lua lazygit_toggle()<CR>", "", desc = "Terminal UI" },
 	{ "<leader>`r", "<Cmd>lua btop_toggle()<CR>", desc = "Btop Resource Monitor" },
 	{ "<leader>`u", "<Cmd>lua ncdu_toggle()<CR>", desc = "NCurses Disk Usage" },
+	-- Telescope
+	{ "<leader>`/", "<Cmd>Telescope termfinder<CR>", desc = "Search Terminals", wk_label = "Search" },
+	{ "<leader>/`", "<Cmd>Telescope termfinder<CR>", desc = "Search Terminals", wk_label = "Terminals" },
 })
 
 function _G.set_terminal_keymaps()

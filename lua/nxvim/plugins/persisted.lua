@@ -16,5 +16,7 @@ nx.map({
 	{ "<leader>s.", "<Cmd>SessionLoad<CR>", desc = "Load Last Session in Project" },
 	{ "<leader>sf", "<Cmd>SessionLoadFromFile<CR>", desc = "Load Session from File" },
 	{ "<leader>sd", "<Cmd>SessionDelete<CR>", desc = "Delete Session" },
+	{ "<leader>s/", "<Cmd>Telescope persisted<CR>", desc = "Search Session", wk_label = "Search" },
+	{ "<leader>/s", "<Cmd>Telescope persisted<CR>", desc = "Search Sessions", wk_label = "Sessions" },
 }, { wk_label = { sub_desc = "Session" } })
 -- <== }

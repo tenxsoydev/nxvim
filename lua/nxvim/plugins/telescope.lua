@@ -251,21 +251,6 @@ nx.map({
 	{ "<leader>/M", "<Cmd>Telescope man_pages<CR>", desc = "Search Man Pages" },
 	{ "<leader>/r", telescope.extensions.recent_files.pick, desc = "Search Recent Files" },
 }, { wk_label = { sub_desc = "Search" } })
--- Extensions
-nx.map({
-	-- Bookmarks
-	{ "<leader>/m", "<Cmd>BookmarksTelescope<CR>", desc = "Search Bookmarks", wk_label = "Bookmarks" },
-	{ "<leader>m/", "<Cmd>BookmarksTelescope<CR>", desc = "Search Bookmarks", wk_label = "Search" },
-	-- Projects
-	{ "<leader>p", "<Cmd>Telescope projects<CR>", desc = "Projects" },
-	{ "<leader>/p", "<Cmd>Telescope projects<CR>", desc = "Search Projects", wk_label = "Projects" },
-	-- Toggleterm
-	{ "<leader>`/", "<Cmd>Telescope termfinder<CR>", desc = "Search Terminals", wk_label = "Search" },
-	{ "<leader>/`", "<Cmd>Telescope termfinder<CR>", desc = "Search Terminals", wk_label = "Terminals" },
-	-- Sessions
-	{ "<leader>/s", "<Cmd>Telescope persisted<CR>", desc = "Search Sessions", wk_label = "Sessions" },
-	{ "<leader>s/", "<Cmd>Telescope persisted<CR>", desc = "Search Session", wk_label = "Search" },
-})
 -- <== }
 
 -- { == Highlights ==> ========================================================
