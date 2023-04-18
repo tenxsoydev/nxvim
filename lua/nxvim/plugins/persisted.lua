@@ -20,3 +20,25 @@ nx.map({
 	{ "<leader>/s", "<Cmd>Telescope persisted<CR>", desc = "Search Sessions", wk_label = "Sessions" },
 }, { wk_label = { sub_desc = "Session" } })
 -- <== }
+
+-- { == Events ==> ============================================================
+
+nx.au({
+	{
+		"User",
+		pattern = "PersistedTelescopeLoadPre",
+		callback = function()
+			vim.cmd("silent bw neo-tree")
+			vim.cmd("silent bw diffview")
+		end,
+	},
+	{
+		"User",
+		pattern = "PersistedSavePre",
+		callback = function()
+			vim.cmd("Neotree close")
+			vim.cmd("DiffviewClose")
+		end,
+	},
+}, { create_group = "PersistedHooks" })
+--- <== }
