@@ -254,18 +254,8 @@ nx.map({
 -- Extensions
 nx.map({
 	-- Bookmarks
-	{
-		"<leader>/m",
-		"<Cmd>Telescope bookmarks list prompt_title=Bookmarks<CR>",
-		desc = "Search Bookmarks",
-		wk_label = "Bookmarks",
-	},
-	{
-		"<leader>m/",
-		"<Cmd>Telescope bookmarks list prompt_title=Bookmarks<CR>",
-		desc = "Search Bookmarks",
-		wk_label = "Search",
-	},
+	{ "<leader>/m", "<Cmd>BookmarksTelescope<CR>", desc = "Search Bookmarks", wk_label = "Bookmarks" },
+	{ "<leader>m/", "<Cmd>BookmarksTelescope<CR>", desc = "Search Bookmarks", wk_label = "Search" },
 	-- Projects
 	{ "<leader>p", "<Cmd>Telescope projects<CR>", desc = "Projects" },
 	{ "<leader>/p", "<Cmd>Telescope projects<CR>", desc = "Search Projects", wk_label = "Projects" },

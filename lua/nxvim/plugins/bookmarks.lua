@@ -50,12 +50,20 @@ end
 
 -- <== }
 
+-- { == Commands ==============================================================
+
+nx.cmd({
+	"BookmarksTelescope",
+	function()
+		actions.loadBookmarks()
+		vim.defer_fn(function() require("telescope").extensions.bookmarks.list({ prompt_title = "Bookmarks" }) end, 50)
+	end,
+})
+-- <== }
+
 -- { == Events ==> ============================================================
 
-config.on_attach = function(bufnr)
-	map_keys()
-	nx.au({ "FocusGained", callback = actions.loadBookmarks })
-end
+config.on_attach = function(_) map_keys() end
 -- <== }
 
 bm.setup(config)
