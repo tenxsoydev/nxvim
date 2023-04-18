@@ -70,8 +70,7 @@ local modules = {
 	{ "folke/zen-mode.nvim", event = "VeryLazy", config = "plugins.zen-mode" },
 
 	-- Git -----------------------------------------------------------------------
-	-- { "sindrets/diffview.nvim", event = "VeryLazy", config = "plugins.diffview" },
-	{ "3699394/diffview.nvim", event = "VeryLazy", config = "plugins.diffview" },
+	{ "sindrets/diffview.nvim", event = "VeryLazy", config = "plugins.diffview" },
 	{ "akinsho/git-conflict.nvim", event = "VeryLazy", config = "plugins.git-conflict" },
 	{ "ruifm/gitlinker.nvim", event = "VeryLazy", config = true },
 	{ "lewis6991/gitsigns.nvim", event = "VeryLazy", config = "plugins.gitsigns" },
