@@ -26,10 +26,12 @@ nx.map({
 nx.au({
 	{
 		"User",
-		pattern = "PersistedTelescopeLoadPre",
+		pattern = "PersistedLoadPre",
 		callback = function()
-			vim.cmd("silent bw neo-tree")
-			vim.cmd("silent bw diffview")
+			vim.defer_fn(function()
+				pcall(vim.api.nvim_command, "bw neo-tree")
+				pcall(vim.api.nvim_command, "bw diffview")
+			end, 100)
 		end,
 	},
 	{
