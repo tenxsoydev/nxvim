@@ -44,9 +44,9 @@ require("barbar").setup({
 
 nx.au({
 	"FileType",
-	pattern = "NeogitStatus",
+	pattern = { "NeogitStatus", "DiffviewFiles" },
 	callback = function()
-		vim.schedule(function() require("barbar.api").set_offset(0) end)
+		vim.defer_fn(function() require("barbar.api").set_offset(0) end, 75)
 	end,
 })
 -- <== }
