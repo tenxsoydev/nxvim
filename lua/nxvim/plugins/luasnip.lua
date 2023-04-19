@@ -1,11 +1,31 @@
 -- https://github.com/L3MON4D3/LuaSnip
 
 local ls = require("luasnip")
+local s = ls.snippet
+local i = ls.insert_node
+local t = ls.text_node
 
 -- { == Configuration ==> =====================================================
 
 ls.config.set_config({
 	history = true,
+})
+-- <== }
+
+-- { == Snippets ==> ==========================================================
+
+ls.add_snippets("v", {
+	s("prnt", {
+		t("println('"),
+		i(1),
+		t("')"),
+	}),
+	s("dbg", {
+		t("// DBG: "),
+		t({ "", "println('" }),
+		i(1),
+		t(" <--')"),
+	}),
 })
 -- <== }
 
