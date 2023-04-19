@@ -58,7 +58,7 @@ local maps = {
 	{ "<S-h>", "<Cmd>BufferPrevious<CR>", desc = "Go to Previous Buffer" },
 	{ "<A-l>", "<Cmd>BufferMoveNext<CR>", desc = "Move Buffer Right" },
 	{ "<A-h>", "<Cmd>BufferMovePrevious<CR>", desc = "Move Buffer Left" },
-	{ "<A-p>", "<Cmd>BufferPin<CR>" },
+	{ "<A-C-p>", "<Cmd>BufferPin<CR>" },
 	{ "<A-c>", "<Cmd>BufferClose<CR>" },
 	{ "<leader>bc", "<Cmd>BufferClose!<CR>", desc = "Close! Buffer" },
 	{ "<leader>bC", "<Cmd>BufferCloseAllButCurrent<CR>", desc = "Close All Others" },
