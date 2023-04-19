@@ -142,7 +142,7 @@ Just like most other neovim configurations, this one includes a collection of pl
 
 <br>
 
-Of course, you are free to use and modify it.
+Of course, you are free to use and modify it. ★ the project if you have found inspiring parts, want to show support or better stay up to date.
 
 ### License
 
