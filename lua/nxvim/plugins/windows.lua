@@ -11,9 +11,8 @@ vim.o.winminwidth = 11
 
 local config = {
 	autowidth = {
-		enable = false, -- off by default trigger with `<C-w>a` or command
-		-- winwidth = 0.58,
-		winwidth = 0.618, -- golded ratio
+		enable = false, -- Off by default. trigger with `<C-w>a` or command>.
+		winwidth = 0.618, -- Golden Ratio.
 	},
 	ignore = {
 		buftype = { "quickfix", "popup" },
@@ -28,10 +27,15 @@ local config = {
 }
 
 if vim.g.loaded_gui then
-	-- lower fps seems a lot smoother in e.g., neovide without multigrid
+	-- Lower fps seems smoother in e.g., neovide without multigrid.
 	config.animation.fps = 30
-	-- use neovides builtin animations when multigrid is enabled
+	-- Use neovides builtin animations when multigrid is enabled.
 	if vim.g.neovide and vim.api.nvim_list_uis()[1].ext_multigrid then config.animation.enable = false end
+end
+
+local ignored_filetypes = config.ignore.filetype
+for _, key in ipairs(ignored_filetypes) do
+	ignored_filetypes[key] = true
 end
 
 windows.setup(config)
@@ -69,12 +73,7 @@ local function disable_auto_maximize()
 end
 
 local function toggle_auto_maximize()
-	if vim.bo.filetype == "neo-tree" then
-		-- Workaround: restore statusline when enabling auto_maximize from neo-tree by moving cursor
-		vim.api.nvim_feedkeys("kj", "n", true)
-		return
-	end
-
+	if ignored_filetypes[vim.bo.filetype] then return end
 	if M.auto_maximize then
 		disable_auto_maximize()
 	else
@@ -109,11 +108,6 @@ nx.cmd({
 -- { == Events ==> ============================================================
 
 local timer = vim.loop.new_timer()
-
-local ignored_filetypes = config.ignore.filetype
-for _, key in ipairs(ignored_filetypes) do
-	ignored_filetypes[key] = true
-end
 
 nx.au({
 	{
