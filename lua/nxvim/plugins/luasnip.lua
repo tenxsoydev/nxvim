@@ -2,8 +2,11 @@
 
 local ls = require("luasnip")
 local s = ls.snippet
+local sn = ls.snippet_node
 local i = ls.insert_node
 local t = ls.text_node
+local c = ls.choice_node
+local fmt = require("luasnip.extras.fmt").fmt
 
 -- { == Configuration ==> =====================================================
 
@@ -15,17 +18,8 @@ ls.config.set_config({
 -- { == Snippets ==> ==========================================================
 
 ls.add_snippets("v", {
-	s("prnt", {
-		t("println('"),
-		i(1),
-		t("')"),
-	}),
-	s("dbg", {
-		t("// DBG: "),
-		t({ "", "println('" }),
-		i(1),
-		t(" <--')"),
-	}),
+	s("prt", fmt("println('{} <-')", { c(1, { sn(nil, { t("${"), i(1), t("}") }), t("") }) })),
+	s("dbg", fmt("// DBG:\nprintln('{} <-')", { c(1, { sn(nil, { t("${"), i(1), t("}") }), t("") }) })),
 })
 -- <== }
 
