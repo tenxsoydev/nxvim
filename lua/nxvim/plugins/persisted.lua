@@ -29,8 +29,8 @@ nx.au({
 		pattern = "PersistedLoadPre",
 		callback = function()
 			vim.defer_fn(function()
-				pcall(vim.api.nvim_command, "bw neo-tree")
-				pcall(vim.api.nvim_command, "bw diffview")
+				pcall(vim.api.nvim_command, "bw! neo-tree")
+				pcall(vim.api.nvim_command, "bw! diffview")
 			end, 100)
 		end,
 	},
