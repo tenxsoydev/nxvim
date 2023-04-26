@@ -26,6 +26,7 @@ local bg_solid = {
 	"separator",
 	"tab",
 	"tab_separator",
+	"tab_separator_selected",
 }
 
 local bg_transparent = {
@@ -59,7 +60,6 @@ local bg_transparent = {
 	"separator_selected",
 	"separator_visible",
 	"tab_selected",
-	"tab_separator_selected",
 	"tab_close",
 }
 
@@ -86,16 +86,12 @@ end
 
 -- { == Foreground ==> ========================================================
 
-local fg_dimmed = {
-	"warning_visible",
-	"modified",
-	"modified_visible",
-	"tab_separator",
-	"tab_separator_selected",
-}
-
-for _, key in ipairs(fg_dimmed) do
+for _, key in ipairs({ "warning_visible", "modified", "modified_visible" }) do
 	M.highlights[key].fg = { attribute = "fg", highlight = "TabLine" }
+end
+
+for _, key in ipairs({ "tab_separator", "tab_separator_selected" }) do
+	M.highlights[key].fg = { attribute = "bg", highlight = "TabLine" }
 end
 
 M.highlights.separator.fg = { attribute = "fg", highlight = "BufferlineSeparatorSelected" }

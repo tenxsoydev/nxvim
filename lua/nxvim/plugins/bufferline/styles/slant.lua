@@ -25,9 +25,7 @@ local bg_solid = {
 	"pick",
 	"separator",
 	"tab",
-	"tab_selected",
 	"tab_separator",
-	"tab_separator_selected",
 }
 
 local bg_transparent = {
@@ -60,6 +58,8 @@ local bg_transparent = {
 	"pick_selected",
 	"separator_selected",
 	"separator_visible",
+	"tab_selected",
+	"tab_separator_selected",
 }
 
 for _, key in ipairs(bg_solid) do
