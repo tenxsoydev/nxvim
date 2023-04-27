@@ -279,14 +279,13 @@ telescope.setup(config)
 
 -- { == Events ==> ============================================================
 
-nx.au({ -- Prevent entering buffers in insert mode. Mainly after opening buffers via telescope.
-	"WinLeave",
-	callback = function()
-		if vim.bo.ft == "TelescopePrompt" and vim.fn.mode() == "i" then
-			vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "i", false)
-		end
-	end,
-})
+-- Prevent entering buffers in insert mode. Mainly after opening buffers via telescope.
+local original_edit = require("telescope.actions.set").edit
+---@diagnostic disable-next-line: duplicate-set-field
+require("telescope.actions.set").edit = function(...)
+	original_edit(...)
+	vim.cmd.stopinsert()
+end
 -- <== }
 
 -- { == Extensions ==> ========================================================
