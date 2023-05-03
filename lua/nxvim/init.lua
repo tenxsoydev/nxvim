@@ -131,6 +131,7 @@ local modules = {
 	-- Language Specific
 	{ "simrat39/rust-tools.nvim", config = "lsp.plugins.rust-tools" },
 	-- "ron-rs/ron.vim",
+	{ "linux-cultist/venv-selector.nvim", config = "plugins.venv-selector", event = "VeryLazy" },
 
 	-- Debug ---------------------------------------------------------------------
 	-- TODO: Push DAP config
