@@ -35,8 +35,8 @@ nx.au({
 	{ "FileType", pattern = "markdown", command = "setlocal wrap ts=2 sw=2" },
 	-- { "FileType", pattern = "markdown", callback = function() vim.wo.foldlevel = 99 end },
 	{ "FileType", pattern = "teal", once = true, command = "LspToggleAutoFormat silent" },
-	{ "FileType", pattern = "python", command = "setlocal noexpandtab ts=3 sw=3" },
-	{ { "BufNewFile", "BufRead" }, pattern = "*.v", command = "set filetype=v ts=4" },
+	{ "FileType", pattern = "python", command = "setlocal noet ts=3 sw=3" },
+	{ "FileType", pattern = "vb", command = "setlocal et ts=4 sw=4" },
 })
 
 nx.au({ -- Remember folds
