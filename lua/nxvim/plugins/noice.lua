@@ -39,7 +39,7 @@ local config = {
 
 if vim.api.nvim_list_uis()[1].ext_multigrid then
 	config.cmdline.enabled = false
-	config.view.confirm = "mini"
+	config.views.confirm = "mini"
 end
 noice.setup(config)
 
