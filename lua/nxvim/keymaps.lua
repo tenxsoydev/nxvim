@@ -58,6 +58,9 @@ nx.map({
 	{ "<S-Tab>", "<gv", "v", desc = "Outdent" },
 	{ ">", ">gv", "v", desc = "Indent" },
 	{ "<", "<gv", "v", desc = "Outdent" },
+	-- Change Indent Size (requires tab indentation)
+	{ "<M-S-.>", "<Cmd>set ts+=1 sw=0 ts?<CR>", desc = "Increase Indentation Width" },
+	{ "<M-S-,>", "<Cmd>set ts-=1 sw=0 ts?<CR>", desc = "Decrease Indentation Width" },
 
 	-- WINDOW NAVIGATION
 	-- Quick Switch Windows
@@ -182,8 +185,6 @@ nx.map({
 
 	-- F-KEYS
 	-- Equivalents in kitty to e.g., `<S-F3>` is `<F15>`
-	{ "<S-Home>", "<Cmd>set ts-=1 sw=0 ts?<CR>", desc = "Decrease Indentation Width" },
-	{ "<S-End>", "<Cmd>set ts+=1 sw=0 ts?<CR>", desc = "Increase Indentation Width" },
 	{
 		"<F6>",
 		function() vim.notify(string.format("Filetype: %s, Buftype: %s", vim.bo.filetype, vim.bo.buftype)) end,
