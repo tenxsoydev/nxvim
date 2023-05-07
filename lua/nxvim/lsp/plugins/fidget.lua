@@ -6,7 +6,7 @@ local fidget = require("fidget")
 
 local config = {
 	text = {
-		done = "",
+		done = "",
 	},
 	window = {
 		blend = 0, -- interferes with transparency in TUI

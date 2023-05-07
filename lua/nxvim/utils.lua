@@ -27,7 +27,7 @@ function M.truc_path(input_path)
 	local config = {
 		max_dirs = 2,
 		shorten = true,
-		prefix = "…", -- "﬌" ""
+		prefix = "…", -- "󰘍" ""
 		trunc_symbol = "…",
 	}
 

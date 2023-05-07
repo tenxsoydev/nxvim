@@ -5,7 +5,33 @@ require("luasnip.loaders.from_vscode").lazy_load()
 
 -- { == Configuration ==> ====================================================
 
-local icons = require("nxvim.icons").nerd_solid
+local cmp_kinds = {
+	Text = "",
+	Method = "",
+	Function = "",
+	Constructor = "",
+	Field = "",
+	Variable = "",
+	Class = "",
+	Interface = "",
+	Module = "",
+	Property = "",
+	Unit = "",
+	Value = "",
+	Enum = "",
+	Keyword = "",
+	Snippet = "",
+	Color = "",
+	File = "",
+	Reference = "",
+	Folder = "",
+	EnumMember = "",
+	Constant = "",
+	Struct = "",
+	Event = "",
+	Operator = "",
+	TypeParameter = "",
+}
 
 local config = {
 	snippet = {
@@ -31,7 +57,7 @@ local config = {
 			if entry.source.name == "cmp_tabnine" then item.kind = "Tabnine" end
 			item.menu = item.kind
 
-			local icon = icons[item.kind]
+			local icon = cmp_kinds[item.kind]
 			if entry.source.name == "cmp_tabnine" then icon = "⌬" end
 			if entry.source.name == "copilot" then icon = "" end
 			item.kind = icon

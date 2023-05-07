@@ -19,10 +19,10 @@ local config = {
 		winbar = true,
 		statusline = false,
 		--[[ sources = {
-			filesystem = "  Files",
-			buffers = " Buffers",
-			git_status = " Git ",
-			diagnostics = "裂Diagnostics ",
+			filesystem = "󱀲 Files",
+			buffers = " Buffers",
+			git_status = "󰊢 Git ",
+			diagnostics = "󰒡 Diagnostics ",
 		}, ]]
 		content_layout = "center",
 	},
@@ -47,7 +47,7 @@ local config = {
 		icon = {
 			folder_closed = "",
 			folder_open = "",
-			folder_empty = "ﰊ",
+			folder_empty = "󰜌",
 			-- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
 			-- then these will never be used.
 			default = "*",
@@ -67,7 +67,7 @@ local config = {
 				added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
 				modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
 				deleted = "",
-				renamed = "",
+				renamed = "󰁕",
 				untracked = "",
 				ignored = "",
 				unstaged = "",

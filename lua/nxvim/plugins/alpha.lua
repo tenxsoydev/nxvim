@@ -21,17 +21,16 @@ else
 	}
 end
 
-local icons = require("nxvim.icons").nerd_solid
 local sep = " "
 dashboard.section.buttons.val = {
 	-- dashboard.button("f", icons.Files .. sep .. "Files", ":Telescope find_files<CR>"),
-	dashboard.button("f", icons.Files .. sep .. "File Browser", "<Cmd>Neotree float<CR>"),
-	dashboard.button("n", icons.FileBlank .. sep .. " New File", "<Cmd>ene <BAR> startinsert<CR>"),
-	dashboard.button("r", icons.History .. sep .. " Recent Files", "<Cmd>Telescope oldfiles<CR>"),
-	dashboard.button("p", icons.Folders .. sep .. " Projects", "<Cmd>Telescope projects<CR>"),
-	dashboard.button("s", icons.Interface .. sep .. " Sessions", "<Cmd>Telescope persisted<cr>"),
-	dashboard.button("o", icons.Gear .. sep .. " Options", "<Cmd>e ~/.config/nvim/lua/nxvim/options.lua<CR>"),
-	dashboard.button("q", icons.CircleStop .. sep .. " Quit", "<Cmd>qa<CR>"),
+	dashboard.button("f", "󰈢" .. sep .. "File Browser", "<Cmd>Neotree float<CR>"),
+	dashboard.button("n", "󰈔" .. sep .. " New File", "<Cmd>ene <BAR> startinsert<CR>"),
+	dashboard.button("r", "" .. sep .. " Recent Files", "<Cmd>Telescope oldfiles<CR>"),
+	dashboard.button("p", "󰉓" .. sep .. " Projects", "<Cmd>Telescope projects<CR>"),
+	dashboard.button("s", "" .. sep .. " Sessions", "<Cmd>Telescope persisted<cr>"),
+	dashboard.button("o", "" .. sep .. " Options", "<Cmd>e ~/.config/nvim/lua/nxvim/options.lua<CR>"),
+	dashboard.button("q", "󰗼" .. sep .. " Quit", "<Cmd>qa<CR>"),
 	-- dashboard.button("b", icons.Book .. sep .. " Bookmarks", ":Telescope bookmarks list prompt_title=Bookmarks<CR>"),
 	-- dashboard.button("g", icons.List .. sep .. " Grep Files", ":Telescope live_grep <CR>"),
 }

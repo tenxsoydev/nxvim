@@ -3,12 +3,11 @@ local M = {}
 -- { == Configuration ==> =====================================================
 
 local border = nx.opts.float_win_border
-local icons = require("nxvim.icons").nerd_solid
 local signs = {
-	{ name = "DiagnosticSignError", text = icons.CircleStop },
-	{ name = "DiagnosticSignWarn", text = icons.Warning },
-	{ name = "DiagnosticSignHint", text = icons.Lightbulb },
-	{ name = "DiagnosticSignInfo", text = icons.Info },
+	{ name = "DiagnosticSignError", text = "󰅙" },
+	{ name = "DiagnosticSignWarn", text = "" },
+	{ name = "DiagnosticSignHint", text = "󱍄" },
+	{ name = "DiagnosticSignInfo", text = "" },
 }
 
 for _, sign in ipairs(signs) do

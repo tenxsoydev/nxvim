@@ -81,14 +81,14 @@ gl.section.left = {
 		ViMode = {
 			icon = function()
 				local icons = {
-					n = " ",
+					n = "󰆾 ",
 					i = " ",
-					c = "ﲵ ",
-					v = " ",
-					V = " ",
-					[""] = " ",
-					C = "ﲵ ",
-					R = "﯒ ",
+					c = "󰞷 ",
+					v = "󰆿 ",
+					V = "󰆿 ",
+					[""] = "󰆿 ",
+					C = "󰞷 ",
+					R = "󰛔 ",
 					t = " ",
 				}
 				return icons[vim.fn.mode()]
@@ -267,7 +267,7 @@ gl.section.left = {
 			provider = diagnostic.get_diagnostic_hint,
 			condition = function() return conditions.break_width(55) end,
 			highlight = { colors.blue, colors.bg },
-			icon = "  ",
+			icon = " 󱍅 ",
 		},
 	},
 	{
@@ -326,7 +326,7 @@ gl.section.right = {
 		Percent = {
 			provider = "LinePercent",
 			highlight = { colors.fg, colors.darkblue },
-			separator = " ", -- " ", --     ﱿ 
+			separator = " ", -- " ", --     󰞁 󰆌
 			separator_highlight = { colors.blue, colors.darkblue },
 		},
 	},
@@ -399,9 +399,9 @@ local BufferTypeMap = {
 	["neo-tree"] = " Tree",
 	["fugitive"] = " Fugitive",
 	["fugitiveblame"] = " Fugitive Blame",
-	["help"] = " Help",
+	["help"] = "󰋗 Help",
 	["minimap"] = "Minimap",
-	["qf"] = " Quick Fix",
+	["qf"] = "󰁨 Quick Fix",
 	["tabman"] = "Tab Manager",
 	["tagbar"] = "Tagbar",
 	["FTerm"] = "Terminal",
@@ -410,14 +410,14 @@ local BufferTypeMap = {
 	["git"] = " Git",
 	["NeogitStatus"] = " Neogit Status",
 	["NeogitPopup"] = " Neogit Popup",
-	["NeogitCommitMessage"] = " Neogit Commit",
+	["NeogitCommitMessage"] = "󰍣 Neogit Commit",
 	["DiffviewFiles"] = " Diff View",
-	["dapui_scopes"] = "כֿ Dap Scope",
+	["dapui_scopes"] = "󱁯 Dap Scope",
 	["dapui_breakpoints"] = " Dap Breakpoints",
 	["dapui_stacks"] = " Dap Stacks",
-	["dapui_watches"] = "ﭓ Dap Watch",
+	["dapui_watches"] = "󰙔 Dap Watch",
 	["dap-repl"] = " Dap REPL",
-	["Outline"] = " SymbolOutline",
+	["Outline"] = " SymbolOutline",
 	["fern"] = " Fern FM",
 	["filetree"] = " Tree",
 }

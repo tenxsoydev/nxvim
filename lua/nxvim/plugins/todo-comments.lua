@@ -14,10 +14,10 @@ require("todo-comments").setup({
 			-- signs = false, -- configure signs for some keywords individually
 		},
 		TODO = { icon = " ", alt = { "#to/do" } },
-		NOTE = { icon = " ", alt = { "INFO" } },
+		NOTE = { icon = "󰍨 ", alt = { "INFO" } },
 		WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
 		HACK = { icon = " ", color = "warning" },
-		PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+		PERF = { icon = "󰅒 ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
 		TEST = { icon = "󰕥 ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
 		DBG = { icon = " " },
 	},

@@ -35,15 +35,15 @@ local colors_mode = {
 
 local function indicator()
 	local indicators = {
-		n = " N ",
+		n = "󰆾 N ",
 		i = " I ",
-		c = "ﲵ C ",
-		v = " V ",
-		V = " VL",
-		[""] = " VB",
-		C = "ﲵ C ",
-		R = "﯒ R ",
-		r = "﯒ R ",
+		c = "󰞷 C ",
+		v = "󰆿 V ",
+		V = "󰆿 VL",
+		[""] = "󰆿 VB",
+		C = "󰞷 C ",
+		R = "󰛔 R ",
+		r = "󰛔 R ",
 		t = " T ",
 	}
 	return tostring(indicators[vim.fn.mode()])
@@ -81,7 +81,7 @@ basic.git_diffs = {
 		return {
 			{ git_comps.diff_added({ format = "  %s", show_zero = false }), "green" }, -- show_zero = ture == default
 			{ git_comps.diff_removed({ format = "  %s", show_zero = false }), "red" },
-			{ git_comps.diff_changed({ format = " 柳%s", show_zero = false }), "blue" },
+			{ git_comps.diff_changed({ format = "  %s", show_zero = false }), "blue" },
 		}
 	end,
 }
@@ -156,7 +156,7 @@ basic.lsp_diagnos = {
 		return {
 			{ lsp_comps.lsp_error({ format = "  %s", show_zero = false }), "red" },
 			{ lsp_comps.lsp_warning({ format = "  %s", show_zero = false }), "yellow" },
-			{ lsp_comps.lsp_hint({ format = "  %s", show_zero = false }), "blue" },
+			{ lsp_comps.lsp_hint({ format = " 󰋼 %s", show_zero = false }), "blue" },
 		}
 	end,
 }
@@ -164,7 +164,7 @@ basic.lsp_diagnos = {
 basic.position = {
 	text = function()
 		return {
-			-- { " ", hl_list.Filename }, -- " "
+			-- { " ", hl_list.Filename }, -- " 󰉶"
 			{ b_components.line_col, hl_list.Filename },
 			{ b_components.progress, hl_list.Filename },
 			{ " " },
@@ -192,7 +192,7 @@ basic.file_info = {
 	width = 75,
 	text = function(bufnr)
 		return {
-			-- { "ﲒ", hl_list.Filename },
+			-- { "󰞔", hl_list.Filename },
 			{ " " },
 			{ get_indentation(bufnr), hl_list.Filename },
 			{ vim.o.ts, hl_list.Filename },
@@ -272,7 +272,8 @@ M.terminal = {
 	},
 	inactive = {
 		{ "▊", { "black_light", "black" } },
-		{ "  ", hl_list.Filename }, --  
+		{ " " },
+		{ indicator, hl_list.Filename }, --  󰅪
 		{ "  " },
 		{ b_components.cache_file_type({ icon = true }), hl_list.Filename },
 		{ b_components.divider },

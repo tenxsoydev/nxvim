@@ -25,10 +25,10 @@ bufferline.setup({
 		numbers = function(opts) return string.format("%s", opts.raise(opts.ordinal)) end,
 		buffer_close_icon = "×", -- "",
 		modified_icon = "", -- "●",
-		close_icon = "",
+		close_icon = "󰅖",
 		close_command = function(bufnr) MiniBufremove.delete(bufnr, true) end,
-		left_trunc_marker = "", -- "",
-		right_trunc_marker = "", -- "",
+		left_trunc_marker = "󰁍", -- "",
+		right_trunc_marker = "󰁔", -- "",
 		max_name_length = 16,
 		max_prefix_length = 10,
 		tab_size = 14,
@@ -38,7 +38,7 @@ bufferline.setup({
 		diagnostics_indicator = function(count, level, diagnostics_dict, context)
 			local s = ""
 			for e, n in pairs(diagnostics_dict) do
-				local sym = e == "error" and "" or (e == "warning" and "" or "")
+				local sym = e == "error" and "" or e == "warning" and "" or e == "info" and "" or "󱍅"
 				s = s .. n .. sym
 			end
 			return s

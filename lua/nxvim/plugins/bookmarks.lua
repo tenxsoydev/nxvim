@@ -8,14 +8,14 @@ local actions = require("bookmarks.actions")
 local config = {
 	save_file = vim.fn.stdpath("config") .. "/.bookmarks",
 	keywords = {
-		["@t"] = " ", -- mark annotation startswith @t ,signs this icon as `Todo`
-		["@w"] = " ", -- mark annotation startswith @w ,signs this icon as `Warn`
+		["@t"] = "", -- mark annotation startswith @t ,signs this icon as `Todo`
+		["@w"] = "", -- mark annotation startswith @w ,signs this icon as `Warn`
 		["@f"] = "", -- mark annotation startswith @f ,signs this icon as `Fix`
-		["@n"] = " ", -- mark annotation startswith @n ,signs this icon as `Note`
+		["@n"] = "󰆉", -- mark annotation startswith @n ,signs this icon as `Note`
 	},
 	signs = {
 		add = { hl = "BufferAlternate", text = "", numhl = "BookMarksAddNr", linehl = "BookMarksAddLn" },
-		ann = { hl = "BookMarksAnn", text = "", numhl = "BookMarksAnnNr", linehl = "BookMarksAnnLn" },
+		ann = { hl = "BookMarksAnn", text = "󰆉", numhl = "BookMarksAnnNr", linehl = "BookMarksAnnLn" },
 	},
 }
 -- <== }
