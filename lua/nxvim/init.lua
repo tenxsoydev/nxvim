@@ -53,7 +53,7 @@ local modules = {
 	{ "tenxsoydev/karen-yank.nvim", event = "VeryLazy", config = true, branch = "remove-cut-esc" },
 
 	-- Buffer- & Window Management -----------------------------------------------
-	-- { "akinsho/bufferline.nvim", config = "plugins.bufferline", tag = "v3.5.0" },
+	-- { "akinsho/bufferline.nvim", config = "plugins.bufferline" },
 	{ "romgrk/barbar.nvim", event = "VeryLazy", config = "plugins.barbar" },
 	{ "kwkarlwang/bufresize.nvim", event = "VeryLazy", config = true }, -- handle split window sizes on client resize
 	{ "gorbit99/codewindow.nvim", event = "VeryLazy", config = "plugins.codewindow" },
@@ -140,7 +140,7 @@ local modules = {
 	-- "rcarriga/nvim-dap-ui",
 	-- "Pocco81/DAPInstall.nvim",
 	{ "kevinhwang91/nvim-bqf", event = "VeryLazy", config = "plugins.bqf" },
-	{ "tobealive/trouble.nvim", event = "VeryLazy", branch = "fix-loclist-as-qfwindow", config = "plugins.trouble" }, -- TODO: use upstream
+	{ "folke/trouble.nvim", event = "VeryLazy", config = "plugins.trouble" },
 
 	-- Code Completion -----------------------------------------------------------
 	{ "hrsh7th/nvim-cmp", event = "InsertEnter", config = "plugins.cmp" },
