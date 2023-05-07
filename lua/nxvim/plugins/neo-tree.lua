@@ -18,12 +18,6 @@ local config = {
 	source_selector = {
 		winbar = true,
 		statusline = false,
-		--[[ sources = {
-			filesystem = "󱀲 Files",
-			buffers = " Buffers",
-			git_status = "󰊢 Git ",
-			diagnostics = "󰒡 Diagnostics ",
-		}, ]]
 		content_layout = "center",
 	},
 	default_component_configs = {
@@ -159,7 +153,7 @@ local config = {
 			mappings = {}, -- See keymaps section below
 		},
 	},
-	event_handlers = {},
+	event_handlers = {}, -- See events section below
 }
 -- <== }
 
