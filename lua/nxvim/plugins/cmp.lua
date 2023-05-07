@@ -43,9 +43,10 @@ local config = {
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "cmp_tabnine" },
-		-- { name = "copilot" },
 		{ name = "path" },
-		{ name = "emoji" },
+		{ name = "nerdfont" },
+		-- { name = "copilot" },
+		-- { name = "emoji" },
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
