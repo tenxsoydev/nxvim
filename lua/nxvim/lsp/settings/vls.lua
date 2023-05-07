@@ -1,4 +1,5 @@
 return {
-	init_options = { provideFormatter = false },
 	command = { "v", "ls", "--socket" },
+	init_options = { provideFormatter = false },
+	textDocument = { foldingRange = nil },
 }
