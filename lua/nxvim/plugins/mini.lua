@@ -15,6 +15,7 @@ local config = {
 	-- Vertical scroll
 	scroll = {
 		enable = false,
+		-- enable = vim.g.loaded_gui and true or false,
 		timing = animate.gen_timing.linear({ duration = 150, unit = "total" }),
 		subscroll = animate.gen_subscroll.equal({ max_output_steps = 60 }),
 	},
@@ -53,15 +54,15 @@ require("mini.bufremove").setup()
 require("mini.move").setup({
 	-- Module mappings. Use `''` (empty string) to disable one.
 	mappings = {
-		left = "<A-h>",
-		right = "<A-l>",
-		down = "<A-j>",
-		up = "<A-k>",
+		left = vim.g.osx_eu and "ù" or "<A-h>",
+		right = vim.g.osx_eu and "ø" or "<A-l>",
+		down = vim.g.osx_eu and "ú" or "<A-j>",
+		up = vim.g.osx_eu and "ĳ" or "<A-k>",
 		-- Move current line in Normal mode
-		line_left = "<A-Left>",
-		line_right = "<A-Right>",
-		line_down = "<A-j>",
-		line_up = "<A-k>",
+		line_left = vim.g.osx_eu and "ù" or "<A-h>",
+		line_right = vim.g.osx_eu and "ø" or "<A-l>",
+		line_down = vim.g.osx_eu and "ú" or "<A-j>",
+		line_up = vim.g.osx_eu and "ĳ" or "<A-k>",
 	},
 })
 -- <== }

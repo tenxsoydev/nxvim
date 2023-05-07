@@ -6,8 +6,8 @@ vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/visual-multi")
 
 vim.g.VM_mouse_mappings = 1
 vim.g.VM_maps = {
-	["Find Under"] = "<A-n>",
-	["Find Subword Under"] = "<A-n>",
+	["Find Under"] = vim.g.osx_eu and "ñ" or "<A-n>",
+	["Find Subword Under"] = vim.g.osx_eu and "ñ" and "<A-n>",
 	["Undo"] = "u",
 	["Redo"] = "<C-r>",
 	["Add Cursor Up"] = "<A-C-k>",

@@ -39,13 +39,13 @@ nx.map({
 	{ "$", "&wrap ? 'g$' : '$'", "", expr = true, silent = true },
 	{ "^", "&wrap ? 'g^' : '^'", "", expr = true, silent = true },
 	-- Duplicate Lines
-	{ "<A-S-j>", '"yyy"yp', desc = "Duplicate Line Down" },
-	{ "<A-S-k>", '"yyy"yP', desc = "Duplicate Line Up" },
-	{ "<A-S-j>", "\"dy']\"dp`]'[V']", "v", desc = "Duplicate Lines Down" },
-	{ "<A-S-k>", "\"dy\"dP'[V']", "v", desc = "Duplicate Lines Up" },
+	{ vim.g.osx_eu and "Ú" or "<A-S-j>", '"yyy"yp', desc = "Duplicate Line Down" },
+	{ vim.g.osx_eu and "Ĳ" or "<A-S-k>", '"yyy"yP', desc = "Duplicate Line Up" },
+	{ vim.g.osx_eu and "Ú" or "<A-S-j>", "\"dy']\"dp`]'[V']", "v", desc = "Duplicate Lines Down" },
+	{ vim.g.osx_eu and "Ĳ" or "<A-S-k>", "\"dy\"dP'[V']", "v", desc = "Duplicate Lines Up" },
 	-- Add Blank Line, Stay in Normal Mode
-	{ "<A-o>", 'o<Esc>^"_D', desc = "Add Blank Line Below" },
-	{ "<A-O>", 'O<Esc>^"_D', desc = "Add Blank Line Above" },
+	{ vim.g.osx_eu and "ö" or "<A-o>", 'o<Esc>^"_D', desc = "Add Blank Line Below" },
+	{ vim.g.osx_eu and "Ö" or "<A-O>", 'O<Esc>^"_D', desc = "Add Blank Line Above" },
 	-- Indentation
 	-- NOTE: mapping <Tab> in normal mode == mapping <C-i>
 	{ "<S-Tab>", "<C-d>", "i", desc = "Outdent" },

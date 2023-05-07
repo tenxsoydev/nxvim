@@ -1,6 +1,8 @@
 local opts = {
-	guifont = "JetBrains Mono Light, JetBrainsMono NFM:h10:#e-antialias", -- made the best experience with JetBrains fonts
-	-- guifont = "VictorMono Nerd Font Mono:h10:#e-antialias", -- proper icons, f*ed up italics
+	guifont = "Hasklug Nerd Font Mono:h14:#e-subpixelantialias",
+	-- guifont = "JetBrainsMono Nerd Font Mono:h14:#e-subpixelantialias",
+	-- guifont = "JetBrains Mono Light, JetBrainsMono NFM:h10:#e-antialias", -- made the best experience with JetBrains fonts
+	-- guifont = "VictorMono Nerd Font Mono:h13:#e-antialias", -- proper icons, f*ed up italics
 	-- guifont = "VictorMono Nerd Font:h10:#e-antialias", -- proper italics, f*ed up icons
 }
 if vim.api.nvim_list_uis()[1].ext_multigrid then
