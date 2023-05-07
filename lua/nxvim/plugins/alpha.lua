@@ -30,7 +30,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("p", "󰉓" .. sep .. " Projects", "<Cmd>Telescope projects<CR>"),
 	dashboard.button("s", "" .. sep .. " Sessions", "<Cmd>Telescope persisted<cr>"),
 	dashboard.button("o", "" .. sep .. " Options", "<Cmd>e ~/.config/nvim/lua/nxvim/options.lua<CR>"),
-	dashboard.button("q", "󰗼" .. sep .. " Quit", "<Cmd>qa<CR>"),
+	dashboard.button("q", "󰅙" .. sep .. " Quit", "<Cmd>qa<CR>"),
 	-- dashboard.button("b", icons.Book .. sep .. " Bookmarks", ":Telescope bookmarks list prompt_title=Bookmarks<CR>"),
 	-- dashboard.button("g", icons.List .. sep .. " Grep Files", ":Telescope live_grep <CR>"),
 }
