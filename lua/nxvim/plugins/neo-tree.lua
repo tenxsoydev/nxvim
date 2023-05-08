@@ -343,10 +343,12 @@ local function set_hls()
 			{ "NeoTreeTabActive", fg = colors.tree_file_name },
 			{ "NeoTreeTabInactive", fg = "NeoTreeDimText:fg", bg = "DraculaBgDark:bg" },
 			{ "NeoTreeTabSeparatorInactive", bg = "DraculaBgDark:bg", fg = "DraculaBgDarker:bg" },
+			-- Fix over-sized circle icon due to italicizing
+			{ "NeoTreeGitUnstaged", fg = "NeoTreeGitUnstaged:fg" },
 		})
 
 		if vim.env.TERM_PROGRAM == "WezTerm" then
-			nx.hl({ -- remove italics due to oversized icons in wezterm
+			nx.hl({ -- Fix over-sized circle icon due to italicizing
 				{ "NeoTreeGitConflict", fg = "NeoTreeGitConflict:fg" },
 				{ "NeoTreeGitUntracked", fg = "NeoTreeGitUntracked:fg" },
 			})
