@@ -38,7 +38,7 @@ local function init_gui()
 		fillchars__append = [[vert:│]],
 		guifont = "JetBrainsMono Nerd Font Mono:h14",
 		guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait600-blinkoff800-blinkon900-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175",
-		linespace = 3,
+		linespace = jit.os == "OSX" and 3 or 2,
 		winblend = 10,
 		pumblend = 10,
 	}

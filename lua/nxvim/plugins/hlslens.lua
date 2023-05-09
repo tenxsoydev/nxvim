@@ -22,7 +22,7 @@ require("hlslens").setup({
 				text = ("[%s %d/%d]"):format(indicator, idx, cnt)
 			else
 				text = ("[%d/%d]"):format(idx, cnt)
-				-- if vim.api.nvim_list_uis()[1].ext_multigrid then text = text .. " /" .. vim.fn.getreg("/") end
+				-- if vim.g.multigrid then text = text .. " /" .. vim.fn.getreg("/") end
 			end
 			chunks = { { " ", "Ignore" }, { text, "HlSearchNear" } }
 		else

@@ -30,7 +30,7 @@ if vim.g.loaded_gui then
 	-- Lower fps seems smoother in e.g., neovide without multigrid.
 	config.animation.fps = 30
 	-- Use neovides builtin animations when multigrid is enabled.
-	if vim.g.neovide and vim.api.nvim_list_uis()[1].ext_multigrid then config.animation.enable = false end
+	if vim.g.neovide and vim.g.multigrid then config.animation.enable = false end
 end
 
 local ignored_filetypes = config.ignore.filetype

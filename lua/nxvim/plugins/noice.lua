@@ -1,10 +1,10 @@
 -- https://github.com/folke/noice.nvim
 
-local noice = require("noice")
-
 -- { == Configuration ==> =====================================================
 
-local config = {
+if vim.g.multigrid then return end
+
+require("noice").setup({
 	lsp = {
 		signature = {
 			enabled = false,
@@ -35,13 +35,7 @@ local config = {
 			},
 		},
 	},
-}
-
-if vim.api.nvim_list_uis()[1].ext_multigrid then
-	config.cmdline.enabled = false
-	config.views.confirm = "mini"
-end
-noice.setup(config)
+})
 
 -- <== }
 

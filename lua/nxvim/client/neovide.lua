@@ -1,11 +1,13 @@
+local guifont = jit.os == "OSX" and "Hasklug Nerd Font Mono:h14:#e-subpixelantialias" or "Hasklug Nerd Font Mono:h12"
+
 local opts = {
-	guifont = "Hasklug Nerd Font Mono:h14:#e-subpixelantialias",
+	guifont = guifont,
 	-- guifont = "JetBrainsMono Nerd Font Mono:h14:#e-subpixelantialias",
 	-- guifont = "JetBrains Mono Light, JetBrainsMono NFM:h10:#e-antialias", -- made the best experience with JetBrains fonts
 	-- guifont = "VictorMono Nerd Font Mono:h13:#e-antialias", -- proper icons, f*ed up italics
 	-- guifont = "VictorMono Nerd Font:h10:#e-antialias", -- proper italics, f*ed up icons
 }
-if vim.api.nvim_list_uis()[1].ext_multigrid then
+if vim.g.multigrid then
 	opts.winblend = 15
 	opts.pumblend = 15
 end

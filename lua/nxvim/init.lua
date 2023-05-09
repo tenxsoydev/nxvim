@@ -1,5 +1,7 @@
 local lazy = require("nxvim.plugins.lazy")
 
+vim.g.multigrid = vim.api.nvim_list_uis()[1].ext_multigrid
+
 -- { == Modules ==> ===========================================================
 
 ---@class NxModule : LazyPluginSpec
@@ -32,7 +34,10 @@ local modules = {
 	-- Commandline
 	{ "gelguy/wilder.nvim", dependencies = "romgrk/fzy-lua-native", event = "CmdlineEnter", config = "plugins.wilder" },
 	{ "folke/noice.nvim", config = "plugins.noice" },
-	{ "lukas-reineke/indent-blankline.nvim", event = "VeryLazy", config = "plugins.indentline" },
+	-- Messages
+	{ "AckslD/messages.nvim", config = vim.g.multigrid and true or false },
+	{ "vigoux/notifier.nvim", config = vim.g.multigrid and "plugins.notifier" or false },
+	-- { "rcarriga/nvim-notify", config = "plugins.notify" },
 	-- File Tree
 	-- { "nvim-neo-tree/neo-tree.nvim", dependencies = "MunifTanjim/nui.nvim", config = "plugins.neo-tree" },
 	{
@@ -44,8 +49,6 @@ local modules = {
 	-- Terminal
 	{ "akinsho/toggleterm.nvim", event = "VeryLazy", config = "plugins.toggleterm" },
 	{ "willothy/flatten.nvim", priority = 100, config = "plugins.flatten" },
-	-- Notifications
-	-- { "rcarriga/nvim-notify", config = "plugins.notify" },
 	-- Comments
 	{ "numToStr/Comment.nvim", event = "VeryLazy", config = "plugins.comment" },
 	{ "folke/todo-comments.nvim", event = "VeryLazy", config = "plugins.todo-comments" },
@@ -213,6 +216,7 @@ local modules = {
 	{ "phaazon/hop.nvim", event = "VeryLazy", config = "plugins.hop" },
 	{ "kevinhwang91/nvim-hlslens", event = "VeryLazy", config = "plugins.hlslens" },
 	{ "edluffy/hologram.nvim", event = "VeryLazy" },
+	{ "lukas-reineke/indent-blankline.nvim", event = "VeryLazy", config = "plugins.indentline" },
 	{ "echasnovski/mini.nvim", config = "plugins.mini" },
 	{ "karb94/neoscroll.nvim", config = "plugins.neoscroll" },
 	{ "nacro90/numb.nvim", event = "VeryLazy", config = true },
