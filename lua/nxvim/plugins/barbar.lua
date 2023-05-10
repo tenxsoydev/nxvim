@@ -14,12 +14,12 @@ require("barbar").setup({
 		-- buffer_number = "superscript",
 		button = "×",
 		filetype = { enabled = true },
-		separator = { left = "▏", right = "" },
+		separator = { left = "▏", right = "" },
 		modified = { button = "" },
 		pinned = { button = "", filename = true },
 		inactive = {
-			-- separator = { left = "" },
-			separator = { left = "▏" },
+			-- use right = " " to remove "popout"-effect
+			separator = { left = " ", right = "" },
 			button = "×",
 		},
 		diagnostics = {
@@ -100,6 +100,7 @@ nx.hl({
 	{ "BufferCurrentIndex", fg = "BufferCurrentIndex:fg" },
 	{ "BufferCurrentNumber", fg = "BufferCurrentNumber:fg" },
 	{ "BufferCurrentSign", fg = "BufferCurrentSign:fg" },
+	{ "BufferCurrentSignRight", fg = "TabLine:bg:#b-10", bg = "Tabline:bg" },
 	{ "BufferCurrentERROR", fg = "DiagnosticSignError:fg" },
 	{ "BufferCurrentWARN", fg = "DiagnosticSignWarn:fg" },
 	{ "BufferCurrentHINT", fg = "DiagnosticSignHint:fg" },
@@ -112,7 +113,11 @@ nx.hl({
 	{ "BufferVisibleSign", fg = "TabLine:bg:#b-10", bg = "BufferVisible:bg" },
 
 	{ "BufferInactive", fg = "Comment:fg", bg = "TabLine:bg" },
-	{ "BufferInactiveSign", fg = "TabLine:bg:#b-10", bg = "TabLine:bg" },
+	{
+		{ "BufferInactiveSign", "BufferInactiveSignRight", "BufferVisibleSignRight" },
+		fg = "TabLine:bg:#b-10",
+		bg = "TabLine:bg",
+	},
 
 	{ "BufferTabpages", link = "LineNr" },
 	{ "BufferTabpageFill", fg = "TabLine:bg:#b-10", bg = "TabLine:bg" }, -- Used for "last-sign"
