@@ -59,8 +59,8 @@ nx.map({
 	{ ">", ">gv", "v", desc = "Indent" },
 	{ "<", "<gv", "v", desc = "Outdent" },
 	-- Change Indent Size (requires tab indentation)
-	{ "<M-S-.>", "<Cmd>set ts+=1 sw=0 ts?<CR>", desc = "Increase Indentation Width" },
-	{ "<M-S-,>", "<Cmd>set ts-=1 sw=0 ts?<CR>", desc = "Decrease Indentation Width" },
+	{ { "<M-S-.>", "<S-End>" }, "<Cmd>set ts+=1 sw=0 ts?<CR>", desc = "Increase Indentation Width" },
+	{ { "<M-S-,>", "<S-Home>" }, "<Cmd>set ts-=1 sw=0 ts?<CR>", desc = "Decrease Indentation Width" },
 
 	-- WINDOW NAVIGATION
 	-- Quick Switch Windows
@@ -269,7 +269,14 @@ nx.map({
 	{ "o", function() return indent_new_line("o") end },
 	{ "O", function() return indent_new_line("O") end },
 	{ "<CR>", function() return indent_new_line("<CR>") end, "i" },
-	{ "<Esc>", function() return "<Esc>g_<S-d>" end, "i" },
+	{
+		"<Esc>",
+		function()
+			local trimmed_line = vim.api.nvim_get_current_line():match("^%s*(.*%S)") or ""
+			return trimmed_line == "" and "<Esc>g_<S-d>" or "<Esc>"
+		end,
+		"i",
+	},
 }, { expr = true, silent = true, ft = "nim" })
 -- <== }
 

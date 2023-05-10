@@ -61,6 +61,8 @@ require("mini.move").setup({
 		-- Move current line in Normal mode
 		-- line_left =  vim.g.eu_kbd and"ù" or "<A-h>",
 		-- line_right =  vim.g.eu_kbd and"ø" or "<A-l>",
+		line_left = "",
+		line_right = "",
 		line_down = vim.g.eu_kbd and "ú" or "<A-j>",
 		line_up = vim.g.eu_kbd and "ĳ" or "<A-k>",
 	},

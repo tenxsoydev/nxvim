@@ -72,7 +72,8 @@ function M.on_attach(_, bufnr)
 		{ "<leader>dj", "<Cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Next Diagnostic" },
 		{ "<leader>dk", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Previous Diagnostic" },
 		{ "<leader>la", "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" },
-		{ { "<C-.>", "<A-.>" }, "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" }, -- <C-.> works in kitty and GUIs
+		-- <C-.> works in kitty and GUIs
+		{ { "<C-.>", "<A-.>" }, "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" },
 	}, { buffer = bufnr })
 end
 
