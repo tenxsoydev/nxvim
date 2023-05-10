@@ -25,7 +25,8 @@ if jit.os == "OSX" then
 	local keyboard_layout = vim.fn.system(
 		"defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources | grep -w \"KeyboardLayout Name\" | awk '{print $4}' | tr -d ';\"'"
 	)
-	vim.g.osx_eu = keyboard_layout:gsub("%s+", "") == "EurKEY" and true or false
+	vim.g.osx = true
+	vim.g.eu_kbd = keyboard_layout:gsub("%s+", "") == "EurKEY" and true or false
 end
 
 for _, client in ipairs({ "gnvim", "goneovim", "neovide", "nvui", "fvim_loaded" }) do
@@ -36,9 +37,9 @@ local function init_gui()
 	-- General GUI options
 	local opts = {
 		fillchars__append = [[vert:│]],
-		guifont = "JetBrainsMono Nerd Font Mono:h14",
+		guifont = vim.g.osx and "Hasklug Nerd Font Mono:h14" or "Hasklug Nerd Font Mono:h12",
 		guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait600-blinkoff800-blinkon900-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175",
-		linespace = jit.os == "OSX" and 3 or 2,
+		linespace = vim.g.osx and 3 or 2,
 		winblend = 10,
 		pumblend = 10,
 	}

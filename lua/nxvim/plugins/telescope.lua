@@ -258,7 +258,7 @@ nx.map({
 nx.hl({
 	{ "TelescopeBorder", link = "LspFloatWinBorder" },
 })
-if vim.g.multigrid then
+if vim.g.multigrid and vim.g.neovide then
 	-- Workaround for layered highlight groups causing a different blend transparency in Telescope dialogs.
 	nx.hl({
 		{ "TelescopeResultsNormal", bg = "Normal:bg", blend = 100 },

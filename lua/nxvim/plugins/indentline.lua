@@ -4,7 +4,7 @@
 
 -- "▏" "│" "▎" "⎸"" "¦" "┆" "" "┊" ""
 local indent_char = "▏"
-if vim.g.loaded_gui or vim.env.TERM_PROGRAM == "WezTerm" then indent_char = "│" end
+if not vim.g.neovide and (vim.g.loaded_gui or vim.env.TERM_PROGRAM == "WezTerm") then indent_char = "│" end
 
 require("indent_blankline").setup({
 	char = indent_char,

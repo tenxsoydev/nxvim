@@ -19,7 +19,7 @@ bufferline.setup({
 			},
 		},
 		indicator = {
-			icon = "▎",
+			icon = vim.g.loaded_gui and "▏" or "▎",
 			style = "icon",
 		},
 		numbers = function(opts) return string.format("%s", opts.raise(opts.ordinal)) end,

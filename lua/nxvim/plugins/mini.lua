@@ -54,15 +54,15 @@ require("mini.bufremove").setup()
 require("mini.move").setup({
 	-- Module mappings. Use `''` (empty string) to disable one.
 	mappings = {
-		left = vim.g.osx_eu and "ù" or "<A-h>",
-		right = vim.g.osx_eu and "ø" or "<A-l>",
-		down = vim.g.osx_eu and "ú" or "<A-j>",
-		up = vim.g.osx_eu and "ĳ" or "<A-k>",
+		left = vim.g.eu_kbd and "ù" or "<A-h>",
+		right = vim.g.eu_kbd and "ø" or "<A-l>",
+		down = vim.g.eu_kbd and "ú" or "<A-j>",
+		up = vim.g.eu_kbd and "ĳ" or "<A-k>",
 		-- Move current line in Normal mode
-		line_left = vim.g.osx_eu and "ù" or "<A-h>",
-		line_right = vim.g.osx_eu and "ø" or "<A-l>",
-		line_down = vim.g.osx_eu and "ú" or "<A-j>",
-		line_up = vim.g.osx_eu and "ĳ" or "<A-k>",
+		-- line_left =  vim.g.eu_kbd and"ù" or "<A-h>",
+		-- line_right =  vim.g.eu_kbd and"ø" or "<A-l>",
+		line_down = vim.g.eu_kbd and "ú" or "<A-j>",
+		line_up = vim.g.eu_kbd and "ĳ" or "<A-k>",
 	},
 })
 -- <== }

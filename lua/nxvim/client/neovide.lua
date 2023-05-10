@@ -1,7 +1,5 @@
-local guifont = jit.os == "OSX" and "Hasklug Nerd Font Mono:h14:#e-subpixelantialias" or "Hasklug Nerd Font Mono:h12"
-
 local opts = {
-	guifont = guifont,
+	guifont = vim.g.osx and "Hasklug Nerd Font Mono:h14:#e-subpixelantialias" or "Hasklug Nerd Font Mono:h12",
 	-- guifont = "JetBrainsMono Nerd Font Mono:h14:#e-subpixelantialias",
 	-- guifont = "JetBrains Mono Light, JetBrainsMono NFM:h10:#e-antialias", -- made the best experience with JetBrains fonts
 	-- guifont = "VictorMono Nerd Font Mono:h13:#e-antialias", -- proper icons, f*ed up italics

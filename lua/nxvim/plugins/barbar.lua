@@ -56,9 +56,11 @@ nx.au({
 local maps = {
 	{ "<S-l>", "<Cmd>BufferNext<CR>", desc = "Go to Next Buffer" },
 	{ "<S-h>", "<Cmd>BufferPrevious<CR>", desc = "Go to Previous Buffer" },
-	{ vim.g.osx_eu and "ø" or "<A-l>", "<Cmd>BufferMoveNext<CR>", desc = "Move Buffer Right" },
-	{ vim.g.osx_eu and "ù" or "<A-h>", "<Cmd>BufferMovePrevious<CR>", desc = "Move Buffer Left" },
-	{ vim.g.osx_eu and "<leader>bp" or "<A-C-p>", "<Cmd>BufferPin<CR>" },
+	{ vim.g.eu_kbd and "ø" or "<A-l>", "<Cmd>BufferMoveNext<CR>", desc = "Move Buffer Right" },
+	{ vim.g.eu_kbd and "ù" or "<A-h>", "<Cmd>BufferMovePrevious<CR>", desc = "Move Buffer Left" },
+	-- TODO: osx map
+	{ "<A-C-p>", "<Cmd>BufferPin<CR>" },
+	{ "<leader>bp", "<Cmd>BufferPin<CR>" },
 	-- { "<A-c>", "<Cmd>BufferClose<CR>" },
 	{ "<leader>bc", "<Cmd>BufferClose!<CR>", desc = "Close! Buffer" },
 	{ "<leader>bC", "<Cmd>BufferCloseAllButCurrent<CR>", desc = "Close All Others" },
