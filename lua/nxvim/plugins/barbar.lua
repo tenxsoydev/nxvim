@@ -18,8 +18,8 @@ require("barbar").setup({
 		modified = { button = "" },
 		pinned = { button = "", filename = true },
 		inactive = {
-			-- use right = " " to remove "popout"-effect
-			separator = { left = " ", right = "" },
+			-- use right = "" for "popout"-effect
+			separator = { left = " ", right = " " },
 			button = "×",
 		},
 		diagnostics = {
@@ -110,7 +110,7 @@ nx.hl({
 	{ "BufferAlternate", fg = "#9dacb9", italic = true },
 
 	{ "BufferVisible", fg = "#9dacb9", bg = "none" },
-	{ "BufferVisibleSign", fg = "TabLine:bg:#b-10", bg = "BufferVisible:bg" },
+	{ "BufferVisibleSign", fg = "TabLine:bg", bg = "BufferVisible:bg" },
 
 	{ "BufferInactive", fg = "Comment:fg", bg = "TabLine:bg" },
 	{
