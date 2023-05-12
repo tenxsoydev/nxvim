@@ -43,14 +43,17 @@ local bg_transparent = {
 	"error_selected",
 	"error_visible",
 	"error_diagnostic_visible",
+	"error_diagnostic_selected",
 	"indicator_selected",
 	"indicator_visible",
 	"info_selected",
 	"info_visible",
 	"info_diagnostic_visible",
+	"info_diagnostic_selected",
 	"warning_selected",
 	"warning_visible",
 	"warning_diagnostic_visible",
+	"warning_diagnostic_selected",
 	"modified_selected",
 	"modified_visible",
 	"numbers_selected",
@@ -66,10 +69,7 @@ local bg_transparent = {
 for _, key in ipairs(bg_solid) do
 	local font = { italic = false, bold = false }
 
-	if string.match(key, "diagnostic") then
-		font.italic = true
-		if nx.opts.second_font then font.bold = true end
-	end
+	if string.match(key, "diagnostic") then font.italic = false end
 
 	M.highlights[key] = { bg = { attribute = "bg", highlight = "TabLine" }, bold = font.bold, italic = font.italic }
 end
@@ -77,8 +77,8 @@ end
 for _, key in ipairs(bg_transparent) do
 	local font = { italic = true, bold = false }
 
+	if string.match(key, "diagnostic") then font.italic = false end
 	if string.match(key, "tab") or string.match(key, "close_button") then font.italic = false end
-	if nx.opts.second_font and string.match(key, "diagnostic") then font.bold = true end
 
 	M.highlights[key] = { bg = { attribute = "bg", highlight = "Normal" }, bold = font.bold, italic = font.italic }
 end
