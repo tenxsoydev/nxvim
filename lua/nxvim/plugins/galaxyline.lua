@@ -392,7 +392,7 @@ gl.short_line_list = {
 }
 
 local BufferTypeMap = {
-	["alpha"] = " Alpha",
+	["alpha"] = "󰍂 Alpha",
 	["Mundo"] = "Mundo History",
 	["MundoDiff"] = "Mundo Diff",
 	["NvimTree"] = " Tree",

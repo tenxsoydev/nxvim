@@ -250,7 +250,7 @@ M.dashboard = {
 	filetypes = { "alpha", "dashboard" },
 	active = {
 		{ "▊", { "black_light", "black" } },
-		{ "  ", { "green", "black" } },
+		{ " 󰍂 ", { "green", "black" } },
 		{ " Dashboard ", hl_list.Filename },
 		-- { ' ', '' }, { b_components.cache_file_type({ icon = true }), hl_list.Filename },
 		{ b_components.divider },
