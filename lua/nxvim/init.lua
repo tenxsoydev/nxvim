@@ -1,5 +1,14 @@
 local lazy = require("nxvim.plugins.lazy")
 
+-- MacOS
+if jit.os == "OSX" then
+	local keyboard_layout = vim.fn.system(
+		"defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources | grep -w \"KeyboardLayout Name\" | awk '{print $4}' | tr -d ';\"'"
+	)
+	vim.g.osx = true
+	vim.g.eu_kbd = keyboard_layout:gsub("%s+", "") == "EurKEY" and true or false
+end
+
 vim.g.multigrid = vim.api.nvim_list_uis()[1].ext_multigrid
 
 -- { == Modules ==> ===========================================================

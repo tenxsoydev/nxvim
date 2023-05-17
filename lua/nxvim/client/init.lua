@@ -20,15 +20,6 @@ nx.opts = {
 	second_font = false,
 }
 
--- MacOS
-if jit.os == "OSX" then
-	local keyboard_layout = vim.fn.system(
-		"defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources | grep -w \"KeyboardLayout Name\" | awk '{print $4}' | tr -d ';\"'"
-	)
-	vim.g.osx = true
-	vim.g.eu_kbd = keyboard_layout:gsub("%s+", "") == "EurKEY" and true or false
-end
-
 for _, client in ipairs({ "gnvim", "goneovim", "neovide", "nvui", "fvim_loaded" }) do
 	if vim.g[client] then vim.g.loaded_gui = client end
 end
