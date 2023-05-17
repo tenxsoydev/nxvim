@@ -23,8 +23,8 @@ local config = {
 	-- customize displayed signs
 	signs = {
 		-- { CLOSED, OPENED }
-		section = { "›", "" },
-		item = { "›", "" },
+		section = { "", "" },
+		item = { "", "" },
 		hunk = { "", "" },
 	},
 	integrations = {

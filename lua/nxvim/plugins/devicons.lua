@@ -16,6 +16,12 @@ require("nvim-web-devicons").setup({
 			cterm_color = "214",
 			name = "Py",
 		},
+		["vb"] = {
+			icon = "󰈜",
+			color = "#1D6F42",
+			cterm_color = "29",
+			name = "VBA",
+		},
 	},
 })
 -- <== }

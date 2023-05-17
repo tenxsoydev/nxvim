@@ -19,7 +19,7 @@ nx.set({
 	pumheight = 14, -- completion popup menu height
 	shortmess__append = "c", -- don't give completion-menu messages
 	-- Characters
-	fillchars__append = [[eob: ,vert:▏,vertright:▏,vertleft:▏,horiz:┈, fold: ,foldopen:,foldsep: ,foldclose:›]],
+	fillchars__append = [[eob: ,vert:▏,vertright:▏,vertleft:▏,horiz:┈, fold: ,foldopen:,foldsep: ,foldclose:]],
 	listchars__append = [[space:⋅, tab: ░, trail:⋅, eol:↴]],
 	-- Gutter
 	number = true, -- show line numbers
