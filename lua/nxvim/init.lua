@@ -142,8 +142,9 @@ local modules = {
 	{ "RRethy/vim-illuminate", dependencies = "nvim-treesitter/nvim-treesitter" },
 	-- Mason
 	{ "williamboman/mason.nvim", config = "lsp.plugins.mason" },
-	{ "williamboman/mason-lspconfig.nvim", config = "lsp.plugins.mason.lspconfig" },
-	{ "jayp0521/mason-null-ls.nvim", config = true },
+	-- stylua: ignore
+	{ "williamboman/mason-lspconfig.nvim", dependencies = "williamboman/mason.nvim", config = "lsp.plugins.mason.lspconfig" },
+	{ "jayp0521/mason-null-ls.nvim", dependencies = "williamboman/mason.nvim", config = true },
 	-- { "ThePrimeagen/refactoring.nvim", config = true },
 	-- "tamago324/nlsp-settings.nvim",
 	-- Language Specific
