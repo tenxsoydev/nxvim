@@ -59,8 +59,8 @@ nx.map({
 	{ ">", ">gv", "v", desc = "Indent" },
 	{ "<", "<gv", "v", desc = "Outdent" },
 	-- Change Indent Size (requires tab indentation)
-	{ { "<M-S-.>", "<S-End>" }, "<Cmd>set ts+=1 sw=0 ts?<CR>", desc = "Increase Indentation Width" },
-	{ { "<M-S-,>", "<S-Home>" }, "<Cmd>set ts-=1 sw=0 ts?<CR>", desc = "Decrease Indentation Width" },
+	{ { "<M-S-.>", "<M->>", "<S-End>" }, "<Cmd>set ts+=1 sw=0 ts?<CR>", desc = "Increase Indentation Width" },
+	{ { "<M-S-,>", "<M-lt>", "<S-Home>" }, "<Cmd>set ts-=1 sw=0 ts?<CR>", desc = "Decrease Indentation Width" },
 
 	-- WINDOW NAVIGATION
 	-- Quick Switch Windows

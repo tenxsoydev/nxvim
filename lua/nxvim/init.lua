@@ -6,7 +6,7 @@ if jit.os == "OSX" then
 		"defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources | grep -w \"KeyboardLayout Name\" | awk '{print $4}' | tr -d ';\"'"
 	)
 	vim.g.osx = true
-	if vim.env.TERM_PROGRAM ~= "WezTerm" then 
+	if vim.env.TERM_PROGRAM ~= "WezTerm" then
 		vim.g.eu_kbd = keyboard_layout:gsub("%s+", "") == "EurKEY" and true or false
 	end
 end
