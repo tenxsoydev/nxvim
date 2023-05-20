@@ -19,7 +19,7 @@ require("barbar").setup({
 		pinned = { button = "", filename = true },
 		inactive = {
 			-- use right = "" for "popout"-effect
-			separator = { left = " ", right = " " },
+			separator = { left = " ", right = "▕" },
 			button = "×",
 		},
 		diagnostics = {
@@ -119,7 +119,7 @@ nx.hl({
 		bg = "TabLine:bg",
 	},
 
-	{ "BufferTabpages", link = "LineNr" },
+	{ { "BufferTabpages", "BufferDefaultTabpagesSep", "BufferScrollArrow" }, link = "LineNr" },
 	{ "BufferTabpageFill", fg = "TabLine:bg:#b-10", bg = "TabLine:bg" }, -- Used for "last-sign"
 	{ "BufferOffset", fg = "Directory:fg", bg = "Tabline:bg" },
 })
