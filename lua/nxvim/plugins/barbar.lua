@@ -26,7 +26,7 @@ require("barbar").setup({
 			[vim.diagnostic.severity.ERROR] = { enabled = true, icon = "" },
 			[vim.diagnostic.severity.WARN] = { enabled = true, icon = "" },
 			[vim.diagnostic.severity.INFO] = { enabled = false, icon = "" },
-			[vim.diagnostic.severity.HINT] = { enabled = false, icon = "󱍅" },
+			[vim.diagnostic.severity.HINT] = { enabled = false, icon = "󰌶" },
 		},
 	},
 	insert_at_end = false,

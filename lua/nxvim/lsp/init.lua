@@ -6,7 +6,7 @@ local border = nx.opts.float_win_border
 local signs = {
 	{ name = "DiagnosticSignError", text = "󰅙" },
 	{ name = "DiagnosticSignWarn", text = "" },
-	{ name = "DiagnosticSignHint", text = "󱍄" },
+	{ name = "DiagnosticSignHint", text = "󰌵" },
 	{ name = "DiagnosticSignInfo", text = "" },
 }
 

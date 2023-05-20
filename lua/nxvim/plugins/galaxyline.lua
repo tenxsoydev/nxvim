@@ -267,7 +267,7 @@ gl.section.left = {
 			provider = diagnostic.get_diagnostic_hint,
 			condition = function() return conditions.break_width(55) end,
 			highlight = { colors.blue, colors.bg },
-			icon = " 󱍅 ",
+			icon = " 󰌵 ",
 		},
 	},
 	{
