@@ -47,7 +47,7 @@ local modules = {
 	{ "folke/noice.nvim", config = "plugins.noice" },
 	-- Messages
 	{ "AckslD/messages.nvim", event = "VeryLazy", config = vim.g.multigrid and "plugins.messages" or false },
-	{ "vigoux/notifier.nvim", event = "VeryLazy", config = vim.g.multigrid and "plugins.notifier" or false },
+	{ "vigoux/notifier.nvim", config = vim.g.multigrid and "plugins.notifier" or false },
 	-- { "rcarriga/nvim-notify", config = "plugins.notify" },
 	-- File Tree
 	-- { "nvim-neo-tree/neo-tree.nvim", dependencies = "MunifTanjim/nui.nvim", config = "plugins.neo-tree" },
