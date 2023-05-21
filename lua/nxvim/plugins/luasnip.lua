@@ -19,7 +19,6 @@ ls.config.set_config({
 
 ls.add_snippets("v", {
 	s("prt", fmt("println('{}')", { c(1, { sn(nil, { t("${"), i(1), t("}") }), t("") }) })),
-	s("dbg", fmt("// DBG:\nprintln('{} <-')", { c(1, { sn(nil, { t("${"), i(1), t("}") }), t("") }) })),
 })
 -- <== }
 
