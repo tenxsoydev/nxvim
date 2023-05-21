@@ -10,9 +10,8 @@ local config = {
 	-- in case TSUninstall is not working: "rm ~/.local/share/nvim/lazy/nvim-treesitter/parser/comment.so",
 	ignore_install = { "comment" }, -- List of parsers to ignore installing
 	highlight = {
-		-- use_languagetree = true,
-		enable = true, -- false will disable the whole extension
-		disable = { "css", "html", "help" }, -- list of language that will be disabled
+		enable = true,
+		disable = { "css", "html", "help", "json" },
 		additional_vim_regex_highlighting = false,
 	},
 	autopairs = {
