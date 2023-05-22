@@ -53,7 +53,6 @@ local lazygit = Terminal:new({
 	on_open = function(term) set_lazygit_keymaps(term) end,
 	close_on_exit = true,
 })
-function _G.lazygit_toggle() lazygit:toggle() end
 
 local gitui = Terminal:new({
 	cmd = "gitui",
@@ -61,13 +60,18 @@ local gitui = Terminal:new({
 	on_open = function(term) set_lazygit_keymaps(term) end,
 	close_on_exit = true,
 })
-function _G.gitui_toggle() gitui:toggle() end
 
-local ncdu = Terminal:new({ cmd = "ncdu", hidden = true, close_on_exit = true })
-function _G.ncdu_toggle() ncdu:toggle() end
+local ncdu = Terminal:new({
+	cmd = "ncdu",
+	hidden = true,
+	close_on_exit = true,
+})
 
-local btop = Terminal:new({ cmd = "btop", hidden = true, close_on_exit = true })
-function _G.btop_toggle() btop:toggle() end
+local btop = Terminal:new({
+	cmd = "btop",
+	hidden = true,
+	close_on_exit = true,
+})
 -- <== }
 
 -- { == Keymaps ==> ===========================================================
@@ -88,9 +92,10 @@ nx.map({
 	{ { "<C-F3>", "<F27>", "<leader>`3" }, "<Cmd>3ToggleTerm<CR>", { "", "t" }, desc = "Toggle Terminal #3" },
 	{ { "<C-F4>", "<F28>", "<leader>`4" }, "<Cmd>4ToggleTerm<CR>", { "", "t" }, desc = "Toggle Terminal #4" },
 	-- External injections
-	{ "<leader>gt", "<Cmd>lua lazygit_toggle()<CR>", "", desc = "Terminal UI" },
-	{ "<leader>`r", "<Cmd>lua btop_toggle()<CR>", desc = "Btop Resource Monitor" },
-	{ "<leader>`u", "<Cmd>lua ncdu_toggle()<CR>", desc = "NCurses Disk Usage" },
+	-- { "<leader>gt", function() gitui:toggle() end, "", desc = "Terminal UI" },
+	{ "<leader>gt", function() lazygit:toggle() end, "", desc = "Terminal UI" },
+	{ "<leader>`r", function() btop:toggle() end, desc = "Btop Resource Monitor" },
+	{ "<leader>`u", function() ncdu:toggle() end, desc = "NCurses Disk Usage" },
 	-- Telescope
 	{ "<leader>`/", "<Cmd>Telescope termfinder<CR>", desc = "Search Terminals", wk_label = "Search" },
 	{ "<leader>/`", "<Cmd>Telescope termfinder<CR>", desc = "Search Terminals", wk_label = "Terminals" },
