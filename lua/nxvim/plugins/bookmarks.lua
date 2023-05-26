@@ -48,7 +48,15 @@ local function map_keys()
 			"<leader>ma",
 			function()
 				bm.bookmark_ann()
-				actions.saveBookmarks()
+				nx.au({
+					"InsertEnter",
+					once = true,
+					callback = function()
+						if vim.bo.filetype == "DressingInput" then
+							nx.au({ "BufLeave", once = true, callback = actions.saveBookmarks })
+						end
+					end,
+				})
 			end,
 			desc = "Annotate",
 		},
