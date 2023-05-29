@@ -1,5 +1,6 @@
 local opts = {
-	guifont = vim.g.osx and "Hasklug Nerd Font Mono:h16:#e-antialias:#h-none" or "Hasklug Nerd Font Mono:h11:#h-none",
+	guifont = vim.g.osx and "Hasklug Nerd Font Mono:h16:#e-antialias:#h-none"
+		or "Hasklug Nerd Font Mono:h11.25:#e-antialias:#h-none",
 	-- guifont = "JetBrainsMono Nerd Font Mono:h11:#e-antialias:#h-none",
 }
 if vim.g.multigrid then
