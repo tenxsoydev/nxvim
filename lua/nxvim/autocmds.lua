@@ -14,18 +14,6 @@ nx.au({
 		"BufEnter",
 		command = "setlocal formatoptions-=cro",
 	},
-	{ -- Delay syntax highlighting for larger files, as it can have a significant impact on performance.
-		"BufEnter",
-		callback = function(ev)
-			-- Check if the file has less than 3k+ lines or is less than 75kb size
-			if vim.fn.line("$") < 3000 or vim.fn.getfsize(vim.fn.expand("%:p")) < 75 * 1024 then return end
-			local ft = vim.bo.ft
-			vim.cmd("setlocal ft=")
-			vim.schedule(function()
-				if ev.buf == vim.fn.bufnr() then vim.cmd("setlocal ft=" .. ft) end
-			end)
-		end,
-	},
 	-- Highlight on yank
 	{ "TextYankPost", callback = function() vim.highlight.on_yank({ higroup = "IncSearch", timeout = 150 }) end },
 	-- QFList - adapt window height to list item count(nxvim.utils function)
