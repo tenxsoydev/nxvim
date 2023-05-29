@@ -42,6 +42,8 @@ local config = {
 		enable = true,
 	},
 	illuminate = {
+		-- Helps with heavy performance bottlenecks in large files.
+		-- This does not disable illuminate since it uses lsp as provider.
 		enable = false,
 	},
 	matchup = {
