@@ -235,7 +235,7 @@ local modules = {
 	{ "NvChad/nvim-colorizer.lua", event = "VeryLazy", config = "plugins.colorizer" },
 	{ "windwp/nvim-spectre", event = "VeryLazy", config = "plugins.spectre" },
 	{ "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async", config = "plugins.ufo" },
-	{ "nvim-tree/nvim-web-devicons", config = "plugins.devicons" },
+	{ "nvim-tree/nvim-web-devicons", config = "plugins.devicons", eager = true },
 	"nvim-lua/plenary.nvim",
 	{ "tenxsoydev/size-matters.nvim", lazy = true },
 	{ "michaelb/sniprun", event = "VeryLazy", build = "bash ./install.sh", config = "plugins.sniprun" },
