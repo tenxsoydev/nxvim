@@ -2,8 +2,6 @@
 
 -- { == Configuration ==> =====================================================
 
-if vim.g.multigrid then return end
-
 require("noice").setup({
 	lsp = {
 		signature = {
@@ -19,6 +17,8 @@ require("noice").setup({
 	},
 	messages = {
 		view = "mini",
+		view_error = "mini",
+		view_warn = "mini",
 		view_search = false,
 	},
 	notify = {
