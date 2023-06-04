@@ -33,9 +33,6 @@ mason_lspconfig.setup_handlers({
 			on_attach = on_attach,
 		}
 
-		-- Handled by rust-tools.
-		if server == "rust_analyzer" then goto continue end
-
 		-- Insert server settings from settings file if present.
 		-- The name of the settings file must match the name of the language server.
 		local server_settings_ok, server_settings = pcall(require, "nxvim.lsp.settings." .. server)
@@ -43,10 +40,13 @@ mason_lspconfig.setup_handlers({
 
 		-- Or add settings inline.
 		--
-		-- The json|ts provideFormatter setting below triggers for gopls when it shouldn't, therefore we continue from here.
+		if server == "nimls" then opts.cmd = { "nimlsp" } end
+		-- The json|ts provideFormatter setting below triggers for gopls when it shouldn't, therefore we skip it here.
 		if server == "gopls" then goto setup end
 		-- Use prettierd as formatter.
 		if server == "jsonls" or "tsserver" then opts.init_options = { provideFormatter = false } end
+		-- Handled by rust-tools.
+		if server == "rust_analyzer" then goto continue end
 
 		::setup::
 		lspconfig[server].setup(opts)
