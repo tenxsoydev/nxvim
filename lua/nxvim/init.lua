@@ -77,7 +77,7 @@ local modules = {
 	{ "kwkarlwang/bufresize.nvim", event = "VeryLazy", config = true }, -- handle split window sizes on client resize
 	{ "gorbit99/codewindow.nvim", event = "VeryLazy", config = "plugins.codewindow" },
 	{ "petertriho/nvim-scrollbar", event = "VeryLazy", config = "plugins.scrollbar" },
-	{ "s1n7ax/nvim-window-picker", event = "VeryLazy", config = "plugins.window-picker" },
+	{ "s1n7ax/nvim-window-picker", commit = "65bbc52c27b0cd4b29976fe03be73cc943357528", event = "VeryLazy", config = "plugins.window-picker" },
 	{ "mrjones2014/smart-splits.nvim", event = "VeryLazy", config = "plugins.smart-splits" },
 	{
 		"anuvyklack/windows.nvim",
