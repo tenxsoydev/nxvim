@@ -24,7 +24,7 @@ end
 local sep = " "
 dashboard.section.buttons.val = {
 	-- dashboard.button("f", icons.Files .. sep .. "Files", ":Telescope find_files<CR>"),
-	dashboard.button("f", "󰈢" .. sep .. "File Browser", "<Cmd>Neotree float<CR>"),
+	dashboard.button("f", "󰈢" .. sep .. " File Browser", "<Cmd>Neotree float<CR>"),
 	dashboard.button("n", "󰈔" .. sep .. " New File", "<Cmd>ene <BAR> startinsert<CR>"),
 	dashboard.button("r", "" .. sep .. " Recent Files", "<Cmd>Telescope oldfiles<CR>"),
 	dashboard.button("p", "󰉓" .. sep .. " Projects", "<Cmd>Telescope projects<CR>"),
