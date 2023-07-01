@@ -53,7 +53,11 @@ local function map_keys()
 					once = true,
 					callback = function()
 						if vim.bo.filetype == "DressingInput" then
-							nx.au({ "BufLeave", once = true, callback = actions.saveBookmarks })
+							nx.au({
+								"BufLeave",
+								once = true,
+								callback = function() vim.defer_fn(actions.saveBookmarks, 150) end,
+							})
 						end
 					end,
 				})
