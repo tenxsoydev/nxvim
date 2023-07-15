@@ -11,6 +11,7 @@ require("toggleterm").setup({
 		if term.direction == "tab" then
 			vim.o.showtabline = 0
 			vim.o.cmdheight = 0
+			vim.o.statuscolumn = ""
 		end
 	end,
 	on_close = function(term)
