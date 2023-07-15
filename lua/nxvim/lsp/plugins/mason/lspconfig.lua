@@ -41,6 +41,7 @@ mason_lspconfig.setup_handlers({
 		-- Or add settings inline.
 		--
 		if server == "nimls" then opts.cmd = { "nimlsp" } end
+		if server == "vls" then opts.cmd = { vim.fn.expand("$HOME") .. "/.config/v-analyzer/bin/v-analyzer" } end
 		-- The json|ts provideFormatter setting below triggers for gopls when it shouldn't, therefore we skip it here.
 		if server == "gopls" then goto setup end
 		-- Use prettierd as formatter.
