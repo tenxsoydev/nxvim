@@ -25,6 +25,7 @@ nx.au({
 	{ "FileType", pattern = "teal", once = true, command = "LspToggleAutoFormat silent" },
 	{ "FileType", pattern = "python", command = "setlocal noet ts=3 sw=3" },
 	{ "FileType", pattern = "vb", command = "setlocal et ts=4 sw=4" },
+	{ { "BufNewFile", "BufRead" }, pattern = { "*.njk", "*.vto" }, command = "set ft=html" },
 })
 
 nx.au({ -- Remember folds
