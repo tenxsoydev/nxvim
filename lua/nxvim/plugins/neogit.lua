@@ -9,7 +9,8 @@ local config = {
 	disable_hint = false,
 	disable_context_highlighting = false,
 	disable_commit_confirmation = false,
-	disable_insert_on_commit = true,
+	disable_commit_close_on_deny = true,
+	disable_insert_on_commit = false,
 	-- Neogit refreshes its internal state after specific events, which can be expensive depending on the repository size.
 	-- Disabling `auto_refresh` will make it so you have to manually refresh the status after you open it.
 	auto_refresh = true,
@@ -83,7 +84,7 @@ config.mappings = {
 		["<kEnter>"] = "GoToFile",
 	},
 	commit = {
-		send = { ";q", "<leader>e" },
+		send = { ";q", "<leader>c" },
 	},
 }
 
