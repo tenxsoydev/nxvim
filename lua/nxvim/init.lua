@@ -49,13 +49,7 @@ local modules = {
 	{ "AckslD/messages.nvim", event = "VeryLazy", config = vim.g.multigrid and "plugins.messages" or false },
 	{ "rcarriga/nvim-notify", config = vim.g.multigrid and "plugins.notify" or false },
 	-- File Tree
-	-- { "nvim-neo-tree/neo-tree.nvim", dependencies = "MunifTanjim/nui.nvim", config = "plugins.neo-tree" },
-	{
-		"loichyan/neo-tree.nvim",
-		branch = "fix-obsolete-icons",
-		dependencies = "MunifTanjim/nui.nvim",
-		config = "plugins.neo-tree",
-	},
+	{ "nvim-neo-tree/neo-tree.nvim", dependencies = "MunifTanjim/nui.nvim", config = "plugins.neo-tree" },
 	-- Terminal
 	{ "akinsho/toggleterm.nvim", event = "VeryLazy", config = "plugins.toggleterm" },
 	{ "willothy/flatten.nvim", priority = 100, config = "plugins.flatten" },

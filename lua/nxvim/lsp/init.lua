@@ -118,7 +118,7 @@ function M.on_attach(_, bufnr)
 		{ "<leader>lS", "<Cmd>Telescope lsp_dynamic_workspace_symbols<CR>", desc = "Workspace Symbols" },
 
 		-- Keymaps for user commands
-		{ { "<leader>ff", "<leader>lf" }, "<Cmd>LspFormat<CR>", desc = "Format Buffer" },
+		{ { "<leader>fF", "<leader>lf" }, "<Cmd>LspFormat<CR>", desc = "Format Buffer" },
 		-- stylua: ignore
 		{ { "<leader>tF", "<leader>lF" }, "<Cmd>LspToggleAutoFormat<CR>", desc = "Toggle Format on Save", wk_label = "Format on Save" },
 	}, { buffer = bufnr })
