@@ -298,8 +298,8 @@ nx.map({
 	{ "<leader>ff", "<Cmd>Neotree float toggle<CR>", desc = "File Browser" },
 	-- stylua: ignore
 	{ "<leader>,/", "<Cmd>Neotree float toggle dir=" .. vim.fn.stdpath("config") .. "<CR>", desc = "Config Files Tree" },
-	{ "<leader>fe", "<Cmd>Neotree<CR>", desc = "Focus File Explorer" },
-	{ "<leader>te", "<Cmd>Neotree show toggle<CR>", desc = "Toggle File Explorer", wk_label = "File Tree" },
+	{ "<leader>fe", "<Cmd>Neotree left<CR>", desc = "Focus File Explorer" },
+	{ "<leader>te", "<Cmd>Neotree left show toggle<CR>", desc = "Toggle File Explorer", wk_label = "File Tree" },
 	-- Addition shortcuts to view preset directories
 	{ "<leader>f~", "<Cmd>Neotree float dir=$HOME<CR>", desc = "Browse Home Dir" },
 	-- stylua: ignore
