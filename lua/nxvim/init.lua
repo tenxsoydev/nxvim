@@ -68,6 +68,7 @@ local modules = {
 	-- Buffer- & Window Management -----------------------------------------------
 	-- { "akinsho/bufferline.nvim", config = "plugins.bufferline" },
 	{ "romgrk/barbar.nvim", event = "VeryLazy", config = "plugins.barbar" },
+	{ "Bekaboo/dropbar.nvim", event = "VeryLazy", config = "plugins.dropbar" },
 	{ "kwkarlwang/bufresize.nvim", event = "VeryLazy", config = true }, -- handle split window sizes on client resize
 	{ "gorbit99/codewindow.nvim", event = "VeryLazy", config = "plugins.codewindow" },
 	{ "petertriho/nvim-scrollbar", event = "VeryLazy", config = "plugins.scrollbar" },
