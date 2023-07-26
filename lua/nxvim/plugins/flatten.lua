@@ -34,4 +34,8 @@ require("flatten").setup({
 			toggleterm.toggle(0)
 		end,
 	},
+	one_per = {
+		kitty = false, -- Flatten all instance in the current Kitty session
+		wezterm = false, -- Flatten all instance in the current Wezterm session
+	},
 })
