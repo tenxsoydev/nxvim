@@ -26,6 +26,11 @@ local function on_attach(client, bufnr)
 	require("nxvim.lsp.plugins.lspsaga").on_attach(client, bufnr)
 end
 
+lspconfig.v_analyzer.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 mason_lspconfig.setup_handlers({
 	function(server)
 		local opts = {
