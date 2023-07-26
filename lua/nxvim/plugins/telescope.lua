@@ -277,17 +277,6 @@ end
 telescope.setup(config)
 -- <== }
 
--- { == Events ==> ============================================================
-
--- Prevent entering buffers in insert mode. Mainly after opening buffers via telescope.
-local original_edit = require("telescope.actions.set").edit
----@diagnostic disable-next-line: duplicate-set-field
-require("telescope.actions.set").edit = function(...)
-	original_edit(...)
-	vim.cmd.stopinsert()
-end
--- <== }
-
 -- { == Extensions ==> ========================================================
 
 ---@param extensions string[]
