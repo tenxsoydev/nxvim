@@ -81,12 +81,14 @@ nx.map({
 	{ "<leader>dj", vim.diagnostic.goto_next, desc = "Next diagnostic" },
 	{ "<leader>dk", vim.diagnostic.goto_prev, desc = "Previous diagnostic" },
 })
+
 ---@param bufnr number
 function M.on_attach(_, bufnr)
 	nx.map({
 		{ "K", vim.lsp.buf.hover, desc = "LSP Hover" },
 		{ "gh", vim.lsp.buf.signature_help, desc = "Signatrue Help" },
 		-- Use mostly saga
+		-- { "gr", vim.lsp.buf.references, desc = "List References" },
 		-- { "<C-.>", vim.lsp.buf.code_action, desc = "Code action" },
 		-- { "gd", vim.lsp.buf.definition, desc = "Go to Definition" },
 		-- { "gD", vim.lsp.buf.declaration, desc = "Goto declaration" },

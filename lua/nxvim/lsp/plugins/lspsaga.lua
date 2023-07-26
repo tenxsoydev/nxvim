@@ -31,7 +31,7 @@ local config = {
 		keys = {},
 	},
 	symbol_in_winbar = {
-		enable = true,
+		enable = false,
 		separator = " › ",
 		hide_keyword = true,
 		show_file = true,
@@ -58,14 +58,14 @@ function M.on_attach(_, bufnr)
 	nx.map({
 		-- { "K", "<Cmd>Lspsaga hover_doc<CR>", desc = "LSP Hover" },
 		{ "gp", "<Cmd>Lspsaga peek_definition<CR>", desc = "Peek Definition" },
-		{ "gd", "<cmd>Lspsaga goto_definition<CR>" },
-		{ "gr", "<Cmd>Lspsaga lsp_finder<CR>", desc = "Show References" },
+		{ "gd", "<Cmd>Lspsaga goto_definition<CR>" },
+		{ "gr", "<Cmd>Lspsaga finder<CR>", desc = "Show References" },
 		-- { "<leader>gl", "<cmd>Lspsaga show_line_diagnostics<CR>" },
 		-- { "<leader>gL", "<cmd>Lspsaga show_cursor_diagnostics<CR>" },
 		-- Use default vim.lsp.buf.rename() with dressing for now
 		-- { "<F2>", "<Cmd>Lspsaga rename<CR>", { "i", "n" }, desc = "Rename" },
-		{ "<F12>", "<Cmd>Lspsaga lsp_finder<CR>", desc = "Show References" },
-		{ "<leader>lr", "<Cmd>Lspsaga lsp_finder<CR>", desc = "Show References" },
+		{ "<F12>", "<Cmd>Lspsaga finder<CR>", desc = "Show References" },
+		{ "<leader>lr", "<Cmd>Lspsaga finder<CR>", desc = "Show References" },
 		{ "<leader>ld", "<Cmd>Lspsaga peek_definition<CR>", desc = "Peek definition" },
 		{ "<leader>lo", "<Cmd>Lspsaga outline<CR>", desc = "Toggle Symbols Outline" },
 		{ "<leader>to", "<Cmd>Lspsaga outline<CR>", desc = "Toggle Symbols Outline", wk_label = "Outline Symbols" },
@@ -76,29 +76,11 @@ function M.on_attach(_, bufnr)
 		{ { "<C-.>", "<A-.>" }, "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" },
 	}, { buffer = bufnr })
 end
-
 -- <== }
 
 -- { == Load Setup ==> ========================================================
 
 require("lspsaga").setup(config)
--- <== }
-
--- { == Highlights ==> ========================================================
-
-function M.set_hl()
-	nx.hl({
-		{ "SagaBorder", link = "FloatBorder" },
-		{ { "SagaWinbarSep", "SagaWinbarFolder", "SagaWinbarFolderName" }, link = "Winbar" },
-	})
-
-	if vim.g.colors_name == "dracula" then
-		local palette = require("nxvim.colorschemes.dracula").palette
-		nx.hl({ "LspSagaWinbarFile", fg = palette.light_grey })
-	elseif vim.g.colors_name == "tokyonight" then
-		nx.hl({ "LspSagaWinbarFile", link = "NeoTreeGitRenamed" })
-	end
-end
 -- <== }
 
 return M

@@ -34,8 +34,6 @@ local function set_hl()
 		kitty_colors("tokyonight_storm")
 		require("nxvim.colorschemes.tokyonight").set_hl()
 	end
-
-	require("nxvim.lsp.plugins.lspsaga").set_hl()
 end
 
 nx.au({ { "UIEnter", "Colorscheme" }, callback = set_hl })
