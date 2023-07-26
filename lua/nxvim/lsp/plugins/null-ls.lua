@@ -33,9 +33,25 @@ null_ls.register({
 null_ls.setup({
 	debug = false,
 	sources = {
+		-- requires prettierd `pnpm i -g @fsouza/prettierd`
 		fmt.prettierd.with({
-			filetypes = { "markdown", "json", "jsonc", "typescript", "vue", "yaml" },
-			extra_args = { "--use-tabs", "--printWidth: 120", "--semi", "--single-quote" },
+			filetypes = {
+				"markdown",
+				"json",
+				"jsonc",
+				"typescript",
+				"typescriptreact",
+				"javascript",
+				"javascriptreact",
+				"vue",
+				"yaml",
+				"html",
+				"css",
+				"scss",
+				"liquid",
+				"njk",
+			},
+			extra_args = { "--use-tabs", "--printWidth: 100", "--semi", "--single-quote" },
 		}),
 		fmt.rustfmt,
 		fmt.stylua,
