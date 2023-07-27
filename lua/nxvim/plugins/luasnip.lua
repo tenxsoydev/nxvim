@@ -38,13 +38,13 @@ nx.map({
 		end,
 	},
 	{
-		"<C-g>",
+		"<C-S-j>",
 		function()
 			if ls.choice_active() then ls.change_choice(1) end
 		end,
 	},
 	{
-		"<C-t>",
+		"<C-S-k>",
 		function()
 			if ls.choice_active() then ls.change_choice(-1) end
 		end,
