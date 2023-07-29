@@ -63,7 +63,7 @@ local modules = {
 		config = "plugins.registers",
 		commit = "0a461e635403065b3f9a525bd77eff30759cfba0",
 	},
-	{ "tenxsoydev/karen-yank.nvim", event = "VeryLazy", config = true, branch = "remove-cut-esc" },
+	{ "tenxsoydev/karen-yank.nvim", event = "VeryLazy", config = true },
 
 	-- Buffer- & Window Management -----------------------------------------------
 	-- { "akinsho/bufferline.nvim", config = "plugins.bufferline" },
