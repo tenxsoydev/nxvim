@@ -102,7 +102,6 @@ local modules = {
 	-- { "nvim-treesitter/nvim-treesitter-context", dependencies = "nvim-treesitter/nvim-treesitter" },
 	{ "windwp/nvim-ts-autotag", dependencies = "nvim-treesitter/nvim-treesitter" },
 	{ "JoosepAlviste/nvim-ts-context-commentstring", dependencies = "nvim-treesitter/nvim-treesitter" },
-	{ "HiPhish/rainbow-delimiters.nvim", config = "plugins.rainbow-delimiters" },
 	{ "nvim-treesitter/playground", dependencies = "nvim-treesitter/nvim-treesitter" },
 	{
 		"mizlan/iswap.nvim",
@@ -110,6 +109,7 @@ local modules = {
 		dependencies = "nvim-treesitter/nvim-treesitter",
 		config = "plugins.iswap",
 	},
+	{ "HiPhish/rainbow-delimiters.nvim", config = "plugins.rainbow-delimiters" },
 	{
 		"aarondiel/spread.nvim",
 		event = "VeryLazy",
