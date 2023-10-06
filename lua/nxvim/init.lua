@@ -214,7 +214,7 @@ local modules = {
 	{ "nat-418/boole.nvim", event = "VeryLazy", config = "plugins.boole" }, -- extend increment / decrement to cycle through related words
 	{ "stevearc/dressing.nvim", event = "VeryLazy", config = "plugins.dressing" },
 	{ "NMAC427/guess-indent.nvim", event = "VeryLazy", config = true },
-	{ "phaazon/hop.nvim", event = "VeryLazy", config = "plugins.hop" },
+	{ "smoka7/hop.nvim", event = "VeryLazy", config = "plugins.hop" },
 	{ "kevinhwang91/nvim-hlslens", event = "VeryLazy", config = "plugins.hlslens" },
 	{ "edluffy/hologram.nvim", event = "VeryLazy" },
 	{ "lukas-reineke/indent-blankline.nvim", event = "VeryLazy", config = "plugins.indentline" },
