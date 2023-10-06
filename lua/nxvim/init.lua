@@ -102,7 +102,7 @@ local modules = {
 	-- { "nvim-treesitter/nvim-treesitter-context", dependencies = "nvim-treesitter/nvim-treesitter" },
 	{ "windwp/nvim-ts-autotag", dependencies = "nvim-treesitter/nvim-treesitter" },
 	{ "JoosepAlviste/nvim-ts-context-commentstring", dependencies = "nvim-treesitter/nvim-treesitter" },
-	{ "mrjones2014/nvim-ts-rainbow", dependencies = "nvim-treesitter/nvim-treesitter" },
+	{ "HiPhish/rainbow-delimiters.nvim", config = "plugins.rainbow-delimiters" },
 	{ "nvim-treesitter/playground", dependencies = "nvim-treesitter/nvim-treesitter" },
 	{
 		"mizlan/iswap.nvim",

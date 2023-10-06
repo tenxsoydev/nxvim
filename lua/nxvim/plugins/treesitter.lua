@@ -26,18 +26,6 @@ local config = {
 		enable = true,
 		disable = { "xml" },
 	},
-	rainbow = {
-		enable = true,
-		colors = {
-			"Gold",
-			"Orchid",
-			"DodgerBlue",
-			-- "Cornsilk",
-			-- "Salmon",
-			-- "LawnGreen",
-		},
-		disable = { "html" },
-	},
 	playground = {
 		enable = true,
 	},
