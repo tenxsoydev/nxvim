@@ -59,8 +59,16 @@ nx.map({
 	{ ">", ">gv", "v", desc = "Indent" },
 	{ "<", "<gv", "v", desc = "Outdent" },
 	-- Change Indent Size (requires tab indentation)
-	{ { "<M-S-.>", "<M->>", "<S-End>" }, "<Cmd>set ts+=1 sw=0 ts?<CR>", desc = "Increase Indentation Width" },
-	{ { "<M-S-,>", "<M-lt>", "<S-Home>" }, "<Cmd>set ts-=1 sw=0 ts?<CR>", desc = "Decrease Indentation Width" },
+	{
+		{ vim.g.eu_kbd and "Ó" or "<M-S-.>", "<M->>", "<S-End>" },
+		"<Cmd>set ts+=1 sw=0 ts?<CR>",
+		desc = "Increase Indentation Width",
+	},
+	{
+		{ vim.g.eu_kbd and "Ò" or "<M-S-,>", "<M-lt>", "<S-Home>" },
+		"<Cmd>set ts-=1 sw=0 ts?<CR>",
+		desc = "Decrease Indentation Width",
+	},
 
 	-- WINDOW NAVIGATION
 	-- Quick Switch Windows
@@ -124,7 +132,8 @@ nx.map({
 	{ "<leader>fW", "<Cmd>w !sudo -A tee > /dev/null %<CR>", desc = "Write!" },
 	{
 		"<leader>fo",
-		"<Cmd>silent execute '!xdg-open ' . '%:p:h'<CR>",
+		jit.os == "OSX" and "<Cmd>silent execute '!open ' . '%:p:h'<CR>"
+			or "<Cmd>silent execute '!xdg-open ' . '%:p:h'<CR>",
 		desc = "Open File with System App",
 		wk_label = "System Open",
 	},
