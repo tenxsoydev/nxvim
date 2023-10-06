@@ -31,7 +31,7 @@ local config = {
 			with_markers = true,
 			indent_marker = "│",
 			last_indent_marker = "└",
-			highlight = "IndentBlankLineChar",
+			highlight = "IblIndent",
 			-- expander config, needed for nesting files
 			with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
 			expander_collapsed = "",
