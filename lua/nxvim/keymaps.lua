@@ -21,11 +21,13 @@
 -- Leader key
 vim.g.mapleader = " "
 
+local bd = require("bufdelete")
+
 nx.map({
 	-- QUICK COMMANDS
 	-- `;` for `f` etc. would still trigger after `timeoutlen`. However, we use `hop.nvim` anyway
 	{ ";w", "<Cmd>w<CR>", desc = "Write Buffer" },
-	{ ";c", function() MiniBufremove.delete(0, false) end, "", desc = "Close Buffer" },
+	{ ";c", bd.bufdelete, "", desc = "Close Buffer" },
 	{ ";C", "<Cmd>tabclose<CR>", "", desc = "Close Tab" },
 	{ ";q", "<Cmd>confirm quit<CR>", desc = "Close Window" },
 	{ ";Q", "<Cmd>confirm qa<CR>", desc = "Close Application" },
@@ -77,6 +79,8 @@ nx.map({
 	{ "<C-w>3", "3<C-w><C-w>", desc = "Go to Window #3", wk_label = "ignore" },
 	{ "<C-w>4", "4<C-w><C-w>", desc = "Go to Window #4", wk_label = "ignore" },
 	{ "<C-w>5", "5<C-w><C-w>", desc = "Go to Window #5", wk_label = "ignore" },
+	{ "<C-w>c", bd.bufdelete, desc = "Close Buffer" },
+	{ "<C-w>q", "<Cmd>confirm quit<CR>", desc = "Quit Window" },
 	-- Set Window Width to Colorcolumn (other predefined window width layouts are handled by windows.nvim)
 	{
 		"<C-w>b",
@@ -101,11 +105,17 @@ nx.map({
 	-- TAB NAVIGATION
 	{ "<C-Tab>", "<Cmd>tabnext<CR>", "", desc = "Go to Next Tab", silent = true },
 	{ "<C-S-Tab>", "<Cmd>tabprevious<CR>", "", desc = "Go to Previous Tab", silent = true },
-	{ "<C-w>tt", "<Cmd>tabnew | lua MiniBufremove.delete(0, false)<CR>", desc = "New Tab", wk_label = "New" },
 	{ "<C-w>tc", "<Cmd>tabc<CR>", desc = "Close Current Tab", wk_label = "Close Current" },
 	{ "<C-w>tC", "<Cmd>tabo<CR>", desc = "Close All Other Tabs", wk_label = "Close All Other" },
-	{ "<C-w>c", "<Cmd>Bd<CR>", desc = "Close Buffer" },
-	{ "<C-w>q", "<Cmd>confirm quit<CR>", desc = "Quit Window" },
+	{
+		"<C-w>tt",
+		function()
+			vim.cmd("tabnew")
+			bd.bufdelete(0, false)
+		end,
+		desc = "New Tab",
+		wk_label = "New",
+	},
 
 	-- COMMANDLINE
 	{ "<C-n>", "<Down>", "c", desc = "Next Related Command History Item" },

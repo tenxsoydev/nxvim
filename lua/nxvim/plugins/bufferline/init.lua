@@ -5,6 +5,7 @@ local bufferline = require("bufferline")
 -- { == Configuration ==> =====================================================
 
 local style = require("nxvim.plugins.bufferline.styles.slim-shady") -- slim-shady | slant
+local bd = require("bufdelete")
 
 bufferline.setup({
 	options = {
@@ -26,7 +27,7 @@ bufferline.setup({
 		buffer_close_icon = "×", -- "",
 		modified_icon = "", -- "●",
 		close_icon = "󰅖",
-		close_command = function(bufnr) MiniBufremove.delete(bufnr, true) end,
+		close_command = function(bufnr) bd.bufdelete(bufnr, true) end,
 		left_trunc_marker = "󰁍", -- "",
 		right_trunc_marker = "󰁔", -- "",
 		max_name_length = 16,
@@ -69,7 +70,7 @@ local maps = {
 	{ "<leader>bp", "<Cmd>BufferLinePick<CR>", desc = "Pick Buffer to Focus" },
 	{ "<leader>bP", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle Pin " },
 	{ "<A-C-p>", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle Pin " },
-	{ "<leader>bc", "<Cmd>silent lua MiniBufremove.delete(0, true)<CR>", desc = "Close! Buffer" },
+	{ "<leader>bc", bd.bufdelete, desc = "Close! Buffer" },
 	{ "<leader>bx", "<Cmd>BufferLinePickClose<CR>", desc = "Pick Buffer to Close" },
 	{ "<leader>bh", "<Cmd>BufferLineCloseLeft<CR>", desc = "Close All to the Left" },
 	{ "<leader>bl", "<Cmd>BufferLineCloseRight<CR>", desc = "Close All to the Right" },
