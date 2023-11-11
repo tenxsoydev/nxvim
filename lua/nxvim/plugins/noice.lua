@@ -26,7 +26,16 @@ require("noice").setup({
 	},
 	presets = {
 		bottom_search = true,
-		lsp_doc_border = nx.opts.float_win_border ~= "none" and true or false,
+		lsp_doc_border = {
+			views = {
+				hover = {
+					border = {
+						style = nx.opts.float_win_border,
+						padding = { 0, 0 },
+					},
+				},
+			},
+		},
 	},
 	views = {
 		mini = {
