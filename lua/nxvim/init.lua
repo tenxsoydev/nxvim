@@ -2,12 +2,13 @@ local lazy = require("nxvim.plugins.lazy")
 
 -- MacOS
 if jit.os == "OSX" then
-	local keyboard_layout = vim.fn.system(
-		"defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources | grep -w \"KeyboardLayout Name\" | awk '{print $4}' | tr -d ';\"'"
-	)
 	vim.g.osx = true
 	if vim.env.TERM_PROGRAM ~= "WezTerm" then
-		vim.g.eu_kbd = keyboard_layout:gsub("%s+", "") == "EurKEY" and true or false
+		vim.g.eu_kbd = vim.fn
+			.system(
+				"defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources | grep -w \"KeyboardLayout Name\" | awk '{print $4}' | tr -d ';\"'"
+			)
+			:gsub("%s+", "") == "EurKEY" and true or false
 	end
 end
 
@@ -19,9 +20,6 @@ vim.g.multigrid = vim.api.nvim_list_uis()[1].ext_multigrid
 ---@diagnostic disable-next-line: duplicate-doc-field
 ---@field config? fun()|boolean|string @add `string` as possible config type.
 ---@field eager? boolean
-
--- Problem childs that need to be loaded outside of `lazy.setup`
-require("nxvim.plugins.visual-multi") -- `VM_maps` config won't work otherwise afaik
 
 ---@type string[]|NxModule[]
 -- tip: use `gf` over a `config` string to go to a config file|directory
@@ -245,13 +243,13 @@ local modules = {
 
 ---Config load helper
 ---@param plugin_config string
----@param eager? "eager"
+---@param eager? boolean
 local function get(plugin_config, eager)
 	if (plugin_config:match("plugins") or plugin_config:match("colorschemes")) and not plugin_config:match("nxvim") then
 		plugin_config = "nxvim." .. plugin_config
 	end
 
-	if eager == "eager" then return function() require(plugin_config) end end
+	if eager then return function() require(plugin_config) end end
 
 	return function()
 		-- scheduled loading the majority of config files - results in 30-35% faster startup
@@ -267,13 +265,8 @@ for i, module in ipairs(modules) do
 		if module.dir and module.dir:match("nxvim") and not module.config:match("nxvim") then
 			module.config = "nxvim." .. module.config
 		end
-		if module.eager then
-			---@diagnostic disable-next-line: param-type-mismatch
-			module.config = get(module.config, "eager")
-		else
-			---@diagnostic disable-next-line: param-type-mismatch
-			module.config = get(module.config)
-		end
+		---@diagnostic disable-next-line: param-type-mismatch
+		module.config = get(module.config, module.eager)
 	end
 
 	-- remove custom fields
@@ -285,6 +278,9 @@ end
 -- <== }
 
 -- { == Load Setup ==> ========================================================
+
+-- Problem childs that need to be loaded outside of `lazy.setup`
+require("nxvim.plugins.visual-multi") -- `VM_maps` config won't work otherwise afaik
 
 lazy.setup(modules, {
 	ui = { border = "rounded" },
