@@ -83,7 +83,7 @@ local modules = {
 	{ "akinsho/git-conflict.nvim", event = "VeryLazy", config = "plugins.git-conflict" },
 	{ "ruifm/gitlinker.nvim", event = "VeryLazy", config = true },
 	{ "lewis6991/gitsigns.nvim", event = "VeryLazy", config = "plugins.gitsigns" },
-	{ "tobealive/neogit", branch = "fix-noice-commit-confirm-message", event = "VeryLazy", config = "plugins.neogit" },
+	{ "NeogitOrg/neogit", event = "VeryLazy", config = "plugins.neogit" },
 	{ "mattn/vim-gist", event = "VeryLazy", config = "plugins.gist" },
 	{ "mattn/webapi-vim" },
 	-- "ThePrimeagen/git-worktree.nvim",
