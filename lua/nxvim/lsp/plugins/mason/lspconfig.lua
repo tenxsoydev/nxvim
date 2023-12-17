@@ -1,5 +1,6 @@
 -- https://github.com/williamboman/mason-lspconfig.nvim
 
+require("neodev").setup({ pathStrict = false })
 local mason_lspconfig = require("mason-lspconfig")
 local lspconfig = require("lspconfig")
 

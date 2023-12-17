@@ -2,24 +2,20 @@ local settings = {
 	Lua = {
 		diagnostics = {
 			globals = { "vim", "bit", "WindLine" },
+			libraryFiles = true,
 		},
 		format = {
 			enable = false,
 		},
 		-- use neodev to setup workspace
-		-- workspace = {
-		-- 	library = {
-		-- 		[vim.fn.expand "$VIMRUNTIME/lua"] = true,
-		-- 		[vim.fn.stdpath "config" .. "/lua"] = true,
-		-- 	},
-		-- },
+		workspace = {
+			library = {
+				-- vim.fn.stdpath("data"),
+				vim.fn.stdpath("config") .. "/lua",
+			},
+		},
 	},
 }
-
-if vim.g.colors_name == "dracula" then settings.Lua.semantic = {
-	keyword = false,
-	variable = false,
-} end
 
 return {
 	settings = settings,

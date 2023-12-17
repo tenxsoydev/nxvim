@@ -116,7 +116,7 @@ local modules = {
 	{ "tknightz/telescope-termfinder.nvim", lazy = true },
 
 	-- LSP / Formatters ----------------------------------------------------------
-	{ "folke/neodev.nvim", config = true },
+	{ "folke/neodev.nvim" },
 	{ "neovim/nvim-lspconfig", config = "lsp.plugins.lspconfig" },
 	{ "jose-elias-alvarez/null-ls.nvim", config = "lsp.plugins.null-ls" }, -- inject external formatters and linters
 	{ "glepnir/lspsaga.nvim", event = "VeryLazy", config = "lsp.plugins.lspsaga" },
