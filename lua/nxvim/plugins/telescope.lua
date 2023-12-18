@@ -68,6 +68,8 @@ local config = {
 				results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
 				preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
 			},
+		frecency = {
+			auto_validate = false,
 		},
 	},
 }
