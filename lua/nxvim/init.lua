@@ -173,7 +173,7 @@ local modules = {
 	-- Marks & Session -----------------------------------------------------------
 	{ "tomasky/bookmarks.nvim", config = "plugins.bookmarks" },
 	{ "ThePrimeagen/harpoon", event = "VeryLazy", config = "plugins.harpoon" },
-	{ "olimorris/persisted.nvim", config = "plugins.persisted" },
+	{ "Shatur/neovim-session-manager", config = "plugins.session-manager", eager = true },
 	{ "ahmedkhalf/project.nvim", config = "plugins.project" },
 	{ "chentoast/marks.nvim", event = "VeryLazy", config = "plugins.marks" },
 

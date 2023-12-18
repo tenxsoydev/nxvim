@@ -52,22 +52,6 @@ local config = {
 			filetypes = { "png", "webp", "jpg", "jpeg" },
 			find_cmd = "fd",
 		},
-		persisted = {
-			sorting_strategy = "ascending",
-			layout_strategy = "center",
-			layout_config = {
-				width = 80,
-				height = 15,
-				prompt_position = "top",
-			},
-			border = true,
-			results_title = false,
-			-- TODO: border chars from nx.opts.float_win_border opts
-			borderchars = {
-				prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
-				results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
-				preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-			},
 		frecency = {
 			auto_validate = false,
 		},
@@ -295,7 +279,6 @@ vim.schedule(
 			"bookmarks",
 			"recent_files",
 			"frecency",
-			"persisted",
 			"fzy_native",
 			"media_files",
 			"projects",
