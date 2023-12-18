@@ -1,5 +1,7 @@
 -- https://github.com/karb94/neoscroll.nvim
 
+if vim.g.loaded_gui then return end
+
 local neoscroll = require("neoscroll")
 
 -- { == Configuration ==> =====================================================
