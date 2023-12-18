@@ -90,7 +90,12 @@ local modules = {
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", config = "plugins.treesitter" },
 	-- { "nvim-treesitter/nvim-treesitter-context", dependencies = "nvim-treesitter/nvim-treesitter" },
 	{ "windwp/nvim-ts-autotag", dependencies = "nvim-treesitter/nvim-treesitter" },
-	{ "JoosepAlviste/nvim-ts-context-commentstring", dependencies = "nvim-treesitter/nvim-treesitter" },
+	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		event = "VeryLazy",
+		dependencies = "nvim-treesitter/nvim-treesitter",
+		config = true,
+	},
 	{ "nvim-treesitter/playground", dependencies = "nvim-treesitter/nvim-treesitter" },
 	{
 		"mizlan/iswap.nvim",
