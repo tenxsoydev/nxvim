@@ -1,3 +1,5 @@
+-- https://github.com/sindrets/diffview.nvim
+
 local diffview = require("diffview")
 
 -- { == Configuration ==> =====================================================

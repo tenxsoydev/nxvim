@@ -25,6 +25,8 @@ local config = {
 		keys = {}, -- See keymaps section below
 	},
 	outline = {
+		win_width = 34,
+		auto_preview = false,
 		keys = {},
 	},
 	callhierarchy = {

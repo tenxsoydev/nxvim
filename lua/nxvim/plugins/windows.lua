@@ -12,6 +12,7 @@ vim.o.winminwidth = 11
 local config = {
 	autowidth = {
 		enable = false, -- Off by default. trigger with `<C-w>a` or command>.
+		-- winwidth = 0.58,
 		winwidth = 0.618, -- Golden Ratio.
 	},
 	ignore = {

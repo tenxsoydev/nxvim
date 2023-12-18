@@ -6,8 +6,6 @@ local notify = require("notify")
 notify.setup({
 	render = "minimal", -- Render function for notifications. See notify-render()
 	timeout = 2500, -- Default timeout for notifications
-	-- For stages that change opacity this is treated as the highlight behind the window
-	background_colour = "PMenu", -- Highlight group or hex value "#000000"
 	minimum_width = 10, -- Minimum width for notification windows
 	-- stages = "fade_in_slide_out",
 	-- Move notifications to bottom right corner
