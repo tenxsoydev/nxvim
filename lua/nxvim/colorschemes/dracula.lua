@@ -75,6 +75,7 @@ function M.set_hl()
 		-- vim will fill the StatusLine with carets `^` if it has the same color as StatusLineNC
 		{ "StatusLineNC", bg = "StatusLine:bg:#b-1" },
 		{ "Winbar", link = "LineNr" },
+		{ "WinbarNC", link = "LineNr" },
 	})
 end
 
