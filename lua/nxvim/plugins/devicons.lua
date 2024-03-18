@@ -17,10 +17,16 @@ require("nvim-web-devicons").setup({
 			name = "Py",
 		},
 		["v"] = {
-			icon = "𝗩",
+			icon = "",
 			color = "#5D87BF",
 			cterm_color = "24",
-			name = "V",
+			name = "Vlang",
+		},
+		["vv"] = {
+			icon = "",
+			color = "#41535b",
+			cterm_color = "239",
+			name = "VlangTestFile",
 		},
 		["vb"] = {
 			icon = "󰈜",
