@@ -49,7 +49,8 @@ local modules = {
 	-- File Tree
 	{ "nvim-neo-tree/neo-tree.nvim", dependencies = "MunifTanjim/nui.nvim", config = "plugins.neo-tree" },
 	-- Terminal
-	{ "akinsho/toggleterm.nvim", event = "VeryLazy", config = "plugins.toggleterm" },
+	-- stylua: ignore
+	{ "ttytm/toggleterm.nvim", event = "VeryLazy", config = "plugins.toggleterm", branch = "fix/autochdir-for-custom-terminals" },
 	{ "willothy/flatten.nvim", priority = 100, config = "plugins.flatten" },
 	-- Comments
 	{ "numToStr/Comment.nvim", event = "VeryLazy", config = "plugins.comment" },
