@@ -5,20 +5,20 @@ local fidget = require("fidget")
 -- { == Configuration ==> =====================================================
 
 local config = {
-	text = {
-		done = "",
+	progress = {
+		display = {
+			done_icon = "",
+		},
 	},
-	window = {
-		blend = 0, -- interferes with transparency in TUI
-	},
-	sources = {
-		ltex = {
-			ignore = true,
+	notification = {
+		window = {
+			normal_hl = "Float",
+			winblend = 0,
 		},
 	},
 }
 
-if vim.g.loaded_gui then config.window.blend = 100 end
+if vim.g.loaded_gui then config.notification.window.winblend = 100 end
 
 fidget.setup(config)
 -- <== }
