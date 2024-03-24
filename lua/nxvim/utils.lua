@@ -24,56 +24,25 @@ function M.truc_path(input_path)
 	local home_path = vim.fn.expand("$HOME")
 	if string.match(input_path, home_path) then input_path = input_path:gsub(home_path, "~") end
 
-	local config = {
-		max_dirs = 2,
-		shorten = true,
+	local cfg = {
+		max_dirs = 3,
+		max_path_len = 2,
 		prefix = "…", -- "󰘍" ""
 		trunc_symbol = "…",
 	}
 
-	local file_sep = package.config:sub(1, 1)
-	local file = vim.split(input_path, file_sep)
-	local path = ""
+	local path = vim.split(input_path, "/")
+	local res = path[1]
 
-	for dirs, _ in ipairs(file) do
-		if dirs <= config.max_dirs then
-			if config.max_dirs ~= 1 and dirs == 1 then
-				-- first level files (directly in project root)
-				if file[#file - config.max_dirs] == nil then
-					path = path .. file[#file - (#file - 1)]
-				else
-					path = path .. file[#file - config.max_dirs]
-				end
-			else
-				-- tip for debugging: use somthing like *test* inside "/"
-				if file[#file - dirs] == nil then
-					path = path .. "/" .. file[#file - (#file - dirs)]
-				else
-					-- middle position
-					path = path
-						.. "/"
-						.. (
-							(
-								config.shorten
-								and string.sub(file[#file - (config.max_dirs - (dirs - 1))], 1, 2)
-									.. config.trunc_symbol
-							) or file[#file - (config.max_dirs - (dirs - 1))]
-						)
-				end
-			end
-		else
-			-- actual filename
-			if file[#file - dirs] == nil then
-				path = path .. "/" .. file[#file]
-				break
-			else
-				path = config.prefix .. path .. "/" .. file[#file]
-				break
-			end
+	for i, _ in ipairs(path) do
+		if i + 1 <= cfg.max_dirs and i + 1 < #path then
+			res = res .. "/" .. ((string.sub(path[i + 1], 1, cfg.max_path_len) .. cfg.trunc_symbol) or path[i + 1])
 		end
 	end
 
-	return path
+	res = res .. "/" .. path[#path]
+
+	return res
 end
 
 -- Auto window height - use for qf lists
