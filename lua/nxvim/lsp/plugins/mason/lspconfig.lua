@@ -23,6 +23,11 @@ if cmp_ok then
 end
 
 local function on_attach(client, bufnr)
+	if client.name == "tsserver" then
+		client.server_capabilities.documentFormattingProvider = false
+		client.server_capabilities.documentRangeFormattingProvider = false
+	end
+	-- Attach keymaps and commands.
 	require("nxvim.lsp").on_attach(client, bufnr)
 	require("nxvim.lsp.plugins.lspsaga").on_attach(client, bufnr)
 end
@@ -45,7 +50,7 @@ mason_lspconfig.setup_handlers({
 		-- The json|ts provideFormatter setting below triggers for gopls when it shouldn't, therefore we skip it here.
 		if server == "gopls" then goto setup end
 		-- Use prettierd as formatter.
-		if server == "jsonls" or "tsserver" then opts.init_options = { provideFormatter = false } end
+		if server == "jsonls" then opts.init_options = { provideFormatter = false } end
 		-- Handled by rust-tools.
 		if server == "rust_analyzer" then goto continue end
 
