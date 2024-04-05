@@ -32,7 +32,7 @@ local modules = {
 	{ dir = "nxvim/options", priority = 80, config = "options", eager = true },
 	{ dir = "nxvim/lsp", priority = 80, config = "lsp" },
 	{ "tenxsoydev/nx.nvim", priority = 100, config = function() _G.nx = require("nx") end, eager = true },
-	{ "folke/lazy.nvim", tag = "v9.10.0" },
+	{ "folke/lazy.nvim" },
 
 	-- Miscellaneous -------------------------------------------------------------
 	-- Dashboard
