@@ -9,12 +9,11 @@ return {
 				enable = false,
 			},
 			-- use neodev to setup workspace
-			workspace = {
+			--[[ workspace = {
 				library = {
-					-- vim.fn.stdpath("data"),
 					vim.fn.stdpath("config") .. "/lua",
 				},
-			},
+			}, ]]
 		},
 	},
 }
