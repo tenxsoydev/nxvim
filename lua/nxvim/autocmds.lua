@@ -21,12 +21,11 @@ nx.au({
 
 	-- Filetype Specific ----------------------------------------------------------
 	{ "FileType", pattern = "markdown", command = "setlocal wrap ts=2 sw=2" },
-	-- { "FileType", pattern = "markdown", callback = function() vim.wo.foldlevel = 99 end },
-	{ "FileType", pattern = "teal", once = true, command = "LspToggleAutoFormat silent" },
-	{ "FileType", pattern = "python", command = "setlocal noet ts=3 sw=3" },
 	{ "FileType", pattern = "vb", command = "setlocal et ts=4 sw=4" },
-	{ { "BufNewFile", "BufRead" }, pattern = { "*.njk", "*.vto" }, command = "set ft=html" },
-	{ { "BufNewFile", "BufRead" }, pattern = { "*.v", "*.vsh", ".vv" }, command = "set ft=v" },
+	{ "FileType", pattern = "teal", once = true, command = "LspToggleAutoFormat silent" },
+	{ "FileType", pattern = { "python", "zig" }, command = "setlocal noet ts=3 sw=0" },
+	{ "BufEnter", pattern = { "*.njk", "*.vto" }, command = "set ft=html" },
+	{ "BufEnter", pattern = { "*.v_*", "v.mod" }, command = "set ft=v" },
 })
 
 nx.au({ -- Remember folds
