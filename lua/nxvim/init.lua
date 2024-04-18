@@ -112,7 +112,7 @@ local modules = {
 	-- LSP / Formatters ----------------------------------------------------------
 	{ "folke/neodev.nvim", config = true },
 	{ "neovim/nvim-lspconfig", config = "lsp.plugins.lspconfig" },
-	{ "jose-elias-alvarez/null-ls.nvim", config = "lsp.plugins.null-ls" }, -- inject external formatters and linters
+	{ "nvimtools/none-ls.nvim", config = "lsp.plugins.null-ls" }, -- inject external formatters and linters
 	{ "glepnir/lspsaga.nvim", event = "VeryLazy", config = "lsp.plugins.lspsaga" },
 	{ "j-hui/fidget.nvim", event = "VeryLazy", config = "lsp.plugins.fidget" },
 	{ "ray-x/lsp_signature.nvim", event = "VeryLazy", config = "lsp.plugins.lsp-signature" },
