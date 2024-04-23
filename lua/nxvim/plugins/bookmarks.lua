@@ -6,7 +6,7 @@ local actions = require("bookmarks.actions")
 -- { == Configuration ==> =====================================================
 
 local config = {
-	save_file = vim.fn.stdpath("config") .. "/.bookmarks",
+	save_file = vim.fn.stdpath("config") .. "/.bookmarks.json",
 	keywords = {
 		["@t"] = "", -- mark annotation startswith @t ,signs this icon as `Todo`
 		["@w"] = "", -- mark annotation startswith @w ,signs this icon as `Warn`
