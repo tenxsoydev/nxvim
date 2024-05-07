@@ -112,8 +112,7 @@ local config = {
 				local msg = "Are you sure you want to trash " .. path
 				inputs.confirm(msg, function(confirmed)
 					if not confirmed then return end
-
-					vim.fn.system({ "trash", vim.fn.fnameescape(path) })
+					vim.fn.system({ "trash", path })
 					require("neo-tree.sources.manager").refresh(state.name)
 				end)
 			end,
