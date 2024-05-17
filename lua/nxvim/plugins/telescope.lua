@@ -227,7 +227,7 @@ nx.map({
 	{ "<leader>/:", "<Cmd>Telescope commands<CR>", desc = "Search Commands" },
 	{ "<leader>/f", "<Cmd>Telescope find_files<CR>", desc = "Search Files" },
 	-- {"<leader>/g", "<Cmd>Telescope live_grep theme=ivy<CR>",  desc = "Grep" },
-	{ "<leader>/g", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", desc = "Live Grep" },
+	{ "<leader>/g", "<Cmd>Telescope live_grep_args<CR>", desc = "Live Grep" },
 	-- As we just want to initate the grep_string command we use `:`. <Cmd> must end with `<CR>`.
 	{ "<leader>/G", ":Telescope grep_string theme=ivy search=", desc = "Grep String" },
 	{ "<leader>/h", "<Cmd>Telescope highlights<CR>", desc = "Search Highlights" },
