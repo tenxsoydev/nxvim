@@ -276,7 +276,6 @@ end
 vim.schedule(
 	function()
 		load_extensions({
-			"bookmarks",
 			"recent_files",
 			"frecency",
 			"fzy_native",
