@@ -24,8 +24,8 @@ nx.au({
 	{ "FileType", pattern = "vb", command = "setlocal et ts=4 sw=4" },
 	{ "FileType", pattern = "teal", once = true, command = "LspToggleAutoFormat silent" },
 	{ "FileType", pattern = { "python", "zig" }, command = "setlocal noet ts=3 sw=0" },
-	{ "BufEnter", pattern = { "*.njk", "*.vto" }, command = "set ft=html" },
-	{ "BufEnter", pattern = { "*.v_*", "v.mod" }, command = "set ft=v" },
+	{ "BufRead", pattern = { "*.njk", "*.vto" }, command = "set ft=html" },
+	{ "BufRead", pattern = { "*.v", "*.v_*", "v.mod" }, command = "set ft=v" },
 })
 
 nx.au({ -- Remember folds
