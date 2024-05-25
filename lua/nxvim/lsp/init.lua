@@ -47,8 +47,10 @@ local function toggle_format_on_save(silent)
 		"BufWritePre",
 		create_group = "FormatOnSave",
 		callback = function()
-			if next(vim.lsp.get_active_clients({ bufnr = 0 })) == nil then return end
-			vim.lsp.buf.format({ async = false })
+			vim.lsp.buf.format({
+				async = false,
+				filter = function(client) return client.name ~= "zls" end,
+			})
 		end,
 	})
 	if silent ~= "silent" then vim.notify("Enabled Format on Save") end
