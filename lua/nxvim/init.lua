@@ -207,7 +207,7 @@ local modules = {
 	{ "edluffy/hologram.nvim", event = "VeryLazy" },
 	{ "lukas-reineke/indent-blankline.nvim", event = "VeryLazy", config = "plugins.indentline" },
 	{ "echasnovski/mini.nvim", config = "plugins.mini" },
-	{ "karb94/neoscroll.nvim", config = "plugins.neoscroll" },
+	{ "karb94/neoscroll.nvim", config = "plugins.neoscroll", commit = "e78657719485c5663b88e5d96ffcfb6a2fe3eec0" },
 	{ "nacro90/numb.nvim", event = "VeryLazy", config = true },
 	{ "windwp/nvim-autopairs", event = "VeryLazy", config = "plugins.autopairs" },
 	{ "NvChad/nvim-colorizer.lua", event = "VeryLazy", config = "plugins.colorizer" },
