@@ -22,7 +22,14 @@ local config = {
 
 -- { == Events ==> ===========================================================
 
-nx.au({ "FileType", pattern = "NeogitCommitMessage", command = "setlocal spell" })
+nx.au({
+	"Filetype",
+	pattern = "NeogitCommitMessage",
+	callback = function()
+		vim.defer_fn(function() vim.o.spell = true end, 100)
+	end,
+})
+-- { "Filetype", pattern = "NeogitCommitMessage", command = "setlocal spell et ts=2 sw=2" },
 -- <== }
 
 -- { == Keymaps ==> ==========================================================
@@ -34,10 +41,6 @@ config.mappings = {
 }
 
 nx.map({ "<leader>gn", "<Cmd>Neogit<CR>", desc = "Neogit" })
-nx.au({
-	{ "Filetype", pattern = "NeogitPushPopup", command = "nnoremap <buffer> F <nop>" },
-	{ "Filetype", pattern = "NeogitCommitMessage", command = "setlocal et ts=2 sw=2" },
-})
 -- <== }
 
 -- { == Highlights ==> =======================================================
