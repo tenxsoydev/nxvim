@@ -31,6 +31,8 @@ local function on_attach(client, bufnr)
 	require("nxvim.lsp.plugins.lspsaga").on_attach(client, bufnr)
 end
 
+lspconfig.mojo.setup({})
+
 mason_lspconfig.setup_handlers({
 	function(server)
 		local opts = {

@@ -18,12 +18,12 @@ null_ls.register({
 })
 
 null_ls.register({
-	name = "vfmt",
+	name = "mojo-format",
 	method = null_ls.methods.FORMATTING,
-	filetypes = { "v", "vlang" },
+	filetypes = { "mojo" },
 	generator = null_ls.formatter({
-		command = "v",
-		args = { "fmt", "-w", "$FILENAME" },
+		command = "mojo",
+		args = { "format", "-q", "-l", "100", "$FILENAME" },
 		to_temp_file = true,
 	}),
 })
