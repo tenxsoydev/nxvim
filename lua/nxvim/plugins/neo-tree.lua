@@ -131,7 +131,7 @@ local config = {
 				inputs.confirm(msg, function(confirmed)
 					if not confirmed then return end
 					for _, node in ipairs(selected_nodes) do
-						vim.fn.system({ "trash", path })
+						vim.fn.system({ "trash", node.path })
 					end
 					require("neo-tree.sources.manager").refresh(state.name)
 				end)
