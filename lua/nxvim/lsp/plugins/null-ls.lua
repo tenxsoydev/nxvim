@@ -58,4 +58,7 @@ null_ls.setup({
 		fmt.yapf,
 	},
 })
+
+---@diagnostic disable-next-line: missing-fields
+require("mason-null-ls").setup({ handlers = {} })
 -- <== }
