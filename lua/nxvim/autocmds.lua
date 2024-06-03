@@ -26,6 +26,7 @@ nx.au({
 	{ "FileType", pattern = { "python", "zig" }, command = "setlocal noet ts=3 sw=0" },
 	{ "BufRead", pattern = { "*.njk", "*.vto" }, command = "set ft=html" },
 	{ "BufRead", pattern = { "*.v", "*.v_*", "v.mod" }, command = "set ft=v" },
+	{ "BufRead", pattern = { "*.mojo" }, command = "setlocal commentstring=#%s" },
 })
 
 nx.au({ -- Remember folds
