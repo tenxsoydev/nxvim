@@ -171,7 +171,7 @@ local function set_offset()
 	if not barbar_ok then return end
 	local title = " 󰙅 " .. utils.truc_path(vim.fn.getcwd())
 	local space = neo_tree_win.width - title:len()
-	local filler = space > 0 and (" "):rep(neo_tree_win.width - title:len()) or ""
+	local filler = space > 0 and (" "):rep(space) or "             "
 	barbar_api.set_offset(neo_tree_win.width + 2, title .. filler .. spacer)
 end
 
@@ -187,16 +187,11 @@ config.event_handlers = {
 		end,
 	},
 	{
-		event = "neo_tree_window_before_close",
-		handler = function()
-			if barbar_ok then barbar_api.set_offset(0) end
-		end,
-	},
-	{
 		event = "neo_tree_window_after_close",
 		handler = function()
 			if require("nxvim.plugins.windows").auto_maximize then vim.cmd("WindowsMaximize") end
 			neo_tree_win.id = -1
+			if barbar_ok then barbar_api.set_offset(0) end
 		end,
 	},
 }

@@ -48,7 +48,7 @@ nx.au({
 	"FileType",
 	pattern = { "NeogitStatus", "DiffviewFiles" },
 	callback = function()
-		vim.defer_fn(function() barbar_api.set_offset(0) end, 75)
+		vim.defer_fn(function() barbar_api.set_offset(0) end, 100)
 	end,
 })
 -- <== }
