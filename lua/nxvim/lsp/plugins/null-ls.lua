@@ -12,7 +12,7 @@ null_ls.register({
 	filetypes = { "nim" },
 	generator = null_ls.formatter({
 		command = "nimpretty_t",
-		args = { "$FILENAME", "--maxLineLen=100" },
+		args = { "-w", "$FILENAME" },
 		to_temp_file = true,
 	}),
 })
