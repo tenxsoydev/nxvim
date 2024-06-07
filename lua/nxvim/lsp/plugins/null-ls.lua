@@ -28,6 +28,17 @@ null_ls.register({
 	}),
 })
 
+null_ls.register({
+	name = "vzit",
+	method = null_ls.methods.FORMATTING,
+	filetypes = { "zig" },
+	generator = null_ls.formatter({
+		command = "vzit",
+		args = { "-w", "$FILENAME" },
+		to_temp_file = true,
+	}),
+})
+
 -- { == Configuration ==> =====================================================
 
 null_ls.setup({
