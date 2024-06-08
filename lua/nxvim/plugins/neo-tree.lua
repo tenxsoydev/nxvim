@@ -96,7 +96,9 @@ local config = {
 				--"thumbs.db"
 			},
 		},
-		follow_current_file = true,
+		follow_current_file = {
+			enabled = true,
+		},
 		group_empty_dirs = false,
 		hijack_netrw_behavior = "open_default",
 		use_libuv_file_watcher = false,
@@ -142,7 +144,9 @@ local config = {
 		},
 	},
 	buffers = {
-		follow_current_file = true,
+		follow_current_file = {
+			enabled = true,
+		},
 		group_empty_dirs = true, -- when true, empty folders will be grouped together
 		show_unloaded = true,
 	},
