@@ -126,10 +126,12 @@ local modules = {
 	-- { "ThePrimeagen/refactoring.nvim", config = true },
 	-- "tamago324/nlsp-settings.nvim",
 	-- Language Specific
+	-- Rust
+	{ "saecki/crates.nvim", event = "VeryLazy", config = true },
 	{ "simrat39/rust-tools.nvim", config = "lsp.plugins.rust-tools" },
 	-- "ron-rs/ron.vim",
 	-- Python
-	{ "linux-cultist/venv-selector.nvim", config = "plugins.venv-selector", event = "VeryLazy", branch = "regexp" },
+	{ "linux-cultist/venv-selector.nvim", branch = "regexp", event = "VeryLazy", config = "plugins.venv-selector" },
 
 	-- Debug ---------------------------------------------------------------------
 	-- TODO: Push DAP config
