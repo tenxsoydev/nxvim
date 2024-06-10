@@ -3,33 +3,39 @@ local M = {}
 ---@param hl_group string|number
 ---@param val string|"bg"|"fg"
 function M.get_hl(hl_group, val)
-	local api_get_hl = vim.api.nvim_get_hl_by_name
-
-	if type(hl_group) == "number" then api_get_hl = vim.api.nvim_get_hl_by_id end
-
 	if val == "fg" then
 		val = "foreground"
 	elseif val == "bg" then
 		val = "background"
 	end
 
-	local ok, hl = pcall(api_get_hl, hl_group, true)
+	local ok, hl = pcall(vim.api.nvim_get_hl, hl_group, true)
 	if not ok then return nil end
 
 	return hl[val]
 end
 
+---@class TruncConfig
+---@field max_dirs number
+---@field max_path_len number
+---@field prefix string
+---@field trunc_symbol string
+
+---@type TruncConfig
+local default_trunc_config = {
+	max_dirs = 3,
+	max_path_len = 2,
+	prefix = "…", -- "󰘍" ""
+	trunc_symbol = "…",
+}
+
 ---@param input_path string
-function M.truc_path(input_path)
+---@param config? { max_dirs: number, max_path_len: number, prefix: string, trunc_symbol: string }
+function M.truc_path(input_path, config)
 	local home_path = vim.fn.expand("$HOME")
 	if string.match(input_path, home_path) then input_path = input_path:gsub(home_path, "~") end
 
-	local cfg = {
-		max_dirs = 3,
-		max_path_len = 2,
-		prefix = "…", -- "󰘍" ""
-		trunc_symbol = "…",
-	}
+	local cfg = vim.tbl_deep_extend("keep", config or {}, default_trunc_config)
 
 	local path = vim.split(input_path, "/")
 	local res = path[1]
