@@ -274,31 +274,6 @@ nx.map({
 }, { desc = "Fix: Scrolling with Acceleration" })
 -- <== }
 
--- { == Filetype Keymaps ==> ==================================================
-
----@param key string
-local function indent_new_line(key)
-	local line, indent_lvl = string.gsub(vim.api.nvim_get_current_line(), "\t", "")
-	local last_char = string.sub(line, -1)
-	if last_char == ":" or last_char == "=" then indent_lvl = indent_lvl + 1 end
-	return key .. string.rep("\t", indent_lvl)
-end
-
-nx.map({
-	{ "o", function() return indent_new_line("o") end },
-	{ "O", function() return indent_new_line("O") end },
-	{ "<CR>", function() return indent_new_line("<CR>") end, "i" },
-	{
-		"<Esc>",
-		function()
-			local trimmed_line = vim.api.nvim_get_current_line():match("^%s*(.*%S)") or ""
-			return trimmed_line == "" and "<Esc>g_<S-d>" or "<Esc>"
-		end,
-		"i",
-	},
-}, { expr = true, silent = true, ft = "nim" })
--- <== }
-
 -- { == Plugin Keymaps ==> ====================================================
 
 -- Plugin related keymaps are located inside the corresponding plugins config directory

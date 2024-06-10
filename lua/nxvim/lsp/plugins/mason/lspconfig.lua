@@ -54,6 +54,7 @@ mason_lspconfig.setup_handlers({
 		if server == "jsonls" then opts.init_options = { provideFormatter = false } end
 		-- Handled by rust-tools.
 		if server == "rust_analyzer" then goto continue end
+		if server == "zls" then vim.g.zig_fmt_autosave = 0 end
 
 		::setup::
 		lspconfig[server].setup(opts)

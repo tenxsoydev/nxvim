@@ -44,7 +44,7 @@ null_ls.register({
 null_ls.setup({
 	debug = false,
 	sources = {
-		-- requires prettierd `pnpm i -g @fsouza/prettierd`
+		-- requires prettierd `bun i -g @fsouza/prettierd`
 		fmt.prettierd.with({
 			filetypes = {
 				"markdown",
