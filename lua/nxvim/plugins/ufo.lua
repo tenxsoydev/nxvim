@@ -18,7 +18,12 @@ end
 
 ufo.setup({
 	open_fold_hl_timeout = 150,
-	close_fold_kinds = { "imports", "comment" },
+	close_fold_kinds_for_ft = {
+		default = { "imports", "comment" },
+		markdown = {},
+		git = {},
+		NeogitStatus = {},
+	},
 	preview = {
 		win_config = {
 			border = { "", "─", "", "", "", "─", "", "" },
@@ -38,26 +43,19 @@ ufo.setup({
 
 -- { == Keymaps ==> ===========================================================
 
-nx.au({
-	"BufEnter",
-	callback = function()
-		if ignored_filetypes[vim.bo.ft] or vim.bo.bt ~= "" then return end
-
-		nx.map({
-			{ "zR", ufo.openAllFolds },
-			{ "zM", ufo.closeAllFolds },
-			{ "zr", ufo.openFoldsExceptKinds },
-			{ "zm", ufo.closeFoldsWith },
-			{
-				"K",
-				function()
-					local winid = ufo.peekFoldedLinesUnderCursor()
-					if not winid then vim.lsp.buf.hover() end
-				end,
-			},
-		}, { buffer = true })
-	end,
-})
+nx.map({
+	{ "zR", ufo.openAllFolds },
+	{ "zM", ufo.closeAllFolds },
+	{ "zr", ufo.openFoldsExceptKinds },
+	{ "zm", ufo.closeFoldsWith },
+	{
+		"K",
+		function()
+			local winid = ufo.peekFoldedLinesUnderCursor()
+			if not winid then vim.lsp.buf.hover() end
+		end,
+	},
+}, { buffer = true })
 -- <== }
 
 if vim.g.colors_name == "dracula" then nx.hl({ "Folded", fg = "SignColumn:fg", bg = "DraculaBgLight:bg" }) end
