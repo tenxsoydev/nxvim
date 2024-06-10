@@ -168,6 +168,7 @@ local neo_tree_win = {
 }
 
 local barbar_ok, barbar_api = pcall(require, "barbar.api")
+local windows = require("nxvim.plugins.windows")
 local utils = require("nxvim.utils")
 
 local function set_offset()
@@ -182,11 +183,13 @@ config.event_handlers = {
 	{
 		event = "neo_tree_window_after_open",
 		handler = function(args) -- `h: neo-tree-window-event-args`
-			if require("nxvim.plugins.windows").auto_maximize and vim.fn.win_gettype(args.winid) ~= "popup" then
-				vim.api.nvim_win_set_width(args.winid, config.window.width)
-			end
 			neo_tree_win.id = args.winid
-			neo_tree_win.width = vim.api.nvim_win_get_width(args.winid)
+			if windows.auto_maximize and vim.fn.win_gettype(neo_tree_win.id) ~= "popup" then
+				vim.api.nvim_win_set_width(neo_tree_win.id, config.window.width)
+			end
+			vim.wo[neo_tree_win.id].statuscolumn = ""
+			vim.wo[neo_tree_win.id].foldcolumn = "0"
+			neo_tree_win.width = vim.api.nvim_win_get_width(neo_tree_win.id)
 		end,
 	},
 	{
