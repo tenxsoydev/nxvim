@@ -169,14 +169,13 @@ local neo_tree_win = {
 
 local barbar_ok, barbar_api = pcall(require, "barbar.api")
 local utils = require("nxvim.utils")
-local spacer = (" "):rep(5)
 
 local function set_offset()
 	if not barbar_ok then return end
 	local title = " 󰙅 " .. utils.truc_path(vim.fn.getcwd())
-	local space = neo_tree_win.width - title:len()
-	local filler = space > 0 and (" "):rep(space) or "             "
-	barbar_api.set_offset(neo_tree_win.width + 2, title .. filler .. spacer)
+	local space = neo_tree_win.width - vim.api.nvim_strwidth(title)
+	local filler = space > 0 and (" "):rep(space) or ""
+	barbar_api.set_offset(neo_tree_win.width + 2, title .. filler)
 end
 
 config.event_handlers = {
