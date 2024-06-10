@@ -9,8 +9,9 @@ local config = {
 		kind = "split",
 	},
 	signs = {
-		section = { "", "" },
-		item = { "", "" },
+		-- section = { "", "" },
+		section = { "", "" },
+		item = { "", "" },
 		hunk = { "", "" },
 	},
 	integrations = {
