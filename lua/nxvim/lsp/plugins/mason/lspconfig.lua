@@ -50,7 +50,6 @@ mason_lspconfig.setup_handlers({
 
 		-- Or add settings inline.
 		--
-		if server == "nimls" then opts.cmd = { "nimlsp" } end
 		-- The json|ts provideFormatter setting below triggers for gopls when it shouldn't, therefore we skip it here.
 		if server == "gopls" then goto setup end
 		-- Use prettierd as formatter.
