@@ -40,6 +40,9 @@ mason_lspconfig.setup_handlers({
 			on_attach = on_attach,
 		}
 
+		-- Handled by rust-tools.
+		if server == "rust_analyzer" then goto continue end
+
 		-- Insert server settings from settings file if present.
 		-- The name of the settings file must match the name of the language server.
 		local server_settings_ok, server_settings = pcall(require, "nxvim.lsp.settings." .. server)
@@ -52,12 +55,11 @@ mason_lspconfig.setup_handlers({
 		if server == "gopls" then goto setup end
 		-- Use prettierd as formatter.
 		if server == "jsonls" then opts.init_options = { provideFormatter = false } end
-		-- Handled by rust-tools.
-		if server == "rust_analyzer" then goto continue end
 		if server == "zls" then vim.g.zig_fmt_autosave = 0 end
 
 		::setup::
 		lspconfig[server].setup(opts)
+
 		::continue::
 	end,
 })

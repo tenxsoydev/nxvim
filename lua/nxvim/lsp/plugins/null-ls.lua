@@ -64,7 +64,6 @@ null_ls.setup({
 			},
 			extra_args = { "--use-tabs", "--printWidth: 100", "--semi", "--single-quote" },
 		}),
-		fmt.rustfmt,
 		fmt.stylua,
 		fmt.yapf,
 	},
