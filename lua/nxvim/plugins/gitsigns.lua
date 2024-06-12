@@ -16,6 +16,10 @@ local config = {
 	preview_config = {
 		border = "rounded",
 	},
+	current_line_blame = true,
+	current_line_blame_opts = {
+		delay = 500,
+	},
 }
 -- <== }
 
@@ -67,7 +71,7 @@ end
 
 -- { == Highlights ==> ========================================================
 
-nx.hl({ "GitSignsCurrentLineBlame", fg = "Debug:fg", bg = "CursorLine:bg", italic = true })
+nx.hl({ "GitSignsCurrentLineBlame", link = "NeoTreeGitIgnored" })
 
 -- <== }
 
