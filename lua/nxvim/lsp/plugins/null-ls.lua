@@ -39,6 +39,17 @@ null_ls.register({
 	}),
 })
 
+null_ls.register({
+	name = "swiftformat",
+	method = null_ls.methods.FORMATTING,
+	filetypes = { "swift" },
+	generator = null_ls.formatter({
+		command = "swiftformat",
+		args = { "--indent", "tabs", "$FILENAME" },
+		to_temp_file = true,
+	}),
+})
+
 -- { == Configuration ==> =====================================================
 
 null_ls.setup({
