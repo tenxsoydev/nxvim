@@ -1,7 +1,7 @@
 <br />
 <div align="center">
   <p>🇳 🇽 🇻 🇮 🇲</p>
-  <p><em>PDE that leverages 100+ extensions in a fast and structured configuration.</em></p>
+  <p><samp>Fast and structured PDE configuration to enhance developer experience and productivity.</samp></p>
   <div>
     <a href="https://github.com/tenxsoydev/nxvim#getting-started">
       <img
@@ -33,27 +33,46 @@
 
 ## Getting Started
 
-At present, first-hand instructions are only provided for Linux. However, following along on other platforms should be fairly straightforward since there is not much wizardy involved.
+At present, first-hand instructions are only provided for Linux.
+However, since there is not much wizardy involved following along on other platforms should be straightforward.
 
 ### Prerequisites
 
-1. Prevent interferences with current Neovim files
+Prevent interferences with current Neovim files.
 
-   ```sh
-   # Make a backup
-   mv ~/.config/nvim ~/.config/nvim.bak \
-   && mv ~/.local/share/nvim ~/.local/share/nvim.bak
+- Using the default config path `~/.config/nvim`
 
-   # Or remove them
-   mv ~/.config/nvim ~/.config/nvim.bak \
-   && mv ~/.local/share/nvim ~/.local/share/nvim.bak
-   ```
+  1. Backup your current nvim config
 
-2. Clone the repository into neovims `stdpath("config")`
+     ```sh
+     mv ~/.config/nvim ~/.config/nvim.bak \
+     && mv ~/.local/share/nvim ~/.local/share/nvim.bak
+     ```
 
-   ```sh
-   git clone https://github.com/tenxsoydev/nxvim.git ~/.config/nvim
-   ```
+     Or remove it
+
+     ```sh
+     rm -rf ~/.config/nvim ~/.local/share/nvim
+     ```
+
+  1. Clone the repository
+     ```sh
+     git clone --filter=blob:none https://github.com/tenxsoydev/nxvim.git ~/.config/nvim
+     ```
+
+- Or, using `$NVIM_APPNAME`
+
+  1. Export the environment variable
+
+     ```sh
+     export NVIM_APPNAME=nxvim
+     ```
+
+  2. Clone the repository into neovims standard config path or the one specified with
+
+     ```sh
+     git clone --filter=blob:none https://github.com/tenxsoydev/nxvim.git ~/.config/$NVIM_APPNAME
+     ```
 
 <br>
 
@@ -64,32 +83,33 @@ Probably, most necessities are already installed.
 1. Neovim >= 0.9
 2. Packages
 
-   - TL;DR: for a deb. based system
+   - APT systems
 
      ```sh
-     sudo apt install git curl unzip xsel ripgrep fd-find sqlite3 libsqlite3-dev
+     sudo apt install git curl unzip xsel ripgrep fd-find sqlite3 libsqlite3-dev trash-cli
      ```
 
-   - TL;DR: for an arch based system
+   - Arch systems
 
-     ```
-     sudo pacman -S git curl unzip xsel ripgrep fd sqlite
+     ```sh
+     sudo pacman -S git curl unzip xsel ripgrep fd sqlite trash-cli
      ```
 
 3. Client support for modules communicating with nvim api objects
 
-   - For Node and Python installation, use your preferred method or refer to the corresponding documentation.
    - Node client for neovim
 
-     ```
+     ```sh
      npm install -g neovim
      ```
 
    - Python client for neovim
 
-     ```
+     ```sh
      pip install pynvim
      ```
+
+     In case Node and Python need to be installed first, please refer to their documentation.
 
 4. Fonts
    - [Nerd font][20]
@@ -98,15 +118,23 @@ Probably, most necessities are already installed.
 
 ### Post installation
 
-- Frist run
+- First run
 
-  Launch `nvim` and let lazy do it's magic, loading all modules used in this config. There may be warnings regarding missing dependencies. Just hit return on them for now. Once all tasks have been completed, restart nvim <kbd>ZQ</kbd> `nvim`.
+  Launch `nvim` and let lazy do it's magic, loading all modules used in this config.
+  There may be warnings regarding missing dependencies during this first installation. Just skip them hitting return.
+  Once all tasks have been completed, restart nvim <kbd>ZQ</kbd> `nvim`.
 
 - Last steps
   - Run `:UpdateRemotePlugins` to make sure command line fuzzy search works correctly, as it utilizes some python.
   - Add language servers / formatters. E.g.:
-    - Add the `lua` LSP `LSPInstall` `lua_ls`
-    - Also install the formatter used for this config `NullLsInstall` `stylua`
+    - Add the `lua` LSP
+      ```sh
+      LSPInstall lua_ls
+      ```
+    - Also install the formatter used for this config
+      ```sh
+      NullLsInstall stylua
+      ```
   - Have fun using it!
 
 <br>
@@ -115,7 +143,7 @@ Probably, most necessities are already installed.
 
 ![preview-crop](https://user-images.githubusercontent.com/34311583/232096844-7d95ac69-e7de-4921-ad94-8f94dea6ac5a.png)
 
-<details><summary><h3>Quick and dirty demos <sub><sup>Toggle visibility...</sup></sub></h3></summary>
+<details open><summary><h3>Quick and dirty demos <sub><sup>Toggle visibility...</sup></sub></h3></summary>
 
 - Candies like animated auto window widths, dimming of unfocused windows and smooth scrolling.
 
@@ -142,11 +170,14 @@ Just like most other neovim configurations, this one includes a collection of pl
 
 <br>
 
-Of course, you are free to use and modify it. ★ the project if you have found inspiring parts, want to show support or better stay up to date.
+Of course, you are free to use and modify it. ★ the project if you have found inspiring parts, want to show support, or stay up to date.
 
 ### License
 
-The config as a whole is licensed under GPLv3. Please refer to the LICENSE files for detailed information.
+The config uses GPLv3 licensed plugins, therefore it is licensed under GPLv3.
+Nxvim's own code is written under a more permissive Apache license. Therefore it
+will result in GPLv3 limitations being removed when not using it's GPLv3 licensed plugins.
+Please refer to the LICENSE files for detailed information.
 
 [10]: https://github.com/MordechaiHadad/bob
 [20]: https://github.com/ryanoasis/nerd-fonts/#patched-fonts
