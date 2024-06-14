@@ -31,15 +31,16 @@ local function on_attach(client, bufnr)
 	require("nxvim.lsp.plugins.lspsaga").on_attach(client, bufnr)
 end
 
-lspconfig.mojo.setup({})
+local opts = {
+	capabilities = capabilities,
+	on_attach = on_attach,
+}
+
+lspconfig.mojo.setup(opts)
+lspconfig.sourcekit.setup(opts)
 
 mason_lspconfig.setup_handlers({
 	function(server)
-		local opts = {
-			capabilities = capabilities,
-			on_attach = on_attach,
-		}
-
 		-- Handled by rust-tools.
 		if server == "rust_analyzer" then goto continue end
 
