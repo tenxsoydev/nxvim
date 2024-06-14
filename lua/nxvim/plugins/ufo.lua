@@ -4,6 +4,11 @@
 
 local ufo = require("ufo")
 
+local ignored_filetypes = { "markdown", "git", "NeogitStatus" }
+for _, key in ipairs(ignored_filetypes) do
+	ignored_filetypes[key] = true
+end
+
 ufo.setup({
 	open_fold_hl_timeout = 150,
 	close_fold_kinds_for_ft = {
@@ -25,7 +30,7 @@ ufo.setup({
 			jumpBot = "]",
 		},
 	},
-	enable_get_fold_virt_text = false,
+	provider_selector = function(_, ft, _) return not ignored_filetypes[ft] end,
 })
 -- <== }
 
