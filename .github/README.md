@@ -170,13 +170,13 @@ Just like most other neovim configurations, this one includes a collection of pl
 
 <br>
 
-Of course, you are free to use and modify it. ★ the project if you have found inspiring parts, want to show support, or stay up to date.
+Feel free to use and modify it. Give the project a star to show support if you have found inspiring parts or to keep up to date.
 
 ### License
 
 The config uses GPLv3 licensed plugins, therefore it is licensed under GPLv3.
 Nxvim's own code is written under a more permissive Apache license. Therefore it
-will result in GPLv3 limitations being removed when not using it's GPLv3 licensed plugins.
+will result in GPLv3 limitations being removed when not using these plugins.
 Please refer to the LICENSE files for detailed information.
 
 [10]: https://github.com/MordechaiHadad/bob
