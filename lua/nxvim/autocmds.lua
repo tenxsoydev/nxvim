@@ -23,7 +23,7 @@ nx.au({
 	{ "FileType", pattern = "markdown", command = "setlocal wrap ts=2 sw=2" },
 	{ "FileType", pattern = "vb", command = "setlocal et ts=4 sw=4" },
 	{ "FileType", pattern = "teal", once = true, command = "LspToggleAutoFormat silent" },
-	{ "FileType", pattern = { "python", "zig" }, command = "setlocal noet ts=3 sw=0" },
+	{ "FileType", pattern = { "python", "zig", "swift" }, command = "setlocal noet ts=3 sw=0" },
 	{ "BufRead", pattern = { "*.njk", "*.vto" }, command = "set ft=html" },
 	{ "BufRead", pattern = { "*.v", "*.v_*", "v.mod" }, command = "set ft=v" },
 	{ "BufRead", pattern = { "*.mojo" }, command = "setlocal commentstring=#%s" },
