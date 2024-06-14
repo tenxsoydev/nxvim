@@ -34,7 +34,7 @@ null_ls.register({
 	filetypes = { "zig" },
 	generator = null_ls.formatter({
 		command = "vzit",
-		args = { "-w", "$FILENAME" },
+		args = { "-w", "-i", "smart", "$FILENAME" },
 		to_temp_file = true,
 	}),
 })
