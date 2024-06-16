@@ -33,7 +33,7 @@ ufo.setup({
 nx.au({
 	"FileType",
 	pattern = { "markdown", "NeogitStatus" },
-	callback = function() require("ufo").detach() end,
+	callback = function() ufo.detach() end,
 })
 -- <== }
 
