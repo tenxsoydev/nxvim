@@ -25,15 +25,8 @@ ufo.setup({
 			jumpBot = "]",
 		},
 	},
-})
--- <== }
-
--- { == Events ==> ============================================================
-
-nx.au({
-	"FileType",
-	pattern = { "markdown", "NeogitStatus" },
-	callback = function() ufo.detach() end,
+	---@diagnostic disable-next-line: unused-local
+	provider_selector = function(bufnr, filetype, buftype) return { "treesitter", "indent" } end,
 })
 -- <== }
 
