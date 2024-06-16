@@ -20,14 +20,11 @@ local config = {
 
 -- { == Events ==> ============================================================
 
-local gs = package.loaded.gitsigns
-
 config.on_open = function()
 	vim.g.zen_mode = true -- Used e.g. for wilder popmenu
 	vim.o.laststatus = 3 -- Keep statusline(not working with latest nighlty 20230328).
 	vim.wo.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:›,vert:▏]]
 	vim.cmd("ScrollbarHide")
-	if gs.toggle_signs() then gs.toggle_signs() end
 
 	-- Disable default window-switch keymaps as they would close zen-mode.
 	nx.map({ { "<C-h>", "<C-j>", "<C-k>", "<C-l>" }, "<nop>" })
@@ -41,7 +38,6 @@ config.on_close = function()
 	vim.g.zen_mode = nil
 	vim.o.laststatus = 2
 	vim.cmd("ScrollbarShow")
-	if not gs.toggle_signs() then gs.toggle_signs() end
 	-- Re-enable default window-switch keymaps.
 	require("nxvim.plugins.smart-splits").set_maps()
 
