@@ -2,8 +2,6 @@
 
 local neo_tree = require("neo-tree")
 
-vim.g.neo_tree_remove_legacy_commands = 1
-
 -- { == Configuration ==> =====================================================
 
 local config = {
