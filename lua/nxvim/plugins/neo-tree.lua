@@ -98,7 +98,7 @@ local config = {
 			enabled = true,
 		},
 		group_empty_dirs = false,
-		hijack_netrw_behavior = "open_default",
+		hijack_netrw_behavior = "open_current",
 		use_libuv_file_watcher = false,
 		commands = {
 			system_open = function(state)
@@ -181,12 +181,15 @@ config.event_handlers = {
 	{
 		event = "neo_tree_window_after_open",
 		handler = function(args) -- `h: neo-tree-window-event-args`
+			if #vim.api.nvim_list_wins() == 1 then return end
 			neo_tree_win.id = args.winid
 			if windows.auto_maximize and vim.fn.win_gettype(neo_tree_win.id) ~= "popup" then
 				vim.api.nvim_win_set_width(neo_tree_win.id, config.window.width)
 			end
 			vim.wo[neo_tree_win.id].statuscolumn = ""
 			vim.wo[neo_tree_win.id].foldcolumn = "0"
+			vim.wo[neo_tree_win.id].number = false
+			vim.wo[neo_tree_win.id].relativenumber = false
 			neo_tree_win.width = vim.api.nvim_win_get_width(neo_tree_win.id)
 		end,
 	},
