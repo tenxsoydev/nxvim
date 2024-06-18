@@ -53,7 +53,8 @@ local config = {
 			find_cmd = "fd",
 		},
 		frecency = {
-			auto_validate = false,
+			-- auto_validate = false,
+			matcher = "fuzzy",
 		},
 	},
 }
