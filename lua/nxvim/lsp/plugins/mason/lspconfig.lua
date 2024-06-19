@@ -5,9 +5,7 @@ local lspconfig = require("lspconfig")
 
 -- { == Configuration ==> =====================================================
 
-mason_lspconfig.setup({
-	-- ensure_installed = { "lua_ls" },
-})
+mason_lspconfig.setup()
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.foldingRange = {
@@ -22,28 +20,23 @@ if cmp_ok then
 end
 
 local function on_attach(client, bufnr)
-	if client.name == "tsserver" then
-		client.server_capabilities.documentFormattingProvider = false
-		client.server_capabilities.documentRangeFormattingProvider = false
-	end
 	-- Attach keymaps and commands.
 	require("nxvim.lsp").on_attach(client, bufnr)
 	require("nxvim.lsp.plugins.lspsaga").on_attach(client, bufnr)
 end
 
-local opts = {
+local default_opts = {
 	capabilities = capabilities,
 	on_attach = on_attach,
 }
 
-lspconfig.mojo.setup(opts)
-lspconfig.sourcekit.setup(opts)
+lspconfig.mojo.setup(default_opts)
+lspconfig.sourcekit.setup(default_opts)
 
+-- `:h mason-lspconfig-dynamic-server-setup`
 mason_lspconfig.setup_handlers({
 	function(server)
-		-- Handled by rust-tools.
-		if server == "rust_analyzer" then goto continue end
-
+		local opts = default_opts
 		-- Insert server settings from settings file if present.
 		-- The name of the settings file must match the name of the language server.
 		local server_settings_ok, server_settings = pcall(require, "nxvim.lsp.settings." .. server)
@@ -52,6 +45,13 @@ mason_lspconfig.setup_handlers({
 		-- Or add settings inline.
 		--
 		-- The json|ts provideFormatter setting below triggers for gopls when it shouldn't, therefore we skip it here.
+		if server == "tsserver" then
+			opts.on_attach = function(client, bufnr)
+				client.server_capabilities.documentFormattingProvider = false
+				client.server_capabilities.documentRangeFormattingProvider = false
+				on_attach(client, bufnr)
+			end
+		end
 		if server == "gopls" then goto setup end
 		-- Use prettierd as formatter.
 		if server == "jsonls" then opts.init_options = { provideFormatter = false } end
@@ -60,8 +60,9 @@ mason_lspconfig.setup_handlers({
 		::setup::
 		lspconfig[server].setup(opts)
 
-		::continue::
+		-- ::continue::
 	end,
+	["rust_analyzer"] = function() require("rust-tools").setup(default_opts) end,
 })
 -- <== }
 

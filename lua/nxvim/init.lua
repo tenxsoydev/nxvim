@@ -128,7 +128,7 @@ local modules = {
 	-- Language Specific
 	-- Rust
 	{ "saecki/crates.nvim", event = "VeryLazy", config = true },
-	{ "simrat39/rust-tools.nvim", config = "lsp.plugins.rust-tools" },
+	"simrat39/rust-tools.nvim",
 	-- "ron-rs/ron.vim",
 	-- Python
 	{ "linux-cultist/venv-selector.nvim", branch = "regexp", event = "VeryLazy", config = "plugins.venv-selector" },
