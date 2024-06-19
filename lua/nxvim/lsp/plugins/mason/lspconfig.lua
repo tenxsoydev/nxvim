@@ -25,48 +25,44 @@ local function on_attach(client, bufnr)
 	require("nxvim.lsp.plugins.lspsaga").on_attach(client, bufnr)
 end
 
-local default_opts = {
+local opts = {
 	capabilities = capabilities,
 	on_attach = on_attach,
 }
 
-lspconfig.mojo.setup(default_opts)
-lspconfig.sourcekit.setup(default_opts)
+lspconfig.mojo.setup(opts)
+lspconfig.sourcekit.setup(opts)
 
 -- `:h mason-lspconfig-dynamic-server-setup`
 mason_lspconfig.setup_handlers({
 	function(server)
-		local opts = default_opts
-		-- Insert server settings from settings file if present.
-		-- The name of the settings file must match the name of the language server.
+		local server_opts = opts
+		--- Insert server settings from settings file if present.
+		--- The name of the settings file must match the name of the language server.
 		local server_settings_ok, server_settings = pcall(require, "nxvim.lsp.settings." .. server)
-		if server_settings_ok then opts = vim.tbl_deep_extend("keep", server_settings, opts) end
+		if server_settings_ok then server_opts = vim.tbl_deep_extend("keep", server_settings, server_opts) end
 
-		-- Or add settings inline.
-		--
-		-- The json|ts provideFormatter setting below triggers for gopls when it shouldn't, therefore we skip it here.
+		--- Or add settings inline.
 		if server == "tsserver" then
-			opts.on_attach = function(client, bufnr)
+			server_opts.on_attach = function(client, bufnr)
 				client.server_capabilities.documentFormattingProvider = false
 				client.server_capabilities.documentRangeFormattingProvider = false
-				on_attach(client, bufnr)
+				opts.on_attach(client, bufnr)
 			end
 		end
 		if server == "gopls" then goto setup end
 		-- Use prettierd as formatter.
-		if server == "jsonls" then opts.init_options = { provideFormatter = false } end
+		if server == "jsonls" then server_opts.init_options = { provideFormatter = false } end
 		if server == "zls" then vim.g.zig_fmt_autosave = 0 end
 
 		::setup::
 		lspconfig[server].setup(opts)
-
-		-- ::continue::
 	end,
-	["rust_analyzer"] = function() require("rust-tools").setup(default_opts) end,
+	["rust_analyzer"] = function() require("rust-tools").setup({ server = opts }) end,
 })
 -- <== }
 
---- { == Keymaps ==> ===========================================================
+-- { == Keymaps ==> ===========================================================
 
 nx.map({
 	{ "<leader>l+", ":LspStart ", desc = "Select Language Server to Start", wk_label = "Start LSP" },
