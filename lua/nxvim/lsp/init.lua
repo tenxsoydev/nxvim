@@ -49,10 +49,7 @@ local function toggle_format_on_save(silent)
 		callback = function()
 			vim.lsp.buf.format({
 				async = false,
-				filter = function(client)
-					if next(vim.lsp.get_clients({ bufnr = 0 })) == nil then return end
-					return client.name ~= "zls"
-				end,
+				filter = function(client) return client.name ~= "zls" and client.name ~= "tsserver" end,
 			})
 		end,
 	})

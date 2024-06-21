@@ -43,13 +43,6 @@ mason_lspconfig.setup_handlers({
 		if server_settings_ok then server_opts = vim.tbl_deep_extend("keep", server_settings, server_opts) end
 
 		--- Or add settings inline.
-		if server == "tsserver" then
-			server_opts.on_attach = function(client, bufnr)
-				client.server_capabilities.documentFormattingProvider = false
-				client.server_capabilities.documentRangeFormattingProvider = false
-				opts.on_attach(client, bufnr)
-			end
-		end
 		if server == "gopls" then goto setup end
 		-- Use prettierd as formatter.
 		if server == "jsonls" then server_opts.init_options = { provideFormatter = false } end

@@ -80,6 +80,5 @@ null_ls.setup({
 	},
 })
 
----@diagnostic disable-next-line: missing-fields
-require("mason-null-ls").setup({ handlers = {} })
+require("mason-null-ls").setup()
 -- <== }
