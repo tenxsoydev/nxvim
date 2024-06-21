@@ -56,7 +56,7 @@ mason_lspconfig.setup_handlers({
 		if server == "zls" then vim.g.zig_fmt_autosave = 0 end
 
 		::setup::
-		lspconfig[server].setup(opts)
+		lspconfig[server].setup(server_opts)
 	end,
 	["rust_analyzer"] = function() require("rust-tools").setup({ server = opts }) end,
 })
