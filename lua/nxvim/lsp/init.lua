@@ -19,14 +19,14 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { 
 local diag_disabled_buffers = {}
 ---@param bufnr number
 local function toggle_buffer_diags(bufnr)
-	if diag_disabled_buffers[bufnr] == nil or not diag_disabled_buffers[bufnr] then
-		vim.diagnostic.disable(bufnr)
-		diag_disabled_buffers[bufnr] = true
-		vim.notify("Disabled Diagnostics for Buffer")
-	else
-		vim.diagnostic.enable(bufnr)
+	if diag_disabled_buffers[bufnr] then
+		vim.diagnostic.enable(true, { bufnr = bufnr })
 		diag_disabled_buffers[bufnr] = false
 		vim.notify("Enabled Diagnostics for Buffer")
+	else
+		vim.diagnostic.enable(false, { bufnr = bufnr })
+		diag_disabled_buffers[bufnr] = true
+		vim.notify("Disabled Diagnostics for Buffer")
 	end
 end
 
@@ -75,8 +75,8 @@ nx.map({
 	-- Keymaps for user commands
 	{ "<leader>dtt", "<Cmd>ToggleBufferDiagnostics<CR>", desc = "Toggle Buffer Diagnostics" },
 	{ "<leader>tdt", "<Cmd>ToggleBufferDiagnostics<CR>", desc = "Toggle ", wk_label = "Buffer Diagnostics" },
-	{ "<leader>dj", vim.diagnostic.goto_next, desc = "Next diagnostic" },
-	{ "<leader>dk", vim.diagnostic.goto_prev, desc = "Previous diagnostic" },
+	{ "<leader>dj", function() vim.diagnostic.jump({ count = 1 }) end, desc = "Next diagnostic" },
+	{ "<leader>dk", function() vim.diagnostic.jump({ count = -1 }) end, desc = "Previous diagnostic" },
 })
 
 ---@param bufnr number
