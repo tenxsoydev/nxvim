@@ -122,7 +122,7 @@ local modules = {
 	{ "williamboman/mason.nvim", config = "lsp.plugins.mason" },
 	-- stylua: ignore
 	{ "williamboman/mason-lspconfig.nvim", dependencies = "williamboman/mason.nvim", config = "lsp.plugins.mason.lspconfig" },
-	{ "jayp0521/mason-null-ls.nvim", dependencies = "williamboman/mason.nvim", config = true },
+	{ "jayp0521/mason-null-ls.nvim", dependencies = "williamboman/mason.nvim" },
 	-- { "ThePrimeagen/refactoring.nvim", config = true },
 	-- "tamago324/nlsp-settings.nvim",
 	-- Language Specific
@@ -188,12 +188,7 @@ local modules = {
 	-- Markdown ------------------------------------------------------------------
 	{ "preservim/vim-markdown", config = "plugins.markdown" },
 	{ "dkarter/bullets.vim", ft = "markdown", config = "plugins.bullets" },
-	{
-		"iamcco/markdown-preview.nvim",
-		build = "cd app && npm install",
-		event = "VeryLazy",
-		config = "plugins.markdown-preview",
-	},
+	{ "iamcco/markdown-preview.nvim", build = "yarn", event = "VeryLazy", config = "plugins.markdown-preview" },
 	{ "tenxsoydev/vim-markdown-checkswitch", ft = "markdown" },
 	-- use nvim for PKM / Zettelkasten
 	-- { "renerocksai/telekasten.nvim", config = "plugins.telekasten" },
@@ -215,7 +210,8 @@ local modules = {
 	{ "windwp/nvim-autopairs", event = "VeryLazy", config = "plugins.autopairs" },
 	{ "NvChad/nvim-colorizer.lua", event = "VeryLazy", config = "plugins.colorizer" },
 	{ "windwp/nvim-spectre", event = "VeryLazy", config = "plugins.spectre" },
-	{ "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async", config = "plugins.ufo" },
+	-- stylua: ignore
+	{ "kevinhwang91/nvim-ufo", event = "VeryLazy", dependencies = "kevinhwang91/promise-async", config = "plugins.ufo" },
 	{ "nvim-tree/nvim-web-devicons", config = "plugins.devicons", eager = true },
 	"nvim-lua/plenary.nvim",
 	{ "tenxsoydev/size-matters.nvim", lazy = true },
