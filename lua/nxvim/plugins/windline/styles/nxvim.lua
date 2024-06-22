@@ -154,17 +154,18 @@ basic.lsp_name = {
 basic.lsp_diagnos = {
 	name = "diagnostics",
 	hl_colors = {
-		red = { "red", "black" },
-		yellow = { "yellow", "black" },
-		blue = { "blue", "black" },
+		error = { "red", "black" },
+		warn = { "yellow", "black" },
+		hint = { "cyan", "black" },
+		info = { "cyan", "black" },
 	},
 	text = function(bufnr)
 		if not lsp_comps.check_lsp(bufnr) then return end
 
 		return {
-			{ lsp_comps.lsp_error({ format = "  %s", show_zero = false }), "red" },
-			{ lsp_comps.lsp_warning({ format = "  %s", show_zero = false }), "yellow" },
-			{ lsp_comps.lsp_hint({ format = " 󰋼 %s", show_zero = false }), "blue" },
+			{ lsp_comps.lsp_error({ format = "  %s", show_zero = false }), "error" },
+			{ lsp_comps.lsp_warning({ format = "  %s", show_zero = false }), "warn" },
+			{ lsp_comps.lsp_hint({ format = " 󰋼 %s", show_zero = false }), "hint" },
 		}
 	end,
 }

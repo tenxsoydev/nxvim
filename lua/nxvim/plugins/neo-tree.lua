@@ -67,6 +67,14 @@ local config = {
 				conflict = "",
 			},
 		},
+		diagnostics = {
+			symbols = {
+				hint = "󰅙",
+				info = "",
+				warn = "󰌵",
+				error = "",
+			},
+		},
 	},
 	window = {
 		position = "left",
