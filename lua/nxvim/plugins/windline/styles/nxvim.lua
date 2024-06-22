@@ -7,26 +7,28 @@ local state = _G.WindLine.state
 
 local lsp_comps = require("windline.components.lsp")
 local git_comps = require("windline.components.git")
+local highlighter = require("vim.treesitter.highlighter")
 
 local breakpoint_width = 90
 
-local hl_list = {
-	Black = { "white", "black" },
-	White = { "black", "white" },
-	Inactive = { "InactiveFg", "InactiveBg" },
-	Active = { "ActiveFg", "ActiveBg" },
-	Filename = { "FilenameFg", "black" },
-	Path = { "StatusLinePath", "black" },
+local colors = {
+	black = { "white", "black" },
+	white = { "black", "white" },
+	inactive = { "InactiveFg", "InactiveBg" },
+	active = { "ActiveFg", "ActiveBg" },
+	filename = { "FilenameFg", "black" },
+	path = { "StatusLinePath", "black" },
+	cyan = { "cyan_light", "black" },
 }
 
 local basic = {}
-basic.divider = { b_components.divider, hl_list.Black }
-basic.divider_inactive = { b_components.divider, hl_list.Inactive }
+basic.divider = { b_components.divider, colors.black }
+basic.divider_inactive = { b_components.divider, colors.inactive }
 basic.bg = { " ", "StatusLine" }
 
 -- { LEFT PANEL
-local colors_mode = {
-	Normal = { "cyan_light", "black" },
+local mode_colors = {
+	Normal = colors.cyan,
 	Insert = { "red_light", "black" },
 	Visual = { "green_light", "black" },
 	Replace = { "yellow_light", "black" },
@@ -50,13 +52,13 @@ local function indicator()
 end
 
 basic.square_mode = {
-	hl_colors = colors_mode,
+	hl_colors = mode_colors,
 	text = function() return { { "▊", state.mode[2] } } end,
 }
 
 basic.vi_mode = {
 	name = "vi_mode",
-	hl_colors = colors_mode,
+	hl_colors = mode_colors,
 	text = function()
 		return {
 			{ " " },
@@ -86,13 +88,12 @@ basic.git_diffs = {
 	end,
 }
 
-local icon_comp = b_components.cache_file_icon({ default = "", hl_colors = hl_list.Black })
+local icon_comp = b_components.cache_file_icon({ default = "", hl_colors = colors.black })
 
 basic.file = {
 	hl_colors = {
-		default = hl_list.Filename,
-		path = hl_list.Path,
-		inactive = hl_list.Inactive,
+		default = colors.filename,
+		path = colors.path,
 	},
 	text = function(bufnr)
 		return {
@@ -108,7 +109,7 @@ basic.file = {
 
 basic.file_inactive = {
 	hl_colors = {
-		default = hl_list.Inactive,
+		default = colors.inactive,
 	},
 	text = function()
 		return {
@@ -123,6 +124,17 @@ basic.file_inactive = {
 -- }
 
 -- { RIGHT PANEL
+basic.treesitter = {
+	name = "treesitter",
+	width = breakpoint_width,
+	text = function(bufnr)
+		-- Highlight cogwheel when TS is active.
+		return {
+			{ " ", highlighter.active[bufnr] and colors.cyan or colors.filename },
+		}
+	end,
+}
+
 basic.lsp_name = {
 	name = "lsp_name",
 	width = breakpoint_width,
@@ -130,16 +142,12 @@ basic.lsp_name = {
 		cyan = { "cyan_light", "black" },
 	},
 	text = function(bufnr)
-		if lsp_comps.check_lsp(bufnr) then
-			return {
-				{ " " },
-				-- add emtpy table to not use default of hiding null-ls
-				{ lsp_comps.lsp_name({ hide_server_names = {} }), "cyan" },
-			}
-		end
-		return {
-			{ "idle" },
-		}
+		-- Don't hide null-ls.
+		-- TODO: Display null-ls names?
+		local lsp_names = lsp_comps.check_lsp(bufnr)
+				and { lsp_comps.lsp_name({ hide_server_names = {}, icon = "" }), "cyan" }
+			or { "idle", colors.filename }
+		return { lsp_names }
 	end,
 }
 
@@ -165,8 +173,8 @@ basic.position = {
 	text = function()
 		return {
 			-- { " ", hl_list.Filename }, -- " 󰉶"
-			{ b_components.line_col, hl_list.Filename },
-			{ b_components.progress, hl_list.Filename },
+			{ b_components.line_col, colors.filename },
+			{ b_components.progress, colors.filename },
 			{ " " },
 		}
 	end,
@@ -175,8 +183,8 @@ basic.position = {
 basic.position_inactive = {
 	text = function()
 		return {
-			{ b_components.line_col, hl_list.Inactive },
-			{ b_components.progress, hl_list.Inactive },
+			{ b_components.line_col, colors.inactive },
+			{ b_components.progress, colors.inactive },
 			{ " " },
 		}
 	end,
@@ -184,7 +192,7 @@ basic.position_inactive = {
 
 local function get_indentation(bufnr)
 	local indentation_type = "Tabs:"
-	if vim.api.nvim_buf_get_option(bufnr, "expandtab") then indentation_type = "Spaces:" end
+	if vim.bo[bufnr].expandtab then indentation_type = "Spaces:" end
 	return indentation_type
 end
 
@@ -194,8 +202,8 @@ basic.file_info = {
 		return {
 			-- { "󰞔", hl_list.Filename },
 			{ " " },
-			{ get_indentation(bufnr), hl_list.Filename },
-			{ vim.o.ts, hl_list.Filename },
+			{ get_indentation(bufnr), colors.filename },
+			{ vim.o.ts, colors.filename },
 			{ "  " },
 			{ b_components.file_encoding() },
 			{ " " },
@@ -209,7 +217,7 @@ M.quickfix = {
 	active = {
 		{ "▊", { "black_light", "black" } },
 		{ "  ", { "green", "black" } }, -- 
-		{ "Quickfix ", hl_list.Filename },
+		{ "Quickfix ", colors.filename },
 		-- { helper.separators.slant_right, { 'black', 'black_light' } },
 		{ function() return vim.fn.getqflist({ title = 0 }).title end, { "green", "black" } },
 		{ " %L ", { "green", "black" } },
@@ -239,7 +247,7 @@ M.diffview = {
 	active = {
 		{ "▊", { "black_light", "black" } },
 		{ "  ", { "green", "black" } },
-		{ " Diffview ", hl_list.Filename },
+		{ " Diffview ", colors.filename },
 		{ b_components.divider },
 	},
 	always_active = true,
@@ -251,7 +259,7 @@ M.dashboard = {
 	active = {
 		{ "▊", { "black_light", "black" } },
 		{ " 󰍂 ", { "green", "black" } },
-		{ " Dashboard ", hl_list.Filename },
+		{ " Dashboard ", colors.filename },
 		-- { ' ', '' }, { b_components.cache_file_type({ icon = true }), hl_list.Filename },
 		{ b_components.divider },
 	},
@@ -267,15 +275,15 @@ M.terminal = {
 		{ " " },
 		{ indicator, { "green", "black" } },
 		{ "  " },
-		{ b_components.cache_file_type({ icon = true }), hl_list.Filename },
+		{ b_components.cache_file_type({ icon = true }), colors.filename },
 		{ b_components.divider },
 	},
 	inactive = {
 		{ "▊", { "black_light", "black" } },
 		{ " " },
-		{ indicator, hl_list.Filename }, --  󰅪
+		{ indicator, colors.filename }, --  󰅪
 		{ "  " },
-		{ b_components.cache_file_type({ icon = true }), hl_list.Filename },
+		{ b_components.cache_file_type({ icon = true }), colors.filename },
 		{ b_components.divider },
 	},
 	always_active = false,
@@ -290,8 +298,9 @@ M.default = {
 		basic.git_branch,
 		basic.git_diffs,
 		basic.file,
-		basic.divider,
 		basic.lsp_diagnos,
+		basic.divider,
+		basic.treesitter,
 		basic.lsp_name,
 		basic.position,
 		basic.file_info,
