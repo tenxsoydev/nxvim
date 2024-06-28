@@ -24,7 +24,6 @@ config.scope.highlight = {
 	"IndentLvlFour",
 	"IndentLvlFive",
 	"IndentLvlSix",
-	"IndentLvlSeven",
 }
 
 hooks.register(
@@ -37,7 +36,6 @@ hooks.register(
 			{ "IndentLvlFour", fg = "@constructor:fg" },
 			{ "IndentLvlFive", fg = "@annotation:fg" },
 			{ "IndentLvlSix", fg = "@label:fg" },
-			{ "IndentLvlSeven", fg = "@field:fg" },
 		})
 	end
 )
