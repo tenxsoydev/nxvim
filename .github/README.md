@@ -68,7 +68,7 @@ Prevent interferences with current Neovim files.
      export NVIM_APPNAME=nxvim
      ```
 
-  2. Clone the repository into neovims standard config path or the one specified with
+  2. Clone the repository
 
      ```sh
      git clone --filter=blob:none https://github.com/tenxsoydev/nxvim.git ~/.config/$NVIM_APPNAME
