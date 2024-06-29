@@ -29,6 +29,15 @@ ufo.setup({
 })
 -- <== }
 
+-- { == Events ==> ============================================================
+
+nx.au({
+	"FileType",
+	pattern = { "markdown", "NeogitStatus" },
+	callback = function() ufo.detach() end,
+})
+-- <== }
+
 -- { == Keymaps ==> ===========================================================
 
 nx.map({
