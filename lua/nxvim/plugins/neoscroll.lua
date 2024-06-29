@@ -7,6 +7,7 @@ local neoscroll = require("neoscroll")
 -- { == Configuration ==> =====================================================
 
 local config = {
+	mappings = { "zt", "zz", "zb" },
 	easing_function = "sine", -- Default easing function.
 }
 -- <== }
@@ -16,12 +17,12 @@ local config = {
 nx.map({
 	-- { "<C-d>", function() neoscroll.ctrl_d({ time = 150, easing = "quintic" }) end },
 	-- { "<C-u>", function() neoscroll.ctrl_u({ time = 150, easing = "quintic" }) end },
-	{ "<C-d>", function() neoscroll.ctrl_d({ time = 150 }) end },
-	{ "<C-u>", function() neoscroll.ctrl_u({ time = 150 }) end },
-	{ "<C-e>", function() neoscroll.ctrl_e(-0.1, { time = 100 }) end },
-	{ "<C-y>", function() neoscroll.ctrl_y(0.1, { time = 100 }) end },
-	{ "<C-b>", function() neoscroll.ctrl_b({ time = 250, easing = "circular" }) end },
-	{ "<C-f>", function() neoscroll.ctrl_f({ time = 250, easing = "circular" }) end },
+	{ "<C-d>", function() neoscroll.ctrl_d({ duration = 100 }) end },
+	{ "<C-u>", function() neoscroll.ctrl_u({ duration = 100 }) end },
+	{ "<C-e>", function() neoscroll.scroll(0.1, { duration = 100 }) end },
+	{ "<C-y>", function() neoscroll.scroll(-0.1, { duration = 100 }) end },
+	{ "<C-b>", function() neoscroll.ctrl_b({ duration = 180, easing = "circular" }) end },
+	{ "<C-f>", function() neoscroll.ctrl_f({ duration = 180, easing = "circular" }) end },
 	{
 		"z<CR>",
 		function()
