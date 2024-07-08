@@ -195,7 +195,7 @@ local modules = {
 	-- { "epwalsh/obsidian.nvim", config = "plugins.obsidian" },
 
 	-- Utility -------------------------------------------------------------------
-	{ "max397574/better-escape.nvim", event = "InsertEnter", config = "plugins.better-escape" }, -- remove delay from escape keys while typing in insert mode
+	{ "max397574/better-escape.nvim", event = "InsertEnter", config = true },
 	{ "nat-418/boole.nvim", event = "VeryLazy", config = "plugins.boole" }, -- extend increment / decrement to cycle through related words
 	{ "famiu/bufdelete.nvim", lazy = true },
 	{ "stevearc/dressing.nvim", event = "VeryLazy", config = "plugins.dressing" },
