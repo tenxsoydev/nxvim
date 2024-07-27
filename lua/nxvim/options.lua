@@ -6,7 +6,7 @@ nx.set({
 	termguicolors = true, -- set term gui colors
 	timeoutlen = 350, -- time to wait for a mapped sequence to complete
 	title = true, -- show filename and path in application window title
-	titlelen = 25, -- percentage of columns to use before shortening the title
+	titlelen = 50, -- percentage of columns to use before shortening the title
 	sessionoptions__append = "globals",
 	laststatus = 3, -- global statusline
 	-- Auxiliary files
