@@ -50,7 +50,21 @@ require("noice").setup({
 
 -- == [ Events ================================================================
 
-nx.hl({ { "NoiceCmdlinePopupBorder", "NoiceCmdlineIconCmdLine" }, link = "Operator" })
+local hacks = require("noice.util.hacks")
+
+nx.au({
+	{ "WinEnter", "FocusGained" },
+	callback = function(ev)
+		-- if vim.bo[ev.buf].filetype ~= "neo-tree" then vim.cmd("set gcr=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20") end
+		if not ev.buf then return end
+		if vim.bo[ev.buf].filetype == "neo-tree" then
+			hacks.hide_cursor()
+		else
+			-- hacks.show_cursor()
+			vim.cmd("set gcr=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20")
+		end
+	end,
+})
 -- ]
 
 -- == [ Keymaps ===============================================================
