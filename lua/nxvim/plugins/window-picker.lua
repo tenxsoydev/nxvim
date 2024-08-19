@@ -1,6 +1,6 @@
 -- https://github.com/s1n7ax/nvim-window-picker
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 require("window-picker").setup({
 	highlights = {
@@ -13,4 +13,4 @@ require("window-picker").setup({
 	},
 })
 
--- <== }
+-- ]

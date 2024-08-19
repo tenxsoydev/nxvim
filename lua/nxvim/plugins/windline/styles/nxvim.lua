@@ -26,7 +26,7 @@ basic.divider = { b_components.divider, colors.black }
 basic.divider_inactive = { b_components.divider, colors.inactive }
 basic.bg = { " ", "StatusLine" }
 
--- { LEFT PANEL
+-- [ LEFT PANEL
 local mode_colors = {
 	Normal = colors.cyan,
 	Insert = { "red_light", "black" },
@@ -114,7 +114,7 @@ basic.file_inactive = {
 	text = function()
 		return {
 			{ " ", "default" },
-			-- { '  ', 'default' },
+			-- [ '  ', 'default' },
 			-- { vim.api.nvim_win_get_number(0) },
 			{ b_components.cache_file_name("[No Name]", "unique"), "default" },
 			{ b_components.file_modified(" ", true), "default" },
@@ -123,7 +123,7 @@ basic.file_inactive = {
 }
 -- }
 
--- { RIGHT PANEL
+-- [ RIGHT PANEL
 basic.treesitter = {
 	name = "treesitter",
 	width = breakpoint_width,

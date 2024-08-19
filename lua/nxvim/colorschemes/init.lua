@@ -8,7 +8,7 @@ pcall(require("nxvim.colorschemes." .. default_colorscheme))
 -- Apply default colorscheme
 vim.cmd("colorscheme " .. default_colorscheme)
 
--- { == Highlights ==> ========================================================
+-- == [ Highlights ============================================================
 
 ---Set kitty colorscheme based on neovim colorscheme.
 ---@param colors string @kitty colorscheme file
@@ -37,4 +37,4 @@ local function set_hl()
 end
 
 nx.au({ { "UIEnter", "Colorscheme" }, callback = set_hl })
--- <== }
+-- ]

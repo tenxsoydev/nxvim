@@ -1,6 +1,6 @@
 -- https://github.com/akinsho/git-conflict.nvim
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 require("git-conflict").setup({
 	default_mappings = true, -- https://github.com/akinsho/git-conflict.nvim#mappings
@@ -10,4 +10,4 @@ require("git-conflict").setup({
 		current = "DiffAdd",
 	},
 })
--- <== }
+-- ]

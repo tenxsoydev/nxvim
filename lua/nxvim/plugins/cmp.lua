@@ -3,7 +3,7 @@
 local cmp = require("cmp")
 require("luasnip.loaders.from_vscode").lazy_load()
 
--- { == Configuration ==> ====================================================
+-- == [ Configuration ========================================================
 
 local cmp_kinds = {
 	Text = "",
@@ -84,9 +84,9 @@ local config = {
 	},
 	mapping = {},
 }
--- <== }
+-- ]
 
--- { == Keymaps ==> ==========================================================
+-- == [ Keymaps ==============================================================
 
 config.mapping = {
 	-- Navigation completion suggestion
@@ -144,6 +144,6 @@ config.mapping = {
 			"s",
 		}), ]]
 }
--- <== }
+-- ]
 
 cmp.setup(config)

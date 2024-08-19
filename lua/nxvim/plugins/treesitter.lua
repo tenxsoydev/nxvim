@@ -1,6 +1,6 @@
 local ts_configs = require("nvim-treesitter.configs")
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 local config = {
 	-- parser_install_dir = "~/.local/share/nvim/lazy/nvim-treesitter/",
@@ -40,9 +40,9 @@ local config = {
 		keymaps = {},
 	},
 }
--- <== }
+-- ]
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 config.incremental_selection.keymaps = {
 	init_selection = "<CR>",
@@ -58,6 +58,6 @@ nx.map({
 	{ "<F8>", "<Cmd>TSHighlightCapturesUnderCursor<CR>", desc = "Show TS Highlight Information for Element Under Cursor" },
 	{ { "<S-F8>", "<F20>" }, "<Cmd>TSPlaygroundToggle<CR>", desc = "Toggle Treesitter Playground" },
 })
--- <== }
+-- ]
 
 ts_configs.setup(config)

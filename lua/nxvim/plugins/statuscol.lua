@@ -1,6 +1,6 @@
 -- https://github.com/luukvbaal/statuscol.nvim
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 local builtin = require("statuscol.builtin")
 
@@ -15,4 +15,4 @@ require("statuscol").setup({
 		},
 	},
 })
--- <== }
+-- ]

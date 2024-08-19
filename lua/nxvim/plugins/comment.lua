@@ -1,6 +1,6 @@
 -- https://github.com/numToStr/Comment.nvim
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 require("Comment").setup({
 	mappings = {
@@ -9,16 +9,16 @@ require("Comment").setup({
 		extended = false,
 	},
 })
--- <== }
+-- ]
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 local toggle = require("Comment.api").toggle
 
 nx.map({
 	-- GUIs + some TUIs (e.g, kitty) can map <C-/> directly
 	{ "<C-/>", toggle.linewise.current, { "n", "i" }, desc = "Toggle Line Comment" },
-	-- {"<C-/>", function() toggle.linewise(vim.fn.visualmode()) end, "v",  desc = "Toggle Line Comment" },
+	-- { "<C-/>", function() toggle.linewise(vim.fn.visualmode()) end, "v",  desc = "Toggle Line Comment" },
 	{
 		"<C-/>",
 		"<Esc><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
@@ -56,4 +56,4 @@ nx.map({
 		wk_label = "ignore",
 	},
 })
--- <== }
+-- ]

@@ -1,6 +1,6 @@
 --https://github.com/chentoast/marks.nvim
 
--- { == Configuration ==> ====================================================
+-- == [ Configuration ========================================================
 
 local config = {
 	-- whether to map keybinds or not. default true
@@ -53,9 +53,9 @@ local config = {
 	},
 	mappings = {},
 }
--- <== }
+-- ]
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 config.mappings = {
 	-- set_next = "m,",
@@ -77,6 +77,6 @@ nx.map({
 	{ "mxl", "<Plug>(Marks-deleteline)", desc = "Delete Marks in Line", wk_label = "Line" },
 	{ "mxb", "<Plug>(Marks-deletebuf)", desc = "Delete Marks in Buffer", wk_label = "Buffer" },
 })
--- <== }
+-- ]
 
 require("marks").setup(config)

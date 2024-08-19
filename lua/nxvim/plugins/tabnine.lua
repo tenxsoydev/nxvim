@@ -1,6 +1,6 @@
 -- https://github.com/tzachar/cmp-tabnine
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 require("cmp_tabnine.config"):setup({
 	max_lines = 1000,
@@ -14,4 +14,4 @@ require("cmp_tabnine.config"):setup({
 	},
 	show_prediction_strength = false,
 })
--- <== }
+-- ]

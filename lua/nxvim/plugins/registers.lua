@@ -1,6 +1,6 @@
 -- https://github.com/tversteeg/registers.nvim
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 require("registers").setup({
 	window = {
@@ -10,4 +10,4 @@ require("registers").setup({
 		transparency = 0,
 	},
 })
--- <== }
+-- ]

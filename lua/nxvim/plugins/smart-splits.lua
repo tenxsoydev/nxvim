@@ -4,12 +4,12 @@ local M = {}
 
 local smart_splits = require("smart-splits")
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 smart_splits.setup()
--- <== }
+-- ]
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 function M.set_maps()
 	nx.map({
@@ -25,6 +25,6 @@ function M.set_maps()
 end
 
 M.set_maps()
--- <== }
+-- ]
 
 return M

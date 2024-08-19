@@ -1,6 +1,6 @@
 -- https://github.com/AckslD/messages.nvim
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 require("messages").setup({
 	command_name = "Messages",
@@ -12,4 +12,4 @@ require("messages").setup({
 		return vim.api.nvim_open_win(buf, true, opts)
 	end,
 })
--- <== }
+-- ]

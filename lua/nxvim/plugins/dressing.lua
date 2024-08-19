@@ -1,6 +1,6 @@
 -- https://github.com/stevearc/dressing.nvim
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 require("dressing").setup({
 	input = {
@@ -27,13 +27,13 @@ require("dressing").setup({
 		},
 	},
 })
--- <== }
+-- ]
 
--- { == Highlights ==> ========================================================
+-- == [ Highlights ============================================================
 
 nx.map({
 	{ "<Esc>", "<Esc>", "i" },
 	{ "<C-c>", "<Cmd>close<CR>", { "i", "x" } },
 	{ "q", "<Cmd>close<CR>", "x" },
 }, { buffer = 0, ft = "DressingInput" })
--- <== }
+-- ]

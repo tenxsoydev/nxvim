@@ -1,6 +1,6 @@
 -- https://github.com/max397574/better-escape.nvim
 
--- { == Configuration ==> ====================================================
+-- == [ Configuration ========================================================
 
 require("better_escape").setup({
 	default_mappings = false,
@@ -32,4 +32,4 @@ require("better_escape").setup({
 		},
 	},
 })
--- <== }
+-- ]

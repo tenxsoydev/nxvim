@@ -1,6 +1,6 @@
 -- https://github.com/nat-418/boole.nvim
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 require("boole").setup({
 	mappings = {
@@ -20,4 +20,4 @@ require("boole").setup({
 		-- ENABLE → DISABLE
 	},
 })
--- <== }
+-- ]

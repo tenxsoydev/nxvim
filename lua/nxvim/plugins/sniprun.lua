@@ -2,12 +2,12 @@
 
 require("sniprun").setup()
 
--- { == Commands ==> ==========================================================
+-- == [ Commands ==============================================================
 
 require("sniprun.live_mode") -- add SnipLive Command
--- <== }
+-- ]
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 nx.map({
 	{ "<leader>Rc", "<Cmd>SnipClose<CR>", desc = "Close SnipRun" },
@@ -18,4 +18,4 @@ nx.map({
 	{ "<leader>Rx", "<Cmd>SnipTerminate<CR>", desc = "Terminate SnipRun" },
 	{ "<leader>RR", "<Esc><Cmd>'<,'>SnipRun<CR>", "v", desc = "SnipRun Range" },
 }, { wk_label = { sub_desc = "SnipRun" } })
--- <== }
+-- ]

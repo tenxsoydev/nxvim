@@ -1,6 +1,6 @@
 local M = {}
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 local border = nx.opts.float_win_border
 
@@ -11,9 +11,9 @@ vim.fn.sign_define("DiagnosticSignInfo", { text = "" })
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
 
--- <== }
+-- ]
 
--- { == Commands ==============================================================
+-- == [ Commands ==============================================================
 
 ---@type { [number]: boolean }
 local diag_disabled_buffers = {}
@@ -64,9 +64,9 @@ nx.cmd({
 	{ "LspToggleAutoFormat", function(opt) toggle_format_on_save(opt.args) end, bang = true, nargs = "?" },
 	{ "ToggleBufferDiagnostics", function() toggle_buffer_diags(vim.fn.bufnr()) end, bang = true },
 })
--- <== }
+-- ]
 
---- { == Keymaps ==> ===========================================================
+--- == [ Keymaps ===============================================================
 
 nx.map({
 	{ "<leader>q", vim.diagnostic.setloclist, desc = "Buffer Diagnostics", wk_label = "Quickfix" },
@@ -127,6 +127,6 @@ function M.on_attach(_, bufnr)
 		{ { "<leader>tF", "<leader>lF" }, "<Cmd>LspToggleAutoFormat<CR>", desc = "Toggle Format on Save", wk_label = "Format on Save" },
 	}, { buffer = bufnr })
 end
--- <== }
+-- ]
 
 return M

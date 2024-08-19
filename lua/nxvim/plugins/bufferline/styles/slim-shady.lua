@@ -3,7 +3,7 @@ local M = {}
 M.separator_style = { "", " " }
 M.highlights = {}
 
--- { == Backgrounds ==> =======================================================
+-- == [ Backgrounds ===========================================================
 
 -- *_diagnostic M.highlights icon without the buffer name
 local bg_solid = {
@@ -82,9 +82,9 @@ for _, key in ipairs(bg_transparent) do
 
 	M.highlights[key] = { bg = { attribute = "bg", highlight = "Normal" }, bold = font.bold, italic = font.italic }
 end
--- <== }
+-- ]
 
--- { == Foreground ==> ========================================================
+-- == [ Foreground ============================================================
 
 for _, key in ipairs({ "warning_visible", "modified", "modified_visible" }) do
 	M.highlights[key].fg = { attribute = "fg", highlight = "TabLine" }
@@ -97,15 +97,15 @@ end
 M.highlights.separator.fg = { attribute = "fg", highlight = "BufferlineSeparatorSelected" }
 M.highlights.separator_selected.fg = { attribute = "fg", highlight = "BufferlineSeparatorSelected" }
 M.highlights.modified_selected.fg = { attribute = "fg", highlight = "Normal" }
--- <== }
+-- ]
 
--- { == Shadow ==> ============================================================
+-- == [ Shadow ================================================================
 
 local function set_shadow() nx.hl({ "BufferlineSeparatorSelected", fg = "TabLine:bg:#b-10", bg = "Normal:bg" }) end
 
 set_shadow()
 
 nx.au({ "Colorscheme", callback = function() set_shadow() end })
--- <== }
+-- ]
 
 return M

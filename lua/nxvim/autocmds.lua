@@ -39,10 +39,10 @@ nx.au({ -- Sync marks accross sessions
 	-- stylua: ignore
 	{ { "FocusGained", "UIEnter" }, callback = function() vim.schedule(function() vim.cmd("rshada") end) end },
 }, { create_group = "SyncMarks" })
--- <== }
+-- ]
 
--- { == Plugin Autocmds ==> ====================================================
+-- == [ Plugin Autocmds ========================================================
 
 -- Autocmds that are specific to a module are set in that module's config file (`/nxvim/plugins/<modulename>.lua`).
 -- This modular approach aims for an uncluttered keymap configuration in case plugins are removed or changed.
--- <== }
+-- ]

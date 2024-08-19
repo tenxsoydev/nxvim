@@ -1,6 +1,6 @@
 -- https://github.com/lilydjwg/colorizer
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 require("colorizer").setup({
 	filetypes = { "css", "javascript", "lua", "vim", "toml", "svelte", "typescript" },
@@ -18,6 +18,6 @@ require("colorizer").setup({
 		tailwind = true, -- Enable tailwind colors
 	},
 })
--- <== }}
+-- ]}
 
 nx.map({ "<leader>tc", "<Cmd>ColorizerToggle<CR>", desc = "Toggle Colorizer", wk_label = "Colorizer" })

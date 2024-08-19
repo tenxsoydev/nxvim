@@ -2,7 +2,7 @@
 
 local fidget = require("fidget")
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 local config = {
 	progress = {
@@ -21,4 +21,4 @@ local config = {
 if vim.g.loaded_gui then config.notification.window.winblend = 100 end
 
 fidget.setup(config)
--- <== }
+-- ]

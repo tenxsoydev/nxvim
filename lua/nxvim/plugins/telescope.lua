@@ -3,7 +3,7 @@
 local telescope = require("telescope")
 local lga_actions = require("telescope-live-grep-args.actions")
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 local border = nx.opts.float_win_border ~= "none" and true or false
 local borderchars = nx.opts.float_win_border == "single" and { "─", "│", "─", "│", "┌", "┐", "┘", "└" }
@@ -59,9 +59,9 @@ local config = {
 	},
 }
 
--- <== }
+-- ]
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
@@ -221,7 +221,7 @@ nx.map({
 	{ '<leader>/"', "<Cmd>Telescope registers<CR>", desc = "Search Registers" },
 	{ "<leader>/:", "<Cmd>Telescope commands<CR>", desc = "Search Commands" },
 	{ "<leader>/f", "<Cmd>Telescope find_files<CR>", desc = "Search Files" },
-	-- {"<leader>/g", "<Cmd>Telescope live_grep theme=ivy<CR>",  desc = "Grep" },
+	-- { "<leader>/g", "<Cmd>Telescope live_grep theme=ivy<CR>",  desc = "Grep" },
 	{ "<leader>/g", "<Cmd>Telescope live_grep_args<CR>", desc = "Live Grep" },
 	-- As we just want to initate the grep_string command we use `:`. <Cmd> must end with `<CR>`.
 	{ "<leader>/G", ":Telescope grep_string theme=ivy search=", desc = "Grep String" },
@@ -232,19 +232,19 @@ nx.map({
 	{ "<leader>/M", "<Cmd>Telescope man_pages<CR>", desc = "Search Man Pages" },
 	{ "<leader>/r", telescope.extensions.recent_files.pick, desc = "Search Recent Files" },
 }, { wk_label = { sub_desc = "Search" } })
--- <== }
+-- ]
 
--- { == Highlights ==> ========================================================
+-- == [ Highlights ============================================================
 
 nx.hl({ "TelescopeBorder", link = "LspFloatWinBorder" })
--- <== }
+-- ]
 
--- { == Load Setup ==> =======================================================-
+-- == [ Load Setup ===========================================================-
 
 telescope.setup(config)
--- <== }
+-- ]
 
--- { == Extensions ==> ========================================================
+-- == [ Extensions ============================================================
 
 ---@param extensions string[]
 local function load_extensions(extensions)
@@ -266,4 +266,4 @@ vim.schedule(
 	end
 )
 nx.au({ "TermEnter", once = true, callback = function() telescope.load_extension("termfinder") end })
--- <== }
+-- ]

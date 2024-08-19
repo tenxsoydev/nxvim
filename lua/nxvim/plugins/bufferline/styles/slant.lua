@@ -3,7 +3,7 @@ local M = {}
 M.separator_style = "slant"
 M.highlights = {}
 
--- { == Backgrounds ==> =======================================================
+-- == [ Backgrounds ===========================================================
 
 -- *_diagnostic M.highlights icon without the buffer name
 local bg_solid = {
@@ -79,9 +79,9 @@ for _, key in ipairs(bg_transparent) do
 	}
 	if string.match(key, "separator") then M.highlights[key].fg = { attribute = "bg", highlight = "TabLine" } end
 end
--- <== }
+-- ]
 
--- { == Foreground ==> ========================================================
+-- == [ Foreground ============================================================
 
 local fg_dimmed = {
 	"warning_visible",
@@ -94,6 +94,6 @@ for _, key in ipairs(fg_dimmed) do
 end
 
 M.highlights.modified_selected.fg = { attribute = "fg", highlight = "Normal" }
--- <== }
+-- ]
 
 return M

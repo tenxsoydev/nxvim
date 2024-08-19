@@ -7,7 +7,7 @@ local windows = require("windows")
 vim.o.winwidth = 11
 vim.o.winminwidth = 11
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 local config = {
 	autowidth = {
@@ -40,9 +40,9 @@ for _, key in ipairs(ignored_filetypes) do
 end
 
 windows.setup(config)
--- <== }
+-- ]
 
--- { == Commands ==============================================================
+-- == [ Commands ==============================================================
 
 M.auto_maximize, M.auto_width = false, false
 
@@ -104,9 +104,9 @@ nx.cmd({
 	},
 })
 
--- <== }
+-- ]
 
--- { == Events ==> ============================================================
+-- == [ Events ================================================================
 
 local timer = vim.loop.new_timer()
 
@@ -167,9 +167,9 @@ nx.au({
 	},
 }, { create_group = "WindowsCustomAutoWidth" })
 
--- <== }
+-- ]
 
--- { == Keymaps ==> ============================================================
+-- == [ Keymaps ================================================================
 
 nx.map({
 	{ "<A-CR>", "<Cmd>WindowsToggleAutoMaximize<CR>", desc = "Toggle Window Maximization" },
@@ -185,6 +185,6 @@ nx.map({
 		end,
 	},
 })
--- <== }
+-- ]
 
 return M

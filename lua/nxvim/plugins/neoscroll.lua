@@ -4,15 +4,15 @@ if vim.g.loaded_gui then return end
 
 local neoscroll = require("neoscroll")
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 local config = {
 	mappings = { "zt", "zz", "zb" },
 	easing_function = "sine", -- Default easing function.
 }
--- <== }
+-- ]
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 nx.map({
 	-- { "<C-d>", function() neoscroll.ctrl_d({ time = 150, easing = "quintic" }) end },
@@ -32,6 +32,6 @@ nx.map({
 		end,
 	},
 }, { mode = "" })
--- <== }
+-- ]
 
 neoscroll.setup(config)

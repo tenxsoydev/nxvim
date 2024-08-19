@@ -1,11 +1,11 @@
 -- https://github.com/mattn/vim-gist
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 vim.g.gist_open_browser_after_post = 1
--- <== }
+-- ]
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 nx.map({
 	{ "<leader>gGa", "<Cmd>Gist -b -a<CR>", desc = "Create Anonymous Gist", wk_label = " Create Anonymous" },
@@ -15,4 +15,4 @@ nx.map({
 	{ "<leader>gGl", "<Cmd>Gist -l<CR>", desc = "List Gist", wk_label = "List" },
 	{ "<leader>gGp", "<Cmd>Gist -b -p<CR>", desc = "Create Private Gist", wk_label = "Create Private" },
 })
--- <== }
+-- ]

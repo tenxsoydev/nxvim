@@ -1,6 +1,6 @@
 -- https://github.com/kevinhwang91/nvim-hlslens
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 require("hlslens").setup({
 	override_lens = function(render, posList, nearest, idx, relIdx)
@@ -32,9 +32,9 @@ require("hlslens").setup({
 		render.setVirt(0, lnum - 1, col - 1, chunks, nearest)
 	end,
 })
--- <== }
+-- ]
 
--- { == Highlights ==> ========================================================
+-- == [ Highlights ============================================================
 
 nx.hl({ "HlSearchLens", link = "NoiceVirtualText" })
--- <== }
+-- ]

@@ -1,6 +1,6 @@
 -- https://github.com/nvim-tree/nvim-web-devicons
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 require("nvim-web-devicons").setup({
 	override_by_extension = {
@@ -42,4 +42,4 @@ require("nvim-web-devicons").setup({
 		},
 	},
 })
--- <== }
+-- ]

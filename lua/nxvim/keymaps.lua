@@ -16,7 +16,7 @@
 	└──────┴──────┴─────┴─────┴─────┴─────┴─────┴──────┴──────┘
 ]]
 
--- { == Global Keymaps ==> ====================================================
+-- == [ Global Keymaps ========================================================
 
 -- Leader key
 vim.g.mapleader = " "
@@ -272,11 +272,11 @@ nx.map({
 	{ "<S-3-ScrollWheelUp>", "<3-ScrollWheelLeft>", "" },
 	{ "<S-4-ScrollWheelUp>", "<4-ScrollWheelLeft>", "" },
 }, { desc = "Fix: Scrolling with Acceleration" })
--- <== }
+-- ]
 
--- { == Plugin Keymaps ==> ====================================================
+-- == [ Plugin Keymaps ========================================================
 
 -- Plugin related keymaps are located inside the corresponding plugins config directory
 -- "lua/nxvim/plugins/<pluginname>/keymaps.lua".
 -- This modular approach aims for an uncluttered keymap configuration in case of removing or changing plugins.
--- <== }
+-- ]

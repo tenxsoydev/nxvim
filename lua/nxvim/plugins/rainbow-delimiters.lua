@@ -1,6 +1,6 @@
 -- https://github.com/HiPhish/rainbow-delimiters.nvim
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 require("rainbow-delimiters.setup").setup({
 	highlight = {
@@ -12,4 +12,4 @@ require("rainbow-delimiters.setup").setup({
 		"@field",
 	},
 })
--- <== }
+-- ]

@@ -1,7 +1,7 @@
 -- https://github.com/rcarriga/nvim-notify#usage
 local notify = require("notify")
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 notify.setup({
 	render = "minimal", -- Render function for notifications. See notify-render()
@@ -59,6 +59,6 @@ notify.setup({
 		end,
 	}, ]]
 })
--- <== }
+-- ]
 
 vim.notify = notify

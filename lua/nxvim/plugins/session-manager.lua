@@ -1,6 +1,6 @@
 -- https://github.com/Shatur/neovim-session-manager
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 require("session_manager").setup({
 	sessions_dir = require("plenary.path"):new(vim.fn.stdpath("data"), "sessions"), -- The directory where the session files will be saved.
@@ -15,7 +15,7 @@ require("session_manager").setup({
 	autosave_only_in_session = false, -- Always autosaves session. If true, only autosaves after a session is active.
 	max_path_length = 70, -- Shorten the display path if length exceeds this threshold. Use 0 if don't want to shorten the path at all.
 })
--- <== }
+-- ]
 
 -- Keymaps ====================================================================
 
@@ -32,4 +32,4 @@ nx.map({
 	},
 	{ "<leader>sd", "<Cmd>SessionManager delete_session<CR>", desc = "Delete Session", wk_label = "Delete" },
 })
--- <== }
+-- ]

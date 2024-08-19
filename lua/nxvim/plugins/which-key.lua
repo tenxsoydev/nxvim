@@ -2,7 +2,7 @@
 
 local wk = require("which-key")
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 wk.setup({
 	plugins = {
@@ -72,9 +72,9 @@ wk.setup({
 	},
 })
 
--- <== }
+-- ]
 
--- { == Key Label Customization ==> ============================================
+-- == [ Key Label Customization ================================================
 
 -- Which-Key is configured to automatically set up triggers. The additional registration of labels is to
 -- assign labels to groups and to modify or ignore the labels of keymaps gathered automatically.
@@ -132,4 +132,4 @@ wk.register({
 	c = "which_key_ignore",
 	b = "which_key_ignore",
 }, { prefix = "g", mode = { "n", "v" } })
--- <== }
+-- ]

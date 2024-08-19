@@ -2,7 +2,7 @@
 
 local bufferline = require("bufferline")
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 local style = require("nxvim.plugins.bufferline.styles.slim-shady") -- slim-shady | slant
 local bd = require("bufdelete")
@@ -58,9 +58,9 @@ bufferline.setup({
 	},
 	highlights = style.highlights,
 })
--- <== }
+-- ]
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 local maps = {
 	{ "L", "<Cmd>BufferLineCycleNext<CR>", desc = "Go to Next Buffer" },
@@ -100,9 +100,9 @@ for i = 0, 9 do
 end
 
 nx.map(maps)
--- <== }
+-- ]
 
--- { == Highlights ==> ========================================================
+-- == [ Highlights ============================================================
 
 if vim.g.colors_name == "dracula" then
 	local palette = require("nxvim.colorschemes.dracula").palette
@@ -113,7 +113,7 @@ if vim.g.colors_name == "dracula" then
 else
 	nx.hl({ "BufferlineOffset", fg = "Directory:fg", bg = "Tabline:bg" })
 end
--- <== }
+-- ]
 
 -- Hide tabline when bufferline is loaded after opening client on alpha
 if vim.bo.filetype == "alpha" then vim.o.showtabline = 0 end

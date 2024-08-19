@@ -2,7 +2,7 @@
 
 vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/visual-multi")
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 -- https://github.com/mg979/vim-visual-multi/wiki/Mappings
 vim.g.VM_mouse_mappings = 1
@@ -19,4 +19,4 @@ vim.g.VM_maps = {
 	["Select h"] = "<A-C-Left>",
 }
 
--- <== }
+-- ]

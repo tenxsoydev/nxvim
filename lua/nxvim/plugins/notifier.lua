@@ -1,6 +1,6 @@
 -- https://github.com/vigoux/notifier.nvim
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 require("notifier").setup({
 	components = {
@@ -12,4 +12,4 @@ require("notifier").setup({
 	},
 	zindex = 100,
 })
--- <== }
+-- ]

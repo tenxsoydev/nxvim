@@ -1,7 +1,7 @@
 -- https://github.com/windwp/nvim-autopairs
 
 local function init()
-	-- { == Configuration ==> ====================================================
+	-- == [ Configuration ========================================================
 
 	require("nvim-autopairs").setup({
 		check_ts = true,
@@ -10,9 +10,9 @@ local function init()
 			lua = { "string" }, -- it will not add pair on that treesitter node
 		},
 	})
-	-- <== }
+	-- ]
 
-	-- { == Keymaps ==> ==========================================================
+	-- == [ Keymaps ==============================================================
 
 	nx.map({ -- Autopairs Exeptions
 		{ "<A-'>", "'", "i" },
@@ -30,7 +30,7 @@ local function init()
 		{ "<A-S-]>", "}", "i" },
 		{ "<A-`>", "`", "i" },
 	})
-	-- <== }
+	-- ]
 end
 
 nx.au({ "InsertEnter", once = true, callback = init })

@@ -1,6 +1,6 @@
 -- https://github.com/romgrk/barbar.nvim#--barbarnvim
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 require("barbar").setup({
 	animation = true,
@@ -38,9 +38,9 @@ require("barbar").setup({
 	letters = "asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP",
 	no_name_title = nil,
 })
--- <== }
+-- ]
 
--- { == Events ==> ============================================================
+-- == [ Events ================================================================
 
 local barbar_api = require("barbar.api")
 
@@ -51,9 +51,9 @@ nx.au({
 		vim.defer_fn(function() barbar_api.set_offset(0) end, 100)
 	end,
 })
--- <== }
+-- ]
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 local maps = {
 	{ "<S-l>", "<Cmd>BufferNext<CR>", desc = "Go to Next Buffer" },
@@ -92,9 +92,9 @@ for i = 0, 9 do
 end
 
 nx.map(maps, { silent = true })
--- <== }
+-- ]
 
---- { == Highlights ==> =======================================================
+--- == [ Highlights ===========================================================
 
 nx.hl({
 	{ "BufferCurrent", fg = "BufferCurrent:fg" },
@@ -148,7 +148,7 @@ nx.hl({
 	{ "BufferInactiveHINT" },
 	{ "BufferInactiveINFO" },
 }, { link = "BufferInactive" })
--- <== }
+-- ]
 
 -- Hide tabline when barbar is loaded after opening a neovim client on a dashboard
 if vim.bo.filetype == "alpha" then vim.o.showtabline = 0 end

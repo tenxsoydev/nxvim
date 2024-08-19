@@ -2,7 +2,7 @@
 
 local hop = require("hop")
 
--- { == Commands ==> ==========================================================
+-- == [ Commands ==============================================================
 
 local direction = require("hop.hint").HintDirection
 -- funnily using commands fixes hop with dotrepeat
@@ -18,9 +18,9 @@ nx.cmd({
 		function() hop.hint_char1({ direction = direction.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 }) end,
 	},
 })
--- <== }
+-- ]
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 nx.map({
 	-- use commands instead of mapping functions directly as it is compatible with dot repeat
@@ -35,6 +35,6 @@ nx.map({
 	{ "t", "<Cmd>HopChar1t<CR>", "" },
 	{ "T", "<Cmd>HopChar1T<CR>", "" },
 })
--- <== }
+-- ]
 
 hop.setup()

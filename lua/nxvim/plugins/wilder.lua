@@ -2,7 +2,7 @@
 
 local wilder = require("wilder")
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 local fd_bin = "fd"
 if vim.fn.executable("fdfind") == 1 then fd_bin = "fdfind" end
@@ -145,9 +145,9 @@ end)
 wilder.set_option("post_hook", function()
 	if vim.fn.win_gettype(0) == "popup" and not vim.g.zen_mode then set_renderer("on") end
 end)
--- <== }
+-- ]
 
--- { == Keymaps ==> ========================================================
+-- == [ Keymaps ============================================================
 
 wilder.setup({
 	modes = { ":", "/", "?" },
@@ -156,4 +156,4 @@ wilder.setup({
 	accept_key = "<C-l>",
 	reject_key = "<C-h>",
 })
--- <== }
+-- ]

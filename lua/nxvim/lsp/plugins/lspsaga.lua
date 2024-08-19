@@ -42,7 +42,7 @@ local config = {
 	},
 }
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 config.finder.keys = {
 	expand_or_jump = "<CR>",
@@ -78,11 +78,11 @@ function M.on_attach(_, bufnr)
 		{ { "<C-.>", "<A-.>" }, "<Cmd>Lspsaga code_action<CR>", desc = "Code Action" },
 	}, { buffer = bufnr })
 end
--- <== }
+-- ]
 
--- { == Load Setup ==> ========================================================
+-- == [ Load Setup ============================================================
 
 require("lspsaga").setup(config)
--- <== }
+-- ]
 
 return M

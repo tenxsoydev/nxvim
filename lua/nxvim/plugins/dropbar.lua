@@ -2,7 +2,7 @@
 
 local toggleterm = require("toggleterm")
 
--- { == Configuration ==> ====================================================
+-- == [ Configuration ========================================================
 
 require("dropbar").setup({
 
@@ -14,11 +14,11 @@ require("dropbar").setup({
 		},
 	},
 })
--- <== }
+-- ]
 
--- { == Highlights ==> ========================================================
+-- == [ Highlights ============================================================
 
 nx.hl({
 	{ "DropBarIconUISeparator", link = "Winbar" },
 })
--- <== }
+-- ]

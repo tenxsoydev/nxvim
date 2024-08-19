@@ -3,7 +3,7 @@
 local mason_lspconfig = require("mason-lspconfig")
 local lspconfig = require("lspconfig")
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 mason_lspconfig.setup()
 
@@ -53,9 +53,9 @@ mason_lspconfig.setup_handlers({
 	end,
 	["rust_analyzer"] = function() require("rust-tools").setup({ server = opts }) end,
 })
--- <== }
+-- ]
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 nx.map({
 	{ "<leader>l+", ":LspStart ", desc = "Select Language Server to Start", wk_label = "Start LSP" },

@@ -1,6 +1,6 @@
 -- https://github.com/echasnovski/mini.nvim
 
--- { == Animate ==> ============================================================
+-- == [ Animate ================================================================
 
 local animate = require("mini.animate")
 
@@ -42,9 +42,9 @@ nx.au({
 	"BufEnter",
 	callback = function() vim.wo.virtualedit = config_ve end,
 })
--- <== }
+-- ]
 
--- { == Move ==> ==============================================================
+-- == [ Move ==================================================================
 
 require("mini.move").setup({
 	-- Module mappings. Use `''` (empty string) to disable one.
@@ -62,11 +62,11 @@ require("mini.move").setup({
 		line_up = vim.g.eu_kbd and "ĳ" or "<A-k>",
 	},
 })
--- <== }
+-- ]
 
--- { == Trailspace ==> ========================================================
+-- == [ Trailspace ============================================================
 
 require("mini.trailspace").setup()
 
 nx.hl({ "MiniTrailspace", link = "DiagnosticUnderlineHint" })
--- <== }
+-- ]

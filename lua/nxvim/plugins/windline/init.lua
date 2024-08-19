@@ -1,7 +1,7 @@
 local windline = require("windline")
 local style_nxvim = require("nxvim.plugins.windline.styles.nxvim")
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 local config = {
 	global_skip_filetypes = { "fern", "NvimTree", "lir", "filetree", "neo-tree" },
@@ -14,9 +14,9 @@ local config = {
 		style_nxvim.diffview,
 	},
 }
--- <== }
+-- ]
 
--- { == Highlights ==> =====================================================
+-- == [ Highlights =========================================================
 
 config.colors_name = function(colors)
 	local inactive_fg, inactive_bg, filename_fg, statusline_path
@@ -51,6 +51,6 @@ config.colors_name = function(colors)
 
 	return colors
 end
--- <== }
+-- ]
 
 windline.setup(config)

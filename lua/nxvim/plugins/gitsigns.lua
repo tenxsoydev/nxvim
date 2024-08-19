@@ -2,7 +2,7 @@
 
 local gitsigns = require("gitsigns")
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 local config = {
 	signs = {
@@ -21,9 +21,9 @@ local config = {
 		delay = 500,
 	},
 }
--- <== }
+-- ]
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 config.on_attach = function(bufnr)
 	local gs = package.loaded.gitsigns
@@ -67,12 +67,12 @@ config.on_attach = function(bufnr)
 		{ "ih", ":<C-U>Gitsigns select_hunk<CR>", { "o", "x" }, desc = "Select Hunk" },
 	}, { buffer = bufnr })
 end
--- <== }
+-- ]
 
--- { == Highlights ==> ========================================================
+-- == [ Highlights ============================================================
 
 nx.hl({ "GitSignsCurrentLineBlame", link = "NeoTreeGitIgnored" })
 
--- <== }
+-- ]
 
 gitsigns.setup(config)

@@ -3,7 +3,7 @@
 local ibl = require("ibl")
 local hooks = require("ibl.hooks")
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 -- "▏" "│" "▎" "⎸"" "¦" "┆" "" "┊" ""
 local indent_char = "▏"
@@ -13,9 +13,9 @@ local config = {
 	indent = { char = indent_char },
 	scope = {},
 }
--- <== }
+-- ]
 
--- { == Highlights ==> ========================================================
+-- == [ Highlights ============================================================
 
 config.scope.highlight = {
 	"IndentLvlOne",
@@ -40,9 +40,9 @@ hooks.register(
 	end
 )
 hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
--- <== }
+-- ]
 
--- { == Load Setup ==> =======================================================
+-- == [ Load Setup ===========================================================
 
 ibl.setup(config)
--- <== }
+-- ]

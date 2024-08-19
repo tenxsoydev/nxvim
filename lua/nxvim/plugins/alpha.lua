@@ -3,7 +3,7 @@
 local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 if vim.g.gnvim then
 	dashboard.section.header.val = {
@@ -65,9 +65,9 @@ dashboard.section.footer.opts.hl = "Normal"
 dashboard.section.header.opts.hl = "Include"
 dashboard.section.buttons.opts.hl = "Keyword"
 dashboard.opts.opts.noautocmd = true
--- <== }
+-- ]
 
--- { == Events ==> ============================================================
+-- == [ Events ================================================================
 
 nx.au({
 	"User",
@@ -77,11 +77,11 @@ nx.au({
 		nx.map({ "R", "<Cmd>Telescope oldfiles<CR>", desc = "Recent Files", buffer = true })
 	end,
 })
--- <== }
+-- ]
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 nx.map({ "<leader>a", "<Cmd>Alpha<CR>", desc = "Alpha", silent = true })
 
 alpha.setup(dashboard.opts)
--- <== }
+-- ]

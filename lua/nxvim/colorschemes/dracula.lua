@@ -1,6 +1,6 @@
 -- https://github.com/dracula/vim
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 nx.set({
 	dracula_italic = 1,
@@ -9,9 +9,9 @@ nx.set({
 	-- Don't use TUI transparency(causing black background) in GUIs
 	dracula_colorterm = nx.opts.transparency and not vim.g.loaded_gui and 0 or 1,
 })
--- <== }
+-- ]
 
--- { == Highlights ==> ========================================================
+-- == [ Highlights ============================================================
 
 local M = {}
 

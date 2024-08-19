@@ -1,6 +1,6 @@
 -- https://github.com/akinsho/toggleterm.nvim
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 require("toggleterm").setup({
 	size = 20,
@@ -42,9 +42,9 @@ require("toggleterm").setup({
 		},
 	},
 })
--- <== }
+-- ]
 
--- { == Custom Terminals ==> ==================================================
+-- == [ Custom Terminals ======================================================
 
 local Terminal = require("toggleterm.terminal").Terminal
 
@@ -73,9 +73,9 @@ local btop = Terminal:new({
 	hidden = true,
 	close_on_exit = true,
 })
--- <== }
+-- ]
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 nx.map({
 	-- Ctrl-Escape won't work in some TUIs, works in kitty and GUIs
@@ -111,4 +111,4 @@ function _G.set_terminal_keymaps()
 end
 
 function _G.set_lazygit_keymaps(term) nx.map({ { "<C-j><C-k>", "<C-\\><C-n>", "t", buffer = term.bufnr } }) end
--- <== }
+-- ]

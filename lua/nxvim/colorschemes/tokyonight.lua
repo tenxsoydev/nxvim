@@ -1,6 +1,6 @@
 -- https://github.com/folke/tokyonight.nvim
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 require("tokyonight").setup({
 	-- style = "day", -- "storm"|"moon"|"night"|"day"
@@ -10,7 +10,7 @@ require("tokyonight").setup({
 		floats = "transparent",
 	},
 })
--- <== }
+-- ]
 
 -- Highlights =================================================================
 

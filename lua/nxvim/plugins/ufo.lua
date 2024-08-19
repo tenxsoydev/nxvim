@@ -1,6 +1,6 @@
 -- https://github.com/kevinhwang91/nvim-ufo
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 local ufo = require("ufo")
 
@@ -27,18 +27,18 @@ ufo.setup({
 	},
 	enable_get_fold_virt_text = false,
 })
--- <== }
+-- ]
 
--- { == Events ==> ============================================================
+-- == [ Events ================================================================
 
 nx.au({
 	"FileType",
 	pattern = { "markdown", "NeogitStatus" },
 	callback = function() ufo.detach() end,
 })
--- <== }
+-- ]
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 nx.map({
 	{ "zR", ufo.openAllFolds },
@@ -53,6 +53,6 @@ nx.map({
 		end,
 	},
 }, { buffer = true })
--- <== }
+-- ]
 
 if vim.g.colors_name == "dracula" then nx.hl({ "Folded", fg = "SignColumn:fg", bg = "DraculaBgLight:bg" }) end

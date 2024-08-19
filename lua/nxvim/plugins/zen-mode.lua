@@ -2,7 +2,7 @@
 
 local zen_mode = require("zen-mode")
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 local config = {
 	window = {
@@ -16,9 +16,9 @@ local config = {
 	on_open = nil,
 	on_close = nil,
 }
--- <== }
+-- ]
 
--- { == Events ==> ============================================================
+-- == [ Events ================================================================
 
 config.on_open = function()
 	vim.g.zen_mode = true -- Used e.g. for wilder popmenu
@@ -46,12 +46,12 @@ config.on_close = function()
 		vim.g.neovide_floating_blur = 0.9 ]]
 end
 
--- <== }
+-- ]
 
--- { == Load Setup ==> =======================================================-
+-- == [ Load Setup ===========================================================-
 
 zen_mode.setup(config)
--- <== }
+-- ]
 
 -- Keymaps ====================================================================
 
@@ -59,4 +59,4 @@ nx.map({
 	{ "<leader>z", "<Cmd>ZenMode<CR>", desc = "Toggle Zen Mode", wk_label = "Zen Mode" },
 	{ "<C-z>", "<Cmd>ZenMode<CR>", desc = "Toggle Zen Mode" },
 })
--- <== }
+-- ]

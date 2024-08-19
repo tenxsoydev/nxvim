@@ -2,7 +2,7 @@
 
 local tint = require("tint")
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 local config = {
 	tint = -30,
@@ -19,9 +19,9 @@ local config = {
 		-- "NeoTreeNormal",
 	},
 }
--- <== }
+-- ]
 
--- { == Highlights ==> ========================================================
+-- == [ Highlights ============================================================
 
 if vim.g.colors_name == "tokyonight" then
 	if require("tokyonight.config").options.style ~= "day" then
@@ -35,20 +35,20 @@ if vim.g.colors_name == "tokyonight" then
 		config.tint = 25
 	end
 end
--- <== }
+-- ]
 
 tint.setup(config)
 
--- { == Events ==> ============================================================
+-- == [ Events ================================================================
 
 nx.au({
 	{ "Colorscheme", "SessionLoadPost" },
 	callback = function() vim.defer_fn(tint.refresh, 250) end,
 })
--- <== }
+-- ]
 
--- { == Commands ==> ============================================================
+-- == [ Commands ================================================================
 
 nx.cmd({ "TintRefresh", tint.refresh })
 
--- <== }
+-- ]

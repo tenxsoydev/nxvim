@@ -50,7 +50,7 @@ null_ls.register({
 	}),
 })
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 null_ls.setup({
 	debug = false,
@@ -81,4 +81,4 @@ null_ls.setup({
 })
 
 require("mason-null-ls").setup()
--- <== }
+-- ]

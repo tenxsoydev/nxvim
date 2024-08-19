@@ -2,7 +2,7 @@
 
 local diffview = require("diffview")
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 local config = {
 	diff_binaries = false, -- Show diffs for binaries
@@ -50,9 +50,9 @@ local config = {
 	},
 	key_bindings = {}, -- See Keymap section below
 }
--- <== }
+-- ]
 
--- { == Keymaps ==> ==========================================================
+-- == [ Keymaps ==============================================================
 
 local actions = require("diffview.actions")
 
@@ -69,14 +69,14 @@ nx.map({
 	{ "<leader>gd", "<Cmd>DiffviewToggle<CR>", desc = "Toggle Diffview", wk_label = "Diffview" },
 	{ "<leader>gh", "<Cmd>DiffviewFileHistory %<CR>", desc = "Diffview File History", wk_label = "File History" },
 })
--- <== }
+-- ]
 
--- { == Load Setup ==> =======================================================
+-- == [ Load Setup ===========================================================
 
 diffview.setup(config)
--- <== }
+-- ]
 
--- { == Highlights ==> =======================================================
+-- == [ Highlights ===========================================================
 
 if vim.g.colors_name == "dracula" then
 	local palette = require("nxvim.colorschemes.dracula").palette
@@ -86,9 +86,9 @@ if vim.g.colors_name == "dracula" then
 		{ "diffChanged", link = "DiffviewDim1" }, -- there is no `diffChanged` in official dracula
 	})
 end
--- <== }
+-- ]
 
--- { == Commands ==> ==========================================================
+-- == [ Commands ==============================================================
 
 nx.cmd({
 	"DiffviewToggle",
@@ -101,4 +101,4 @@ nx.cmd({
 	end,
 	nargs = "*",
 })
--- <== }
+-- ]

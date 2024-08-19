@@ -1,6 +1,6 @@
 -- https://github.com/folke/todo-comments.nvim
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 require("todo-comments").setup({
 	signs = true, -- show icons in the signs column
@@ -68,9 +68,9 @@ require("todo-comments").setup({
 		-- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
 	},
 })
--- <== }
+-- ]
 
--- { == Commands ==> ==========================================================
+-- == [ Commands ==============================================================
 
 local function toggle()
 	local hl_status = require("todo-comments.highlight")
@@ -91,9 +91,9 @@ nx.cmd({
 	function() toggle() end,
 	desc = "Toggle Highlight Comments Highlighting",
 })
--- <== }
+-- ]
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 nx.map({
 	{ "<leader>/c", "<Cmd>TodoTelescope<CR>", desc = "Search Todo Comments", wk_label = "Todo Comments" },
@@ -101,12 +101,12 @@ nx.map({
 	{ "<leader>ct", "<Cmd>TodoHlToggle<CR>", desc = "Toggle Comment Highlighting", wk_label = "Toggle Highlighting" },
 	{ "<leader>cl", "<Cmd>TodoLocList<CR>", desc = "List Comment Highlights", wk_label = "List" },
 	{ "<leader>cq", "<Cmd>TodoQuickFix<CR>", desc = "List Comment Highlights" },
-	-- {"<leader>hq", "<Cmd>TodoTrouble<CR>",  desc = "Open Comment Highlights in Trouble" },
+	-- { "<leader>hq", "<Cmd>TodoTrouble<CR>",  desc = "Open Comment Highlights in Trouble" },
 })
--- <== }
+-- ]
 
--- { == Highlights ==> ========================================================
+-- == [ Highlights ============================================================
 
 -- Disable nvim inbuilt Todo highlighting as plugins highlights are used
 nx.hl({ "Todo", link = "Comment" })
--- <== }
+-- ]

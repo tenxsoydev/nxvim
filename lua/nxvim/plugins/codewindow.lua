@@ -2,7 +2,7 @@
 
 local codewindow = require("codewindow")
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 codewindow.setup({
 	active_in_terminals = false, -- Should the minimap activate for terminal buffers
@@ -20,17 +20,17 @@ codewindow.setup({
 	window_border = { "▕", " ", " ", " ", " ", " ", "▕", "▕" }, -- The border style of the floating window (accepts all usual options)
 })
 
--- <== }}
+-- ]}
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 nx.map({
 	{ "<leader>tm", codewindow.toggle_minimap, desc = "Toggle Minimap" },
 	{ "<leader>tM", codewindow.toggle_focus, desc = "Toggle Minimap Focus" },
 }, { wk_label = { sub_desc = "Toggle" } })
--- <== }
+-- ]
 
 -- Highlights ====================================================================
 
 nx.hl({ "CodewindowBorder", link = "FloatBorder" })
--- <== }
+-- ]

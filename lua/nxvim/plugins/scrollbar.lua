@@ -1,6 +1,6 @@
 -- https://github.com/petertriho/nvim-scrollbar
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 require("scrollbar").setup({
 	show_in_active_only = true,
@@ -16,4 +16,4 @@ require("scrollbar").setup({
 	},
 })
 
--- <== }
+-- ]

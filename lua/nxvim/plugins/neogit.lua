@@ -2,7 +2,7 @@
 
 local neogit = require("neogit")
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 local config = {
 	commit_editor = {
@@ -19,9 +19,9 @@ local config = {
 	},
 	mappings = {},
 }
--- <== }
+-- ]
 
--- { == Events ==> ===========================================================
+-- == [ Events ===============================================================
 
 nx.au({
 	"Filetype",
@@ -31,9 +31,9 @@ nx.au({
 	end,
 })
 -- { "Filetype", pattern = "NeogitCommitMessage", command = "setlocal spell et ts=2 sw=2" },
--- <== }
+-- ]
 
--- { == Keymaps ==> ==========================================================
+-- == [ Keymaps ==============================================================
 
 config.mappings = {
 	status = {
@@ -42,15 +42,15 @@ config.mappings = {
 }
 
 nx.map({ "<leader>gn", "<Cmd>Neogit<CR>", desc = "Neogit" })
--- <== }
+-- ]
 
--- { == Highlights ==> =======================================================
+-- == [ Highlights ===========================================================
 
 if vim.g.colors_name == "dracula" then
 	nx.hl({ "NeogitDiffAddHighlight", fg = "DiffAdd:fg", bg = "StatusLineTermNC:bg" })
 	-- fix blue difftext in Neogit
 	nx.hl({ "NeogitDiffDeleteHighlight", fg = "DraculaDiffDelete:fg", bg = "StatusLineTermNC:bg" })
 end
--- <== }
+-- ]
 
 neogit.setup(config)

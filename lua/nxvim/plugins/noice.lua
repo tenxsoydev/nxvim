@@ -1,6 +1,6 @@
 -- https://github.com/folke/noice.nvim
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 require("noice").setup({
 	lsp = {
@@ -46,17 +46,22 @@ require("noice").setup({
 	},
 })
 
--- <== }
+-- ]
 
--- { == Highlights ==> ========================================================
+-- == [ Events ================================================================
 
 nx.hl({ { "NoiceCmdlinePopupBorder", "NoiceCmdlineIconCmdLine" }, link = "Operator" })
--- <== }
+-- ]
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 nx.map({
 	{ "<C-j>", "<Tab>", "c", desc = "Next Entry" },
 	{ "<C-k>", "<S-Tab>", "c", desc = "Previous Entry" },
 })
--- <== }
+-- ]
+
+-- == [ Highlights ============================================================
+
+nx.hl({ { "NoiceCmdlinePopupBorder", "NoiceCmdlineIconCmdLine" }, link = "Operator" })
+-- ]

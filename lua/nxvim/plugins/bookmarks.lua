@@ -7,7 +7,7 @@ require("bookmarks").setup({
 	},
 })
 
--- { == Keymaps ==> ===========================================================
+-- == [ Keymaps ===============================================================
 
 nx.map({
 	{ "<leader>mm", "<Cmd>BookmarksMark<CR>", desc = "Bookmark toggle", wk_label = "Toggle" },
@@ -15,4 +15,4 @@ nx.map({
 	{ "<leader>m/", "<Cmd>BookmarksGoto<CR>", desc = "Search Bookmarks", wk_label = "Search" },
 	{ "<leader>m.", "<Cmd>BookmarksGotoRecent<CR>", desc = "Search Bookmarks", wk_label = "Search" },
 })
--- <== }
+-- ]

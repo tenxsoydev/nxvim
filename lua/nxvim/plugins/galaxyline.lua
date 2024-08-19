@@ -2,7 +2,7 @@
 
 local gl = require("galaxyline")
 
--- { == Colors ==> ============================================================
+-- == [ Colors ================================================================
 
 local colors = require("galaxyline.theme").default
 
@@ -42,9 +42,9 @@ if vim.g.colors_name == "dracula" then
 	-- set color of little parts of the statusline next to defined modules below
 	nx.hl({ "StatusLine", bg = colors.bg })
 end
--- <== }
+-- ]
 
--- { == Sections ==> ==========================================================
+-- == [ Sections ==============================================================
 
 local diagnostic = require("galaxyline.provider_diagnostic")
 
@@ -464,12 +464,12 @@ gl.section.short_line_left = {
 	},
 }
 
--- { == Load Setup ==> ========================================================
+-- == [ Load Setup ============================================================
 
 gl.galaxyline_augroup()
--- <== }
+-- ]
 
--- { == Events ==> ============================================================
+-- == [ Events ================================================================
 
 -- We run into some issues with tint. Toggling it off/on apparently fixes them, while refreshing does not
 local tint_ok, tint = pcall(require, "tint")
@@ -502,4 +502,4 @@ nx.au({
 		end,
 	},
 })
--- <== }
+-- ]

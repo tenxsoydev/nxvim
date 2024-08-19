@@ -1,6 +1,6 @@
 -- https://github.com/dkarter/bullets.vim
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 nx.set({
 	bullets_set_mappings = 0,
@@ -11,4 +11,4 @@ nx.set({
 	bullets_checkbox_markers = " x",
 	bullets_nested_checkboxes = 0,
 })
--- <== }
+-- ]

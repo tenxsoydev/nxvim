@@ -1,6 +1,6 @@
 -- https://github.com/kevinhwang91/nvim-bqf
 
--- { == Configuration ==> =====================================================
+-- == [ Configuration =========================================================
 
 require("bqf").setup({
 	func_map = {
@@ -8,9 +8,9 @@ require("bqf").setup({
 		pscrolldown = "<C-e>",
 	},
 })
--- <== }
+-- ]
 
--- { == Highlights ==> ========================================================
+-- == [ Highlights ============================================================
 
 nx.hl({ "BqfPreviewBorder", link = "FloatBorder" })
--- <== }
+-- ]

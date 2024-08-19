@@ -2,7 +2,7 @@ local lazy = require("nxvim.plugins.lazy")
 
 vim.g.multigrid = vim.api.nvim_list_uis()[1].ext_multigrid
 
--- { == Modules ==> ===========================================================
+-- == [ Modules ===============================================================
 
 ---@class NxModule : LazyPluginSpec
 ---@diagnostic disable-next-line: duplicate-doc-field
@@ -229,9 +229,9 @@ local modules = {
 	-- "tiagovla/scope.nvim", -- scope buffers to tabs
 	-- "nvim-telescope/telescope-file-browser.nvim",
 }
--- <== }
+-- ]
 
--- { == Transform to LazySpec Table ==> =======================================
+-- == [ Transform to LazySpec Table ===========================================
 
 ---Config load helper
 ---@param plugin_config string
@@ -267,9 +267,9 @@ for i, module in ipairs(modules) do
 	::continue::
 	modules[i] = module
 end
--- <== }
+-- ]
 
--- { == Load Setup ==> ========================================================
+-- == [ Load Setup ============================================================
 
 -- Problem childs that need to be loaded outside of `lazy.setup`
 require("nxvim.plugins.visual-multi") -- `VM_maps` config won't work otherwise afaik
@@ -278,9 +278,9 @@ lazy.setup(modules, {
 	ui = { border = "rounded" },
 	dev = { path = "~/Dev/VIM/plugins/" },
 })
---- <== }
+--- ]
 
--- { == Events ==> ============================================================
+-- == [ Events ================================================================
 
 -- Add path for easy `gf` to the config file of a plugin in `get "<plugins.pluginname">` functions above
 nx.au({
@@ -291,9 +291,9 @@ nx.au({
 		vim.cmd("setlocal inex=tr(v:fname,'.','/')")
 	end,
 })
--- <== }
+-- ]
 
---- { == Keymaps ==> ===========================================================
+--- == [ Keymaps ===============================================================
 
 nx.map({ "<leader>P", "<Cmd>Lazy<CR>", desc = "Plugin Manager" })
---- <== }
+--- ]
