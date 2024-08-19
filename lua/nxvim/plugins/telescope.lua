@@ -236,21 +236,7 @@ nx.map({
 
 -- { == Highlights ==> ========================================================
 
-nx.hl({
-	{ "TelescopeBorder", link = "LspFloatWinBorder" },
-})
-if vim.g.multigrid and vim.g.neovide then
-	-- Workaround for layered highlight groups causing a different blend transparency in Telescope dialogs.
-	nx.hl({
-		{ "TelescopeResultsNormal", bg = "Normal:bg", blend = 100 },
-		{ "TelescopeSelection", bg = "Visual:bg", blend = 0 },
-		-- With this solution bg highlights in telescope dialogs are only visible on hover (see `:Telescope highlights`).
-		-- It would require to re-set `blend` for every hl color to show the bg when it's not hovered.
-		-- Since bg hls are not common in other telescope dialogs, we'll use this workaround it anyway.
-		{ { "TodoBgFIX", "TodoBgNOTE", "TodoBgTODO" }, blend = 0 },
-	})
-	if vim.g.neovide then config.defaults.winblend = 30 end
-end
+nx.hl({ "TelescopeBorder", link = "LspFloatWinBorder" })
 -- <== }
 
 -- { == Load Setup ==> =======================================================-
