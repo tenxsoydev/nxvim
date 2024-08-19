@@ -180,8 +180,8 @@ nx.map({
 	]]
 	-- Files
 	{ "<leader>f/", "<Cmd>Telescope find_files<CR>", desc = "Search Files" },
-	{ "<leader>fr", telescope.extensions.recent_files.pick, desc = "Recent Files" },
-	{ "<leader>fR", "<Cmd>Telescope frecency<CR>", desc = "Frequent Files" },
+	{ "<leader>fr", "<Cmd>Telescope frecency<CR>", desc = "Frecent Files" },
+	{ "<leader>fR", "<Cmd>Telescope oldfiles<CR>", desc = "Recent Files" },
 	-- Git
 	{ "<leader>gb", "<Cmd>Telescope git_branches<CR>", desc = "Branches" },
 	{ "<leader>gc", "<Cmd>Telescope git_commits<CR>", desc = "Commits" },
