@@ -348,7 +348,6 @@ neo_tree.setup(config)
 local function set_hls()
 	if vim.g.colors_name == "dracula" then
 		local colors = require("nxvim.colorschemes.dracula").palette
-
 		nx.hl({
 			{ "NeoTreeRootName", fg = "DraculaPurple:fg", italic = true },
 			{ "NeoTreeFileName", fg = colors.tree_file_name },
@@ -358,22 +357,17 @@ local function set_hls()
 			-- Fix over-sized circle icon due to italicizing
 			{ "NeoTreeGitUnstaged", fg = "NeoTreeGitUnstaged:fg" },
 		})
-
-		if vim.env.TERM_PROGRAM == "WezTerm" then
-			nx.hl({ -- Fix over-sized circle icon due to italicizing
-				{ "NeoTreeGitConflict", fg = "NeoTreeGitConflict:fg" },
-				{ "NeoTreeGitUntracked", fg = "NeoTreeGitUntracked:fg" },
-			})
-		end
-	end
-
-	if vim.g.colors_name == "tokyonight" then
+	elseif vim.g.colors_name == "tokyonight" then
 		nx.hl({
 			{ "NeoTreeTabActive", link = "NeoTreeNormal" },
 			{ "NeoTreeTabInactive", fg = "NeoTreeDimText:fg", bg = "TabLine:bg" },
 			{ "NeoTreeTabSeparatorInactive", fg = "TabLine:bg", bg = "TabLine:bg" },
 		})
 	end
+	nx.hl({ -- Fix over-sized circle icon due to italicizing
+		{ "NeoTreeGitConflict", fg = "NeoTreeGitConflict:fg" },
+		{ "NeoTreeGitUntracked", fg = "NeoTreeGitUntracked:fg" },
+	})
 end
 
 set_hls()
