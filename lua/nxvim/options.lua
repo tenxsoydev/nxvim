@@ -6,7 +6,6 @@ nx.set({
 	termguicolors = true, -- set term gui colors
 	timeoutlen = 350, -- time to wait for a mapped sequence to complete
 	title = true, -- show filename and path in application window title
-	titlelen = 50, -- percentage of columns to use before shortening the title
 	sessionoptions__append = "globals",
 	laststatus = 3, -- global statusline
 	-- Auxiliary files
@@ -29,7 +28,7 @@ nx.set({
 	-- Search
 	hlsearch = true, -- highlight matches in previous search pattern
 	ignorecase = true, -- ignore case in search patterns
-	smartcase = true, -- use smart case
+	smartcase = true, -- use smart case, works in conjunction with ignorecase
 	-- Windows
 	equalalways = false, -- force equal window size on split
 	splitbelow = true, -- force horizontal splits below
