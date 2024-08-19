@@ -2,7 +2,7 @@
 
 -- { == Configuration ==> =====================================================
 
-vim.g.rainbow_delimiters = {
+require("rainbow-delimiters.setup").setup({
 	highlight = {
 		"@attribute",
 		"@character",
@@ -11,5 +11,5 @@ vim.g.rainbow_delimiters = {
 		"@label",
 		"@field",
 	},
-}
+})
 -- <== }
