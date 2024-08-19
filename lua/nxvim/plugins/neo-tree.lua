@@ -278,22 +278,28 @@ config.window.mappings = {
 	["?"] = "show_help",
 }
 
-config.filesystem.window.mappings = {
-	["<bs>"] = "navigate_up",
-	["."] = "set_root",
-	["H"] = "toggle_hidden",
-	["F"] = "fuzzy_finder",
-	["<C-i>"] = "fuzzy_finder",
-	["<C-/>"] = "fuzzy_finder",
-	["D"] = "fuzzy_finder_directory",
-	["#"] = "fuzzy_sorter",
-	["f"] = "filter_on_submit",
-	["<C-f>"] = "filter_on_submit",
-	["<c-x>"] = "clear_filter",
-	["[g"] = "prev_git_modified",
-	["]g"] = "next_git_modified",
-	["o"] = "system_open",
-	["/"] = "none", -- use neovim default search
+config.filesystem.window = {
+	mappings = {
+		["<bs>"] = "navigate_up",
+		["."] = "set_root",
+		["H"] = "toggle_hidden",
+		["F"] = "fuzzy_finder",
+		["<C-i>"] = "fuzzy_finder",
+		["<C-/>"] = "fuzzy_finder",
+		["D"] = "fuzzy_finder_directory",
+		["#"] = "fuzzy_sorter",
+		["f"] = "filter_on_submit",
+		["<C-f>"] = "filter_on_submit",
+		["<c-x>"] = "clear_filter",
+		["[g"] = "prev_git_modified",
+		["]g"] = "next_git_modified",
+		["o"] = "system_open",
+		["/"] = "none", -- allow neovim default search, use fuzzy_finder with `<C-i>`(dolphin like)
+	},
+	fuzzy_finder_mappings = {
+		["<C-j>"] = "move_cursor_down",
+		["<C-k>"] = "move_cursor_up",
+	},
 }
 
 config.git_status.window.mappings = {
@@ -325,13 +331,10 @@ nx.au({
 	callback = function()
 		vim.schedule(function()
 			nx.map({
+				-- Allow to escape into normal mode in fuzzy finder input popup.
+				{ "<Esc>", "<Esc>", "i" },
 				{ "q", "<Cmd>q!<CR>" },
 				{ "<C-c>", "<Cmd>q!<CR>" },
-				{ "<Esc>", "<Esc>", "i" },
-				-- stylua: ignore
-				{ "<C-j>", function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, false, true), "i", false) end, "i" },
-				-- stylua: ignore
-				{ "<C-k>", function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-p>", true, false, true), "i", false) end, "i" },
 			}, { buffer = 0 })
 		end)
 	end,
