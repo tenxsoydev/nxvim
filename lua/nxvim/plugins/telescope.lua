@@ -153,28 +153,22 @@ local function find_config(prompt_title, search_dirs, search_file)
 	})
 end
 
+local dropdown = require("telescope.themes").get_dropdown({
+	previewer = false,
+	border = border,
+	borderchars = borderchars,
+})
+
 nx.map({
 	-- Quick Pickers
 	{
 		"<C-p>",
-		function()
-			builtin.find_files(require("telescope.themes").get_dropdown({
-				previewer = false,
-				border = border,
-				borderchars = borderchars,
-			}))
-		end,
+		function() builtin.find_files(dropdown) end,
 		desc = "Go to File",
 	},
 	{
 		"<A-p>",
-		function()
-			builtin.buffers(require("telescope.themes").get_dropdown({
-				previewer = false,
-				border = border,
-				borderchars = borderchars,
-			}))
-		end,
+		function() builtin.buffers(dropdown) end,
 		desc = "Go to Open Buffer",
 	},
 	-- Registers
