@@ -51,7 +51,7 @@ nx.map({
 	-- Indentation
 	-- NOTE: mapping <Tab> in normal mode == mapping <C-i>
 	{ "<S-Tab>", "<C-d>", "i", desc = "Outdent" },
-	-- Use correct indetation level when entering insert mode on empty lines
+	-- Use correct indentation level when entering insert mode on empty lines
 	{ "i", "len(getline('.')) == 0 ? '\"_cc' : 'i'", expr = true, silent = true },
 	{ "a", "len(getline('.')) == 0 ? '\"_cc' : 'a'", expr = true, silent = true },
 	{ "A", "len(getline('.')) == 0 ? '\"_cc' : 'A'", expr = true, silent = true },
