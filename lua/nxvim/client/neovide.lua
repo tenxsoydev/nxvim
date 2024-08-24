@@ -1,6 +1,6 @@
 local opts = {
 	guifont = vim.g.osx and "Hasklug Nerd Font Mono:h16:#e-antialias:#h-none"
-		or "Hasklug Nerd Font Mono:h11.25:#e-antialias:#h-none",
+		or "Hasklug Nerd Font Mono:h12:#e-antialias:#h-none",
 	-- guifont = "JetBrainsMono Nerd Font Mono:h11:#e-antialias:#h-none",
 }
 if vim.g.multigrid then
@@ -12,7 +12,7 @@ nx.set({
 	neovide_remember_window_size = false,
 	neovide_cursor_vfx_mode = "pixiedust",
 	neovide_confirm_quit = 1,
-	neovide_transparency = 0.94,
+	neovide_transparency = 0.96,
 	neovide_floating_opacity = 0.15,
 	neovide_floating_blur = true,
 	neovide_floating_blur_amount_x = 2.0,
