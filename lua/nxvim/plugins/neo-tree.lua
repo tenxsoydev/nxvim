@@ -168,21 +168,23 @@ local config = {
 
 -- == [ Events ================================================================
 
-local neo_tree_win = {
-	id = -1,
-	width = -1,
-}
-
+---@type { [number]: { id: number, width: number } }
+local neo_tree_wins = {}
+local tab_page = vim.api.nvim_get_current_tabpage()
 local barbar_ok, barbar_api = pcall(require, "barbar.api")
 local windows = require("nxvim.plugins.windows")
 local utils = require("nxvim.utils")
 
 local function set_offset()
 	if not barbar_ok then return end
+	if not neo_tree_wins[tab_page] then
+		barbar_api.set_offset(0)
+		return
+	end
 	local title = " 󰙅 " .. utils.truc_path(vim.fn.getcwd())
-	local space = neo_tree_win.width - vim.api.nvim_strwidth(title)
+	local space = neo_tree_wins[tab_page].width - vim.api.nvim_strwidth(title)
 	local filler = space > 0 and (" "):rep(space) or ""
-	barbar_api.set_offset(neo_tree_win.width + 2, title .. filler)
+	barbar_api.set_offset(neo_tree_wins[tab_page].width + 2, title .. filler)
 end
 
 config.event_handlers = {
@@ -190,22 +192,28 @@ config.event_handlers = {
 		event = "neo_tree_window_after_open",
 		handler = function(args) -- `h: neo-tree-window-event-args`
 			if #vim.api.nvim_list_wins() == 1 then return end
-			neo_tree_win.id = args.winid
-			if windows.auto_maximize and vim.fn.win_gettype(neo_tree_win.id) ~= "popup" then
-				vim.api.nvim_win_set_width(neo_tree_win.id, config.window.width)
+
+			tab_page = vim.api.nvim_get_current_tabpage()
+			if not neo_tree_wins[tab_page] then neo_tree_wins[tab_page] = { id = -1, width = -1 } end
+
+			local id = args.winid
+			if windows.auto_maximize and vim.fn.win_gettype(id) ~= "popup" then
+				vim.api.nvim_win_set_width(id, config.window.width)
 			end
-			vim.wo[neo_tree_win.id].statuscolumn = ""
-			vim.wo[neo_tree_win.id].foldcolumn = "0"
-			vim.wo[neo_tree_win.id].number = false
-			vim.wo[neo_tree_win.id].relativenumber = false
-			neo_tree_win.width = vim.api.nvim_win_get_width(neo_tree_win.id)
+			vim.wo[id].statuscolumn = ""
+			vim.wo[id].foldcolumn = "0"
+			vim.wo[id].number = false
+			vim.wo[id].relativenumber = false
+
+			neo_tree_wins[tab_page].id = id
+			neo_tree_wins[tab_page].width = vim.api.nvim_win_get_width(id)
 		end,
 	},
 	{
 		event = "neo_tree_window_after_close",
 		handler = function()
 			if require("nxvim.plugins.windows").auto_maximize then vim.cmd("WindowsMaximize") end
-			neo_tree_win.id = -1
+			neo_tree_wins[tab_page] = nil
 			if barbar_ok then barbar_api.set_offset(0) end
 		end,
 	},
@@ -215,27 +223,25 @@ nx.au({
 	{ -- Preserve size of neo-tree when using bufresize.nvim
 		"VimResized",
 		callback = function()
-			if vim.api.nvim_win_is_valid(neo_tree_win.id) then
-				vim.schedule(function() vim.api.nvim_win_set_width(neo_tree_win.id, neo_tree_win.width) end)
-			end
+			if not (neo_tree_wins[tab_page] and vim.api.nvim_win_is_valid(neo_tree_wins[tab_page].id)) then return end
+			vim.schedule(
+				function() vim.api.nvim_win_set_width(neo_tree_wins[tab_page].id, neo_tree_wins[tab_page].width) end
+			)
 		end,
 	},
 	{
-		"DirChanged",
+		{ "DirChanged", "WinResized" },
 		callback = function()
-			if vim.api.nvim_win_is_valid(neo_tree_win.id) then
-				neo_tree_win.width = vim.api.nvim_win_get_width(neo_tree_win.id)
-				set_offset()
-			end
+			if not (neo_tree_wins[tab_page] and vim.api.nvim_win_is_valid(neo_tree_wins[tab_page].id)) then return end
+			neo_tree_wins[tab_page].width = vim.api.nvim_win_get_width(neo_tree_wins[tab_page].id)
+			set_offset()
 		end,
 	},
 	{
-		"WinResized",
+		"TabEnter",
 		callback = function()
-			if vim.api.nvim_win_is_valid(neo_tree_win.id) then
-				neo_tree_win.width = vim.api.nvim_win_get_width(neo_tree_win.id)
-				set_offset()
-			end
+			tab_page = vim.api.nvim_get_current_tabpage()
+			set_offset()
 		end,
 	},
 })

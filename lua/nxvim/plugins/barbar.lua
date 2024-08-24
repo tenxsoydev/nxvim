@@ -40,19 +40,6 @@ require("barbar").setup({
 })
 -- ]
 
--- == [ Events ================================================================
-
-local barbar_api = require("barbar.api")
-
-nx.au({
-	"FileType",
-	pattern = { "NeogitStatus", "DiffviewFiles" },
-	callback = function()
-		vim.defer_fn(function() barbar_api.set_offset(0) end, 100)
-	end,
-})
--- ]
-
 -- == [ Keymaps ===============================================================
 
 local maps = {
