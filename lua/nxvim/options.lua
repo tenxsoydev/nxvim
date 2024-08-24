@@ -39,7 +39,7 @@ nx.set({
 	cursorline = true, -- highlight the current line
 	colorcolumn = "120", -- column width indicator - default "80"
 	-- Text & line processing
-	conceallevel = 0, -- keep backticks `` visible in markdown files
+	conceallevel = 2, -- keep backticks `` visible in markdown files
 	list = false,
 	spelllang = "en", -- spell checking language
 	wrap = false, -- display lines as one long line
