@@ -5,7 +5,7 @@
 require("scrollbar").setup({
 	show_in_active_only = true,
 	handle = {
-		blend = vim.g.nx_loaded_gui and 30 or 0,
+		blend = vim.g.loaded_gui and 30 or 0,
 	},
 	handlers = {
 		cursor = false,
