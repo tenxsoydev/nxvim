@@ -223,7 +223,7 @@ local modules = {
 	{ "tpope/vim-repeat", event = "VeryLazy" },
 	{ "tpope/vim-surround", event = "VeryLazy" },
 	"mg979/vim-visual-multi", -- needs to be loaded outside of lazy.nvim for its global variable config values to work
-	{ "folke/which-key.nvim", lazy = true, config = "plugins.which-key" },
+	{ "folke/which-key.nvim", lazy = true, config = "plugins.which-key", tag = "v2.1.0" },
 
 	-- Stash ---------------------------------------------------------------------
 	-- "tiagovla/scope.nvim", -- scope buffers to tabs
