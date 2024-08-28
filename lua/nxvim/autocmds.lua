@@ -1,6 +1,6 @@
 nx.au({
 	-- Check if buffers were changed outside of Vim
-	-- { "FocusGained", pattern = "*.*", command = "checktime" },
+	{ "FocusGained", pattern = "*.*", command = "checktime" },
 	-- Create parent dir if it doesn't exist
 	{ "BufWritePre", command = "call mkdir(expand('<afile>:p:h'), 'p')" },
 	-- Reload(execute) on save
