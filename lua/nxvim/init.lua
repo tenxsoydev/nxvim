@@ -190,9 +190,8 @@ local modules = {
 	{ "dkarter/bullets.vim", ft = "markdown", config = "plugins.bullets" },
 	{ "iamcco/markdown-preview.nvim", build = "yarn", event = "VeryLazy", config = "plugins.markdown-preview" },
 	{ "tenxsoydev/vim-markdown-checkswitch", ft = "markdown" },
-	-- use nvim for PKM / Zettelkasten
-	-- { "renerocksai/telekasten.nvim", config = "plugins.telekasten" },
-	-- { "epwalsh/obsidian.nvim", config = "plugins.obsidian" },
+	-- PKM / Zettelkasten
+	{ "epwalsh/obsidian.nvim", config = "plugins.obsidian" },
 
 	-- Utility -------------------------------------------------------------------
 	{ "max397574/better-escape.nvim", event = "InsertEnter", config = "plugins.better-escape" }, -- remove delay from escape keys while typing in insert mode
