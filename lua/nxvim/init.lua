@@ -101,7 +101,8 @@ local modules = {
 
 	-- Telescope -----------------------------------------------------------------
 	{ "nvim-telescope/telescope.nvim", config = "plugins.telescope" },
-	{ "nvim-telescope/telescope-frecency.nvim", dependencies = "kkharji/sqlite.lua", lazy = true },
+	-- stylua: ignore
+	{ "ttytm/telescope-frecency.nvim", branch = "fix/validation-not-possible", dependencies = "kkharji/sqlite.lua", lazy = true },
 	{ "nvim-telescope/telescope-fzy-native.nvim", dependencies = "romgrk/fzy-lua-native", lazy = true },
 	{ "nvim-telescope/telescope-live-grep-args.nvim", lazy = true },
 	{ "nvim-telescope/telescope-media-files.nvim", lazy = true },
@@ -162,7 +163,7 @@ local modules = {
 	"rafamadriz/friendly-snippets",
 
 	-- Marks & Session -----------------------------------------------------------
-	{ "LintaoAmons/bookmarks.nvim", config = "plugins.bookmarks" },
+	{ "LintaoAmons/bookmarks.nvim", config = "plugins.bookmarks", tag = "v0.5.4" },
 	{ "ThePrimeagen/harpoon", event = "VeryLazy", config = "plugins.harpoon" },
 	{ "Shatur/neovim-session-manager", config = "plugins.session-manager", eager = true },
 	{ "ahmedkhalf/project.nvim", config = "plugins.project" },
@@ -194,7 +195,7 @@ local modules = {
 	{ "epwalsh/obsidian.nvim", config = "plugins.obsidian" },
 
 	-- Utility -------------------------------------------------------------------
-	{ "max397574/better-escape.nvim", event = "InsertEnter", config = "plugins.better-escape" }, -- remove delay from escape keys while typing in insert mode
+	{ "max397574/better-escape.nvim", event = "InsertEnter", config = "plugins.better-escape" },
 	{ "nat-418/boole.nvim", event = "VeryLazy", config = "plugins.boole" }, -- extend increment / decrement to cycle through related words
 	{ "famiu/bufdelete.nvim", lazy = true },
 	{ "stevearc/dressing.nvim", event = "VeryLazy", config = "plugins.dressing" },
@@ -218,7 +219,7 @@ local modules = {
 	{ "luukvbaal/statuscol.nvim", config = "plugins.statuscol" },
 	{ "levouh/tint.nvim", event = "VeryLazy", config = "plugins.tint" },
 	{ "tenxsoydev/tabs-vs-spaces.nvim", event = "VeryLazy", config = "plugins.tabs-vs-spaces" },
-	{ "andymass/vim-matchup", event = "VeryLazy", config = "plugins.matchup" }, -- highlight matching patterns and extend `%` navigation
+	{ "ttytm/vim-matchup", branch = "fix/svelte-compatibility", event = "VeryLazy", config = "plugins.matchup" }, -- highlight matching patterns and extend `%` navigation
 	{ "tpope/vim-repeat", event = "VeryLazy" },
 	{ "tpope/vim-surround", event = "VeryLazy" },
 	"mg979/vim-visual-multi", -- needs to be loaded outside of lazy.nvim for its global variable config values to work
