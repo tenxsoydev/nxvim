@@ -10,8 +10,9 @@ vim.g.multigrid = vim.api.nvim_list_uis()[1].ext_multigrid
 ---@field eager? boolean
 
 ---@type string[]|NxModule[]
--- tip: use `gf` over a `config` string to go to a config file|directory
 local modules = {
+	-- Tip: use `gf` over a `config = "<path>"` to go to its location
+
 	-- Core ----------------------------------------------------------------------
 	{ dir = "nxvim/colorschemes", priority = 90, config = "colorschemes", eager = true },
 	{ dir = "nxvim/client", priority = 95, config = "client", eager = true },
@@ -229,6 +230,9 @@ local modules = {
 	-- "tiagovla/scope.nvim", -- scope buffers to tabs
 	-- "nvim-telescope/telescope-file-browser.nvim",
 }
+
+-- Problem childs that need to be loaded outside of `lazy.setup`
+require("nxvim.plugins.visual-multi") -- resolves global variable settings (e.g. `vim.g.VM_map`) not working
 -- ]
 
 -- == [ Transform to LazySpec Table ===========================================
@@ -271,9 +275,6 @@ end
 
 -- == [ Load Setup ============================================================
 
--- Problem childs that need to be loaded outside of `lazy.setup`
-require("nxvim.plugins.visual-multi") -- `VM_maps` config won't work otherwise afaik
-
 lazy.setup(modules, {
 	ui = { border = "rounded" },
 	dev = { path = "~/Dev/VIM/plugins/" },
@@ -282,11 +283,11 @@ lazy.setup(modules, {
 
 -- == [ Events ================================================================
 
--- Add path for easy `gf` to the config file of a plugin in `get "<plugins.pluginname">` functions above
 nx.au({
 	"BufEnter",
 	pattern = { vim.fn.stdpath("config") .. "*/init.lua" },
 	callback = function()
+		-- Allow `gf` to the config file of a plugin in the module list above
 		vim.opt_local.path = { ",,", vim.fn.stdpath("config") .. "/lua/nxvim/" }
 		vim.cmd("setlocal inex=tr(v:fname,'.','/')")
 	end,

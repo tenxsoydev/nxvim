@@ -180,4 +180,4 @@ This means the GPL limitations do not apply when the configuration is used witho
 [40]: https://github.com/kovidgoyal/kitty
 [50]: https://github.com/tobealive/dots/tree/tooltime/.config/kitty
 [60]: https://github.com/neovide/neovide/
-[70]: https://github.com/tenxsoydev/nxvim/blob/main/lua/nxvim/init.lua#L15
+[70]: https://github.com/tenxsoydev/nxvim/blob/main/lua/nxvim/init.lua#L13
