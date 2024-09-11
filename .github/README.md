@@ -40,27 +40,24 @@ However, since there is not much wizardy involved following along on other platf
 
 Prevent interferences with current Neovim files.
 
-- Using the default config path `~/.config/nvim`
+- When intending to use the default config path `~/.config/nvim`
 
-  1. Backup your current nvim config
-
-     ```sh
-     mv ~/.config/nvim ~/.config/nvim.bak \
-     && mv ~/.local/share/nvim ~/.local/share/nvim.bak
-     ```
-
-     Or remove it
+  1. Backup or remove current nvim files for a clean start.
 
      ```sh
-     rm -rf ~/.config/nvim ~/.local/share/nvim
+     # Backup example moving nvim config directories from `<path/dir>` to `<path/dir>.bak`
+     mv ~/.config/nvim{,.bak} && \
+     mv ~/.local/share/nvim{,.bak} && \
+     mv ~/.local/state/nvim{,.bak} && \
+     mv ~/.cache/nvim{,.bak}
      ```
 
-  1. Clone the repository
+  2. Clone the repository
      ```sh
      git clone --filter=blob:none https://github.com/tenxsoydev/nxvim.git ~/.config/nvim
      ```
 
-- Or, using `$NVIM_APPNAME`
+- Or, use `$NVIM_APPNAME`
 
   1. Export the environment variable
 
@@ -78,9 +75,8 @@ Prevent interferences with current Neovim files.
 
 ### Dependencies
 
-Probably, most necessities are already installed.
-
 1. Neovim >= 0.9
+
 2. Packages
 
    - APT systems
@@ -95,7 +91,7 @@ Probably, most necessities are already installed.
      sudo pacman -S git curl unzip xsel ripgrep fd sqlite trash-cli
      ```
 
-3. Client support for modules communicating with nvim api objects
+3. Modules that add support for plugins that interact with the Neovim API
 
    - Node client for neovim
 
@@ -109,11 +105,11 @@ Probably, most necessities are already installed.
      pip install pynvim
      ```
 
-     In case Node and Python need to be installed first, please refer to their documentation.
+     In case Node or Python pip need to be installed first, please refer to their documentation.
 
 4. Fonts
    - [Nerd font][20]
-   - [Unicode font][30] (If none is installed by default, noto font packages are usually also available via your distros package manager).
+   - [Unicode font][30] (If none is installed by default, noto font packages are usually available via the operating systems package manager).
    - `fc-cache -fv` helps to update font info cache files when new fonts have been added manually.
 
 ### Post installation
@@ -174,10 +170,9 @@ Feel free to use and modify it. Give the project a star to show support if you h
 
 ### License
 
-The config uses GPLv3 licensed plugins, therefore it is licensed under GPLv3.
-Nxvim's own code is written under a more permissive Apache license. Therefore it
-will result in GPLv3 limitations being removed when not using these plugins.
-Please refer to the LICENSE files for detailed information.
+The project uses GPLv3-licensed plugins; therefore, the license for the entire bundled config is GPLv3.
+However, nxvim's own code is written under the more permissive Apache license.
+This means the GPL limitations do not apply when the configuration is used without the GPL licensed plugins.
 
 [10]: https://github.com/MordechaiHadad/bob
 [20]: https://github.com/ryanoasis/nerd-fonts/#patched-fonts
