@@ -45,7 +45,7 @@ local function toggle_format_on_save(silent)
 			vim.lsp.buf.format({
 				async = false,
 				filter = function(client)
-					for _, name in ipairs({ "zls", "tsserver", "volar" }) do
+					for _, name in ipairs({ "zls", "ts_ls", "volar" }) do
 						if name == client.name then return false end
 					end
 					return true
