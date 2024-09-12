@@ -220,7 +220,7 @@ local modules = {
 	{ "luukvbaal/statuscol.nvim", config = "plugins.statuscol" },
 	{ "levouh/tint.nvim", event = "VeryLazy", config = "plugins.tint" },
 	{ "tenxsoydev/tabs-vs-spaces.nvim", event = "VeryLazy", config = "plugins.tabs-vs-spaces" },
-	{ "ttytm/vim-matchup", branch = "fix/svelte-compatibility", event = "VeryLazy", config = "plugins.matchup" }, -- highlight matching patterns and extend `%` navigation
+	{ "andymass/vim-matchup", event = "VeryLazy", config = "plugins.matchup" }, -- highlight matching patterns and extend `%` navigation
 	{ "tpope/vim-repeat", event = "VeryLazy" },
 	{ "tpope/vim-surround", event = "VeryLazy" },
 	"mg979/vim-visual-multi", -- needs to be loaded outside of lazy.nvim for its global variable config values to work
