@@ -111,7 +111,8 @@ local config = {
 		commands = {
 			system_open = function(state)
 				local node = state.tree:get_node()
-				vim.cmd("silent execute '!xdg-open \"" .. node.path .. "\"'")
+				local cmd = jit.os == "OSX" and "open " or "xdg-open "
+				vim.fn.system(cmd .. node.path)
 			end,
 			-- Overwrite default `delete` commands to use trash instead of rm
 			delete = function(state)

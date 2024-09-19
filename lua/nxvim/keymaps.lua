@@ -142,8 +142,10 @@ nx.map({
 	{ "<leader>fW", "<Cmd>w !sudo -A tee > /dev/null %<CR>", desc = "Write!" },
 	{
 		"<leader>fo",
-		jit.os == "OSX" and "<Cmd>silent execute '!open ' . '%:p:h'<CR>"
-			or "<Cmd>silent execute '!xdg-open ' . '%:p:h'<CR>",
+		function()
+			local cmd = jit.os == "OSX" and "open " or "xdg-open "
+			vim.fn.system(cmd .. vim.fn.expand("%"))
+		end,
 		desc = "Open File with System App",
 		wk_label = "System Open",
 	},
