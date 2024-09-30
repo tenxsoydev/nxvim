@@ -119,7 +119,8 @@ local modules = {
 	{ "j-hui/fidget.nvim", event = "VeryLazy", config = "lsp.plugins.fidget" },
 	{ "ray-x/lsp_signature.nvim", event = "VeryLazy", config = "lsp.plugins.lsp-signature" },
 	{ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim", event = "VeryLazy", config = "lsp.plugins.lsp-toggle" },
-	"b0o/SchemaStore.nvim",
+	{ "zeioth/garbage-day.nvim", dependencies = "neovim/nvim-lspconfig", event = "VeryLazy", conifg = true },
+	{ "b0o/SchemaStore.nvim", event = "VeryLazy" },
 	-- Mason
 	{ "williamboman/mason.nvim", config = "lsp.plugins.mason" },
 	-- stylua: ignore
