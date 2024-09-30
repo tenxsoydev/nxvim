@@ -99,6 +99,7 @@ local modules = {
 		dependencies = "nvim-treesitter/nvim-treesitter",
 		config = "plugins.spread",
 	},
+	{ "RRethy/vim-illuminate", dependencies = "nvim-treesitter/nvim-treesitter" },
 
 	-- Telescope -----------------------------------------------------------------
 	{ "nvim-telescope/telescope.nvim", config = "plugins.telescope" },
@@ -119,7 +120,6 @@ local modules = {
 	{ "ray-x/lsp_signature.nvim", event = "VeryLazy", config = "lsp.plugins.lsp-signature" },
 	{ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim", event = "VeryLazy", config = "lsp.plugins.lsp-toggle" },
 	"b0o/SchemaStore.nvim",
-	{ "RRethy/vim-illuminate", dependencies = "nvim-treesitter/nvim-treesitter" },
 	-- Mason
 	{ "williamboman/mason.nvim", config = "lsp.plugins.mason" },
 	-- stylua: ignore
