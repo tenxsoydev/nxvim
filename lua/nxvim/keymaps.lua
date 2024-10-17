@@ -36,8 +36,8 @@ nx.map({
 	-- { "<C-s>", "<Esc><Cmd>w<CR>", "i", desc = "Save File"  },
 
 	-- LINE NAVIGATION
-	{ { "j", "<Up>" }, "&wrap ? 'gj' : 'j'", "", expr = true, silent = true },
-	{ { "k", "<Down>" }, "&wrap ? 'gk' : 'k'", "", expr = true, silent = true },
+	{ { "j", "<Down>" }, "&wrap ? 'gj' : 'j'", "", expr = true, silent = true },
+	{ { "k", "<Up>" }, "&wrap ? 'gk' : 'k'", "", expr = true, silent = true },
 	{ "$", "&wrap ? 'g$' : '$'", "", expr = true, silent = true },
 	{ "^", "&wrap ? 'g^' : '^'", "", expr = true, silent = true },
 	-- Duplicate Lines
