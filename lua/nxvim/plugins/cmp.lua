@@ -1,7 +1,6 @@
 -- https://github.com/hrsh7th/nvim-cmp
 
 local cmp = require("cmp")
-require("luasnip.loaders.from_vscode").lazy_load()
 
 -- == [ Configuration ========================================================
 
@@ -46,11 +45,6 @@ local config = {
 		{ name = "path" },
 		{ name = "nerdfont" },
 		-- { name = "copilot" },
-		-- { name = "emoji" },
-	},
-	confirm_opts = {
-		behavior = cmp.ConfirmBehavior.Replace,
-		select = false,
 	},
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
@@ -77,10 +71,6 @@ local config = {
 			scrollbar = "║",
 			winhighlight = "Normal:Normal",
 		},
-	},
-	experimental = {
-		ghost_text = false,
-		-- native_menu = false,
 	},
 	mapping = {},
 }
@@ -146,4 +136,5 @@ config.mapping = {
 }
 -- ]
 
+require("luasnip.loaders.from_vscode").lazy_load()
 cmp.setup(config)
