@@ -13,12 +13,6 @@ capabilities.textDocument.foldingRange = {
 	lineFoldingOnly = true,
 }
 
-local cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if cmp_ok then
-	capabilities.textDocument.completion.completionItem.snippetSupport = true
-	capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
-end
-
 local function on_attach(client, bufnr)
 	-- Attach keymaps and commands.
 	require("nxvim.lsp").on_attach(client, bufnr)
