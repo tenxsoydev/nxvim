@@ -166,11 +166,7 @@ nx.map({
 		"<leader>ts",
 		function()
 			vim.o.spell = not vim.o.spell
-			if vim.o.spell then
-				vim.notify("Spell On")
-			else
-				vim.notify("Spell Off")
-			end
+			vim.notify("Spell " .. (vim.o.spell and "On" or "Off"))
 		end,
 		desc = "Toggle Spellcheck",
 		wk_label = "Spellcheck",
@@ -180,11 +176,7 @@ nx.map({
 		function()
 			-- "<Cmd>set list! list?<CR>",
 			vim.o.list = not vim.o.list
-			if vim.o.list then
-				vim.notify("Whitespace Characters On")
-			else
-				vim.notify("Whitespace Characters Off")
-			end
+			vim.notify("Whitespace Characters " .. (vim.o.list and "On" or "Off"))
 		end,
 		desc = "Toggle Whitespace Characters",
 		wk_label = "Whitespace Characters",
@@ -194,11 +186,7 @@ nx.map({
 		function()
 			vim.o.wrap = not vim.o.wrap
 			vim.o.linebreak = vim.o.wrap
-			if vim.o.wrap then
-				vim.notify("Line Wrap On")
-			else
-				vim.notify("Line Wrap Off")
-			end
+			vim.notify("Line Wrap " .. (vim.o.wrap and "On" or "Off"))
 		end,
 		desc = "Toggle Line Wrap",
 		wk_label = "Line Wrap",
