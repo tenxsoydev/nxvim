@@ -45,7 +45,6 @@ mason_lspconfig.setup_handlers({
 		::setup::
 		lspconfig[server].setup(server_opts)
 	end,
-	["rust_analyzer"] = function() require("rust-tools").setup({ server = opts }) end,
 })
 -- ]
 
