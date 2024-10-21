@@ -55,6 +55,13 @@ local lazygit = Terminal:new({
 	close_on_exit = true,
 })
 
+local slumber = Terminal:new({
+	cmd = "slumber -f /home/t/.config/slumber/slumber.yml ",
+	dir = "git_dir",
+	on_open = function(term) set_lazygit_keymaps(term) end,
+	close_on_exit = true,
+})
+
 local gitui = Terminal:new({
 	cmd = "gitui",
 	dir = "git_dir",
@@ -94,9 +101,10 @@ nx.map({
 	{ { "<C-F4>", "<F28>", "<leader>`4" }, "<Cmd>4ToggleTerm<CR>", { "", "t" }, desc = "Toggle Terminal #4" },
 	-- External injections
 	-- { "<leader>gt", function() gitui:toggle() end, "", desc = "Terminal UI" },
-	{ "<leader>gt", function() lazygit:toggle() end, "", desc = "Terminal UI" },
-	{ "<leader>`r", function() btop:toggle() end, desc = "Btop Resource Monitor" },
-	{ "<leader>`u", function() ncdu:toggle() end, desc = "NCurses Disk Usage" },
+	{ "<leader>gt", function() lazygit:toggle() end, "", desc = "Toggle Lazygit" },
+	{ "<leader>`r", function() btop:toggle() end, desc = "Toggle Btop Resource Monitor" },
+	{ "<leader>`u", function() ncdu:toggle() end, desc = "Toggle NCurses Disk Usage" },
+	{ "<leader>`s", function() slumber:toggle() end, desc = "Toggle Slumber" },
 	-- Telescope
 	{ "<leader>`/", "<Cmd>Telescope termfinder<CR>", desc = "Search Terminals", wk_label = "Search" },
 	{ "<leader>/`", "<Cmd>Telescope termfinder<CR>", desc = "Search Terminals", wk_label = "Terminals" },
