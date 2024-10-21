@@ -21,8 +21,8 @@ nx.map({
 	{ "<C-u>", function() neoscroll.ctrl_u({ duration = 100 }) end },
 	{ "<C-e>", function() neoscroll.scroll(0.1, { duration = 100 }) end },
 	{ "<C-y>", function() neoscroll.scroll(-0.1, { duration = 100 }) end },
-	{ "<C-b>", function() neoscroll.ctrl_b({ duration = 180, easing = "circular" }) end },
-	{ "<C-f>", function() neoscroll.ctrl_f({ duration = 180, easing = "circular" }) end },
+	{ "<C-b>", function() neoscroll.ctrl_b({ duration = 150, easing = "circular" }) end },
+	{ "<C-f>", function() neoscroll.ctrl_f({ duration = 150, easing = "circular" }) end },
 	{
 		"z<CR>",
 		function()

@@ -21,7 +21,7 @@ local config = {
 	},
 	animation = {
 		enable = true,
-		duration = 120,
+		duration = 75,
 		fps = 60,
 		easing = "in_out_sine",
 	},
