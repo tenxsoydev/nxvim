@@ -35,5 +35,6 @@ function M.set_hl()
 		})
 	end
 end
+-- ]
 
 return M

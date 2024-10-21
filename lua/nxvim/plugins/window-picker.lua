@@ -12,5 +12,4 @@ require("window-picker").setup({
 		},
 	},
 })
-
 -- ]
