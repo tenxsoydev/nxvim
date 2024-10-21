@@ -5,7 +5,7 @@
 require("lspconfig.ui.windows").default_options.border = nx.opts.float_win_border
 
 nx.map({
-	{ "<leader>lI", "<Cmd>LspInfo<CR>", desc = "Info" },
+	{ "<leader>l?", "<Cmd>LspInfo<CR>", desc = "Info" },
 	{ "<leader>lR", "<Cmd>LspRestart<CR>", desc = "Restart" },
 })
 -- ]

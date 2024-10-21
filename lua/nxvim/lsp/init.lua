@@ -15,26 +15,29 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { 
 
 -- == [ Commands ==============================================================
 
----@type { [number]: boolean }
-local diag_disabled_buffers = {}
----@param bufnr number
-local function toggle_buffer_diags(bufnr)
-	if diag_disabled_buffers[bufnr] then
-		vim.diagnostic.enable(true, { bufnr = bufnr })
-		diag_disabled_buffers[bufnr] = false
-		vim.notify("Enabled Diagnostics for Buffer")
-	else
-		vim.diagnostic.enable(false, { bufnr = bufnr })
-		diag_disabled_buffers[bufnr] = true
-		vim.notify("Disabled Diagnostics for Buffer")
-	end
+local function toggle_buffer_diags()
+	local next_state = not vim.diagnostic.is_enabled()
+	vim.diagnostic.enable(next_state, { bufnr = vim.api.nvim_get_current_buf() })
+	vim.notify((next_state and "Enabled" or "Disabled") .. " Diagnostics for Buffer")
 end
 
----@param silent? "silent"
-local function toggle_format_on_save(silent)
+local function toggle_diags()
+	local next_state = not vim.diagnostic.is_enabled()
+	vim.diagnostic.enable(next_state)
+	vim.notify((next_state and "Enabled" or "Disabled") .. " Diagnostics")
+end
+
+local function toggle_inlay_hints()
+	local next_state = not vim.lsp.inlay_hint.is_enabled()
+	vim.lsp.inlay_hint.enable(next_state)
+	vim.notify((next_state and "Enabled" or "Disabled") .. " Inlay Hints")
+end
+
+---@param notify? boolean
+local function toggle_format_on_save(notify)
 	if vim.fn.exists("#FormatOnSave") ~= 0 then
 		vim.api.nvim_del_augroup_by_name("FormatOnSave")
-		if silent ~= "silent" then vim.notify("Disabled Format on Save") end
+		if notify then vim.notify("Disabled Format on Save") end
 		return
 	end
 
@@ -53,16 +56,15 @@ local function toggle_format_on_save(silent)
 			})
 		end,
 	})
-	if silent ~= "silent" then vim.notify("Enabled Format on Save") end
+	if notify then vim.notify("Enabled Format on Save") end
 end
 
--- enable format on save by default
-toggle_format_on_save("silent")
+toggle_format_on_save()
 
 nx.cmd({
 	{ "LspFormat", function() vim.lsp.buf.format({ async = true }) end, bang = true },
-	{ "LspToggleAutoFormat", function(opt) toggle_format_on_save(opt.args) end, bang = true, nargs = "?" },
-	{ "ToggleBufferDiagnostics", function() toggle_buffer_diags(vim.fn.bufnr()) end, bang = true },
+	{ "LspToggleAutoFormat", function() toggle_format_on_save(true) end, bang = true },
+	{ "ToggleBufferDiagnostics", function() toggle_buffer_diags() end, bang = true },
 })
 -- ]
 
@@ -78,8 +80,10 @@ nx.map({
 		desc = "Show Diagnostics",
 	},
 	-- Keymaps for user commands
-	{ "<leader>dtt", "<Cmd>ToggleBufferDiagnostics<CR>", desc = "Toggle Buffer Diagnostics" },
-	{ "<leader>tdt", "<Cmd>ToggleBufferDiagnostics<CR>", desc = "Toggle ", wk_label = "Buffer Diagnostics" },
+	{ "<leader>dtt", toggle_buffer_diags, desc = "Toggle Buffer Diagnostics" },
+	{ "<leader>tdt", toggle_buffer_diags, desc = "Toggle ", wk_label = "Buffer Diagnostics" },
+	{ "<leader>tdT", toggle_diags, desc = "Toggle Diagnostics", wk_label = "Diagnostics" },
+	{ "<leader>dtT", toggle_diags, desc = "Toggle Diagnostics", wk_label = "Diagnostics" },
 	{ "<leader>dj", function() vim.diagnostic.jump({ count = 1 }) end, desc = "Next diagnostic" },
 	{ "<leader>dk", function() vim.diagnostic.jump({ count = -1 }) end, desc = "Previous diagnostic" },
 })
@@ -117,11 +121,8 @@ function M.on_attach(_, bufnr)
 			desc = "Rename",
 		},
 
-		-- Telescope
-		{ "<leader>ls", "<Cmd>Telescope lsp_document_symbols<CR>", desc = "Document Symbols" },
-		{ "<leader>lS", "<Cmd>Telescope lsp_dynamic_workspace_symbols<CR>", desc = "Workspace Symbols" },
-
 		-- Keymaps for user commands
+		{ { "<leader>ti", "<leader>li" }, toggle_inlay_hints, desc = "Toggle Inlay Hints", wk_label = "Inlay Hints" },
 		{ { "<leader>fF", "<leader>lf" }, "<Cmd>LspFormat<CR>", desc = "Format Buffer" },
 		-- stylua: ignore
 		{ { "<leader>tF", "<leader>lF" }, "<Cmd>LspToggleAutoFormat<CR>", desc = "Toggle Format on Save", wk_label = "Format on Save" },

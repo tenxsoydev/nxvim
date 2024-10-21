@@ -161,16 +161,8 @@ local dropdown = require("telescope.themes").get_dropdown({
 
 nx.map({
 	-- Quick Pickers
-	{
-		"<C-p>",
-		function() builtin.find_files(dropdown) end,
-		desc = "Go to File",
-	},
-	{
-		"<A-p>",
-		function() builtin.buffers(dropdown) end,
-		desc = "Go to Open Buffer",
-	},
+	{ "<C-p>", function() builtin.find_files(dropdown) end, desc = "Go to File" },
+	{ "<A-p>", function() builtin.buffers(dropdown) end, desc = "Go to Open Buffer" },
 	-- Registers
 	--[[
 	-- Telescopes as File Browser instead of tree plugins?
@@ -190,10 +182,11 @@ nx.map({
 	{ "<leader>hq", "<Cmd>Telescope quickfixhistory<CR>", desc = "Quickfixes" },
 	{ "<leader>h:", "<Cmd>Telescope command_history<CR>", desc = "Commands" },
 	{ "<leader>h/", "<Cmd>Telescope search_history<CR>", desc = "Searches" },
+	-- LSP
+	{ "<leader>ls", "<Cmd>Telescope lsp_document_symbols<CR>", desc = "Document Symbols" },
+	{ "<leader>lS", "<Cmd>Telescope lsp_dynamic_workspace_symbols<CR>", desc = "Workspace Symbols" },
 	-- Config
-	--[[ {"<leader>,/"},
-	"<Cmd>Telescope file_browser depth=false path=~/.config/nvim grouped=true prompt_title=NXVim\\ Config<CR>",
-	 desc = "Search Config Files" ) ]]
+	-- { "<leader>,/", "<Cmd>Telescope file_browser depth=false path=~/.config/nvim grouped=true prompt_title=NXVim\\ Config<CR>", desc = "Search Config Files" }
 	-- { "<leader>,k", function() find_config("Keymaps", nil, "keymaps") end, desc = "Search Keymap Files" },
 	{
 		"<leader>,k",
@@ -203,17 +196,9 @@ nx.map({
 	-- { "<leader>,a", function() find_config("Autocmds", nil, "autocmds") end, desc = "Search Autocmd Files" },
 	-- { "<leader>,g", function() find_config("GUI Options", { "client" }) end, desc = "Search GUI Client Files" },
 	{ "<leader>,l", function() find_config("LSP", { "lsp" }) end, desc = "Search LSP Files" },
-	{
-		"<leader>,p",
-		function() find_config("Plugins", { "plugins", "lsp/plugins" }) end,
-		desc = "Search Plugin Files",
-	},
-	{
-		"<leader>,c",
-		function() find_config("Colorschemes", { "colorschemes" }) end,
-		desc = "Search Colorscheme Files",
-	},
-	{ "<leader>tC", "<Cmd>Telescope colorscheme<CR>", desc = "Toggle Colorscheme", wk_label = "Colorscheme" },
+	{ "<leader>,p", function() find_config("Plugins", { "plugins", "lsp/plugins" }) end, desc = "Search Plugin Files" },
+	{ "<leader>,c", function() find_config("Colorschemes", { "colorschemes" }) end, desc = "Search Colorscheme Files" },
+	{ "<leader>,C", "<Cmd>Telescope colorscheme<CR>", desc = "Select Colorscheme", wk_label = "Colorscheme" },
 })
 -- Search
 nx.map({
