@@ -12,6 +12,8 @@ capabilities.textDocument.foldingRange = {
 	dynamicRegistration = false,
 	lineFoldingOnly = true,
 }
+-- local cmp = require("blink.cmp")
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 local function on_attach(client, bufnr)
 	-- Attach keymaps and commands.
