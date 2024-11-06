@@ -150,6 +150,15 @@ nx.map({
 		wk_label = "System Open",
 	},
 	{
+		"<leader>fO",
+		function()
+			local cmd = jit.os == "OSX" and "open " or "xdg-open "
+			vim.fn.system(cmd .. vim.fn.fnamemodify(vim.fn.expand("%"), ":h"))
+		end,
+		desc = "Open Containing Folder",
+		wk_label = "Open Containing Folder",
+	},
+	{
 		"<leader>fy",
 		"<Cmd>let @+ = expand('%')<CR>",
 		desc = "Yank Relative Path of Active File",
