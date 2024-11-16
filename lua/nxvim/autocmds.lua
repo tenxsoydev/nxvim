@@ -18,15 +18,24 @@ nx.au({
 	{ "TextYankPost", callback = function() vim.highlight.on_yank({ higroup = "IncSearch", timeout = 150 }) end },
 	-- QFList - adapt window height to list item count(nxvim.utils function)
 	{ "FileType", pattern = "qf", command = "setlocal nobuflisted | call AdjustWindowHeight(3, 10)" },
-
-	-- Filetype Specific ----------------------------------------------------------
-	{ "FileType", pattern = "markdown", command = "setlocal wrap ts=2 sw=2 cole=2" },
-	{ "FileType", pattern = "vb", command = "setlocal et ts=4 sw=4" },
-	{ "FileType", pattern = "teal", once = true, command = "LspToggleAutoFormat silent" },
-	{ "FileType", pattern = { "python", "zig", "swift" }, command = "setlocal noet ts=3 sw=0" },
-	{ "BufRead", pattern = { "*.njk", "*.vto" }, command = "set ft=html" },
-	{ "BufRead", pattern = { "*.v", "*.v_*", "v.mod" }, command = "set ft=v" },
-	{ "BufRead", pattern = { "*.mojo" }, command = "setlocal commentstring=#%s" },
+	{
+		"BufRead",
+		callback = function(ev)
+			if
+				vim.fn.line("$") > 5500
+				or #vim.api.nvim_get_current_line() > 500
+				or vim.fn.getfsize(vim.fn.expand("%:p")) > 200 * 1024
+			then
+				-- Disable potentially tasking features if the file has 5.5k+ lines,
+				-- is not one long line(e.g. minified .js files), or is more than 200kb size.
+				vim.defer_fn(function()
+					vim.cmd("TSBufDisable highlight")
+					vim.cmd("ColorizerDetachFromBuffer")
+					require("rainbow-delimiters").disable(0)
+				end, 100)
+			end
+		end,
+	},
 })
 
 nx.au({ -- Remember folds
@@ -34,11 +43,41 @@ nx.au({ -- Remember folds
 	{ "BufWinEnter", pattern = "*.*", callback = function() vim.cmd("silent! loadview") end },
 }, { create_group = "RememberFolds" })
 
-nx.au({ -- Sync marks accross sessions
+nx.au({ -- Sync marks across sessions
 	{ "FocusLost", command = "wshada" },
 	-- stylua: ignore
 	{ { "FocusGained", "UIEnter" }, callback = function() vim.schedule(function() vim.cmd("rshada") end) end },
 }, { create_group = "SyncMarks" })
+
+-- == [ Language Autocmds =====================================================
+
+nx.au({
+	{ "FileType", pattern = "markdown", command = "setlocal wrap ts=2 sw=2 cole=2" },
+	{ "FileType", pattern = "vb", command = "setlocal et ts=4 sw=4" },
+	{ "FileType", pattern = "teal", once = true, command = "LspToggleAutoFormat silent" },
+	{ "FileType", pattern = { "python", "zig", "swift", "rust", "ron" }, command = "setlocal noet ts=3 sw=0 sts=0" },
+	{ "FileType", pattern = "onyx", command = "setlocal noet ts=4 sts=0 sw=0" },
+	{ "BufRead", pattern = { "*.mojo" }, command = "setlocal commentstring=#%s" },
+})
+
+vim.filetype.add({
+	extension = {
+		c3 = "c3",
+		c3i = "c3",
+		c3t = "c3",
+		njk = "html",
+		vto = "html",
+		onyx = "onyx",
+		v = "v",
+		vv = "v",
+	},
+	filename = {
+		["v.mod"] = "v",
+	},
+	pattern = {
+		['"*.v_*"'] = "v",
+	},
+})
 -- ]
 
 -- == [ Plugin Autocmds ========================================================
