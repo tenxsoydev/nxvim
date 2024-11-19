@@ -130,7 +130,7 @@ basic.treesitter = {
 	text = function(bufnr)
 		-- Highlight cogwheel when TS is active.
 		return {
-			{ " ", highlighter.active[bufnr] and colors.cyan or colors.filename },
+			{ " ", highlighter.active[bufnr] and colors.cyan or colors.filename },
 		}
 	end,
 }
