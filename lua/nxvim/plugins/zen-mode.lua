@@ -22,7 +22,6 @@ local config = {
 
 config.on_open = function()
 	vim.g.zen_mode = true -- Used e.g. for wilder popmenu
-	vim.o.laststatus = 3 -- Keep statusline(not working with latest nighlty 20230328).
 	vim.wo.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:›,vert:▏]]
 	vim.cmd("ScrollbarHide")
 
@@ -36,7 +35,6 @@ config.on_open = function()
 end
 config.on_close = function()
 	vim.g.zen_mode = nil
-	vim.o.laststatus = 2
 	vim.cmd("ScrollbarShow")
 	-- Re-enable default window-switch keymaps.
 	require("nxvim.plugins.smart-splits").set_maps()
