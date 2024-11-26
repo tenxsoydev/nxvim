@@ -2,18 +2,17 @@
 
 local mason_lspconfig = require("mason-lspconfig")
 local lspconfig = require("lspconfig")
+local configs = require("lspconfig.configs")
 
 -- == [ Configuration =========================================================
 
 mason_lspconfig.setup()
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 capabilities.textDocument.foldingRange = {
-	dynamicRegistration = false,
+	dynamicRegistration = true,
 	lineFoldingOnly = true,
 }
--- local cmp = require("blink.cmp")
-capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 local function on_attach(client, bufnr)
 	-- Attach keymaps and commands.
@@ -26,9 +25,6 @@ local opts = {
 	on_attach = on_attach,
 }
 
-lspconfig.mojo.setup(opts)
-lspconfig.sourcekit.setup(opts)
-
 -- `:h mason-lspconfig-dynamic-server-setup`
 mason_lspconfig.setup_handlers({
 	function(server)
@@ -38,16 +34,54 @@ mason_lspconfig.setup_handlers({
 		local server_settings_ok, server_settings = pcall(require, "nxvim.lsp.settings." .. server)
 		if server_settings_ok then server_opts = vim.tbl_deep_extend("keep", server_settings, server_opts) end
 
-		--- Or add settings inline.
-		if server == "gopls" then goto setup end
-		-- Use prettierd as formatter.
-		if server == "jsonls" then server_opts.init_options = { provideFormatter = false } end
-		if server == "zls" then vim.g.zig_fmt_autosave = 0 end
+		if server == "ts_ls" then
+			server_opts.single_file_support = false
+			server_opts.root_dir = lspconfig.util.root_pattern("package.json")
+		elseif server == "denols" then
+			server_opts.single_file_support = true
+			-- server_opts.root_dir = lspconfig.util.root_pattern("deno.jsonc") -- Pointless with sfs enabled.
+			server_opts.on_attach = function(client, bufnr)
+				if vim.fn.filereadable(vim.fn.getcwd() .. "/package.json") == 1 then
+					-- Stop (since it starts due to single file support) in a npm project.
+					client.stop(bufnr)
+					return
+				end
+				on_attach(client, bufnr)
+			end
+		elseif server == "jsonls" then
+			server_opts.init_options = { provideFormatter = false } -- Use prettierd as formatter.
+		elseif server == "zls" then
+			vim.g.zig_fmt_autosave = 0
+		end
 
-		::setup::
 		lspconfig[server].setup(server_opts)
 	end,
 })
+
+configs.c3lsp = {
+	default_config = {
+		cmd = { "c3lsp" },
+		filetypes = { "c3", "c3i", "c3t" },
+		single_file_support = true,
+	},
+	server = {},
+}
+
+configs.onyx = {
+	default_config = {
+		cmd = { "onyx", "lsp" },
+		filetypes = { "onyx", "onyx-pkg.kdl" },
+		single_file_support = true,
+	},
+	server = {},
+}
+vim.g.onyx_check_parse_errors = 0
+
+lspconfig.mojo.setup(opts)
+lspconfig.sourcekit.setup(opts)
+lspconfig.onyx.setup(opts)
+lspconfig.c3lsp.setup(opts)
+
 -- ]
 
 -- == [ Keymaps ===============================================================
