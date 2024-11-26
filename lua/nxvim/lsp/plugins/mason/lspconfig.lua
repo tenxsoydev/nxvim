@@ -38,16 +38,7 @@ mason_lspconfig.setup_handlers({
 			server_opts.single_file_support = false
 			server_opts.root_dir = lspconfig.util.root_pattern("package.json")
 		elseif server == "denols" then
-			server_opts.single_file_support = true
-			-- server_opts.root_dir = lspconfig.util.root_pattern("deno.jsonc") -- Pointless with sfs enabled.
-			server_opts.on_attach = function(client, bufnr)
-				if vim.fn.filereadable(vim.fn.getcwd() .. "/package.json") == 1 then
-					-- Stop (since it starts due to single file support) in a npm project.
-					client.stop(bufnr)
-					return
-				end
-				on_attach(client, bufnr)
-			end
+			server_opts.root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc")
 		elseif server == "jsonls" then
 			server_opts.init_options = { provideFormatter = false } -- Use prettierd as formatter.
 		elseif server == "zls" then
