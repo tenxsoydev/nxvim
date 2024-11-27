@@ -16,6 +16,15 @@ local opts = {
 		require("nxvim.lsp.plugins.lspsaga").on_attach(client, bufnr)
 	end,
 }
+opts.capabilities = {
+	textDocument = {
+		completion = {
+			completionItem = {
+				snippetSupport = false,
+			},
+		},
+	},
+}
 
 -- `:h mason-lspconfig-dynamic-server-setup`
 mason_lspconfig.setup_handlers({
