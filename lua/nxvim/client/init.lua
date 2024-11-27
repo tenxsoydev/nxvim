@@ -1,12 +1,5 @@
 local M = {}
 
-if vim.fn.has("nvim-0.9.0") ~= 1 then
-	vim.defer_fn(
-		function() vim.notify("nxvim requires neovim version >= 0.9 for unimpaired usage", vim.log.levels.WARN) end,
-		300
-	)
-end
-
 ---@class NxOpts
 ---@field float_win_border "single"|"rounded"|"double"|"none" @border style for float windows and cmp popups
 ---@field transparency boolean
