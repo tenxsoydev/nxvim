@@ -1,59 +1,59 @@
-nx.set({
-	-- General
-	clipboard = "unnamedplus", -- use system clipboard
-	mouse = "a", -- allow mouse in all modes
-	showmode = false, -- print vim mode on enter
-	termguicolors = true, -- set term gui colors
-	timeoutlen = 350, -- time to wait for a mapped sequence to complete
-	title = true, -- show filename and path in application window title
-	sessionoptions__append = "globals",
-	laststatus = 3, -- global statusline
-	-- Auxiliary files
-	undofile = true, -- enable persistent undo
-	backup = false, -- create a backup file
-	swapfile = false, -- create a swap file
-	-- Command line
-	cmdheight = 0,
-	-- Completion menu
-	pumheight = 14, -- completion popup menu height
-	shortmess__append = "c", -- don't give completion-menu messages
-	-- Characters
-	fillchars__append = [[eob: ,vert:▏,vertright:▏,vertleft:▏,horiz:┈, fold: ,foldopen:,foldsep: ,foldclose:]],
-	listchars__append = [[space:⋅, tab: ░, trail:⋅, eol:↴]],
-	-- Gutter
-	number = true, -- show line numbers
-	numberwidth = 3, -- number column width - default "4"
-	relativenumber = true, -- set relative line numbers
-	signcolumn = "yes:2", -- use fixed width signcolumn - prevents text shift when adding signs
-	-- Search
-	hlsearch = true, -- highlight matches in previous search pattern
-	ignorecase = true, -- ignore case in search patterns
-	smartcase = true, -- use smart case, works in conjunction with ignorecase
-	-- Windows
-	equalalways = false, -- force equal window size on split
-	splitbelow = true, -- force horizontal splits below
-	splitright = true, -- force vertical splits right
-	-- Viewport
-	scrolloff = 7, -- number of lines to keep above / below cursor
-	sidescrolloff = 7, -- number of columns to keep left / right to cursor
-	cursorline = true, -- highlight the current line
-	colorcolumn = "120", -- column width indicator - default "80"
-	-- Text & line processing
-	list = false,
-	spelllang = "en", -- spell checking language
-	wrap = false, -- display lines as one long line
-	linebreak = true, -- do not wrap lines in the middle of words
-	whichwrap__append = "<,>,[,],h,l", -- move to previous / next line when reaching first / last character of line
-	-- Folds
-	foldlevel = 99,
-	foldlevelstart = 99,
-	foldcolumn = "1",
-	-- Indentation
-	expandtab = false, -- do not convert tabs to spaces
-	smartindent = true, -- smart auto indenting when starting a new line
-	shiftwidth = 0, -- number of spaces to use for (auto) indentation - zero = use tabstop value
-	tabstop = 3, -- number of spaces a tab counts for
-}, vim.opt)
+local o = vim.opt
 
--- Load client-specific opts after global opts
+-- General
+o.clipboard = "unnamedplus"
+o.mouse = "a"
+o.showmode = false
+o.termguicolors = true
+o.timeoutlen = 350
+o.title = true
+o.sessionoptions:append("globals")
+o.laststatus = 3
+-- Auxiliary files
+o.undofile = true
+o.backup = false
+o.swapfile = false
+-- Command line
+o.cmdheight = 0
+-- Completion menu
+o.pumheight = 14
+o.shortmess:append("c")
+-- Characters
+o.fillchars:append("eob: ,vert:▏,vertright:▏,vertleft:▏,horiz:┈, fold: ,foldopen:,foldsep: ,foldclose:")
+o.listchars:append("space:⋅, tab: ░, trail:⋅, eol:↴")
+-- Gutter
+o.number = true
+o.numberwidth = 3
+o.relativenumber = true
+o.signcolumn = "yes:2"
+-- Search
+o.hlsearch = true
+o.ignorecase = true
+o.smartcase = true
+-- Windows
+o.equalalways = false
+o.splitbelow = true
+o.splitright = true
+-- Viewport
+o.scrolloff = 7
+o.sidescrolloff = 7
+o.cursorline = true
+o.colorcolumn = "120"
+-- Text & line processing
+o.list = false
+o.spelllang = "en"
+o.wrap = false
+o.linebreak = true
+o.whichwrap:append("<,>,[,],h,l")
+-- Folds
+o.foldlevel = 99
+o.foldlevelstart = 99
+o.foldcolumn = "1"
+-- Indentation
+o.expandtab = false
+o.smartindent = true
+o.shiftwidth = 0
+o.tabstop = 3
+
+-- Load client-specific opts and overwrites
 require("nxvim.client").load_opts()

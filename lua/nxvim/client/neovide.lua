@@ -1,11 +1,11 @@
-local opts = {
-	guifont = vim.g.osx and "Hasklug Nerd Font Mono:h16:#e-antialias:#h-none"
-		or "Hasklug Nerd Font Mono:h12:#e-antialias:#h-none",
-	-- guifont = "JetBrainsMono Nerd Font Mono:h11:#e-antialias:#h-none",
-}
+local opt = vim.opt
+opt.guifont = vim.g.osx and "Hasklug Nerd Font Mono:h16:#e-antialias:#h-none"
+	-- or "Hasklug Nerd Font Mono:h12.5:#e-antialias:#h-none",
+	or "Hasklug Nerd Font Mono:h12.5"
+-- guifont = "JetBrainsMono Nerd Font Mono:h12",
 if vim.g.multigrid then
-	opts.winblend = 15
-	opts.pumblend = 15
+	opt.winblend = 15
+	opt.pumblend = 15
 end
 
 nx.set({
@@ -23,5 +23,3 @@ nx.set({
 	neovide_unlink_border_highlights = true,
 	-- neovide_scroll_animation_length = 0.35,
 })
-
-return opts

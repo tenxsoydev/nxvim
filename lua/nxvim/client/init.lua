@@ -16,7 +16,7 @@ end
 nx.opts = {
 	float_win_border = "rounded",
 	transparency = true,
-	second_font = false,
+	second_font = true,
 }
 
 -- MacOS
@@ -36,29 +36,26 @@ end
 
 local function init_gui()
 	-- General GUI options
-	local opts = {
-		fillchars__append = [[vert:│]],
-		guifont = vim.g.osx and "Hasklug Nerd Font Mono:h14" or "Hasklug Nerd Font Mono:h11",
-		guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait600-blinkoff800-blinkon900-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175",
-		linespace = vim.g.osx and 3 or 2,
-		winblend = 10,
-		pumblend = 10,
-	}
+	local opt = vim.opt
+	opt.fillchars:append("vert:│")
+	opt.guifont = vim.g.osx and "Hasklug Nerd Font Mono:h14" or "Hasklug Nerd Font Mono:h11"
+	opt.guicursor =
+		"n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait600-blinkoff800-blinkon900-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+	-- linespace = vim.g.osx and 3 or 2
+	opt.linespace = 4
+	opt.winblend = 10
+	opt.pumblend = 10
+
 	nx.opts.second_font = false
 
 	-- GUI Plugins
 	require("nxvim.plugins.size-matters")
-
-	return opts
 end
 
 function M.load_opts()
 	if not vim.g.loaded_gui then return end
-
-	local gui_opts = init_gui()
-	local client_opts = require("nxvim.client." .. vim.g.loaded_gui)
-
-	vim.schedule(function() nx.set(vim.tbl_deep_extend("keep", client_opts, gui_opts), vim.opt) end)
+	init_gui()
+	require("nxvim.client." .. vim.g.loaded_gui)
 end
 
 return M

@@ -1,6 +1,4 @@
-local opts = {
-	guifont = "JetBrainsMono Nerd Font Mono:h12.5",
-}
+vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h12.5"
 
 local function set_hl()
 	nx.hl({
@@ -12,5 +10,3 @@ local function set_hl()
 end
 
 nx.au({ { "UIEnter", once = true, callback = set_hl } })
-
-return opts

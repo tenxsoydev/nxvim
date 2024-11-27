@@ -8,8 +8,8 @@ vim.cmd([[
 
 	" Background composition
 	" 'none', 'transparent', 'blur' or 'acrylic'
-	FVimBackgroundComposition 'acrylic'   
-	FVimBackgroundOpacity 0.85           
+	FVimBackgroundComposition 'acrylic'
+	FVimBackgroundOpacity 0.85
 	FVimBackgroundAltOpacity 0.85
 
 	" Debug UI overlay

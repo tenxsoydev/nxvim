@@ -1,5 +1,1 @@
-local opts = {
-	fillchars__append = "vert: ",
-}
-
-return opts
+vim.opt.fillchars:append("vert: ")
