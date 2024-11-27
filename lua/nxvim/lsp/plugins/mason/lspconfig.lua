@@ -8,21 +8,13 @@ local configs = require("lspconfig.configs")
 
 mason_lspconfig.setup()
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-capabilities.textDocument.foldingRange = {
-	dynamicRegistration = true,
-	lineFoldingOnly = true,
-}
-
-local function on_attach(client, bufnr)
-	-- Attach keymaps and commands.
-	require("nxvim.lsp").on_attach(client, bufnr)
-	require("nxvim.lsp.plugins.lspsaga").on_attach(client, bufnr)
-end
-
 local opts = {
-	capabilities = capabilities,
-	on_attach = on_attach,
+	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+	on_attach = function(client, bufnr)
+		-- Attach keymaps and commands.
+		require("nxvim.lsp").on_attach(client, bufnr)
+		require("nxvim.lsp.plugins.lspsaga").on_attach(client, bufnr)
+	end,
 }
 
 -- `:h mason-lspconfig-dynamic-server-setup`
@@ -72,7 +64,6 @@ lspconfig.mojo.setup(opts)
 lspconfig.sourcekit.setup(opts)
 lspconfig.onyx.setup(opts)
 lspconfig.c3lsp.setup(opts)
-
 -- ]
 
 -- == [ Keymaps ===============================================================
@@ -81,4 +72,4 @@ nx.map({
 	{ "<leader>l+", ":LspStart ", desc = "Select Language Server to Start", wk_label = "Start LSP" },
 	{ "<leader>l-", ":LspStop ", desc = "Select Language Server to Stop", wk_label = "Stop LSP" },
 })
--- <==}
+-- ]
