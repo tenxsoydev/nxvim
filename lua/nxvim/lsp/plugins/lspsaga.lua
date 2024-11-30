@@ -45,7 +45,7 @@ local config = {
 -- == [ Keymaps ===============================================================
 
 config.finder.keys = {
-	expand_or_jump = "<CR>",
+	toggle_or_open = "<CR>",
 	quit = { "q", "<C-c>", "<C-h>", "<C-j>", "<C-k>", "<C-l>" },
 }
 config.outline.keys = {
