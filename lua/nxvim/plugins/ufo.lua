@@ -10,7 +10,6 @@ ufo.setup({
 		default = { "imports", "comment" },
 		markdown = {},
 		git = {},
-		svelte = { "comment" },
 		NeogitStatus = {},
 	},
 	preview = {
@@ -27,12 +26,6 @@ ufo.setup({
 		},
 	},
 	enable_get_fold_virt_text = false,
-	provider_selector = function(bufnr, filetype, buftype)
-		for _, type in ipairs({ "markdown", "NeogitStatus" }) do
-			if filetype == type then return "" end
-		end
-		return { "treesitter", "indent" }
-	end,
 })
 -- ]
 
