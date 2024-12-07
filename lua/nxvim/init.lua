@@ -14,14 +14,14 @@ local modules = {
 	-- Tip: use `gf` over a `config = "<path>"` to go to its location
 
 	-- Core ----------------------------------------------------------------------
-	{ dir = "nxvim/colorschemes", priority = 90, config = "colorschemes", eager = true },
-	{ dir = "nxvim/client", priority = 95, config = "client", eager = true },
-	{ dir = "nxvim/keymaps", priority = 80, config = "keymaps", eager = true },
-	{ dir = "nxvim/autocmds", priority = 80, config = "autocmds", eager = true },
-	{ dir = "nxvim/options", priority = 80, config = "options", eager = true },
-	{ dir = "nxvim/lsp", priority = 80, config = "lsp" },
+	{ "nxvim/colorschemes", virtual = true, priority = 90, config = "colorschemes", eager = true },
+	{ "nxvim/client", virtual = true, priority = 95, config = "client", eager = true },
+	{ "nxvim/keymaps", virtual = true, priority = 80, config = "keymaps", eager = true },
+	{ "nxvim/autocmds", virtual = true, priority = 80, config = "autocmds", eager = true },
+	{ "nxvim/options", virtual = true, priority = 80, config = "options", eager = true },
+	{ "nxvim/lsp", virtual = true, priority = 80, config = "lsp" },
 	{ "tenxsoydev/nx.nvim", priority = 100, config = function() _G.nx = require("nx") end, eager = true },
-	{ "folke/lazy.nvim", tag = "v11.14.0" },
+	{ "folke/lazy.nvim" },
 
 	-- Miscellaneous -------------------------------------------------------------
 	-- Dashboard
@@ -48,8 +48,8 @@ local modules = {
 	{ "tenxsoydev/karen-yank.nvim", event = "VeryLazy", config = true },
 
 	-- Buffer- & Window Management -----------------------------------------------
-	-- { "akinsho/bufferline.nvim", config = "plugins.bufferline" },
-	{ "romgrk/barbar.nvim", event = "VeryLazy", config = "plugins.barbar" },
+	{ "akinsho/bufferline.nvim", config = "plugins.bufferline" },
+	-- { "romgrk/barbar.nvim", event = "VeryLazy", config = "plugins.barbar" },
 	{ "Bekaboo/dropbar.nvim", event = "VeryLazy", config = "plugins.dropbar" },
 	{ "kwkarlwang/bufresize.nvim", event = "VeryLazy", config = true }, -- handle split window sizes on client resize
 	{ "gorbit99/codewindow.nvim", event = "VeryLazy", config = "plugins.codewindow" },
@@ -71,6 +71,7 @@ local modules = {
 	{ "ruifm/gitlinker.nvim", event = "VeryLazy", config = true },
 	{ "lewis6991/gitsigns.nvim", event = "VeryLazy", config = "plugins.gitsigns" },
 	{ "NeogitOrg/neogit", event = "VeryLazy", config = "plugins.neogit" },
+	-- { "pwntester/octo.nvim", config = true },
 	{ "mattn/vim-gist", event = "VeryLazy", config = "plugins.gist" },
 	{ "mattn/webapi-vim" },
 	-- "ThePrimeagen/git-worktree.nvim",
@@ -119,7 +120,8 @@ local modules = {
 	{ "j-hui/fidget.nvim", event = "VeryLazy", config = "lsp.plugins.fidget" },
 	{ "ray-x/lsp_signature.nvim", event = "VeryLazy", config = "lsp.plugins.lsp-signature" },
 	{ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim", event = "VeryLazy", config = "lsp.plugins.lsp-toggle" },
-	{ "zeioth/garbage-day.nvim", dependencies = "neovim/nvim-lspconfig", event = "VeryLazy", conifg = true },
+	-- stylua: ignore
+	{ "zeioth/garbage-day.nvim", dependencies = "neovim/nvim-lspconfig", event = "VeryLazy", conifg = "lsp.plugins.garbage-day" },
 	{ "b0o/SchemaStore.nvim", event = "VeryLazy" },
 	-- Mason
 	{ "williamboman/mason.nvim", config = "lsp.plugins.mason" },
@@ -133,30 +135,34 @@ local modules = {
 	{ "saecki/crates.nvim", event = "VeryLazy", config = true },
 	-- Python
 	{ "linux-cultist/venv-selector.nvim", branch = "regexp", event = "VeryLazy", config = "plugins.venv-selector" },
+	-- Onyx
+	"onyx-lang/onyx.vim",
 
 	-- Debug ---------------------------------------------------------------------
 	-- TODO: Push DAP config
-	-- "mfussenegger/nvim-dap",
-	-- "theHamsta/nvim-dap-virtual-text",
-	-- "rcarriga/nvim-dap-ui",
+	"mfussenegger/nvim-dap",
+	{ "theHamsta/nvim-dap-virtual-text", config = true },
+	{ "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
 	-- "Pocco81/DAPInstall.nvim",
-	{ "kevinhwang91/nvim-bqf", event = "VeryLazy", config = "plugins.bqf" },
+	{ "leoluz/nvim-dap-go", config = true },
 	{ "folke/trouble.nvim", event = "VeryLazy", config = "plugins.trouble" },
+	{ "kevinhwang91/nvim-bqf", event = "VeryLazy", config = "plugins.bqf" },
 
 	-- Code Completion -----------------------------------------------------------
+	-- { "saghen/blink.cmp", version = "v0.*", config = true },
 	{ "hrsh7th/nvim-cmp", event = "InsertEnter", config = "plugins.cmp" },
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-path",
 	"hrsh7th/cmp-cmdline",
 	"hrsh7th/cmp-nvim-lsp",
-	-- "hrsh7th/cmp-emoji",
+	"hrsh7th/cmp-emoji",
 	"chrisgrieser/cmp-nerdfont",
 	"hrsh7th/cmp-nvim-lua",
 	{ "tzachar/cmp-tabnine", build = "./install.sh", config = "plugins.tabnine" },
 	{ "Exafunction/codeium.vim", event = "InsertEnter", config = "plugins.codeium" },
 	-- { "zbirenbaum/copilot.lua", config = "plugins.copilot" },
 	-- { "zbirenbaum/copilot-cmp", dependencies = "zbirenbaum/copilot.lua", config = true },
-	-- { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+	{ "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
 	-- Snippets
 	{ "L3MON4D3/LuaSnip", event = "VeryLazy", config = "plugins.luasnip" }, --snippet engine
 	"saadparwaiz1/cmp_luasnip",
@@ -172,6 +178,7 @@ local modules = {
 	-- Colorschemes --------------------------------------------------------------
 	"dracula/vim",
 	"folke/tokyonight.nvim",
+	-- "Shatur/neovim-ayu",
 	-- "NLKNguyen/papercolor-theme",
 	-- "navarasu/onedark.nvim",
 	-- additional colorschemes
@@ -209,12 +216,14 @@ local modules = {
 	{ "nacro90/numb.nvim", event = "VeryLazy", config = true },
 	{ "windwp/nvim-autopairs", event = "VeryLazy", config = "plugins.autopairs" },
 	{ "NvChad/nvim-colorizer.lua", event = "VeryLazy", config = "plugins.colorizer" },
+	{ "gennaro-tedesco/nvim-jqx", event = "VeryLazy", ft = "json" },
 	{ "windwp/nvim-spectre", event = "VeryLazy", config = "plugins.spectre" },
 	-- stylua: ignore
 	{ "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async", event = "VeryLazy", config = "plugins.ufo" },
 	{ "nvim-tree/nvim-web-devicons", config = "plugins.devicons", eager = true },
 	"nvim-lua/plenary.nvim",
 	{ "tenxsoydev/size-matters.nvim", lazy = true },
+	-- { "sphamba/smear-cursor.nvim", config = not vim.g.neovide and true or false },
 	{ "michaelb/sniprun", event = "VeryLazy", build = "bash ./install.sh", config = "plugins.sniprun" },
 	{ "luukvbaal/statuscol.nvim", config = "plugins.statuscol" },
 	{ "levouh/tint.nvim", event = "VeryLazy", config = "plugins.tint" },
@@ -223,7 +232,12 @@ local modules = {
 	{ "tpope/vim-repeat", event = "VeryLazy" },
 	{ "tpope/vim-surround", event = "VeryLazy" },
 	"mg979/vim-visual-multi", -- needs to be loaded outside of lazy.nvim for its global variable config values to work
-	{ "folke/which-key.nvim", lazy = true, config = "plugins.which-key", tag = "v2.1.0" },
+	{
+		"folke/which-key.nvim",
+		lazy = true,
+		config = "plugins.which-key",
+		commit = "af4ded85542d40e190014c732fa051bdbf88be3d",
+	},
 
 	-- Stash ---------------------------------------------------------------------
 	-- "tiagovla/scope.nvim", -- scope buffers to tabs
@@ -257,7 +271,7 @@ for i, module in ipairs(modules) do
 
 	-- handle config string values (paths) else keep the module.config value
 	if type(module.config) == "string" then
-		if module.dir and module.dir:sub(1, #"nxvim") == "nxvim" then module.config = "nxvim." .. module.config end
+		if module[1]:sub(1, #"nxvim") == "nxvim" then module.config = "nxvim." .. module.config end
 		---@diagnostic disable-next-line: param-type-mismatch
 		module.config = get(module.config, module.eager)
 	end
