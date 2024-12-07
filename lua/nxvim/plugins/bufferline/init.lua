@@ -107,6 +107,7 @@ nx.map(maps)
 if vim.g.colors_name == "dracula" then
 	local palette = require("nxvim.colorschemes.dracula").palette
 	nx.hl({
+		{ { "BufferLineTab", "TabLineFill" }, link = "Normal" },
 		{ "BufferLineIndicatorSelected", link = "DraculaPurple" },
 		{ "BufferlineOffset", fg = palette.purple, bg = palette.bgdark },
 	})
