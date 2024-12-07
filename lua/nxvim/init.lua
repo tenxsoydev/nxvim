@@ -48,8 +48,8 @@ local modules = {
 	{ "tenxsoydev/karen-yank.nvim", event = "VeryLazy", config = true },
 
 	-- Buffer- & Window Management -----------------------------------------------
-	{ "akinsho/bufferline.nvim", config = "plugins.bufferline" },
-	-- { "romgrk/barbar.nvim", event = "VeryLazy", config = "plugins.barbar" },
+	-- { "akinsho/bufferline.nvim", config = "plugins.bufferline" },
+	{ "romgrk/barbar.nvim", event = "VeryLazy", config = "plugins.barbar" },
 	{ "Bekaboo/dropbar.nvim", event = "VeryLazy", config = "plugins.dropbar" },
 	{ "kwkarlwang/bufresize.nvim", event = "VeryLazy", config = true }, -- handle split window sizes on client resize
 	{ "gorbit99/codewindow.nvim", event = "VeryLazy", config = "plugins.codewindow" },

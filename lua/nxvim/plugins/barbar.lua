@@ -98,7 +98,7 @@ nx.hl({
 	-- TODO: Dyanmic theme colors instead of hex
 	{ "BufferAlternate", fg = "#9dacb9", italic = true },
 
-	{ "BufferVisible", fg = "#9dacb9", bg = "none" },
+	{ { "BufferVisible", "TabLineFill" }, fg = "#9dacb9", bg = "none" },
 	{ "BufferVisibleSign", fg = "TabLine:bg", bg = "BufferVisible:bg" },
 
 	{ "BufferInactive", fg = "Comment:fg", bg = "TabLine:bg" },
