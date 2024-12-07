@@ -14,14 +14,14 @@ local modules = {
 	-- Tip: use `gf` over a `config = "<path>"` to go to its location
 
 	-- Core ----------------------------------------------------------------------
-	{ "nxvim/colorschemes", virtual = true, priority = 90, config = "colorschemes", eager = true },
-	{ "nxvim/client", virtual = true, priority = 95, config = "client", eager = true },
-	{ "nxvim/keymaps", virtual = true, priority = 80, config = "keymaps", eager = true },
-	{ "nxvim/autocmds", virtual = true, priority = 80, config = "autocmds", eager = true },
-	{ "nxvim/options", virtual = true, priority = 80, config = "options", eager = true },
-	{ "nxvim/lsp", virtual = true, priority = 80, config = "lsp" },
+	{ dir = "nxvim/colorschemes", priority = 90, config = "colorschemes", eager = true },
+	{ dir = "nxvim/client", priority = 95, config = "client", eager = true },
+	{ dir = "nxvim/keymaps", priority = 80, config = "keymaps", eager = true },
+	{ dir = "nxvim/autocmds", priority = 80, config = "autocmds", eager = true },
+	{ dir = "nxvim/options", priority = 80, config = "options", eager = true },
+	{ dir = "nxvim/lsp", priority = 80, config = "lsp" },
 	{ "tenxsoydev/nx.nvim", priority = 100, config = function() _G.nx = require("nx") end, eager = true },
-	{ "folke/lazy.nvim" },
+	{ "folke/lazy.nvim", tag = "v11.14.0" },
 
 	-- Miscellaneous -------------------------------------------------------------
 	-- Dashboard
@@ -257,7 +257,7 @@ for i, module in ipairs(modules) do
 
 	-- handle config string values (paths) else keep the module.config value
 	if type(module.config) == "string" then
-		if module[1]:sub(1, #"nxvim") == "nxvim" then module.config = "nxvim." .. module.config end
+		if module.dir and module.dir:sub(1, #"nxvim") == "nxvim" then module.config = "nxvim." .. module.config end
 		---@diagnostic disable-next-line: param-type-mismatch
 		module.config = get(module.config, module.eager)
 	end
