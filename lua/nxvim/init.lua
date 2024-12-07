@@ -223,7 +223,6 @@ local modules = {
 	{ "nvim-tree/nvim-web-devicons", config = "plugins.devicons", eager = true },
 	"nvim-lua/plenary.nvim",
 	{ "tenxsoydev/size-matters.nvim", lazy = true },
-	-- { "sphamba/smear-cursor.nvim", config = not vim.g.neovide and true or false },
 	{ "michaelb/sniprun", event = "VeryLazy", build = "bash ./install.sh", config = "plugins.sniprun" },
 	{ "luukvbaal/statuscol.nvim", config = "plugins.statuscol" },
 	{ "levouh/tint.nvim", event = "VeryLazy", config = "plugins.tint" },
