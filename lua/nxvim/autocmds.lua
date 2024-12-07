@@ -39,7 +39,7 @@ nx.au({
 })
 
 nx.au({ -- Remember folds
-	{ "BufWinLeave", pattern = "*.*", callback = function() vim.cmd("mkview") end },
+	{ "BufWritePre", pattern = "*.*", callback = function() vim.cmd("mkview") end },
 	{ "BufWinEnter", pattern = "*.*", callback = function() vim.cmd("silent! loadview") end },
 }, { create_group = "RememberFolds" })
 
