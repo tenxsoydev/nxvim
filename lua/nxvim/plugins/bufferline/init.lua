@@ -89,7 +89,7 @@ for i = 0, 9 do
 		desc = "Go to Last Buffer"
 	end
 
-	local rhs = function() bufferline.go_to_buffer(bufnr, true) end
+	local rhs = function() bufferline.go_to(bufnr, true) end
 
 	table.insert(maps, {
 		lhs,
@@ -118,4 +118,4 @@ end
 -- Hide tabline when bufferline is loaded after opening client on alpha
 if vim.bo.filetype == "alpha" then vim.o.showtabline = 0 end
 -- If opening nvim on a directory go to first buffer which will include tree-plugin
-if vim.bo.filetype == "netrw" then vim.defer_fn(function() bufferline.go_to_buffer(1, true) end, 350) end
+if vim.bo.filetype == "netrw" then vim.defer_fn(function() bufferline.go_to(1, true) end, 350) end
