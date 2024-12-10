@@ -42,14 +42,6 @@ mason_lspconfig.setup_handlers({
 			server_opts.root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc")
 		elseif server == "jsonls" then
 			server_opts.init_options = { provideFormatter = false } -- Use prettierd as formatter.
-		elseif server == "rust_analyzer" then
-			for _, method in ipairs({ "textDocument/diagnostic", "workspace/diagnostic" }) do
-				local default_diagnostic_handler = vim.lsp.handlers[method]
-				vim.lsp.handlers[method] = function(err, result, context, config)
-					if err ~= nil and err.code == -32802 then return end
-					return default_diagnostic_handler(err, result, context, config)
-				end
-			end
 		elseif server == "zls" then
 			vim.g.zig_fmt_autosave = 0
 		end
