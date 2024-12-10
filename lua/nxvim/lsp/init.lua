@@ -10,7 +10,6 @@ vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵" })
 vim.fn.sign_define("DiagnosticSignInfo", { text = "" })
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
-
 -- ]
 
 -- == [ Commands ==============================================================
