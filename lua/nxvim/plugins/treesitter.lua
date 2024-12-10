@@ -1,4 +1,5 @@
 local ts_configs = require("nvim-treesitter.configs")
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 
 -- == [ Configuration =========================================================
 
@@ -32,14 +33,22 @@ local config = {
 	},
 	matchup = {
 		enable = true, -- mandatory, false will disable the whole extension
-		-- disable = { "c", "ruby" }, -- optional, list of language that will be disabled
-		-- [options]
+		-- disable = { "svelte" }, -- optional, list of language that will be disabled
 	},
 	incremental_selection = {
 		enable = true,
 		keymaps = {},
 	},
 }
+
+parser_config.c3 = {
+	install_info = {
+		url = "https://github.com/c3lang/tree-sitter-c3",
+		files = { "src/parser.c", "src/scanner.c" },
+		branch = "main",
+	},
+}
+-- ]
 
 -- == [ Highlights ============================================================
 
