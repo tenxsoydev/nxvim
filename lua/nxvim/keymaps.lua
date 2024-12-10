@@ -63,12 +63,18 @@ nx.map({
 	-- Change Indent Size (requires tab indentation)
 	{
 		{ vim.g.eu_kbd and "Ó" or "<M-S-.>", "<M->>", "<S-End>" },
-		"<Cmd>set ts+=1 sw=0 ts?<CR>",
+		function()
+			vim.bo.ts = vim.bo.ts + 1
+			vim.notify("Tabstop=" .. vim.o.ts)
+		end,
 		desc = "Increase Indentation Width",
 	},
 	{
 		{ vim.g.eu_kbd and "Ò" or "<M-S-,>", "<M-lt>", "<S-Home>" },
-		"<Cmd>set ts-=1 sw=0 ts?<CR>",
+		function()
+			vim.bo.ts = vim.bo.ts - 1
+			vim.notify("Tabstop=" .. vim.o.ts)
+		end,
 		desc = "Decrease Indentation Width",
 	},
 
