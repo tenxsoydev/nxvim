@@ -7,6 +7,7 @@ notify.setup({
 	render = "minimal", -- Render function for notifications. See notify-render()
 	timeout = 2500, -- Default timeout for notifications
 	minimum_width = 10, -- Minimum width for notification windows
+	background_color = "none",
 	-- stages = "fade_in_slide_out",
 	-- Move notifications to bottom right corner
 	--[[ stages = {
