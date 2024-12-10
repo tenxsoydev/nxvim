@@ -41,9 +41,10 @@ local config = {
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
-		{ name = "cmp_tabnine" },
 		{ name = "path" },
 		{ name = "nerdfont" },
+		{ name = "emoji" },
+		{ name = "cmp_tabnine" },
 		-- { name = "copilot" },
 	},
 	formatting = {
@@ -96,17 +97,16 @@ config.mapping = {
 	["<C-Space>"] = cmp.mapping.complete(),
 
 	-- Confrim completion
-	["<C-l>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
-	["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = false }),
-	-- ["<Tab>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
-	-- Use tab for codeium and it should fall back to cmp when it's inactive
+	["<C-l>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }),
+	["<CR>"] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Insert }),
+	-- Use tab for Codeium, fall back to cmp when it's inactive
 	["<Tab>"] = cmp.mapping(function(fallback)
-		if cmp.visible() and vim.g.codeium_enabled ~= 1 then
-			cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
+		if not vim.g.codeium_enabled and cmp.visible() then
+			cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert })
 		else
 			fallback()
 		end
-	end, { "i", "s" }),
+	end),
 }
 -- ]
 
