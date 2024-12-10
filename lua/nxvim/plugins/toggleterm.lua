@@ -7,12 +7,7 @@ require("toggleterm").setup({
 	open_mapping = [[<C-\>]],
 	on_open = function(term)
 		set_terminal_keymaps()
-		vim.cmd("setlocal nonumber norelativenumber signcolumn=no")
-		if term.direction == "tab" then
-			vim.o.showtabline = 0
-			vim.o.cmdheight = 0
-			vim.o.statuscolumn = ""
-		end
+		if term.direction == "tab" then vim.o.showtabline = 0 end
 	end,
 	on_close = function(term)
 		if term.direction == "tab" then vim.o.showtabline = 2 end
