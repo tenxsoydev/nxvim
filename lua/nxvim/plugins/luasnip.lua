@@ -17,6 +17,7 @@ ls.config.set_config({
 
 -- == [ Snippets ==============================================================
 
+ls.filetype_extend("typescript", { "javascript" })
 ls.add_snippets("v", {
 	s("prt", fmt("println('{}')", { c(1, { sn(nil, { t("${"), i(1), t("}") }), t("") }) })),
 })
