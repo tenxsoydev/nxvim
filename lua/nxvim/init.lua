@@ -45,13 +45,13 @@ local modules = {
 	{ "folke/todo-comments.nvim", event = "VeryLazy", config = "plugins.todo-comments" },
 	-- Yank & Register Handling
 	{ "tversteeg/registers.nvim", event = "VeryLazy", config = "plugins.registers" },
-	{ "tenxsoydev/karen-yank.nvim", event = "VeryLazy", config = true },
+	{ "tenxsoydev/karen-yank.nvim", event = "VeryLazy", opts = {} },
 
 	-- Buffer- & Window Management -----------------------------------------------
 	-- { "akinsho/bufferline.nvim", config = "plugins.bufferline" },
 	{ "romgrk/barbar.nvim", event = "VeryLazy", config = "plugins.barbar" },
 	{ "Bekaboo/dropbar.nvim", event = "VeryLazy", config = "plugins.dropbar" },
-	{ "kwkarlwang/bufresize.nvim", event = "VeryLazy", config = true }, -- handle split window sizes on client resize
+	{ "kwkarlwang/bufresize.nvim", event = "VeryLazy", opts = {} }, -- handle split window sizes on client resize
 	{ "gorbit99/codewindow.nvim", event = "VeryLazy", config = "plugins.codewindow" },
 	{ "petertriho/nvim-scrollbar", event = "VeryLazy", config = "plugins.scrollbar" },
 	{ "s1n7ax/nvim-window-picker", event = "VeryLazy", config = "plugins.window-picker" },
@@ -68,10 +68,10 @@ local modules = {
 	-- Git -----------------------------------------------------------------------
 	{ "sindrets/diffview.nvim", event = "VeryLazy", config = "plugins.diffview" },
 	{ "akinsho/git-conflict.nvim", event = "VeryLazy", config = "plugins.git-conflict" },
-	{ "ruifm/gitlinker.nvim", event = "VeryLazy", config = true },
+	{ "ruifm/gitlinker.nvim", event = "VeryLazy", opts = {} },
 	{ "lewis6991/gitsigns.nvim", event = "VeryLazy", config = "plugins.gitsigns" },
 	{ "NeogitOrg/neogit", event = "VeryLazy", config = "plugins.neogit" },
-	-- { "pwntester/octo.nvim", config = true },
+	-- { "pwntester/octo.nvim", opts = {} },
 	{ "mattn/vim-gist", event = "VeryLazy", config = "plugins.gist" },
 	{ "mattn/webapi-vim" },
 	-- "ThePrimeagen/git-worktree.nvim",
@@ -84,7 +84,7 @@ local modules = {
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		dependencies = "nvim-treesitter/nvim-treesitter",
 		event = "VeryLazy",
-		config = true,
+		opts = {},
 	},
 	{ "nvim-treesitter/playground", dependencies = "nvim-treesitter/nvim-treesitter" },
 	{
@@ -113,7 +113,7 @@ local modules = {
 	{ "tknightz/telescope-termfinder.nvim", lazy = true },
 
 	-- LSP / Formatters ----------------------------------------------------------
-	{ "folke/neodev.nvim", config = true },
+	{ "folke/neodev.nvim", opts = {} },
 	{ "neovim/nvim-lspconfig", config = "lsp.plugins.lspconfig" },
 	{ "nvimtools/none-ls.nvim", config = "lsp.plugins.null-ls" }, -- inject external formatters and linters
 	{ "glepnir/lspsaga.nvim", event = "VeryLazy", config = "lsp.plugins.lspsaga" },
@@ -128,11 +128,11 @@ local modules = {
 	-- stylua: ignore
 	{ "williamboman/mason-lspconfig.nvim", dependencies = "williamboman/mason.nvim", config = "lsp.plugins.mason.lspconfig" },
 	{ "jayp0521/mason-null-ls.nvim", dependencies = "williamboman/mason.nvim" },
-	-- { "ThePrimeagen/refactoring.nvim", config = true },
+	-- { "ThePrimeagen/refactoring.nvim", opts = {} },
 	-- "tamago324/nlsp-settings.nvim",
 	-- Language Specific
 	-- Rust
-	{ "saecki/crates.nvim", event = "VeryLazy", config = true },
+	{ "saecki/crates.nvim", event = "VeryLazy", opts = {} },
 	-- Python
 	{ "linux-cultist/venv-selector.nvim", branch = "regexp", event = "VeryLazy", config = "plugins.venv-selector" },
 	-- Onyx
@@ -141,15 +141,15 @@ local modules = {
 	-- Debug ---------------------------------------------------------------------
 	-- TODO: Push DAP config
 	"mfussenegger/nvim-dap",
-	{ "theHamsta/nvim-dap-virtual-text", config = true },
+	{ "theHamsta/nvim-dap-virtual-text", opts = {} },
 	{ "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
 	-- "Pocco81/DAPInstall.nvim",
-	{ "leoluz/nvim-dap-go", config = true },
+	{ "leoluz/nvim-dap-go", opts = {} },
 	{ "folke/trouble.nvim", event = "VeryLazy", config = "plugins.trouble" },
 	{ "kevinhwang91/nvim-bqf", event = "VeryLazy", config = "plugins.bqf" },
 
 	-- Code Completion -----------------------------------------------------------
-	-- { "saghen/blink.cmp", version = "v0.*", config = true },
+	-- { "saghen/blink.cmp", version = "v0.*", opts = {} },
 	{ "hrsh7th/nvim-cmp", event = "InsertEnter", config = "plugins.cmp" },
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-path",
@@ -161,8 +161,8 @@ local modules = {
 	{ "tzachar/cmp-tabnine", build = "./install.sh", config = "plugins.tabnine" },
 	{ "Exafunction/codeium.vim", event = "InsertEnter", config = "plugins.codeium" },
 	-- { "zbirenbaum/copilot.lua", config = "plugins.copilot" },
-	-- { "zbirenbaum/copilot-cmp", dependencies = "zbirenbaum/copilot.lua", config = true },
-	{ "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+	-- { "zbirenbaum/copilot-cmp", dependencies = "zbirenbaum/copilot.lua", opts = {} },
+	{ "roobert/tailwindcss-colorizer-cmp.nvim", opts = {} },
 	-- Snippets
 	{ "L3MON4D3/LuaSnip", event = "VeryLazy", config = "plugins.luasnip" }, --snippet engine
 	"saadparwaiz1/cmp_luasnip",
@@ -206,14 +206,14 @@ local modules = {
 	{ "nat-418/boole.nvim", event = "VeryLazy", config = "plugins.boole" }, -- extend increment / decrement to cycle through related words
 	{ "famiu/bufdelete.nvim", lazy = true },
 	{ "stevearc/dressing.nvim", event = "VeryLazy", config = "plugins.dressing" },
-	{ "NMAC427/guess-indent.nvim", event = "VeryLazy", config = true },
+	{ "NMAC427/guess-indent.nvim", event = "VeryLazy", opts = {} },
 	{ "smoka7/hop.nvim", event = "VeryLazy", config = "plugins.hop" },
 	{ "kevinhwang91/nvim-hlslens", event = "VeryLazy", config = "plugins.hlslens" },
 	{ "edluffy/hologram.nvim", event = "VeryLazy" },
 	{ "lukas-reineke/indent-blankline.nvim", event = "VeryLazy", config = "plugins.indentline" },
 	{ "echasnovski/mini.nvim", event = "VeryLazy", config = "plugins.mini" },
 	{ "karb94/neoscroll.nvim", event = "VeryLazy", config = "plugins.neoscroll" },
-	{ "nacro90/numb.nvim", event = "VeryLazy", config = true },
+	{ "nacro90/numb.nvim", event = "VeryLazy", opts = {} },
 	{ "windwp/nvim-autopairs", event = "VeryLazy", config = "plugins.autopairs" },
 	{ "NvChad/nvim-colorizer.lua", event = "VeryLazy", config = "plugins.colorizer" },
 	{ "gennaro-tedesco/nvim-jqx", event = "VeryLazy", ft = "json" },
