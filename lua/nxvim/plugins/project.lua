@@ -3,8 +3,9 @@
 -- == [ Configuration =========================================================
 
 require("project_nvim").setup({
+	-- `:h project.nvim-configuration`
 	detection_methods = { "pattern" },
-	patterns = { ".git" }, -- { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
+	patterns = { ".git", ".fakeroot" },
 })
 -- ]
 
