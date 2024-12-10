@@ -1,4 +1,8 @@
 return {
-	cmd = { "grammarly-languageserver-unofficial", "--stdio" },
-	init_options = { clientId = "client_BaDkMgx4X19X9UxxYRCXZo" },
+	--[[ E.g.: grammarly.sh
+#!/usr/bin/env bash
+source "${NVM_DIR}/nvm.sh"
+nvm run 16 ~/.local/share/nvim/mason/bin/grammarly-languageserver --stdio
+]]
+	cmd = { "/home/t/grammarly.sh" },
 }
