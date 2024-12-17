@@ -1,11 +1,8 @@
 -- https://github.com/Bekaboo/dropbar.nvim
 
-local toggleterm = require("toggleterm")
-
 -- == [ Configuration ========================================================
 
 require("dropbar").setup({
-
 	icons = {
 		ui = {
 			bar = {
@@ -18,7 +15,5 @@ require("dropbar").setup({
 
 -- == [ Highlights ============================================================
 
-nx.hl({
-	{ "DropBarIconUISeparator", link = "Winbar" },
-})
+nx.hl({ "DropBarIconUISeparator", link = "Winbar" })
 -- ]
