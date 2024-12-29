@@ -30,6 +30,9 @@ ufo.setup({
 		for _, type in ipairs({ "markdown", "NeogitStatus" }) do
 			if filetype == type then return "" end
 		end
+		for _, type in ipairs({ "yaml" }) do
+			if filetype == type then return { "treesitter", "indent" } end
+		end
 	end,
 })
 -- ]
