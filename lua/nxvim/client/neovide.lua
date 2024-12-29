@@ -1,8 +1,6 @@
 local opt = vim.opt
-opt.guifont = vim.g.osx and "Hasklug Nerd Font Mono:h16:#e-antialias:#h-none"
-	-- or "Hasklug Nerd Font Mono:h12.5:#e-antialias:#h-none",
-	or "Hasklug Nerd Font Mono:h12.5"
--- guifont = "JetBrainsMono Nerd Font Mono:h12",
+
+opt.guifont = "Maple Mono NF:h12.5"
 if vim.g.multigrid then
 	opt.winblend = 15
 	opt.pumblend = 15

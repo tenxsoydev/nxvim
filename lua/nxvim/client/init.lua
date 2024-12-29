@@ -9,7 +9,7 @@ local M = {}
 nx.opts = {
 	float_win_border = "rounded",
 	transparency = true,
-	second_font = true,
+	second_font = false,
 }
 
 -- MacOS
@@ -31,7 +31,7 @@ local function init_gui()
 	-- General GUI options
 	local opt = vim.opt
 	opt.fillchars:append("vert:│")
-	opt.guifont = vim.g.osx and "Hasklug Nerd Font Mono:h14" or "Hasklug Nerd Font Mono:h11"
+	opt.guifont = vim.g.osx and "Maple Mono NF:h14" or "Maple Mono NF:h12.5"
 	opt.guicursor =
 		"n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait600-blinkoff800-blinkon900-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 	-- linespace = vim.g.osx and 3 or 2
