@@ -13,7 +13,7 @@ bufferline.setup({
 		offsets = {
 			{
 				-- text = "󰙅 Neo-tree",
-				text = function() return "󰙅 " .. require("nxvim.utils").truc_path(vim.fn.getcwd()) end,
+				text = function() return "󰙅 " .. require("nxvim.utils").trunc_path(vim.fn.getcwd()) end,
 				filetype = "neo-tree",
 				highlight = "BufferlineOffset",
 				text_align = "left",

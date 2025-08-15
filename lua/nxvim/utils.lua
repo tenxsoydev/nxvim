@@ -17,36 +17,38 @@ end
 
 ---@class TruncConfig
 ---@field max_dirs number
----@field max_path_len number
----@field prefix string
+---@field trun_len number
 ---@field trunc_symbol string
 
 ---@type TruncConfig
 local default_trunc_config = {
 	max_dirs = 3,
-	max_path_len = 2,
-	prefix = "…", -- "󰘍" ""
+	trun_len = 2,
 	trunc_symbol = "…",
 }
 
----@param input_path string
----@param config? { max_dirs: number, max_path_len: number, prefix: string, trunc_symbol: string }
-function M.truc_path(input_path, config)
-	local home_path = vim.fn.expand("$HOME")
-	if string.match(input_path, home_path) then input_path = input_path:gsub(home_path, "~") end
+---@param path string
+---@param config? TruncConfig
+function M.trunc_path(path, config)
+	-- Use `~` in case home path was passed expanded
+	path = path:gsub(vim.fn.expand("~"), "~")
+	config = vim.tbl_deep_extend("keep", config or {}, default_trunc_config)
 
-	local cfg = vim.tbl_deep_extend("keep", config or {}, default_trunc_config)
+	local path_segments = vim.split(path, "/")
+	local res = path_segments[1]
 
-	local path = vim.split(input_path, "/")
-	local res = path[1]
-
-	for i, _ in ipairs(path) do
-		if i + 1 <= cfg.max_dirs and i + 1 < #path then
-			res = res .. "/" .. ((string.sub(path[i + 1], 1, cfg.max_path_len) .. cfg.trunc_symbol) or path[i + 1])
+	for i, _ in ipairs(path_segments) do
+		if i + 1 <= config.max_dirs and i + 1 < #path_segments then
+			res = res
+				.. "/"
+				.. (
+					(string.sub(path_segments[i + 1], 1, config.trun_len) .. config.trunc_symbol)
+					or path_segments[i + 1]
+				)
 		end
 	end
 
-	res = res .. "/" .. path[#path]
+	res = res .. "/" .. path_segments[#path_segments]
 
 	return res
 end

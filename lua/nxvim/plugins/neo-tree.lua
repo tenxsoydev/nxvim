@@ -182,7 +182,7 @@ local function set_offset()
 		barbar_api.set_offset(0)
 		return
 	end
-	local title = " 󰙅 " .. utils.truc_path(vim.fn.getcwd())
+	local title = " 󰙅 " .. utils.trunc_path(vim.fn.getcwd())
 	local space = neo_tree_wins[tab_page].width - vim.api.nvim_strwidth(title)
 	local filler = space > 0 and (" "):rep(space) or ""
 	barbar_api.set_offset(neo_tree_wins[tab_page].width + 2, title .. filler)
