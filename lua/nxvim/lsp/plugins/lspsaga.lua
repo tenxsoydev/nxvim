@@ -49,7 +49,7 @@ config.finder.keys = {
 	quit = { "q", "<C-c>", "<C-h>", "<C-j>", "<C-k>", "<C-l>" },
 }
 config.outline.keys = {
-	expand_or_jump = "<CR>",
+	toggle_or_jump = "<CR>",
 }
 config.callhierarchy.keys = {
 	jump = "<CR>",
