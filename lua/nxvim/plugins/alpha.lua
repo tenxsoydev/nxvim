@@ -73,7 +73,7 @@ nx.au({
 	"User",
 	pattern = "AlphaReady",
 	callback = function()
-		vim.schedule(function() vim.cmd("setlocal showtabline=0 | au BufWinLeave <buffer> set showtabline=2") end)
+		vim.cmd("setlocal showtabline=0 | au BufWinLeave <buffer> set showtabline=2")
 		nx.map({ "R", "<Cmd>Telescope oldfiles<CR>", desc = "Recent Files", buffer = true })
 	end,
 })
