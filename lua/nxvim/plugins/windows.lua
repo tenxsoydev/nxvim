@@ -16,12 +16,21 @@ local config = {
 		winwidth = 0.618, -- Golden Ratio.
 	},
 	ignore = {
-		buftype = { "quickfix", "popup" },
-		filetype = { "NvimTree", "neo-tree", "undotree", "gundo", "sagarename", "alpha", "DiffviewFiles" },
+		buftype = { "quickfix", "popup", "nofile" },
+		filetype = {
+			"alpha",
+			"DiffviewFiles",
+			"gundo",
+			"neo-tree",
+			"NvimTree",
+			"sagarename",
+			"sagaoutline",
+			"undotree",
+		},
 	},
 	animation = {
 		enable = true,
-		duration = 75,
+		duration = 50,
 		fps = 60,
 		easing = "in_out_sine",
 	},
