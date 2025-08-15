@@ -336,14 +336,14 @@ nx.au({
 	"FileType",
 	pattern = "neo-tree-popup",
 	callback = function()
-		vim.schedule(function()
+		vim.defer_fn(function()
 			nx.map({
 				-- Allow to escape into normal mode in fuzzy finder input popup.
 				{ "<Esc>", "<Esc>", "i" },
-				{ "q", "<Cmd>q!<CR>" },
-				{ "<C-c>", "<Cmd>q!<CR>" },
+				{ "<C-c>", "<Cmd>close<CR>" },
+				{ "q", "<Cmd>close<CR>", "x" },
 			}, { buffer = 0 })
-		end)
+		end, 100)
 	end,
 })
 -- ]
