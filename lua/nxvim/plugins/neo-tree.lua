@@ -69,10 +69,10 @@ local config = {
 		},
 		diagnostics = {
 			symbols = {
-				hint = "󰅙",
-				info = "",
-				warn = "󰌵",
-				error = "",
+				info = "",
+				hint = "󰌵",
+				warn = "",
+				error = "󰅙",
 			},
 		},
 	},
