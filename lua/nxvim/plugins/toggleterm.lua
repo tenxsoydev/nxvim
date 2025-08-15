@@ -21,7 +21,9 @@ require("toggleterm").setup({
 	persist_size = true,
 	direction = "float",
 	close_on_exit = false,
-	shell = vim.o.shell,
+	-- FIXME: set dynamically, for now fix starting nvim in a `nix-shell` environment will use bash
+	-- Try https://github.com/chisui/zsh-nix-shell
+	shell = "zsh",
 	auto_scroll = false,
 	autochdir = true,
 	float_opts = {
@@ -50,15 +52,15 @@ local lazygit = Terminal:new({
 	close_on_exit = true,
 })
 
-local slumber = Terminal:new({
-	cmd = "slumber -f /home/t/.config/slumber/slumber.yml ",
+local lazydocker = Terminal:new({
+	cmd = "lazydocker",
 	dir = "git_dir",
 	on_open = function(term) set_lazygit_keymaps(term) end,
 	close_on_exit = true,
 })
 
-local gitui = Terminal:new({
-	cmd = "gitui",
+local slumber = Terminal:new({
+	cmd = "slumber -f /home/t/.config/slumber/slumber.yml ",
 	dir = "git_dir",
 	on_open = function(term) set_lazygit_keymaps(term) end,
 	close_on_exit = true,
@@ -88,15 +90,14 @@ nx.map({
 	{ "<leader>`f", "<Cmd>ToggleTerm direction=float<CR>", desc = "Float" },
 	{ "<leader>`v", "<Cmd>ToggleTerm size=80 direction=vertical<CR>", desc = "Vertical" },
 	{ "<leader>`t", "<Cmd>ToggleTerm direction=tab<CR>", desc = "Tab" },
-	-- Terminal quick access gui and kitty mappings
-	-- Equivalents in kitty to e.g., `<C-F1>` is `<F25>`
+	-- Terminal quick access - e.g., `<C-F1>` in a GUI client is `<F25>` in kitty.
 	{ { "<C-F1>", "<F25>", "<leader>`1" }, "<Cmd>1ToggleTerm<CR>", { "", "t" }, desc = "Toggle Terminal #1" },
 	{ { "<C-F2>", "<F26>", "<leader>`2" }, "<Cmd>2ToggleTerm<CR>", { "", "t" }, desc = "Toggle Terminal #2" },
 	{ { "<C-F3>", "<F27>", "<leader>`3" }, "<Cmd>3ToggleTerm<CR>", { "", "t" }, desc = "Toggle Terminal #3" },
 	{ { "<C-F4>", "<F28>", "<leader>`4" }, "<Cmd>4ToggleTerm<CR>", { "", "t" }, desc = "Toggle Terminal #4" },
 	-- External injections
-	-- { "<leader>gt", function() gitui:toggle() end, "", desc = "Terminal UI" },
-	{ "<leader>gt", function() lazygit:toggle() end, "", desc = "Toggle Lazygit" },
+	{ { "<leader>gg", "<leader>tg" }, function() lazygit:toggle() end, "", desc = "Toggle Lazygit" },
+	{ { "<leader>`d", "<leader>tD" }, function() lazydocker:toggle() end, desc = "Toggle Lazydocker" },
 	{ "<leader>`r", function() btop:toggle() end, desc = "Toggle Btop Resource Monitor" },
 	{ "<leader>`u", function() ncdu:toggle() end, desc = "Toggle NCurses Disk Usage" },
 	{ "<leader>`s", function() slumber:toggle() end, desc = "Toggle Slumber" },
