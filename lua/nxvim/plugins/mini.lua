@@ -2,46 +2,36 @@
 
 -- == [ Animate ================================================================
 
-local animate = require("mini.animate")
+if not vim.g.loaded_gui and vim.env.TERM ~= "xterm-kitty" then
+	local animate = require("mini.animate")
+	local config = {
+		-- Cursor path
+		cursor = {
+			enable = true,
+			timing = animate.gen_timing.linear({ duration = 150, unit = "total" }),
+		},
+		-- Vertical scroll; use `neoscroll` instead
+		scroll = {
+			enable = false,
+			timing = animate.gen_timing.linear({ duration = 150, unit = "total" }),
+			subscroll = animate.gen_subscroll.equal({ max_output_steps = 60 }),
+		},
+		-- Window resize; Use `windows` instead
+		resize = {
+			enable = false,
+		},
+		-- Window open
+		open = {
+			enable = false,
+		},
+		-- Window close
+		close = {
+			enable = false,
+		},
+	}
 
-local config = {
-	-- Cursor path
-	cursor = {
-		-- Whether to enable this animation
-		enable = true,
-		--<function: implements linear total 250ms animation duration>,
-		timing = animate.gen_timing.linear({ duration = 150, unit = "total" }),
-	},
-	-- Vertical scroll
-	scroll = {
-		enable = false,
-		-- enable = vim.g.loaded_gui and true or false,
-		timing = animate.gen_timing.linear({ duration = 150, unit = "total" }),
-		subscroll = animate.gen_subscroll.equal({ max_output_steps = 60 }),
-	},
-	-- Window resize -- we use the animation library that comes with windows.nvim instead
-	resize = {
-		enable = false,
-	},
-	-- Window open
-	open = {
-		enable = false,
-	},
-	-- Window close
-	close = {
-		enable = false,
-	},
-}
-
-if vim.g.loaded_gui then config.cursor.enable = false end
-animate.setup(config)
-
--- Occasionally mini.animate leaves a residue of virtualedit = "all". This ensures that it's removed.
-local config_ve = vim.o.virtualedit
-nx.au({
-	"BufEnter",
-	callback = function() vim.wo.virtualedit = config_ve end,
-})
+	animate.setup(config)
+end
 -- ]
 
 -- == [ Move ==================================================================
