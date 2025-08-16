@@ -139,10 +139,3 @@ nx.hl({
 
 -- Hide tabline when barbar is loaded after opening a neovim client on a dashboard
 if vim.bo.filetype == "alpha" then vim.o.showtabline = 0 end
--- If opening nvim on a directory go to first buffer, which will include tree-plugin
-if vim.bo.filetype == "netrw" then
-	vim.defer_fn(function()
-		vim.cmd("BufferGoto 1")
-		vim.cmd("TabsVsSpacesToggle buf_off")
-	end, 100)
-end
