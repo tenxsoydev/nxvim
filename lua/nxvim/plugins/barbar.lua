@@ -16,7 +16,7 @@ require("barbar").setup({
 		filetype = { enabled = true },
 		separator = { left = "▏", right = "" },
 		modified = { button = "" },
-		pinned = { button = "", filename = true },
+		pinned = { button = "", filename = true },
 		inactive = {
 			-- use right = "" for "popout"-effect
 			separator = { left = " ", right = "▕" },
