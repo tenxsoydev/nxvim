@@ -195,7 +195,7 @@ config.event_handlers = {
 			if #vim.api.nvim_list_wins() == 1 then return end
 
 			tab_page = vim.api.nvim_get_current_tabpage()
-			if not neo_tree_wins[tab_page] then neo_tree_wins[tab_page] = { id = -1, width = -1 } end
+			if not neo_tree_wins[tab_page] then neo_tree_wins[tab_page] = {} end
 
 			local id = args.winid
 			if windows.auto_maximize and vim.fn.win_gettype(id) ~= "popup" then
