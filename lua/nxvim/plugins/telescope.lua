@@ -1,10 +1,10 @@
 -- https://github.com/nvim-telescope/telescope.nvim
 
 local telescope = require("telescope")
-local lga_actions = require("telescope-live-grep-args.actions")
 
 -- == [ Configuration =========================================================
 
+local themes = require("telescope.themes")
 local border = nx.opts.float_win_border ~= "none" and true or false
 local borderchars = nx.opts.float_win_border == "single" and { "─", "│", "─", "│", "┌", "┐", "┘", "└" }
 	or nx.opts.float_win_border == "double" and { "═", "║", "═", "║", "╔", "╗", "╝", "╚" }
@@ -45,8 +45,7 @@ local config = {
 		live_grep_args = {
 			auto_quoting = true,
 			mappings = {},
-			theme = "ivy",
-			border = border,
+			theme = themes.get_ivy({ layout_config = { height = 0.618 } }),
 		},
 		media_files = {
 			filetypes = { "png", "webp", "jpg", "jpeg" },
@@ -65,6 +64,7 @@ local config = {
 
 local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
+local lga_actions = require("telescope-live-grep-args.actions")
 
 config.defaults.mappings = {
 	i = {
@@ -153,7 +153,7 @@ local function find_config(prompt_title, search_dirs, search_file)
 	})
 end
 
-local dropdown = require("telescope.themes").get_dropdown({
+local dropdown = themes.get_dropdown({
 	previewer = false,
 	border = border,
 	borderchars = borderchars,
