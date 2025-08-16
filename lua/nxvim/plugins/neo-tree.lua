@@ -320,7 +320,8 @@ config.git_status.window.mappings = {
 }
 
 nx.map({
-	{ "<leader>ff", "<Cmd>Neotree float toggle<CR>", desc = "File Browser" },
+	{ "<leader>ff", "<Cmd>Neotree float focus<CR>", desc = "File Browser" },
+	{ "<leader>ff", "<Cmd>Neotree close<CR>", ft = "neo-tree" },
 	-- stylua: ignore
 	{ "<leader>,/", "<Cmd>Neotree float toggle dir=" .. vim.fn.stdpath("config") .. "<CR>", desc = "Config Files Tree" },
 	{ "<leader>fe", "<Cmd>Neotree left<CR>", desc = "Focus File Explorer" },
