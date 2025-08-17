@@ -36,7 +36,7 @@ local modules = {
 	{ "AckslD/messages.nvim", event = "VeryLazy", config = vim.g.multigrid and "plugins.messages" or false },
 	{ "rcarriga/nvim-notify", config = vim.g.multigrid and "plugins.notify" or false },
 	-- File Tree
-	{ "nvim-neo-tree/neo-tree.nvim", dependencies = "MunifTanjim/nui.nvim", config = "plugins.neo-tree" },
+	{ "nvim-neo-tree/neo-tree.nvim", dependencies = "MunifTanjim/nui.nvim", config = "plugins.neo-tree", eager = true },
 	-- Terminal
 	{ "akinsho/toggleterm.nvim", event = "VeryLazy", config = "plugins.toggleterm" },
 	{ "willothy/flatten.nvim", priority = 100, config = "plugins.flatten" },
@@ -49,7 +49,7 @@ local modules = {
 
 	-- Buffer- & Window Management -----------------------------------------------
 	-- { "akinsho/bufferline.nvim", config = "plugins.bufferline" },
-	{ "romgrk/barbar.nvim", event = "VeryLazy", config = "plugins.barbar" },
+	{ "romgrk/barbar.nvim", config = "plugins.barbar" },
 	{ "Bekaboo/dropbar.nvim", event = "VeryLazy", config = "plugins.dropbar" },
 	{ "kwkarlwang/bufresize.nvim", event = "VeryLazy", opts = {} }, -- handle split window sizes on client resize
 	{ "gorbit99/codewindow.nvim", event = "VeryLazy", config = "plugins.codewindow" },
