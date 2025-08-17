@@ -80,8 +80,8 @@ nx.map({
 	},
 	-- Keymaps for user commands
 	{ "<leader>dtt", toggle_buffer_diags, desc = "Toggle Buffer Diagnostics" },
-	{ "<leader>tdt", toggle_buffer_diags, desc = "Toggle ", wk_label = "Buffer Diagnostics" },
-	{ "<leader>tdT", toggle_diags, desc = "Toggle Diagnostics", wk_label = "Diagnostics" },
+	{ "<leader>tDt", toggle_buffer_diags, desc = "Toggle ", wk_label = "Buffer Diagnostics" },
+	{ "<leader>tDT", toggle_diags, desc = "Toggle Diagnostics", wk_label = "Diagnostics" },
 	{ "<leader>dtT", toggle_diags, desc = "Toggle Diagnostics", wk_label = "Diagnostics" },
 	{ "<leader>dj", function() vim.diagnostic.jump({ count = 1 }) end, desc = "Next diagnostic" },
 	{ "<leader>dk", function() vim.diagnostic.jump({ count = -1 }) end, desc = "Previous diagnostic" },

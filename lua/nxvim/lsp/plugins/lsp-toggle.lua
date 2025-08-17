@@ -9,6 +9,6 @@ nx.map({
 	{ "<leader>dtv", "<Plug>(toggle-lsp-diag-vtext)", desc = "Toggle Virtual Text" },
 })
 nx.map({
-	{ "<leader>tdd", "<Cmd>ToggleDiagDefault<CR>", desc = "Toggle Diagnostics Default" },
-	{ "<leader>tdv", "<Plug>(toggle-lsp-diag-vtext)", desc = "Toggle Virtual Text" },
+	{ "<leader>tDd", "<Cmd>ToggleDiagDefault<CR>", desc = "Toggle Diagnostics Default" },
+	{ "<leader>tDv", "<Plug>(toggle-lsp-diag-vtext)", desc = "Toggle Virtual Text" },
 }, { wk_label = { sub_desc = "Toggle" } })

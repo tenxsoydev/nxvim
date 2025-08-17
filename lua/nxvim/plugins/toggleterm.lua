@@ -97,7 +97,7 @@ nx.map({
 	{ { "<C-F4>", "<F28>", "<leader>`4" }, "<Cmd>4ToggleTerm<CR>", { "", "t" }, desc = "Toggle Terminal #4" },
 	-- External injections
 	{ { "<leader>gg", "<leader>tg" }, function() lazygit:toggle() end, "", desc = "Toggle Lazygit" },
-	{ { "<leader>`d", "<leader>tD" }, function() lazydocker:toggle() end, desc = "Toggle Lazydocker" },
+	{ { "<leader>`d", "<leader>td" }, function() lazydocker:toggle() end, desc = "Toggle Lazydocker" },
 	{ "<leader>`r", function() btop:toggle() end, desc = "Toggle Btop Resource Monitor" },
 	{ "<leader>`u", function() ncdu:toggle() end, desc = "Toggle NCurses Disk Usage" },
 	{ "<leader>`s", function() slumber:toggle() end, desc = "Toggle Slumber" },
