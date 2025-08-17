@@ -19,6 +19,7 @@ local config = {
 		color_devicons = true,
 		path_display = { "truncate" },
 		dynamic_preview_title = true,
+		file_ignore_patterns = { ".git/" },
 		sorting_strategy = "descending",
 		layout_strategy = "horizontal",
 		layout_config = {
@@ -149,11 +150,13 @@ local function find_config(prompt_title, search_dirs, search_file)
 		cwd = vim.fn.stdpath("config") .. "/lua/nxvim",
 		search_dirs = search_dirs,
 		search_file = search_file,
+		hidden = true,
 		prompt_title = "NXVim " .. prompt_title,
 	})
 end
 
 local dropdown = themes.get_dropdown({
+	hidden = true,
 	previewer = false,
 	border = border,
 	borderchars = borderchars,
