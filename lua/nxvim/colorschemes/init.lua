@@ -23,7 +23,7 @@ end
 -- Cutomization - after applying colorscheme
 local function set_hl()
 	nx.hl({
-		{ "Comment", fg = "Comment:fg", italic = true, bold = nx.opts.second_font },
+		{ "Comment", fg = "Comment:fg", italic = true },
 		{ { "Winbar", "FoldColumn" }, link = "LineNr" },
 	})
 

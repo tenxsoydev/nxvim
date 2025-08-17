@@ -7,7 +7,7 @@ nx.au({ "FileType", pattern = "TelescopePrompt", callback = function() vim.cmd("
 
 --- == [ Highlights ===========================================================
 
-nx.hl({ "CodeiumSuggestion", fg = "SpecialComment:fg", bold = nx.opts.second_font, italic = true })
+nx.hl({ "CodeiumSuggestion", fg = "SpecialComment:fg", italic = true })
 --- ]
 
 --- == [ Keymaps ===============================================================
