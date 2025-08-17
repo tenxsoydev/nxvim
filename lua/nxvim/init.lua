@@ -199,7 +199,7 @@ local modules = {
 	{ "iamcco/markdown-preview.nvim", build = "yarn", event = "VeryLazy", config = "plugins.markdown-preview" },
 	{ "tenxsoydev/vim-markdown-checkswitch", ft = "markdown" },
 	-- PKM / Zettelkasten
-	{ "epwalsh/obsidian.nvim", config = "plugins.obsidian" },
+	-- { "obsidian-nvim/obsidian.nvim", config = "plugins.obsidian" },
 
 	-- Utility -------------------------------------------------------------------
 	{ "max397574/better-escape.nvim", event = "InsertEnter", config = "plugins.better-escape" },
