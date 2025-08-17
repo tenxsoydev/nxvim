@@ -1,6 +1,6 @@
 local lazy = require("nxvim.plugins.lazy")
 
-vim.g.multigrid = vim.api.nvim_list_uis()[1].ext_multigrid
+vim.g.loaded_multigrid = vim.api.nvim_list_uis()[1].ext_multigrid
 
 -- == [ Modules ===============================================================
 
@@ -30,10 +30,10 @@ local modules = {
 	-- { "tenxsoydev/galaxyline.nvim", branch = "feature-multi-lsp", config = "plugins.galaxyline", eager = true },
 	-- Commandline
 	{ "gelguy/wilder.nvim", dependencies = "romgrk/fzy-lua-native", event = "CmdlineEnter", config = "plugins.wilder" },
-	{ "folke/noice.nvim", config = not vim.g.multigrid and "plugins.noice" or false },
+	{ "folke/noice.nvim", config = not vim.g.loaded_multigrid and "plugins.noice" or false },
 	-- Messages
-	{ "AckslD/messages.nvim", event = "VeryLazy", config = vim.g.multigrid and "plugins.messages" or false },
-	{ "rcarriga/nvim-notify", config = vim.g.multigrid and "plugins.notify" or false },
+	{ "AckslD/messages.nvim", event = "VeryLazy", config = vim.g.loaded_multigrid and "plugins.messages" or false },
+	{ "rcarriga/nvim-notify", config = vim.g.loaded_multigrid and "plugins.notify" or false },
 	-- File Tree
 	{ "nvim-neo-tree/neo-tree.nvim", dependencies = "MunifTanjim/nui.nvim", config = "plugins.neo-tree", eager = true },
 	-- Terminal

@@ -1,6 +1,6 @@
 -- https://github.com/karb94/neoscroll.nvim
 
-if vim.g.loaded_gui and vim.g.multigrid then return end
+if vim.g.loaded_multigrid then return end
 
 local neoscroll = require("neoscroll")
 
