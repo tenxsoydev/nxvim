@@ -148,19 +148,13 @@ nx.map({
 	{ "<leader>fW", "<Cmd>w !sudo -A tee > /dev/null %<CR>", desc = "Write!" },
 	{
 		"<leader>fo",
-		function()
-			local cmd = jit.os == "OSX" and "open " or "xdg-open "
-			vim.fn.system(cmd .. vim.fn.expand("%"))
-		end,
+		function() vim.ui.open(vim.fn.expand("%")) end,
 		desc = "Open File with System App",
 		wk_label = "System Open",
 	},
 	{
 		"<leader>fO",
-		function()
-			local cmd = jit.os == "OSX" and "open " or "xdg-open "
-			vim.fn.system(cmd .. vim.fn.fnamemodify(vim.fn.expand("%"), ":h"))
-		end,
+		function() vim.ui.open(vim.fn.fnamemodify(vim.fn.expand("%"), ":h")) end,
 		desc = "Open Containing Folder",
 		wk_label = "Open Containing Folder",
 	},

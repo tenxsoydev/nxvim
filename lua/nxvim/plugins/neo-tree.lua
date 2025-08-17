@@ -109,11 +109,7 @@ local config = {
 		hijack_netrw_behavior = "open_current",
 		use_libuv_file_watcher = false,
 		commands = {
-			system_open = function(state)
-				local node = state.tree:get_node()
-				local cmd = jit.os == "OSX" and "open " or "xdg-open "
-				vim.fn.system(cmd .. node.path)
-			end,
+			system_open = function(state) vim.ui.open(state.tree:get_node().path) end,
 			-- Overwrite default `delete` commands to use trash instead of rm
 			delete = function(state)
 				local inputs = require("neo-tree.ui.inputs")
