@@ -124,9 +124,9 @@ local modules = {
 	{ "zeioth/garbage-day.nvim", dependencies = "neovim/nvim-lspconfig", event = "VeryLazy", conifg = "lsp.plugins.garbage-day" },
 	{ "b0o/SchemaStore.nvim", event = "VeryLazy" },
 	-- Mason
-	{ "williamboman/mason.nvim", config = "lsp.plugins.mason" },
+	{ "williamboman/mason.nvim", config = "lsp.plugins.mason", tag = "v1.11.0" },
 	-- stylua: ignore
-	{ "williamboman/mason-lspconfig.nvim", dependencies = "williamboman/mason.nvim", config = "lsp.plugins.mason.lspconfig" },
+	{ "williamboman/mason-lspconfig.nvim", dependencies = "williamboman/mason.nvim", config = "lsp.plugins.mason.lspconfig", tag = "v1.32.0" },
 	{ "jayp0521/mason-null-ls.nvim", dependencies = "williamboman/mason.nvim" },
 	-- { "ThePrimeagen/refactoring.nvim", opts = {} },
 	-- "tamago324/nlsp-settings.nvim",
