@@ -256,7 +256,9 @@ local function get(plugin_config, eager)
 		plugin_config = "nxvim." .. plugin_config
 	end
 
-	if eager then return function() require(plugin_config) end end
+	if eager then
+		return function() require(plugin_config) end
+	end
 
 	return function()
 		-- scheduled loading the majority of config files - results in 30-35% faster startup
