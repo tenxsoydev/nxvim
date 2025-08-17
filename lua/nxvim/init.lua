@@ -14,11 +14,10 @@ local modules = {
 	-- Tip: use `gf` over a `config = "<path>"` to go to its location
 
 	-- Core ----------------------------------------------------------------------
+	{ "nxvim/options", virtual = true, priority = 95, config = "options", eager = true },
 	{ "nxvim/colorschemes", virtual = true, priority = 90, config = "colorschemes", eager = true },
-	{ "nxvim/client", virtual = true, priority = 95, config = "client", eager = true },
 	{ "nxvim/keymaps", virtual = true, priority = 80, config = "keymaps", eager = true },
 	{ "nxvim/autocmds", virtual = true, priority = 80, config = "autocmds", eager = true },
-	{ "nxvim/options", virtual = true, priority = 80, config = "options", eager = true },
 	{ "nxvim/lsp", virtual = true, priority = 80, config = "lsp" },
 	{ "tenxsoydev/nx.nvim", priority = 100, config = function() _G.nx = require("nx") end, eager = true },
 	{ "folke/lazy.nvim" },

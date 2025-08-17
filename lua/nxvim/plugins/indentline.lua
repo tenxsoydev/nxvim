@@ -7,7 +7,6 @@ local hooks = require("ibl.hooks")
 
 -- "▏" "│" "▎" "⎸"" "¦" "┆" "" "┊" ""
 local indent_char = "▏"
-if vim.g.loaded_gui then indent_char = "│" end
 
 local config = {
 	indent = { char = indent_char },

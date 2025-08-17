@@ -16,12 +16,19 @@
 	└──────┴──────┴─────┴─────┴─────┴─────┴─────┴──────┴──────┘
 ]]
 
+vim.g.eu_kbd = jit.os == "OSX"
+	and vim.env.TERM_PROGRAM ~= "WezTerm"
+	and vim.fn
+		.system("defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources | \
+				awk -F\" '/KeyboardLayout Name/ {print $(NF-1)}'")
+		:match("EurKEY")
+
+local bd = require("bufdelete")
+
 -- == [ Global Keymaps ========================================================
 
 -- Leader key
 vim.g.mapleader = " "
-
-local bd = require("bufdelete")
 
 nx.map({
 	-- QUICK COMMANDS
