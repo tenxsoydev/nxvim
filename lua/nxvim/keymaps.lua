@@ -43,10 +43,6 @@ nx.map({
 	-- { "<C-s>", "<Esc><Cmd>w<CR>", "i", desc = "Save File"  },
 
 	-- LINE NAVIGATION
-	{ { "j", "<Down>" }, "&wrap ? 'gj' : 'j'", "", expr = true, silent = true },
-	{ { "k", "<Up>" }, "&wrap ? 'gk' : 'k'", "", expr = true, silent = true },
-	{ "$", "&wrap ? 'g$' : '$'", "", expr = true, silent = true },
-	{ "^", "&wrap ? 'g^' : '^'", "", expr = true, silent = true },
 	-- Duplicate Lines
 	{ vim.g.eu_kbd and "Ú" or "<A-S-j>", '"yyy"yp', desc = "Duplicate Line Down" },
 	{ vim.g.eu_kbd and "Ĳ" or "<A-S-k>", '"yyy"yP', desc = "Duplicate Line Up" },
