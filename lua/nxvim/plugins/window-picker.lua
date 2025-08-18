@@ -3,13 +3,8 @@
 -- == [ Configuration =========================================================
 
 require("window-picker").setup({
-	highlights = {
-		statusline = {
-			unfocused = {
-				bg = require("nxvim.utils").get_hl("StatusLine", "bg"),
-				bold = true,
-			},
-		},
-	},
+	show_prompt = false,
 })
+
+nx.hl({ "WindowPickerStatusLineNC", link = "StatusLineNC" })
 -- ]
