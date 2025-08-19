@@ -2,5 +2,6 @@
 
 -- == [ Configuration =========================================================
 
-vim.g.matchup_matchparen_offscreen = { method = nil } -- | 'popup'
+vim.g.matchup_matchparen_enabled = 0
+vim.g.matchup_matchparen_offscreen = {}
 -- ]

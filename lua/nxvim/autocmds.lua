@@ -20,19 +20,21 @@ nx.au({
 	{ "FileType", pattern = "qf", command = "setlocal nobuflisted | call AdjustWindowHeight(3, 10)" },
 	{
 		"BufRead",
-		callback = function(ev)
+		callback = function()
 			if
-				vim.fn.line("$") > 5500
+				-- Disable features that can cause performance bottlenecks in files with:
+				-- 5k+ lines, a single long line(e.g. minified .js files), or more than 250kb size.
+				vim.api.nvim_buf_line_count(0) > 5000
 				or #vim.api.nvim_get_current_line() > 500
 				or vim.fn.getfsize(vim.fn.expand("%:p")) > 200 * 1024
 			then
-				-- Disable potentially tasking features if the file has 5.5k+ lines,
-				-- is not one long line(e.g. minified .js files), or is more than 200kb size.
-				vim.defer_fn(function()
-					vim.cmd("TSBufDisable highlight")
-					vim.cmd("ColorizerDetachFromBuffer")
-					require("rainbow-delimiters").disable(0)
-				end, 100)
+				vim.cmd("ColorizerDetachFromBuffer")
+				require("rainbow-delimiters").disable(0)
+			else
+				-- `matchup` appears to be the main bottleneck with large files.
+				-- Disabling it by default, and explicitly enabling it files below
+				-- the thresholds allows for faster initial load of larger files.
+				vim.b.matchup_matchparen_enabled = 1
 			end
 		end,
 	},
