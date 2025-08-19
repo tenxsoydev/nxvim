@@ -27,10 +27,7 @@ ufo.setup({
 	},
 	enable_get_fold_virt_text = false,
 	provider_selector = function(bufnr, filetype, buftype)
-		for _, type in ipairs({ "markdown", "NeogitStatus" }) do
-			if filetype == type then return "" end
-		end
-		for _, type in ipairs({ "yaml" }) do
+		for _, type in ipairs({ "markdown", "yaml" }) do
 			if filetype == type then return { "treesitter", "indent" } end
 		end
 	end,
@@ -44,14 +41,8 @@ nx.map({
 	{ "zM", ufo.closeAllFolds },
 	{ "zr", ufo.openFoldsExceptKinds },
 	{ "zm", ufo.closeFoldsWith },
-	{
-		"K",
-		function()
-			local winid = ufo.peekFoldedLinesUnderCursor()
-			if not winid then vim.lsp.buf.hover() end
-		end,
-	},
-}, { buffer = true })
+	{ "zp", ufo.peekFoldedLinesUnderCursor },
+})
 -- ]
 
 if vim.g.colors_name == "dracula" then nx.hl({ "Folded", fg = "SignColumn:fg", bg = "DraculaBgLight:bg" }) end
