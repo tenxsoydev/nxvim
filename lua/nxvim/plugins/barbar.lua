@@ -4,7 +4,7 @@
 
 require("barbar").setup({
 	animation = true,
-	auto_hide = false,
+	auto_hide = vim.env.KITTY_SCROLLBACK_NVIM == 'true' and 1 or -1,
 	tabpages = true,
 	closable = true,
 	clickable = true,
