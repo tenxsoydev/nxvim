@@ -55,13 +55,14 @@ nx.au({
 	{ "FileType", pattern = "markdown", command = "setlocal wrap ts=2 sw=2 cole=2" },
 	{ "FileType", pattern = "vb", command = "setlocal et ts=4 sw=4" },
 	{ "FileType", pattern = "teal", once = true, command = "LspToggleAutoFormat silent" },
-	{ "FileType", pattern = { "python", "zig", "swift", "rust", "ron" }, command = "setlocal noet ts=3 sw=0 sts=0" },
+	{ "FileType", pattern = { "python", "zig", "swift" }, command = "setlocal noet ts=3 sw=0 sts=0" },
 	{ "FileType", pattern = "onyx", command = "setlocal noet ts=4 sts=0 sw=0" },
 	{ "BufRead", pattern = { "*.mojo" }, command = "setlocal commentstring=#%s" },
 })
 
 vim.filetype.add({
 	extension = {
+		alloy = "hcl",
 		c3 = "c3",
 		c3i = "c3",
 		c3t = "c3",
@@ -73,9 +74,7 @@ vim.filetype.add({
 	},
 	filename = {
 		["v.mod"] = "v",
-	},
-	pattern = {
-		['"*.v_*"'] = "v",
+		["pyrightconfig.json"] = "jsonc",
 	},
 })
 -- ]
