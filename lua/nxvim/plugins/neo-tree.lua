@@ -115,6 +115,7 @@ local config = {
 				local inputs = require("neo-tree.ui.inputs")
 				local path = state.tree:get_node().path
 				local msg = "Are you sure you want to trash " .. path
+				vim.cmd("startinsert")
 				inputs.confirm(msg, function(confirmed)
 					if not confirmed then return end
 					vim.fn.system({ "trash", path })
@@ -133,6 +134,7 @@ local config = {
 				end
 				local count = GetTableLen(selected_nodes)
 				local msg = "Are you sure you want to trash " .. count .. " files ?"
+				vim.cmd("startinsert")
 				inputs.confirm(msg, function(confirmed)
 					if not confirmed then return end
 					for _, node in ipairs(selected_nodes) do
