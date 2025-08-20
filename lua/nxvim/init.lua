@@ -200,6 +200,7 @@ local modules = {
 	{ "NvChad/nvim-colorizer.lua", event = "VeryLazy", config = "plugins.colorizer" },
 	{ "gennaro-tedesco/nvim-jqx", event = "VeryLazy", ft = "json" },
 	{ "windwp/nvim-spectre", event = "VeryLazy", config = "plugins.spectre" },
+	{ "mikesmithgh/kitty-scrollback.nvim", lazy = true, event = "User KittyScrollbackLaunch", config = true },
 	-- stylua: ignore
 	{ "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async", event = "VeryLazy", config = "plugins.ufo" },
 	{ "nvim-tree/nvim-web-devicons", config = "plugins.devicons", eager = true },
