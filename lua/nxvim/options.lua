@@ -1,5 +1,4 @@
 local o = vim.opt
-local g = vim.g
 
 -- General
 o.clipboard = "unnamedplus"
@@ -65,23 +64,5 @@ nx.opts = {
 	transparency = true,
 }
 
-if g.neovide then
-	o.linespace = 4
-	o.guicursor =
-		"n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait600-blinkoff800-blinkon900-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
-	o.winblend = 15
-	o.pumblend = 15
-
-	g.neovide_remember_window_size = false
-	g.neovide_cursor_vfx_mode = "pixiedust"
-	g.neovide_confirm_quit = 1
-	g.neovide_transparency = 0.96
-	g.neovide_floating_opacity = 0.15
-	g.neovide_floating_blur = true
-	g.neovide_floating_blur_amount_x = 2.0
-	g.neovide_floating_blur_amount_y = 2.0
-	g.neovide_cursor_unfocused_outline_width = 0.061
-	g.neovide_no_idle = true
-	g.neovide_scroll_animation_length = 0.20
-	g.neovide_unlink_border_highlights = true
-end
+vim.g.loaded_multigrid = vim.api.nvim_list_uis()[1].ext_multigrid
+if vim.g.loaded_multigrid then require("nxvim.gui") end

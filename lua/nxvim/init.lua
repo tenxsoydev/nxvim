@@ -1,7 +1,5 @@
 local lazy = require("nxvim.plugins.lazy")
 
-vim.g.loaded_multigrid = vim.api.nvim_list_uis()[1].ext_multigrid
-
 -- == [ Modules ===============================================================
 
 ---@class NxModule : LazyPluginSpec
