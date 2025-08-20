@@ -73,6 +73,20 @@ require("nvim-web-devicons").setup({
 			cterm_color = "110",
 			name = "Vento",
 		},
+		["hcl"] = {
+			icon = "",
+			color = "#6d8086",
+			cterm_color = "66",
+			name = "HCL",
+		},
+	},
+	override_by_filename = {
+		["config.alloy"] = {
+			icon = "",
+			color = "#6d8086",
+			cterm_color = "66",
+			name = "Alloy",
+		},
 	},
 })
 -- ]
