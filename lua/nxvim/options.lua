@@ -20,9 +20,8 @@ o.cmdheight = 0
 o.pumheight = 14
 o.shortmess:append("c")
 -- Characters
-o.fillchars:append(
-	"eob: ,vert:▏,vertright:▏,vertleft:▏,horiz:⸻, verthoriz:▏, fold: ,foldopen:,foldsep: ,foldclose:"
-)
+-- stylua: ignore
+o.fillchars:append( "eob: ,vert:▏,vertright:▏,vertleft:▏,horiz:⸻, verthoriz:▏, fold: ,foldopen:,foldsep: ,foldclose:")
 o.listchars:append("space:⋅, tab:▏░, trail:⋅, eol:↴")
 -- Gutter
 o.number = true

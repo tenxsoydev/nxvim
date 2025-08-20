@@ -16,8 +16,8 @@ local modules = {
 	-- Core ----------------------------------------------------------------------
 	{ "nxvim/options", virtual = true, priority = 95, config = "options", eager = true },
 	{ "nxvim/colorschemes", virtual = true, priority = 90, config = "colorschemes", eager = true },
+	{ "nxvim/autocmds", virtual = true, priority = 85, config = "autocmds", eager = true },
 	{ "nxvim/keymaps", virtual = true, priority = 80, config = "keymaps", eager = true },
-	{ "nxvim/autocmds", virtual = true, priority = 80, config = "autocmds", eager = true },
 	{ "nxvim/lsp", virtual = true, priority = 80, config = "lsp" },
 	{ "tenxsoydev/nx.nvim", priority = 100, config = function() _G.nx = require("nx") end, eager = true },
 	{ "folke/lazy.nvim" },
@@ -55,12 +55,8 @@ local modules = {
 	{ "petertriho/nvim-scrollbar", event = "VeryLazy", config = "plugins.scrollbar" },
 	{ "s1n7ax/nvim-window-picker", event = "VeryLazy", config = "plugins.window-picker" },
 	{ "mrjones2014/smart-splits.nvim", event = "VeryLazy", config = "plugins.smart-splits" },
-	{
-		"anuvyklack/windows.nvim",
-		dependencies = { "anuvyklack/middleclass", "anuvyklack/animation.nvim" },
-		event = "VeryLazy",
-		config = "plugins.windows",
-	},
+	-- stylua: ignore
+	{ "anuvyklack/windows.nvim", dependencies = { "anuvyklack/middleclass", "anuvyklack/animation.nvim" }, event = "VeryLazy", config = "plugins.windows" },
 	{ "christoomey/vim-tmux-navigator", event = "VeryLazy", config = function() vim.keymap.del("", "<C-Bslash>") end },
 	{ "folke/zen-mode.nvim", event = "VeryLazy", config = "plugins.zen-mode" },
 
@@ -72,33 +68,21 @@ local modules = {
 	{ "NeogitOrg/neogit", event = "VeryLazy", config = "plugins.neogit" },
 	-- { "pwntester/octo.nvim", opts = {} },
 	{ "mattn/vim-gist", event = "VeryLazy", config = "plugins.gist" },
-	{ "mattn/webapi-vim" },
+	"mattn/webapi-vim",
 	-- "ThePrimeagen/git-worktree.nvim",
 
 	-- Treesitter ----------------------------------------------------------------
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", config = "plugins.treesitter" },
 	{ "nvim-treesitter/nvim-treesitter-context", dependencies = "nvim-treesitter/nvim-treesitter" },
 	{ "windwp/nvim-ts-autotag", dependencies = "nvim-treesitter/nvim-treesitter" },
-	{
-		"JoosepAlviste/nvim-ts-context-commentstring",
-		dependencies = "nvim-treesitter/nvim-treesitter",
-		event = "VeryLazy",
-		opts = {},
-	},
+	-- stylua: ignore
+	{ "JoosepAlviste/nvim-ts-context-commentstring", dependencies = "nvim-treesitter/nvim-treesitter", event = "VeryLazy", config = true },
 	{ "nvim-treesitter/playground", dependencies = "nvim-treesitter/nvim-treesitter" },
-	{
-		"mizlan/iswap.nvim",
-		dependencies = "nvim-treesitter/nvim-treesitter",
-		event = "VeryLazy",
-		config = "plugins.iswap",
-	},
+	-- stylua: ignore
+	{ "mizlan/iswap.nvim", dependencies = "nvim-treesitter/nvim-treesitter", event = "VeryLazy", config = "plugins.iswap" },
 	{ "HiPhish/rainbow-delimiters.nvim", config = "plugins.rainbow-delimiters" },
-	{
-		"aarondiel/spread.nvim",
-		dependencies = "nvim-treesitter/nvim-treesitter",
-		event = "VeryLazy",
-		config = "plugins.spread",
-	},
+	-- stylua: ignore
+	{ "aarondiel/spread.nvim", dependencies = "nvim-treesitter/nvim-treesitter", event = "VeryLazy", config = "plugins.spread" },
 	{ "RRethy/vim-illuminate", dependencies = "nvim-treesitter/nvim-treesitter" },
 
 	-- Telescope -----------------------------------------------------------------
@@ -112,7 +96,7 @@ local modules = {
 	{ "tknightz/telescope-termfinder.nvim", lazy = true },
 
 	-- LSP / Formatters ----------------------------------------------------------
-	{ "folke/neodev.nvim", opts = {} },
+	"folke/neodev.nvim",
 	{ "neovim/nvim-lspconfig", config = "lsp.plugins.lspconfig" },
 	{ "nvimtools/none-ls.nvim", config = "lsp.plugins.null-ls" }, -- inject external formatters and linters
 	{ "glepnir/lspsaga.nvim", event = "VeryLazy", config = "lsp.plugins.lspsaga" },
@@ -131,7 +115,8 @@ local modules = {
 	-- "tamago324/nlsp-settings.nvim",
 	-- Language Specific
 	-- Rust
-	{ "saecki/crates.nvim", event = "VeryLazy", opts = {} },
+	{ "saecki/crates.nvim", event = "VeryLazy" },
+	"ron-rs/ron.vim",
 	-- Python
 	{ "linux-cultist/venv-selector.nvim", branch = "regexp", event = "VeryLazy", config = "plugins.venv-selector" },
 	-- Onyx
@@ -140,10 +125,10 @@ local modules = {
 	-- Debug ---------------------------------------------------------------------
 	-- TODO: Push DAP config
 	"mfussenegger/nvim-dap",
-	{ "theHamsta/nvim-dap-virtual-text", opts = {} },
+	"theHamsta/nvim-dap-virtual-text",
 	{ "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
 	-- "Pocco81/DAPInstall.nvim",
-	{ "leoluz/nvim-dap-go", opts = {} },
+	"leoluz/nvim-dap-go",
 	{ "folke/trouble.nvim", event = "VeryLazy", config = "plugins.trouble" },
 	{ "kevinhwang91/nvim-bqf", event = "VeryLazy", config = "plugins.bqf" },
 
@@ -177,7 +162,7 @@ local modules = {
 	-- Colorschemes --------------------------------------------------------------
 	"dracula/vim",
 	"folke/tokyonight.nvim",
-	-- "Shatur/neovim-ayu",
+	"Shatur/neovim-ayu",
 	-- "NLKNguyen/papercolor-theme",
 	-- "navarasu/onedark.nvim",
 	-- additional colorschemes
@@ -230,12 +215,8 @@ local modules = {
 	{ "tpope/vim-repeat", event = "VeryLazy" },
 	{ "tpope/vim-surround", event = "VeryLazy" },
 	"mg979/vim-visual-multi", -- needs to be loaded outside of lazy.nvim for its global variable config values to work
-	{
-		"folke/which-key.nvim",
-		lazy = true,
-		config = "plugins.which-key",
-		commit = "af4ded85542d40e190014c732fa051bdbf88be3d",
-	},
+	-- stylua: ignore
+	{ "folke/which-key.nvim", lazy = true, config = "plugins.which-key", commit = "af4ded85542d40e190014c732fa051bdbf88be3d" },
 
 	-- Stash ---------------------------------------------------------------------
 	-- "tiagovla/scope.nvim", -- scope buffers to tabs
@@ -269,14 +250,14 @@ end
 for i, module in ipairs(modules) do
 	if type(module) == "string" then goto continue end
 
-	-- handle config string values (paths) else keep the module.config value
+	-- Handle config string values (paths) else keep the module.config value
 	if type(module.config) == "string" then
 		if module[1]:sub(1, #"nxvim") == "nxvim" then module.config = "nxvim." .. module.config end
 		---@diagnostic disable-next-line: param-type-mismatch
 		module.config = get(module.config, module.eager)
 	end
 
-	-- remove custom fields
+	-- Remove custom fields
 	if module.eager then module.eager = nil end
 
 	::continue::
